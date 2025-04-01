@@ -701,11 +701,11 @@ export default function Dashboard() {
           {/* Charts */}
           {/* @ts-ignore */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <MacOSWindow title="Visitors Overview" variant="light">
+            <MacOSWindow title="Visitors Overview" variant="system">
               <LineChart />
             </MacOSWindow>
             
-            <MacOSWindow title="Monthly Pageviews" variant="light">
+            <MacOSWindow title="Monthly Pageviews" variant="system">
               <BarChart />
             </MacOSWindow>
           </div>
@@ -713,11 +713,11 @@ export default function Dashboard() {
           {/* Additional stats */}
           {/* @ts-ignore */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <MacOSWindow title="Device Distribution" variant="light">
+            <MacOSWindow title="Device Distribution" variant="system">
               <DonutChart />
             </MacOSWindow>
             
-            <MacOSWindow title="Top Pages" variant="light" className="lg:col-span-2">
+            <MacOSWindow title="Top Pages" variant="system" className="lg:col-span-2">
               {/* @ts-ignore */}
               <div className="overflow-x-auto">
                 {/* @ts-ignore */}

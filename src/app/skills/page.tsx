@@ -30,7 +30,7 @@ export default function Skills() {
           </MacOSWindow>
           
           {/* Skills Section */}
-          <MacOSWindow title="Skills Overview" variant="light" className="w-full">
+          <MacOSWindow title="Skills Overview" variant="system" className="w-full">
             <SkillsGrid />
           </MacOSWindow>
           
@@ -120,7 +120,7 @@ export default function Skills() {
           </MacOSWindow>
           
           {/* Certifications */}
-          <MacOSWindow title="Certifications & Achievements" variant="light">
+          <MacOSWindow title="Certifications & Achievements" variant="system">
             {/* @ts-ignore */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Certificate Card */}

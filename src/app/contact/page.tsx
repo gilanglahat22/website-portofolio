@@ -73,7 +73,7 @@ export default function Contact() {
           {/* @ts-ignore */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Contact Form */}
-            <MacOSWindow title="Send a Message" variant="light" className="md:col-span-2">
+            <MacOSWindow title="Send a Message" variant="system" className="md:col-span-2">
               {isSubmitted ? (
                 // @ts-ignore
                 <div className="flex flex-col items-center justify-center py-8 sm:py-10 md:py-12 px-4 text-center">
@@ -196,7 +196,7 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="md:col-span-1 space-y-4 sm:space-y-6">
               {/* Contact Details */}
-              <MacOSWindow title="Contact Details" variant="light">
+              <MacOSWindow title="Contact Details" variant="system">
                 {/* @ts-ignore */}
                 <div className="space-y-3 sm:space-y-4">
                   {/* Contact Item */}
@@ -257,7 +257,7 @@ export default function Contact() {
               </MacOSWindow>
               
               {/* Social Links */}
-              <MacOSWindow title="Connect With Me" variant="light">
+              <MacOSWindow title="Connect With Me" variant="system">
                 {/* @ts-ignore */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {/* GitHub */}

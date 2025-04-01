@@ -57,7 +57,7 @@ export default function About() {
       <main className="pt-8 px-6 pb-32">
         {/* @ts-ignore */}
         <div className="max-w-6xl mx-auto">
-          <MacOSWindow title="About Me" variant="light">
+          <MacOSWindow title="About Me" variant="system">
             {/* @ts-ignore */}
             <div className="flex border-b mb-8">
               {/* @ts-ignore */}

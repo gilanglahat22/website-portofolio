@@ -6,7 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: ['class', '[class*="dark-theme"]'],
   theme: {
     screens: {
       'xs': '475px',
@@ -17,6 +17,26 @@ const config: Config = {
       '2xl': '1536px',
     },
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+          foreground: 'rgb(var(--primary-foreground) / <alpha-value>)',
+        },
+        secondary: {
+          DEFAULT: 'rgb(var(--secondary) / <alpha-value>)',
+          foreground: 'rgb(var(--secondary-foreground) / <alpha-value>)',
+        },
+        accent: {
+          DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+          foreground: 'rgb(var(--accent-foreground) / <alpha-value>)',
+        },
+        background: 'rgb(var(--background-color) / <alpha-value>)',
+        foreground: 'rgb(var(--text-color) / <alpha-value>)',
+        windowBg: 'rgb(var(--window-bg) / <alpha-value>)',
+        windowBorder: 'rgb(var(--window-border) / <alpha-value>)',
+        dockBg: 'rgb(var(--dock-bg) / <alpha-value>)',
+        dockBorder: 'rgb(var(--dock-border) / <alpha-value>)',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

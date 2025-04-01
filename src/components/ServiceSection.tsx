@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import MacOSWindow from './MacOSWindow';
 
-// @ts-ignore
 interface ServiceCardProps {
   title: string;
   description: string;
@@ -12,12 +11,10 @@ interface ServiceCardProps {
   bgColor: string;
 }
 
-// @ts-ignore
 const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
-    // @ts-ignore
     <div
       className={`
         relative 
@@ -32,7 +29,6 @@ const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) =>
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Floating icon */}
-      {/* @ts-ignore */}
       <div className={`
         w-14 h-14
         rounded-2xl
@@ -55,13 +51,10 @@ const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) =>
       </div>
       
       {/* Content */}
-      {/* @ts-ignore */}
       <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-      {/* @ts-ignore */}
       <p className="text-white/80 text-sm">{description}</p>
       
       {/* Floating Orb Decoration */}
-      {/* @ts-ignore */}
       <div className={`
         absolute -right-12 -bottom-12
         w-40 h-40
@@ -75,7 +68,6 @@ const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) =>
   );
 };
 
-// @ts-ignore
 export default function ServiceSection() {
   const services = [
     {
@@ -106,19 +98,14 @@ export default function ServiceSection() {
   
   return (
     <MacOSWindow title="Services I Offer" variant="dark">
-      {/* @ts-ignore */}
       <div className="space-y-6">
         {/* Header */}
-        {/* @ts-ignore */}
         <div className="mb-6">
-          {/* @ts-ignore */}
           <h2 className="text-2xl font-semibold text-white mb-1">Services I Provide</h2>
-          {/* @ts-ignore */}
           <p className="text-gray-300">Specializing in the following areas</p>
         </div>
         
         {/* Services Grid */}
-        {/* @ts-ignore */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => (
             <ServiceCard
@@ -132,9 +119,7 @@ export default function ServiceSection() {
         </div>
         
         {/* Call to Action */}
-        {/* @ts-ignore */}
         <div className="mt-8 flex justify-center">
-          {/* @ts-ignore */}
           <button className="
             px-6 py-3
             bg-white/10

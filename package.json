@@ -26,6 +26,7 @@
     "@types/react-datepicker": "^6.2.0",
     "@types/react-table": "^7.7.20",
     "busboy": "^1.6.0",
+    "critters": "^0.0.23",
     "dotenv": "^16.4.5",
     "framer-motion": "^12.6.2",
     "fs": "^0.0.1-security",

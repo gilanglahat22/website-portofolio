@@ -30,7 +30,7 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
     >
       <MacOSWindow 
         title={post.title} 
-        variant="light"
+        variant="system"
         className={`h-full transition-all duration-300 ${isHovered ? 'shadow-lg' : 'shadow-md'}`}
       >
         {/* @ts-ignore */}
@@ -243,7 +243,7 @@ export default function Blog() {
               ))}
             </div>
           ) : (
-            <MacOSWindow title="No Posts Found" variant="light">
+            <MacOSWindow title="No Posts Found" variant="system">
               {/* @ts-ignore */}
               <div className="p-4 sm:p-6 text-center">
                 {/* @ts-ignore */}

@@ -1,9 +1,9 @@
 import React from 'react';
+import { ImageProps } from 'next/image';
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      // HTML elements
       div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
       span: React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
       p: React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -26,29 +26,46 @@ declare global {
       main: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
       section: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
       ul: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
-      li: React.DetailedHTMLProps<React.LIHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
+      li: React.DetailedHTMLProps<React.HTMLAttributes<HTMLLIElement>, HTMLLIElement>;
     }
   }
 }
 
 // Extend type for Next.js Image component
 declare module 'next/image' {
-  const Image: React.FC<any>;
-  export default Image;
-}
-
-// Extend type for MacOSWindow component
-declare module '@/components/MacOSWindow' {
-  interface MacOSWindowProps {
-    title: string;
-    variant?: 'light' | 'dark' | 'transparent';
-    className?: string;
-    onClose?: () => void;
-    children?: React.ReactNode;
+  interface StaticImageData {
+    src: string;
+    height: number;
+    width: number;
+    blurDataURL?: string;
   }
-  
-  const MacOSWindow: React.FC<MacOSWindowProps>;
-  export default MacOSWindow;
+
+  interface StaticRequire {
+    default: StaticImageData;
+  }
+
+  type StaticImport = StaticImageData | StaticRequire;
+
+  interface ImageProps extends Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'src' | 'alt'> {
+    src: string | StaticImport;
+    alt: string;
+    width?: number | string;
+    height?: number | string;
+    fill?: boolean;
+    loader?: (props: { src: string; width: number; quality?: number }) => string;
+    quality?: number;
+    priority?: boolean;
+    loading?: 'lazy' | 'eager';
+    placeholder?: 'blur' | 'empty';
+    blurDataURL?: string;
+    unoptimized?: boolean;
+    onLoadingComplete?: (result: { naturalWidth: number; naturalHeight: number }) => void;
+    onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
+    onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
+  }
+
+  const Image: React.FC<ImageProps>;
+  export default Image;
 }
 
 export {}; 

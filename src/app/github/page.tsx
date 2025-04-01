@@ -4,8 +4,21 @@ import React, { useState } from 'react';
 import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 
+interface Repository {
+  name: string;
+  description: string;
+  stars: number;
+  forks: number;
+  topics: string[];
+  updatedAt: string;
+}
+
+interface RepoCardProps {
+  repo: Repository;
+}
+
 // @ts-ignore
-const RepoCard = ({ repo }) => {
+const RepoCard = ({ repo }: RepoCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -51,7 +64,7 @@ const RepoCard = ({ repo }) => {
       <div className="flex justify-between items-center">
         {/* @ts-ignore */}
         <div className="flex space-x-2">
-          {repo.topics.map((topic, index) => (
+          {repo.topics.map((topic: string, index: number) => (
             // @ts-ignore
             <span 
               key={index} 
@@ -69,11 +82,16 @@ const RepoCard = ({ repo }) => {
   );
 };
 
+interface Contribution {
+  date: string;
+  count: number;
+}
+
 // @ts-ignore
 const ContributionGraph = () => {
   // Generate random contribution data
-  const generateContributions = () => {
-    const contributions = [];
+  const generateContributions = (): Contribution[] => {
+    const contributions: Contribution[] = [];
     const today = new Date();
     
     for (let i = 0; i < 52 * 7; i++) {
@@ -94,14 +112,14 @@ const ContributionGraph = () => {
   const contributions = generateContributions();
   
   // Group by week for display
-  const weeks = [];
+  const weeks: Contribution[][] = [];
   for (let i = 0; i < contributions.length; i += 7) {
     weeks.push(contributions.slice(i, i + 7));
   }
   
   // Return color based on contribution count
   // @ts-ignore
-  const getColor = (count) => {
+  const getColor = (count: number): string => {
     if (count === 0) return 'bg-gray-100';
     if (count === 1) return 'bg-green-100';
     if (count === 2) return 'bg-green-300';
@@ -157,9 +175,15 @@ const ContributionGraph = () => {
   );
 };
 
+interface Language {
+  name: string;
+  percentage: number;
+  color: string;
+}
+
 // @ts-ignore
 const LanguageStats = () => {
-  const languages = [
+  const languages: Language[] = [
     { name: 'JavaScript', percentage: 38, color: '#f1e05a' },
     { name: 'TypeScript', percentage: 25, color: '#2b7489' },
     { name: 'Python', percentage: 16, color: '#3572A5' },
@@ -207,12 +231,25 @@ const LanguageStats = () => {
   );
 };
 
+interface GitHubProfile {
+  username: string;
+  name: string;
+  avatar: string;
+  bio: string;
+  company: string;
+  location: string;
+  website: string;
+  followers: number;
+  following: number;
+  repos: Repository[];
+}
+
 // @ts-ignore
 export default function GitHub() {
   const [activeTab, setActiveTab] = useState('overview');
   
   // Mock GitHub profile data
-  const profile = {
+  const profile: GitHubProfile = {
     username: 'johndoe',
     name: 'John Doe',
     avatar: 'https://via.placeholder.com/150',

@@ -19,7 +19,7 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
     >
       <MacOSWindow 
         title={title}
-        variant="light"
+        variant="system"
         className="h-full"
       >
         {/* @ts-ignore */}
