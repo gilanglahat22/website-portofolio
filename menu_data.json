@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "label": "Home",
+    "link": "/",
+    "color": "#0B0706",
+    "isHaveContainer": false
+  },
+  {
+    "id": "2",
+    "label": "Cek Status Pendaftaran",
+    "link": "/cek-data",
+    "color": "#0B0706",
+    "isHaveContainer": false
+  },
+  {
+    "id": "3",
+    "label": "Daftar",
+    "link": "/isi-formulir",
+    "color": "white",
+    "isHaveContainer": true
+  }
+]
