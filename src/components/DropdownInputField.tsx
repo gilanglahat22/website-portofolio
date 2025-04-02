@@ -16,9 +16,9 @@ const DropdownInputField: React.FC<DropdownFieldProps> = ({
     <div className="sm:col-span-2">
       <label
         className="block text-sm font-semibold leading-6"
-        style={{ color: "white" }}
+        htmlFor={form_id}
       >
-        {form_name} {required && <span className="text-gray-400">*</span>}
+        {form_name} {required && <span>*</span>}
       </label>
       <div className="mt-2.5">
         <select
@@ -34,7 +34,7 @@ const DropdownInputField: React.FC<DropdownFieldProps> = ({
           }}
           name={form_id}
           id={form_id}
-          className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-black shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-base"
+          className="block w-full rounded-md px-4 py-2 text-sm shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-base"
           required={required}
         >
           <option value="">Pilih Opsi</option>

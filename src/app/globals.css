@@ -28,29 +28,29 @@
   .dark-theme {
     /* Dark theme variables */
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 98%;
     --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 0 0% 98%;
     --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 69.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 85%;
     --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
+    --accent-foreground: 0 0% 98%;
+    --border: 217.2 32.6% 25%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --ring: 224.3 76.3% 68%;
     --shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.3);
   }
 
   .light-theme {
     color-scheme: light;
     --background-color: 255, 255, 255;
-    --text-color: 0, 0, 0;
+    --text-color: 33, 33, 33;
     --window-bg: 255, 255, 255, 0.95;
     --window-border: 229, 231, 235, 0.5;
     --dock-bg: 255, 255, 255, 0.1;
@@ -60,7 +60,7 @@
   .dark-theme {
     color-scheme: dark;
     --background-color: 10, 10, 10;
-    --text-color: 255, 255, 255;
+    --text-color: 240, 240, 240; /* Increased brightness for better visibility */
     --window-bg: 17, 24, 39, 0.95;
     --window-border: 55, 65, 81, 0.5;
     --dock-bg: 255, 255, 255, 0.1;
@@ -97,15 +97,140 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  overflow-x: hidden;
+/* Body background styles for each theme */
+.light-theme body {
+  background-color: rgb(250, 250, 250);
+  color: rgb(33, 33, 33);
+  background-image: linear-gradient(to bottom, #ffffff, #f5f5f5);
+}
+
+.dark-theme body {
+  background-color: rgb(20, 20, 20);
+  color: rgb(240, 240, 240);
+  background-image: linear-gradient(to bottom, #111111, #1a1a1a);
+}
+
+/* Light theme text visibility */
+.light-theme p, .light-theme h1, .light-theme h2, .light-theme h3, 
+.light-theme h4, .light-theme h5, .light-theme h6, .light-theme span, 
+.light-theme div, .light-theme a, .light-theme li, .light-theme label, 
+.light-theme button {
+  color: rgb(33, 33, 33) !important;
+}
+
+/* Light theme form elements */
+.light-theme input,
+.light-theme textarea,
+.light-theme select {
+  background-color: rgba(255, 255, 255, 1) !important;
+  color: rgb(33, 33, 33) !important;
+  border-color: rgba(200, 200, 200, 0.8) !important;
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder,
+.light-theme select::placeholder {
+  color: rgba(100, 100, 100, 0.8) !important;
+}
+
+.light-theme input:focus,
+.light-theme textarea:focus,
+.light-theme select:focus {
+  border-color: rgba(79, 70, 229, 0.8) !important;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2) !important;
+}
+
+/* Dark theme text visibility */
+.dark-theme p, .dark-theme h1, .dark-theme h2, .dark-theme h3, 
+.dark-theme h4, .dark-theme h5, .dark-theme h6, .dark-theme span, 
+.dark-theme div, .dark-theme a, .dark-theme li, .dark-theme label, 
+.dark-theme button, .dark-theme input, .dark-theme textarea {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Specifically target common text color classes that might have lower contrast */
+.dark-theme .text-gray-300, 
+.dark-theme .text-gray-400, 
+.dark-theme .text-gray-500, 
+.dark-theme .text-gray-600, 
+.dark-theme .text-gray-700,
+.dark-theme .text-gray-800,
+.dark-theme .text-slate-400,
+.dark-theme .text-slate-500,
+.dark-theme .text-slate-600,
+.dark-theme .text-neutral-400,
+.dark-theme .text-neutral-500,
+.dark-theme .text-neutral-600,
+.dark-theme .opacity-50,
+.dark-theme .opacity-60,
+.dark-theme .opacity-70, 
+.dark-theme .opacity-75,
+.dark-theme .opacity-80 {
+  color: rgba(255, 255, 255, 0.9) !important;
+  opacity: 1 !important;
+}
+
+/* For elements that might need darker text but still readable */
+.dark-theme .text-gray-200,
+.dark-theme .text-slate-300,
+.dark-theme .text-neutral-300,
+.dark-theme .opacity-85,
+.dark-theme .opacity-90 {
+  color: rgba(255, 255, 255, 0.95) !important;
+  opacity: 1 !important;
+}
+
+/* Fix form inputs in dark mode */
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder,
+.dark-theme select::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+  background-color: rgba(30, 30, 30, 0.8) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(75, 75, 75, 0.5) !important;
+}
+
+.dark-theme input:focus,
+.dark-theme textarea:focus,
+.dark-theme select:focus {
+  border-color: rgba(147, 197, 253, 0.8) !important;
+  box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.3) !important;
+}
+
+/* MacOS Window styling for light and dark modes */
+.light-theme .window-container {
+  background-color: rgba(250, 250, 250, 0.95) !important;
+  border-color: rgba(200, 200, 200, 0.5) !important;
+}
+
+.dark-theme .window-container {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  border-color: rgba(70, 70, 70, 0.5) !important;
+}
+
+/* Card and container styling for light and dark modes */
+.light-theme .card, 
+.light-theme .container, 
+.light-theme .bg-white, 
+.light-theme .bg-gray-100, 
+.light-theme .bg-gray-200 {
+  background-color: rgba(250, 250, 250, 0.95) !important;
+  color: rgb(33, 33, 33) !important;
+}
+
+.dark-theme .card, 
+.dark-theme .container, 
+.dark-theme .bg-white, 
+.dark-theme .bg, 
+.dark-theme .bg-gray-800,
+.dark-theme .bg-gray-900 {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 @layer utilities {
@@ -144,25 +269,45 @@ body {
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+.light-theme ::-webkit-scrollbar-track {
+  background: rgba(200, 200, 200, 0.2);
+  border-radius: 5px;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.4);
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+.dark-theme ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb {
+.dark-theme ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   transition: background-color 0.2s;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.dark-theme ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
 /* Selection color */
-::selection {
-  background: rgba(var(--accent), 0.2);
-  color: rgb(var(--text-color));
+.light-theme ::selection {
+  background: rgba(79, 70, 229, 0.2);
+  color: rgb(33, 33, 33);
+}
+
+.dark-theme ::selection {
+  background: rgba(147, 197, 253, 0.3);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* Smooth scrolling */

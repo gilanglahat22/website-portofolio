@@ -6,7 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: ['class', '[class*="dark-theme"]'],
+  darkMode: 'class',
   theme: {
     screens: {
       'xs': '475px',
@@ -47,6 +47,30 @@ const config: Config = {
         "cinzel-decorative-regular": ["CinzelDecorativeRegular"],
         "cinzel-decorative-bold": ["CinzelDecorativeBold"],
         "zen-antique": ['"Zen Antique"', "serif"],
+      },
+      textOpacity: {
+        '85': '0.85',
+        '90': '0.90',
+        '95': '0.95',
+      },
+      animation: {
+        blob: "blob 7s infinite",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        },
       },
     },
   },

@@ -557,7 +557,7 @@ const DonutChart = () => {
     currentOffset += arcLength;
     return arc;
   });
-  
+
   return (
     // @ts-ignore
     <div className="flex flex-col items-center justify-center h-64">
@@ -589,8 +589,8 @@ const DonutChart = () => {
             fill="white"
           />
         </svg>
-      </div>
-      
+          </div>
+
       {/* Legend */}
       {/* @ts-ignore */}
       <div className="flex justify-center mt-4 space-x-4">
@@ -601,10 +601,10 @@ const DonutChart = () => {
             <div className="w-3 h-3 rounded-full mr-1" style={{ backgroundColor: item.color }}></div>
             {/* @ts-ignore */}
             <span className="text-xs text-gray-600">{item.label} ({item.value}%)</span>
-          </div>
+              </div>
         ))}
-      </div>
-    </div>
+            </div>
+          </div>
   );
 };
 
@@ -634,7 +634,7 @@ export default function Dashboard() {
                 <div className="inline-flex p-1 rounded-xl bg-gray-800">
                   {['day', 'week', 'month', 'year'].map(period => (
                     // @ts-ignore
-                    <button
+            <button
                       key={period}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${selectedPeriod === period ? 'bg-gray-700 shadow-sm text-white' : 'text-gray-400 hover:text-gray-300'}`}
                       onClick={() => setSelectedPeriod(period)}
@@ -696,8 +696,8 @@ export default function Dashboard() {
                 </svg>
               } 
             />
-          </div>
-          
+        </div>
+
           {/* Charts */}
           {/* @ts-ignore */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -708,8 +708,8 @@ export default function Dashboard() {
             <MacOSWindow title="Monthly Pageviews" variant="system">
               <BarChart />
             </MacOSWindow>
-          </div>
-          
+              </div>
+
           {/* Additional stats */}
           {/* @ts-ignore */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -761,8 +761,8 @@ export default function Dashboard() {
                 </table>
               </div>
             </MacOSWindow>
-          </div>
-        </div>
+            </div>
+              </div>
       </main>
       
       {/* Apple-style Dock at the bottom */}

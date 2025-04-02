@@ -5,13 +5,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
+import { useTheme } from '@/contexts/ThemeContext';
 
-// @ts-ignore
-const ProjectCard = ({ title, description, image, tags, link }) => {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, tags, link }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
-    // @ts-ignore
     <div 
       className={`transition-all duration-300 ${isHovered ? 'scale-[1.02]' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
@@ -22,7 +29,6 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
         variant="system"
         className="h-full"
       >
-        {/* @ts-ignore */}
         <div className="space-y-4">
           {/* Project Image */}
           <div className="relative h-48 w-full overflow-hidden rounded-lg">
@@ -33,27 +39,21 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
               height={400}
               className="w-full h-full object-cover"
             />
-            {/* @ts-ignore */}
             <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}></div>
           </div>
           
           {/* Project Info */}
-          {/* @ts-ignore */}
           <div>
-            {/* @ts-ignore */}
             <h3 className="text-xl font-semibold">{title}</h3>
-            {/* @ts-ignore */}
-            <p className="text-gray-600 mt-1">{description}</p>
+            <p className="mt-1">{description}</p>
           </div>
           
           {/* Tags */}
-          {/* @ts-ignore */}
           <div className="flex flex-wrap gap-2">
             {tags.map((tag: string) => (
-              // @ts-ignore
               <span 
                 key={tag}
-                className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full"
+                className="card text-xs font-medium px-2.5 py-1 rounded-full"
               >
                 {tag}
               </span>
@@ -61,10 +61,8 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
           </div>
           
           {/* View Button */}
-          {/* @ts-ignore */}
           <div className="flex justify-end">
-            {/* @ts-ignore */}
-            <Link href={link} className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
+            <Link href={link} className="card px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white transition-colors">
               View Project
             </Link>
           </div>
@@ -74,13 +72,22 @@ const ProjectCard = ({ title, description, image, tags, link }) => {
   );
 };
 
-// @ts-ignore
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  category: string;
+  link: string;
+}
+
 export default function Projects() {
+  const { theme } = useTheme();
   // Filter options in macOS style
   const [filter, setFilter] = useState<string | null>(null);
   
   // Dummy project data
-  const projects = [
+  const projects: Project[] = [
     {
       title: "E-Commerce Platform",
       description: "A modern e-commerce platform built with Next.js and Tailwind CSS.",
@@ -134,44 +141,33 @@ export default function Projects() {
   const filteredProjects = filter ? projects.filter(project => project.category === filter) : projects;
   
   return (
-    // @ts-ignore
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen">
       {/* Main Content */}
-      {/* @ts-ignore */}
       <main className="pt-8 px-6 pb-32">
-        {/* @ts-ignore */}
         <div className="max-w-6xl mx-auto space-y-8">
           {/* Header */}
-          <MacOSWindow title="My Projects" variant="dark">
-            {/* @ts-ignore */}
+          <MacOSWindow title="My Projects" variant="system">
             <div className="space-y-4">
-              {/* @ts-ignore */}
-              <h1 className="text-3xl font-bold text-white">My Projects</h1>
-              {/* @ts-ignore */}
-              <p className="text-gray-300">A collection of my recent work and personal projects.</p>
+              <h1 className="text-3xl font-bold">My Projects</h1>
+              <p>A collection of my recent work and personal projects.</p>
               
               {/* Apple-style segmented control filter */}
-              {/* @ts-ignore */}
               <div className="flex justify-center my-6">
-                {/* @ts-ignore */}
-                <div className="inline-flex p-1 rounded-xl bg-gray-800">
-                  {/* @ts-ignore */}
+                <div className="inline-flex p-1 rounded-xl card">
                   <button 
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === null ? 'bg-gray-700 shadow-sm text-white' : 'text-gray-400 hover:text-gray-300'}`}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === null ? 'bg-blue-600 shadow-sm text-white' : ''}`}
                     onClick={() => setFilter(null)}
                   >
                     All
                   </button>
-                  {/* @ts-ignore */}
                   <button 
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'web' ? 'bg-gray-700 shadow-sm text-white' : 'text-gray-400 hover:text-gray-300'}`}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'web' ? 'bg-blue-600 shadow-sm text-white' : ''}`}
                     onClick={() => setFilter('web')}
                   >
                     Web
                   </button>
-                  {/* @ts-ignore */}
                   <button 
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'mobile' ? 'bg-gray-700 shadow-sm text-white' : 'text-gray-400 hover:text-gray-300'}`}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'mobile' ? 'bg-blue-600 shadow-sm text-white' : ''}`}
                     onClick={() => setFilter('mobile')}
                   >
                     Mobile
@@ -182,7 +178,6 @@ export default function Projects() {
           </MacOSWindow>
           
           {/* Projects Grid */}
-          {/* @ts-ignore */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
               <ProjectCard

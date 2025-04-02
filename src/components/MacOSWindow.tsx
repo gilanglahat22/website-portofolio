@@ -42,18 +42,18 @@ const MacOSWindow = ({
     
     switch(currentVariant) {
       case 'dark':
-        return 'bg-gray-900/95 text-white border-gray-700/50 backdrop-blur-md';
+        return 'text-white border-gray-700/50 backdrop-blur-md';
       case 'transparent':
         return 'bg-white/10 border-white/20 text-white backdrop-blur-md';
       case 'light':
       default:
-        return 'bg-white/95 text-gray-900 border-gray-200/50 backdrop-blur-md';
+        return 'text-gray-900 border-gray-200/50 backdrop-blur-md';
     }
   };
   
   return (
     <div 
-      className={`rounded-xl overflow-hidden border shadow-lg transition-all duration-300 ease-in-out transform hover:scale-[1.002] hover:shadow-xl ${getBgStyle()} ${className}`}
+      className={`window-container rounded-xl overflow-hidden border shadow-lg transition-all duration-300 ease-in-out transform hover:scale-[1.002] hover:shadow-xl ${getBgStyle()} ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -131,7 +131,9 @@ const MacOSWindow = ({
         
         {/* Window Title */}
         <div className="flex-1 text-center">
-          <h3 className="text-sm font-medium truncate opacity-75">{title}</h3>
+          <h3 className="text-sm font-medium truncate">
+            {title}
+          </h3>
         </div>
         
         {/* Right spacing to balance the traffic lights */}

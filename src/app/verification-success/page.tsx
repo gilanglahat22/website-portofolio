@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function VerificationSuccess() {
   const router = useRouter();
   const [countdown, setCountdown] = useState(5); // Hitung mundur dimulai dari 5 detik
+  const { theme } = useTheme();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,15 +23,15 @@ export default function VerificationSuccess() {
   }, [countdown, router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-md text-center">
-        <h2 className="text-2xl font-semibold" style={{ color: "#042043" }}>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="card rounded-lg shadow-lg p-8 max-w-md text-center">
+        <h2 className="text-2xl font-semibold">
           Verifikasi Email Berhasil!
         </h2>
-        <p className="mt-4" style={{ color: "#042043" }}>
+        <p className="mt-4">
           Terima kasih telah memverifikasi email Anda. Anda akan diarahkan ke
           halaman utama dalam{" "}
-          <span className="font-bold" style={{ color: "#042043" }}>
+          <span className="font-bold">
             {countdown}
           </span>{" "}
           detik.
