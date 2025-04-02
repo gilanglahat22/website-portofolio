@@ -75,18 +75,18 @@ const SkillCard = ({ name, icon, color, level }: SkillCardProps) => {
 // @ts-ignore
 export default function SkillsGrid() {
   const skills = [
-    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: 'bg-gradient-to-br from-blue-500 to-blue-700', level: 5 },
-    { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', color: 'bg-gradient-to-br from-gray-700 to-gray-900', level: 5 },
-    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', color: 'bg-gradient-to-br from-blue-600 to-blue-800', level: 4 },
-    { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg', color: 'bg-gradient-to-br from-cyan-500 to-cyan-700', level: 5 },
-    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: 'bg-gradient-to-br from-yellow-500 to-amber-600', level: 5 },
-    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', color: 'bg-gradient-to-br from-green-600 to-green-800', level: 4 },
-    { name: 'GraphQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg', color: 'bg-gradient-to-br from-pink-600 to-pink-800', level: 3 },
-    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', color: 'bg-gradient-to-br from-blue-400 to-blue-600', level: 3 },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', color: 'bg-gradient-to-br from-orange-600 to-orange-800', level: 4 },
-    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-gradient-to-br from-purple-500 to-purple-700', level: 4 },
-    { name: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', color: 'bg-gradient-to-br from-indigo-600 to-indigo-800', level: 4 },
-    { name: 'Testing', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg', color: 'bg-gradient-to-br from-red-500 to-red-700', level: 3 },
+    { name: 'React', icon: '/icons/skills/react.svg', color: 'bg-gradient-to-br from-blue-500 to-blue-700', level: 5 },
+    { name: 'Next.js', icon: '/icons/skills/nextjs.svg', color: 'bg-gradient-to-br from-gray-700 to-gray-900', level: 5 },
+    { name: 'TypeScript', icon: '/icons/skills/typescript.svg', color: 'bg-gradient-to-br from-blue-600 to-blue-800', level: 4 },
+    { name: 'Tailwind', icon: '/icons/skills/tailwindcss.svg', color: 'bg-gradient-to-br from-cyan-500 to-cyan-700', level: 5 },
+    { name: 'JavaScript', icon: '/icons/skills/javascript.svg', color: 'bg-gradient-to-br from-yellow-500 to-amber-600', level: 5 },
+    { name: 'Node.js', icon: '/icons/skills/nodejs.svg', color: 'bg-gradient-to-br from-green-600 to-green-800', level: 4 },
+    { name: 'GraphQL', icon: '/icons/skills/graphql.svg', color: 'bg-gradient-to-br from-pink-600 to-pink-800', level: 3 },
+    { name: 'Docker', icon: '/icons/skills/docker.svg', color: 'bg-gradient-to-br from-blue-400 to-blue-600', level: 3 },
+    { name: 'Git', icon: '/icons/skills/git.svg', color: 'bg-gradient-to-br from-orange-600 to-orange-800', level: 4 },
+    { name: 'Figma', icon: '/icons/skills/figma.svg', color: 'bg-gradient-to-br from-purple-500 to-purple-700', level: 4 },
+    { name: 'Redux', icon: '/icons/skills/redux.svg', color: 'bg-gradient-to-br from-indigo-600 to-indigo-800', level: 4 },
+    { name: 'Testing', icon: '/icons/skills/jest.svg', color: 'bg-gradient-to-br from-red-500 to-red-700', level: 3 },
   ];
 
   return (
