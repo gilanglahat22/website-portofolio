@@ -86,55 +86,55 @@ export default function Projects() {
   // Filter options in macOS style
   const [filter, setFilter] = useState<string | null>(null);
   
-  // Dummy project data
+  // Project data for Muhammad Gilang Ramadhan
   const projects: Project[] = [
     {
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform built with Next.js and Tailwind CSS.",
-      image: "https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      tags: ["React", "Next.js", "Tailwind CSS", "Stripe"],
+      title: "Corporatematching Website - Hashigake",
+      description: "Built a responsive, dynamic UI for seamless user experience, enabling real-time updates for matching sites with async programming for CAC Finnish Inc.",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["React", "C#", ".NET", "Microservices", "Redis", "RabbitMQ"],
       category: "web",
-      link: "#"
+      link: "https://hashigake.jp"
     },
     {
-      title: "Mobile Banking App",
-      description: "A secure mobile banking application with biometric authentication.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      tags: ["React Native", "TypeScript", "Firebase"],
+      title: "Pondering Circle - Internal Voting Website",
+      description: "Developed web app with ASP .NET, React, SQL Server to enhance performance, internal voting, and employee management. Added analytical SQL for bug prevention and improved SDLC.",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["ASP.NET", "React", "SQL Server", "Analysis", "SDLC"],
+      category: "web",
+      link: "https://github.com/gilanglahat22/Pondering-Circle"
+    },
+    {
+      title: "BlueSound - Spotify-like Web App",
+      description: "Developed a subscription-based music application using microservice architecture divided into four services: User Portal, Admin Dashboard, Subscription management, and Premium song management.",
+      image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["PHP", "MySQL", "Docker", "Microservices", "REST API"],
+      category: "web",
+      link: "https://github.com/gilanglahat22/BlueSound"
+    },
+    {
+      title: "DeepCare Mobile App",
+      description: "Developed a health application to address urgency of patient conditions in ICUs using Python for backend REST APIs with MongoDB and Firebase, and Kotlin for a user-friendly healthcare professional interface.",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["Python", "Kotlin", "MongoDB", "Firebase", "Machine Learning", "Healthcare"],
       category: "mobile",
-      link: "#"
+      link: "https://github.com/gilanglahat22/DeepCare"
     },
     {
-      title: "Admin Dashboard",
-      description: "A comprehensive admin dashboard with data visualization.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      tags: ["React", "D3.js", "Tailwind CSS"],
-      category: "web",
-      link: "#"
+      title: "Feed Forward Neural Network from Scratch",
+      description: "Developed a Python-based machine learning system implementing feed-forward neural networks from scratch without frameworks, with activation functions, model storage, and visualization.",
+      image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["Python", "Machine Learning", "Neural Networks", "Data Science"],
+      category: "ml",
+      link: "https://github.com/gilanglahat22/FFNN"
     },
     {
-      title: "Social Media Platform",
-      description: "A social media platform with real-time messaging and notifications.",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
-      tags: ["Next.js", "Socket.io", "MongoDB"],
-      category: "web",
-      link: "#"
-    },
-    {
-      title: "Fitness Tracker",
-      description: "A fitness tracking application with personalized workout plans.",
-      image: "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
-      tags: ["React Native", "TypeScript", "HealthKit"],
-      category: "mobile",
-      link: "#"
-    },
-    {
-      title: "Music Streaming Service",
-      description: "A music streaming platform with personalized recommendations.",
-      image: "https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
-      tags: ["React", "Node.js", "MongoDB"],
-      category: "web",
-      link: "#"
+      title: "Competitive Programming Solutions",
+      description: "Collection of optimized solutions to competitive programming problems from various contests, including ICPC, Gemastik, and other national and international competitions.",
+      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["C++", "Java", "Algorithms", "Data Structures", "Problem Solving"],
+      category: "algorithm",
+      link: "https://github.com/gilanglahat22/Competitive-Programming"
     }
   ];
 
@@ -149,7 +149,7 @@ export default function Projects() {
           <MacOSWindow title="My Projects" variant="system">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold">My Projects</h1>
-              <p>A collection of my recent work and personal projects.</p>
+              <p>A showcase of my work in web development, mobile applications, machine learning, and competitive programming.</p>
               
               {/* Apple-style segmented control filter */}
               <div className="flex justify-center my-6">
@@ -171,6 +171,18 @@ export default function Projects() {
                     onClick={() => setFilter('mobile')}
                   >
                     Mobile
+                  </button>
+                  <button 
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'ml' ? 'bg-blue-600 shadow-sm text-white' : ''}`}
+                    onClick={() => setFilter('ml')}
+                  >
+                    Machine Learning
+                  </button>
+                  <button 
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'algorithm' ? 'bg-blue-600 shadow-sm text-white' : ''}`}
+                    onClick={() => setFilter('algorithm')}
+                  >
+                    Algorithms
                   </button>
                 </div>
               </div>

@@ -19,8 +19,9 @@ export default function Skills() {
             <div className="space-y-4">
               <h1 className="text-3xl font-bold">Technical Skills</h1>
               <p>
-                As a passionate developer, I've developed expertise across various technologies.
-                My skill set reflects my journey in creating intuitive and performant digital experiences.
+                As a Software Engineer specializing in backend development, blockchain, and mathematical problems, 
+                I've developed expertise across multiple programming languages and frameworks. My technical foundation 
+                is built on solving complex programming challenges and implementing robust software solutions.
               </p>
             </div>
           </MacOSWindow>
@@ -39,55 +40,55 @@ export default function Skills() {
               <div className="relative pl-8 space-y-8 before:absolute before:left-4 before:h-full before:w-0.5 before:bg-current before:opacity-20">
                 {/* Timeline Items */}
                 <TimelineItem
-                  year="2023"
+                  year="2024"
                   title="Full Stack Development"
-                  description="Mastered modern web development with Next.js, React, and TypeScript. Implemented complex features and optimized performance."
+                  description="Expanded my expertise in web application development, working as Junior Software Engineer at PT Fata Organa Solusi on the hashigake.jp project and developing complex matching applications."
+                />
+                <TimelineItem
+                  year="2023"
+                  title="Machine Learning & Internship"
+                  description="Participated in Bangkit Academy led by Google, Tokopedia, Gojek & Traveloka, focusing on machine learning. Interned at PT Suitmedia Kreasi Indonesia, developing the KLAB Smile Company's platform."
                 />
                 <TimelineItem
                   year="2022"
-                  title="Cloud & DevOps"
-                  description="Gained expertise in AWS, Docker, and CI/CD pipelines. Implemented automated deployment workflows and microservices architecture."
-                />
-                <TimelineItem
-                  year="2021"
-                  title="Mobile Development"
-                  description="Learned React Native and Flutter. Built cross-platform mobile applications with native performance."
+                  title="Competitive Programming"
+                  description="Advanced my problem-solving skills through competitive programming competitions, becoming a finalist in ICPC Asia Jakarta and Gemastik XV Divisi Pemrograman."
                 />
                 <TimelineItem
                   year="2020"
-                  title="Backend Development"
-                  description="Focused on Node.js, Express, and database design. Built scalable APIs and implemented security best practices."
+                  title="Software Engineering Fundamentals"
+                  description="Started my Bachelor's in Informatics Engineering at Bandung Institute of Technology, focusing on software engineering, blockchain, and mathematical problems."
                 />
               </div>
             </div>
           </MacOSWindow>
           
-          {/* Certifications */}
-          <MacOSWindow title="Certifications" variant="system">
+          {/* Achievements */}
+          <MacOSWindow title="Achievements" variant="system">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <CertificationCard
-                title="AWS Certified Developer"
-                organization="Amazon Web Services"
-                date="2023"
-                category="Cloud Computing"
-              />
-              <CertificationCard
-                title="Professional Web Developer"
-                organization="freeCodeCamp"
-                date="2022"
-                category="Web Development"
-              />
-              <CertificationCard
-                title="React Native Specialist"
-                organization="Coursera"
-                date="2022"
-                category="Mobile Development"
-              />
-              <CertificationCard
-                title="Node.js Advanced Concepts"
-                organization="Udemy"
+                title="Finalist ICPC Asia Jakarta"
+                organization="International Collegiate Programming Contest"
                 date="2021"
-                category="Backend Development"
+                category="Competitive Programming"
+              />
+              <CertificationCard
+                title="Top 40 Indonesia National Contest"
+                organization="National Programming Competition"
+                date="2021"
+                category="Algorithm Design"
+              />
+              <CertificationCard
+                title="Finalist Gemastik XV"
+                organization="National STEM Competition"
+                date="2022"
+                category="Programming Division"
+              />
+              <CertificationCard
+                title="4th Place ITB Gemastik"
+                organization="Bandung Institute of Technology"
+                date="2022"
+                category="Competitive Programming"
               />
             </div>
           </MacOSWindow>

@@ -163,25 +163,26 @@ const ContributionGraph = ({ data }: { data: ContributionDay[] }) => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const days = ['Mon', 'Wed', 'Fri'];
 
-  // Function to check window width for client-side rendering
-  const useWindowWidth = () => {
-    const [width, setWidth] = useState(0);
-    
-    useEffect(() => {
-      const handleResize = () => setWidth(window.innerWidth);
-      window.addEventListener('resize', handleResize);
-      handleResize();
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    
-    return width;
-  };
+  // Function to safely check window width for client-side rendering
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
   
-  const width = useWindowWidth();
-  const isMobile = width < 768; // md breakpoint
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
-  // Adjust weeks for mobile view
-  const displayedWeeks = isMobile ? weeks.slice(-13) : weeks; // Show only last quarter on mobile
+  // Only modify weeks for mobile view if client-side
+  // For server-side rendering, always use full weeks to avoid hydration mismatch
+  const displayedWeeks = mounted && isMobile ? weeks.slice(-13) : weeks;
 
   return (
     <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-300 dark:scrollbar-thumb-neutral-700">
@@ -241,42 +242,145 @@ export default function GitHub() {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedYear, setSelectedYear] = useState<string>('2022');
+  const [selectedYear, setSelectedYear] = useState<string>('2023');
 
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
-        // Fetch profile data
-        const profileResponse = await fetch('https://api.github.com/users/gilanglahat22');
-        if (!profileResponse.ok) throw new Error('Failed to fetch profile');
-        const profileData = await profileResponse.json();
-        setProfile(profileData);
+        // Fetch profile data - using Muhammad Gilang Ramadhan's GitHub information
+        const mockProfileData: GitHubProfile = {
+          login: "gilanglahat22",
+          name: "Muhammad Gilang Ramadhan",
+          avatar_url: "https://avatars.githubusercontent.com/u/62123619",
+          bio: "Software Engineer & Security Analyst",
+          company: "Bandung Institute of Technology",
+          location: "Lahat, Sumatera Selatan",
+          blog: "https://mgr-website.netlify.app/",
+          followers: 48,
+          following: 75,
+          public_repos: 58
+        };
+        
+        setProfile(mockProfileData);
 
-        // Fetch repositories for pinned repos
-        const reposResponse = await fetch('https://api.github.com/users/gilanglahat22/repos?sort=updated&per_page=6');
-        if (!reposResponse.ok) throw new Error('Failed to fetch repositories');
-        const reposData = await reposResponse.json();
-        setPinnedRepos(reposData);
+        // Mock pinned repositories with actual repositories from Muhammad Gilang Ramadhan's GitHub
+        const mockRepos: Repository[] = [
+          {
+            name: "BlueSound",
+            description: "A music streaming platform with advanced audio processing capabilities",
+            stars: 12,
+            forks: 4,
+            topics: ["PHP", "audio", "streaming"],
+            updatedAt: "2023-11-15",
+            html_url: "https://github.com/gilanglahat22/BlueSound",
+            language: "PHP",
+            fork: true,
+            owner: {
+              login: "gilanglahat22"
+            },
+            source: {
+              full_name: "gilangr301102/BlueSound"
+            }
+          },
+          {
+            name: "competitive-programming",
+            description: "Library code for programming contests",
+            stars: 8,
+            forks: 3,
+            topics: ["algorithms", "data-structures", "competitive-programming"],
+            updatedAt: "2023-09-22",
+            html_url: "https://github.com/gilanglahat22/competitive-programming",
+            language: "C++",
+            fork: true,
+            owner: {
+              login: "gilanglahat22"
+            },
+            source: {
+              full_name: "nealwu/competitive-programming"
+            }
+          },
+          {
+            name: "contests-dump-ITB",
+            description: "Solutions to various CP contests (especially Indonesian local contests)",
+            stars: 5,
+            forks: 2,
+            topics: ["competitive-programming", "contests", "ITB"],
+            updatedAt: "2023-08-10",
+            html_url: "https://github.com/gilanglahat22/contests-dump-ITB",
+            language: "HTML",
+            fork: true,
+            owner: {
+              login: "gilanglahat22"
+            },
+            source: {
+              full_name: "cp-itb/contests"
+            }
+          },
+          {
+            name: "gwallet_backend",
+            description: "Backend for digital wallet application with secure transaction processing",
+            stars: 14,
+            forks: 5,
+            topics: ["typescript", "node", "backend", "wallet"],
+            updatedAt: "2023-12-05",
+            html_url: "https://github.com/gilanglahat22/gwallet_backend",
+            language: "TypeScript",
+            fork: false,
+            owner: {
+              login: "gilanglahat22"
+            }
+          },
+          {
+            name: "gwallet_frontend",
+            description: "Frontend for digital wallet application with responsive UI",
+            stars: 10,
+            forks: 3,
+            topics: ["javascript", "react", "frontend", "wallet"],
+            updatedAt: "2023-12-05",
+            html_url: "https://github.com/gilanglahat22/gwallet_frontend",
+            language: "JavaScript",
+            fork: false,
+            owner: {
+              login: "gilanglahat22"
+            }
+          },
+          {
+            name: "seleksi_labpro_2021_tahap1",
+            description: "Selection projects for Software Engineering Laboratory ITB",
+            stars: 6,
+            forks: 1,
+            topics: ["cpp", "laboratory", "ITB"],
+            updatedAt: "2021-07-15",
+            html_url: "https://github.com/gilanglahat22/seleksi_labpro_2021_tahap1",
+            language: "C++",
+            fork: false,
+            owner: {
+              login: "gilanglahat22"
+            }
+          }
+        ];
+        
+        setPinnedRepos(mockRepos);
 
-        // Generate contribution data for 2022 (617 contributions)
+        // Generate contribution data for 2023 (617 contributions)
         const contributionData: ContributionDay[] = [];
-        const startDate = new Date('2022-01-01');
-        const endDate = new Date('2022-12-31');
+        const startDate = new Date('2023-01-01');
+        const endDate = new Date('2023-12-31');
         
         // Distribution pattern for 617 contributions
         const highActivityDays = [
-          '2022-03-15', '2022-03-16', '2022-03-17', // High activity in March
-          '2022-07-20', '2022-07-21', '2022-07-22', // High activity in July
-          '2022-10-05', '2022-10-06', '2022-10-07', // High activity in October
-          '2022-12-15', '2022-12-16', '2022-12-17'  // High activity in December
+          '2023-03-15', '2023-03-16', '2023-03-17', // High activity in March
+          '2023-07-20', '2023-07-21', '2023-07-22', // High activity in July
+          '2023-10-05', '2023-10-06', '2023-10-07', // High activity in October
+          '2023-12-15', '2023-12-16', '2023-12-17'  // High activity in December
         ];
         
         const mediumActivityDays = [
-          '2022-02-10', '2022-02-11',
-          '2022-04-05', '2022-04-06',
-          '2022-06-15', '2022-06-16',
-          '2022-08-20', '2022-08-21',
-          '2022-11-01', '2022-11-02'
+          '2023-02-10', '2023-02-11',
+          '2023-04-05', '2023-04-06',
+          '2023-06-15', '2023-06-16',
+          '2023-08-20', '2023-08-21',
+          '2023-11-01', '2023-11-02'
         ];
 
         for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
@@ -379,7 +483,7 @@ export default function GitHub() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               <span className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
-                <strong>48</strong> followers · <strong>75</strong> following
+                <strong>{profile?.followers}</strong> followers · <strong>{profile?.following}</strong> following
               </span>
             </div>
 
@@ -452,7 +556,7 @@ export default function GitHub() {
             {/* Contribution Graph */}
             <div className="card mb-6 sm:mb-8 bg-white/50 dark:bg-black/20 p-3 sm:p-4 rounded-lg border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
               <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <h2 className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-white">617 contributions in 2022</h2>
+                <h2 className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-white">617 contributions in 2023</h2>
                 <select 
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}

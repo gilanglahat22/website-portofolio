@@ -123,10 +123,10 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                   {/* Icon */}
                   <motion.div
                     className="relative transition-all"
-                    animate={{ 
+                    animate={mounted ? { 
                       scale: getScale(index),
                       y: hoveredIndex === index ? -8 : 0
-                    }}
+                    } : { scale: 1, y: 0 }}
                     transition={{ 
                       type: "spring",
                       stiffness: 400,
@@ -143,7 +143,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                           alt={item.name}
                           className={`w-full h-full object-contain transition-opacity duration-300 ${theme === 'light' ? 'invert' : ''}`}
                           onError={() => handleImageError(item.icon)}
-                          whileHover={{ rotate: [0, -10, 10, -5, 5, 0] }}
+                          whileHover={mounted ? { rotate: [0, -10, 10, -5, 5, 0] } : {}}
                           transition={{ duration: 0.5 }}
                         />
                       )}

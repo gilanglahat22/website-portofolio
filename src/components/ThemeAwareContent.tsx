@@ -29,7 +29,7 @@ const ThemeAwareContent = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.7 }}
               >
-                Welcome to My Portfolio
+                Muhammad Gilang Ramadhan
               </motion.h1>
               <motion.p 
                 className="text-lg max-w-2xl mx-auto"
@@ -37,8 +37,8 @@ const ThemeAwareContent = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
               >
-                Experience my work in a sleek, macOS-inspired interface.
-                Browse through my projects, skills, and experience.
+                Software Engineer & Security Analyst from Bandung Institute of Technology.
+                Specializing in web development, algorithms, and cybersecurity solutions.
               </motion.p>
             </div>
             
@@ -51,28 +51,28 @@ const ThemeAwareContent = () => {
               <Link href="/about" className="block">
                 <div className="card p-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <h3 className="text-xl font-semibold mb-2">About Me</h3>
-                  <p>Learn more about my background, interests, and career journey.</p>
+                  <p>Learn more about my background at ITB, professional experience, and career journey.</p>
                 </div>
               </Link>
               
               <Link href="/projects" className="block">
                 <div className="card p-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <h3 className="text-xl font-semibold mb-2">Projects</h3>
-                  <p>Explore my portfolio of work spanning web, mobile, and other domains.</p>
+                  <p>Explore my portfolio including competitive programming, backend development, and security solutions.</p>
                 </div>
               </Link>
               
               <Link href="/skills" className="block">
                 <div className="card p-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <h3 className="text-xl font-semibold mb-2">Skills</h3>
-                  <p>Discover my technical expertise and professional capabilities.</p>
+                  <p>Discover my expertise in C++, TypeScript, JavaScript, PHP, and cybersecurity analysis.</p>
                 </div>
               </Link>
               
               <Link href="/contact" className="block">
                 <div className="card p-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <h3 className="text-xl font-semibold mb-2">Contact</h3>
-                  <p>Get in touch to discuss opportunities, collaborations, or just to say hello.</p>
+                  <p>Connect with me to discuss opportunities, collaborations, or technical inquiries.</p>
                 </div>
               </Link>
             </motion.div>

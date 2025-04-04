@@ -22,9 +22,11 @@ export default function Contact() {
   });
 
   const subjectOptions = [
-    "General Inquiry",
-    "Job Opportunity",
-    "Project Collaboration",
+    "Software Engineering Opportunity",
+    "Fullstack Development Project",
+    "Competitive Programming",
+    "Blockchain Research",
+    "Machine Learning Collaboration",
     "Other",
   ];
 
@@ -61,8 +63,8 @@ export default function Contact() {
             <h1 className="text-3xl font-bold mb-6">Get In Touch</h1>
             
             <p className="mb-8">
-              I'm always open to new opportunities, collaborations, or just a friendly chat. 
-              Feel free to reach out using the form below.
+              I'm interested in software engineering opportunities, fullstack development projects, and competitive programming collaborations.
+              Feel free to reach out if you have a project that matches my skills or want to discuss potential collaboration.
             </p>
             
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
@@ -152,17 +154,17 @@ export default function Contact() {
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div className="card p-4 rounded-lg">
                 <h3 className="text-lg font-medium mb-2">Email</h3>
-                <p>contact@example.com</p>
+                <p>muhgilangramadhan.3011@gmail.com</p>
               </div>
               
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">Phone</h3>
-                <p>+1 (234) 567-8901</p>
+                <h3 className="text-lg font-medium mb-2">GitHub</h3>
+                <p>github.com/gilanglahat22</p>
               </div>
               
               <div className="card p-4 rounded-lg">
                 <h3 className="text-lg font-medium mb-2">Location</h3>
-                <p>San Francisco, CA</p>
+                <p>Bandung, West Java, Indonesia</p>
               </div>
             </div>
           </div>

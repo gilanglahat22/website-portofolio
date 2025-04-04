@@ -76,66 +76,95 @@ export default function Experience() {
   
   const experiences: ExperienceItem[] = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      date: "2022 - Present",
+      title: "Junior Software Engineer",
+      company: "PT Fata Organa Solusi",
+      date: "July 2024 - March 2025",
       description: [
-        "Led the development of a next-generation web application using Next.js and TypeScript",
-        "Implemented responsive designs and animations using Tailwind CSS and Framer Motion",
-        "Mentored junior developers and conducted code reviews"
+        "Main PIC (Person In Charge) of https://hashigake.jp/ (CAC, Empath Japanese Company project)",
+        "Matching application for multiple companies against tenant storage data, JDI and Redis hyperscript",
+        "Authored comprehensive software documentation, including detailed design, coding logic, and test results",
+        "Implemented secure bus services, grid event, RabbitMQ, OpenIddict, etc."
       ],
-      logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"]
+      logo: "/images/peta-organa-logo.png",
+      skills: ["C#", ".NET", "RabbitMQ", "Redis", "Documentation", "API Design"]
     },
     {
       title: "Full Stack Developer",
-      company: "Digital Solutions Ltd",
-      date: "2020 - 2022",
+      company: "Faina Labs (Freelance)",
+      date: "August 2023 - Present",
       description: [
-        "Developed and maintained multiple client projects using React and Node.js",
-        "Implemented RESTful APIs and integrated third-party services",
-        "Optimized application performance and improved load times by 40%"
+        "Developed APIs with TypeScript, Node.js, Laravel, React, Express, PHP Laravel, Kotlin, MySQL, MongoDB",
+        "Processed 100+ projects with 10K+ Indonesian food",
+        "Successfully executed several event projects for prestigious clients, including: PMHantim Indonesia, PMHantim Sumsel, Rizki Putri Sumatera, Putra Putri Musi Banyuasin"
       ],
-      logo: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      skills: ["React", "Node.js", "MongoDB", "Express", "REST APIs"]
+      logo: "https://cdn-icons-png.flaticon.com/512/6214/6214379.png",
+      skills: ["TypeScript", "Node.js", "React", "Express", "PHP", "Laravel", "Kotlin", "MySQL", "MongoDB"]
     },
     {
-      title: "Frontend Developer",
-      company: "Creative Web Agency",
-      date: "2018 - 2020",
+      title: "Web Developer",
+      company: "PT Fata Organa Solusi (Part Time)",
+      date: "December 2023 - June 2024",
       description: [
-        "Built responsive websites and web applications for various clients",
-        "Collaborated with designers to implement pixel-perfect designs",
-        "Improved site performance and SEO rankings"
+        "Developed Fullstack Web App with Vue, React, JS, React, SQL, Devops modules and API Services with Azure",
+        "Improved client engagement by achieving 80% server-side performance optimization",
+        "Enhanced the Software Development Life Cycle (SDLC) process by improving quality by 40%"
       ],
-      logo: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      skills: ["HTML", "CSS", "JavaScript", "WordPress", "SEO"]
+      logo: "/images/peta-organa-logo.png", 
+      skills: ["Vue", "React", "JavaScript", "SQL", "Azure", "DevOps", "Performance Optimization"]
+    },
+    {
+      title: "Software Engineer",
+      company: "PT Suitmedia Kreasi Indonesia (Internship)",
+      date: "May 2023 - November 2023",
+      description: [
+        "Developed KLAB Smile Company's platform with Laravel, Nginx, MySQL to increase 222% customer engagement and boost revenue",
+        "Performance Optimization: Optimized database queries, reducing response time by 40%",
+        "Traffic Improvement: Backend optimizations increased website traffic by 29%",
+        "System Integration Testing (SIT): Ensured seamless API communication between services"
+      ],
+      logo: "https://cdn-icons-png.flaticon.com/512/2721/2721260.png",
+      skills: ["Laravel", "Nginx", "MySQL", "Database Optimization", "API Integration", "Testing"]
+    },
+    {
+      title: "Machine Learning Cohort",
+      company: "Bangkit Academy led by Google, Tokopedia, Gojek & Traveloka",
+      date: "February 2023 - December 2023",
+      description: [
+        "Completed intensive machine learning training, leveraging platforms like Dicoding and Coursera",
+        "Enhanced technical skills using tools and frameworks such as Google Cloud Platform (GCP), TensorFlow, FastAPI",
+        "Efficiently dealt with data recovery",
+        "Developed a custom app to automate medical processes with 80% accuracy, aiming to improve patient recovery outcomes",
+        "Independently implemented end-to-end solutions, integrating advanced technologies into real-world applications"
+      ],
+      logo: "https://cdn-icons-png.flaticon.com/512/2721/2721224.png",
+      skills: ["Machine Learning", "Python", "TensorFlow", "FastAPI", "GCP", "Data Processing"]
     }
   ];
 
   return (
-    <div className="min-h-screen">
-      <main className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        {/* Header */}
-        <MacOSWindow title="Experience" variant="system" className="mb-8">
-          <div className="space-y-4">
-            <h1 className="text-3xl font-bold">Professional Experience</h1>
-            <p>
-              A journey through my professional career in web development and software engineering.
-            </p>
+    <div className="min-h-screen bg-white dark:bg-black">
+      <main className="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <MacOSWindow title="Professional Experience" variant="system">
+          <div className="p-6">
+            <div className="mb-8 max-w-3xl mx-auto">
+              <h1 className="text-3xl font-bold mb-4">Professional Experience</h1>
+              <p className="text-lg">
+                My career journey as a Full Stack Developer and Software Engineer, with experience in web development,
+                backend systems, and machine learning applications.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              {experiences.map((experience, index) => (
+                <ExperienceCard 
+                  key={index}
+                  item={experience}
+                  isActive={activeIndex === index}
+                />
+              ))}
+            </div>
           </div>
         </MacOSWindow>
-
-        {/* Experience Timeline */}
-        <div className="space-y-6">
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={index}
-              item={experience}
-              isActive={index === activeIndex}
-            />
-          ))}
-        </div>
       </main>
       
       <AppleDock />

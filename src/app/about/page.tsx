@@ -11,43 +11,43 @@ export default function About() {
   const [activeTab, setActiveTab] = useState("profile");
   const { theme } = useTheme();
   
-  // Sample photo gallery data
+  // Updated photo gallery data
   const photos = [
     {
       id: 1,
-      title: "Project Showcase",
-      description: "Presenting at the annual tech conference",
-      imageUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    },
-    {
-      id: 2,
-      title: "Team Collaboration",
-      description: "Working with my team on a new project",
-      imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    },
-    {
-      id: 3,
-      title: "Code Workshop",
-      description: "Leading a workshop on modern web development",
+      title: "Software Engineering",
+      description: "Working on software development projects at PT Suitmedia",
       imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
+      id: 2,
+      title: "Competitive Programming",
+      description: "Participating in ICPC and Gemastik competitions",
+      imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+    {
+      id: 3,
+      title: "Fullstack Development",
+      description: "Building web applications with modern frameworks",
+      imageUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+    {
       id: 4,
-      title: "Design Process",
-      description: "Sketching UI designs for a client project",
-      imageUrl: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "Blockchain Research",
+      description: "Working on Avalanche consensus protocol optimization",
+      imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 5,
-      title: "Remote Work",
-      description: "My productive home office setup",
-      imageUrl: "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "ITB Campus",
+      description: "Studying at Bandung Institute of Technology",
+      imageUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 6,
-      title: "Hackathon Winner",
-      description: "Celebrating after winning the regional hackathon",
-      imageUrl: "https://images.unsplash.com/photo-1525422847952-7f91db09a364?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "Machine Learning",
+      description: "Training models at Bangkit Academy",
+      imageUrl: "https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
   ];
   
@@ -85,8 +85,8 @@ export default function About() {
                   <div className="md:w-1/3">
                     <div className="card rounded-lg overflow-hidden w-full aspect-square mb-4 relative">
                       <Image 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
-                        alt="Profile Photo"
+                        src="https://avatars.githubusercontent.com/u/62123619" 
+                        alt="Muhammad Gilang Ramadhan"
                         fill
                         className="object-cover"
                       />
@@ -95,22 +95,22 @@ export default function About() {
                     <div className="space-y-3">
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Location</h3>
-                        <p>Jambi, Indonesia</p>
+                        <p>Bandung, West Java, Indonesia</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Email</h3>
-                        <p>contact@example.com</p>
+                        <p>muhgilangramadhan.3011@gmail.com</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
-                        <h3 className="font-medium">Experience</h3>
-                        <p>3+ years</p>
+                        <h3 className="font-medium">Phone</h3>
+                        <p>+62-823-8221-1182</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Languages</h3>
-                        <p>English, Indonesian</p>
+                        <p>Indonesian, English</p>
                       </div>
                     </div>
                   </div>
@@ -118,35 +118,38 @@ export default function About() {
                   <div className="md:w-2/3">
                     <h3 className="text-xl font-medium mb-4">My Journey</h3>
                     <p className="mb-4">
-                      I'm a passionate developer with 3+ years of experience creating modern and responsive websites and mobile applications. 
-                      My journey began during my college years when I started exploring web development, which then evolved into a profound 
-                      interest in mobile development.
+                      I'm a passionate Software Engineer with expertise in backend development, blockchain, and mathematics, dedicated to delivering value through technology. Currently pursuing my Bachelor of Engineering in Informatics at Bandung Institute of Technology.
                     </p>
                     
                     <p className="mb-6">
-                      I specialize in Android development using Kotlin and also have experience with web technologies 
-                      like React, Next.js, and Tailwind CSS.
+                      My research focuses on optimizing blockchain's Avalanche consensus protocol using algorithms. I specialize in software engineering, with experience across multiple programming languages and frameworks.
                     </p>
                     
                     <h3 className="text-xl font-medium mb-4">Professional Experience</h3>
                     <div className="space-y-4 mb-6">
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Mobile Development Cohort</h4>
-                        <p className="text-sm mb-1">Bangkit Academy | 2023</p>
-                        <p>Participated in a prestigious program led by Google, Tokopedia, Gojek & Traveloka. Developed Android applications using Kotlin and modern architecture components.</p>
+                        <h4 className="font-medium">Junior Software Engineer</h4>
+                        <p className="text-sm mb-1">PT Fata Organa Solusi | July 2024 - March 2025</p>
+                        <p>Main PIC for hashigake.jp project, matching application for multiple companies against tenant storage data. Developed detailed software documentation and implemented secure services.</p>
                       </div>
                       
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Mobile Developer</h4>
-                        <p className="text-sm mb-1">PT. Amman Karya Indonesia | 2023</p>
-                        <p>Developed mobile applications for clients using Kotlin and integrating with back-end services.</p>
+                        <h4 className="font-medium">Full Stack Developer</h4>
+                        <p className="text-sm mb-1">Faina Labs (Freelance) | August 2023 - Present</p>
+                        <p>Developed APIs with TypeScript, Node.js, Laravel, React, Express, PHP Laravel, Kotlin, MySQL, and MongoDB. Successfully executed multiple event projects for prestigious clients.</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium">Software Engineer (Internship)</h4>
+                        <p className="text-sm mb-1">PT Suitmedia Kreasi Indonesia | May 2023 - November 2023</p>
+                        <p>Developed KLAB Smile Company's platform with Laravel, Nginx, MySQL. Optimized database queries, reducing response time by 40% and improved overall website traffic by 29%.</p>
                       </div>
                     </div>
                     
                     <h3 className="text-xl font-medium mb-4">Skills</h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                      {['Kotlin', 'Android', 'Jetpack Compose', 'Room Database', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS', 'Git', 'Agile', 'Problem Solving', 'UI/UX'].map((skill) => (
-                        <div key={skill} className="card p-2 rounded-lg text-center border border-blue-100">
+                      {['Java', 'Go', 'TypeScript', 'C/C++/C#', 'PHP', 'Python', 'SQL', 'Kotlin', 'Rust', 'Docker', 'Node.js', 'Laravel'].map((skill) => (
+                        <div key={skill} className="card p-2 rounded-lg text-center border border-blue-100 dark:border-blue-900">
                           <span>{skill}</span>
                         </div>
                       ))}
@@ -155,13 +158,14 @@ export default function About() {
                     <h3 className="text-xl font-medium mb-4">Education</h3>
                     <div className="space-y-3">
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Computer Science</h4>
-                        <p>Universitas Jambi</p>
+                        <h4 className="font-medium">Bachelor Engineering of Informatics</h4>
+                        <p>Bandung Institute of Technology | GPA: 3.30/4.00</p>
+                        <p className="text-sm">August 2020 - July 2025 (Expected)</p>
                       </div>
                       
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Android Development Certification</h4>
-                        <p>Bangkit Academy, 2023</p>
+                        <h4 className="font-medium">Machine Learning Cohort</h4>
+                        <p>Bangkit Academy | February 2023 - December 2023</p>
                       </div>
                     </div>
                   </div>
@@ -170,7 +174,7 @@ export default function About() {
             ) : activeTab === 'photos' ? (
               <div>
                 <h2 className="text-3xl font-semibold mb-6">Photo Gallery</h2>
-                <p className="mb-8">A glimpse into my professional journey and work environment.</p>
+                <p className="mb-8">A glimpse into my professional journey in software engineering and security analysis.</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {photos.map((photo) => (
@@ -197,15 +201,15 @@ export default function About() {
                 
                 <div className="space-y-4">
                   <p>
-                    My journey into the world of programming began during my high school years when I first discovered the power of creating software. What started as a hobby quickly developed into a passion that guided my educational and career path.
+                    My journey into software engineering began during my studies at Bandung Institute of Technology, where I'm specializing in software engineering, blockchain, and mathematical problems. My thesis research focuses on optimizing blockchain's Avalanche consensus protocol using algorithms.
                   </p>
                   
                   <p>
-                    With a focus on mobile development, I've had the opportunity to work on a variety of projects, from small utility apps to enterprise-level solutions. Each project has added to my skill set and deepened my understanding of software architecture and user experience design.
+                    With a diverse background in software development, I've worked on a variety of projects from competitive programming challenges to enterprise applications. I've had the opportunity to work with companies like PT Fata Organa Solusi, Faina Labs, and PT Suitmedia Kreasi Indonesia, gaining expertise in both frontend and backend development.
                   </p>
                   
                   <p>
-                    I'm particularly interested in the intersection of technology and daily life - creating applications that solve real problems and enhance how people interact with their devices and each other.
+                    I'm particularly interested in the intersection of mathematics and software engineering, applying algorithmic principles to solve complex problems and optimize systems.
                   </p>
                 </div>
                 
@@ -217,9 +221,9 @@ export default function About() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
-                    <h4 className="font-medium text-lg mb-2">Innovation</h4>
+                    <h4 className="font-medium text-lg mb-2">Technical Innovation</h4>
                     <p>
-                      I'm constantly exploring new technologies and approaches to solve problems more efficiently.
+                      I'm constantly exploring new technologies and applying mathematical principles to create efficient software solutions.
                     </p>
                   </div>
                   
@@ -229,9 +233,9 @@ export default function About() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
-                    <h4 className="font-medium text-lg mb-2">Collaboration</h4>
+                    <h4 className="font-medium text-lg mb-2">Competitive Excellence</h4>
                     <p>
-                      I believe in the power of teamwork and diverse perspectives to create exceptional products.
+                      I thrive in competitive environments, as demonstrated by my achievements in programming competitions like ICPC and Gemastik.
                     </p>
                   </div>
                   
@@ -241,18 +245,11 @@ export default function About() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                       </svg>
                     </div>
-                    <h4 className="font-medium text-lg mb-2">Learning</h4>
+                    <h4 className="font-medium text-lg mb-2">Continuous Learning</h4>
                     <p>
-                      I'm committed to continuous learning and staying current with the latest industry developments.
+                      I'm committed to expanding my knowledge across different technologies and frameworks, from blockchain to machine learning.
                     </p>
                   </div>
-                </div>
-                
-                <div className="mt-8">
-                  <h3 className="text-xl font-medium mb-4">Interests Beyond Code</h3>
-                  <p>
-                    When I'm not coding, you might find me exploring hiking trails, reading science fiction, or experimenting with new recipes in the kitchen. I believe that diverse interests fuel creativity and bring fresh perspectives to problem-solving.
-                  </p>
                 </div>
               </div>
             )}

@@ -27,6 +27,11 @@ const nextConfig = {
         hostname: 'cdn.jsdelivr.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/**',
+      },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
