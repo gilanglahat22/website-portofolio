@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/contexts/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface DockItem {
   name: string;
@@ -31,6 +32,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
   
   const [mounted, setMounted] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const pathname = usePathname();
 
@@ -43,8 +45,12 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
   const getScale = (index: number) => {
     if (!mounted || hoveredIndex === null) return 1;
     const distance = Math.abs(hoveredIndex - index);
-    if (distance > 2) return 1;
-    return 1 + (0.5 * (1 - distance / 2));
+    const maxDistance = 2; // Maximum distance to affect scaling
+    if (distance > maxDistance) return 1;
+    
+    // Smooth scaling function
+    const scale = 1 + (1 - distance / maxDistance) * 0.5;
+    return scale;
   };
 
   const handleImageError = (iconPath: string) => {
@@ -54,7 +60,6 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
 
   // Generate fallback icon if the image fails to load
   const FallbackIcon = ({ name }: { name: string }) => {
-    // Get first letter of name for fallback
     const initial = name.charAt(0).toUpperCase();
     const getRandomColor = () => {
       const colors = ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'];
@@ -77,11 +82,20 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
   }
 
   return (
-    <div className={`fixed bottom-4 left-1/2 -translate-x-1/2 ${className}`}>
+    <motion.div 
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      className={`fixed bottom-4 left-0 right-0 mx-auto w-fit ${className}`}
+    >
       <div className="relative">
         {/* Dock Background */}
-        <div className={`absolute inset-0 backdrop-blur-xl rounded-2xl shadow-2xl border transition-colors duration-300
-          ${theme === 'dark' ? 'bg-white/10 border-white/20' : 'bg-black/10 border-black/10'}`} />
+        <motion.div 
+          className={`absolute inset-0 backdrop-blur-xl rounded-2xl shadow-2xl border transition-colors duration-300
+            ${theme === 'dark' ? 'bg-white/10 border-white/20' : 'bg-black/10 border-black/10'}`}
+          layoutId="dock-bg"
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        />
         
         {/* Dock Items */}
         <div className="relative flex items-end gap-2 px-4 py-2">
@@ -89,54 +103,87 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
             const isActive = pathname === item.href;
             
             return (
-              <Link
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className="group relative flex flex-col items-center"
-                onMouseEnter={() => mounted && setHoveredIndex(index)}
-                onMouseLeave={() => mounted && setHoveredIndex(null)}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: index * 0.05 
+                }}
               >
-                {/* Icon */}
-                <div
-                  className="relative transition-all duration-150 ease-in-out"
-                  style={{
-                    transform: mounted ? `scale(${getScale(index)})` : 'scale(1)',
-                    transformOrigin: 'bottom'
-                  }}
+                <Link
+                  href={item.href}
+                  className="group relative flex flex-col items-center"
+                  onMouseEnter={() => mounted && setHoveredIndex(index)}
+                  onMouseLeave={() => mounted && setHoveredIndex(null)}
                 >
-                  <div className="w-12 h-12 relative flex items-center justify-center">
-                    {imageErrors[item.icon] ? (
-                      <FallbackIcon name={item.name} />
-                    ) : (
-                      <img
-                        src={item.icon}
-                        alt={item.name}
-                        className={`w-full h-full object-contain transition-opacity duration-300 ${theme === 'light' ? 'invert' : ''}`}
-                        onError={() => handleImageError(item.icon)}
-                      />
-                    )}
-                  </div>
+                  {/* Icon */}
+                  <motion.div
+                    className="relative transition-all"
+                    animate={{ 
+                      scale: getScale(index),
+                      y: hoveredIndex === index ? -8 : 0
+                    }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 20
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <div className="w-12 h-12 relative flex items-center justify-center">
+                      {imageErrors[item.icon] ? (
+                        <FallbackIcon name={item.name} />
+                      ) : (
+                        <motion.img
+                          src={item.icon}
+                          alt={item.name}
+                          className={`w-full h-full object-contain transition-opacity duration-300 ${theme === 'light' ? 'invert' : ''}`}
+                          onError={() => handleImageError(item.icon)}
+                          whileHover={{ rotate: [0, -10, 10, -5, 5, 0] }}
+                          transition={{ duration: 0.5 }}
+                        />
+                      )}
+                    </div>
+                    
+                    {/* Dot Indicator for Active Link */}
+                    <motion.div 
+                      className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full
+                        ${theme === 'dark' ? 'bg-white/50' : 'bg-black/50'}`}
+                      initial={{ scale: 0 }}
+                      animate={{ 
+                        scale: isActive ? 1 : 0,
+                        opacity: isActive ? 1 : 0
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    />
+                  </motion.div>
                   
-                  {/* Dot Indicator for Active Link */}
-                  <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-opacity
-                    ${theme === 'dark' ? 'bg-white/50' : 'bg-black/50'}
-                    ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} 
-                  />
-                </div>
-                
-                {/* Tooltip */}
-                {mounted && (
-                  <div className={`absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm
-                    ${theme === 'dark' ? 'bg-gray-800/90 text-white' : 'bg-white/90 text-gray-800'}`}>
-                    {item.name}
-                  </div>
-                )}
-              </Link>
+                  {/* Tooltip */}
+                  <AnimatePresence>
+                    {mounted && hoveredIndex === index && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: -8 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className={`absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg whitespace-nowrap text-sm
+                          ${theme === 'dark' ? 'bg-gray-800/90 text-white' : 'bg-white/90 text-gray-800'}`}
+                      >
+                        {item.name}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Link>
+              </motion.div>
             );
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -6,17 +6,13 @@ import MacOSWindow from '@/components/MacOSWindow';
 import SkillsGrid from '@/components/SkillsGrid';
 import { useTheme } from '@/contexts/ThemeContext';
 
-// @ts-ignore
 export default function Skills() {
   const { theme } = useTheme();
   
   return (
-    // @ts-ignore
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen">
       {/* Main Content */}
-      {/* @ts-ignore */}
       <main className="pt-8 px-6 pb-32">
-        {/* @ts-ignore */}
         <div className="max-w-6xl mx-auto space-y-8">
           {/* Header */}
           <MacOSWindow title="My Skills" variant="system">
@@ -40,156 +36,115 @@ export default function Skills() {
               <h2 className="text-2xl font-semibold mb-4">My Learning Path</h2>
               
               {/* Timeline */}
-              {/* @ts-ignore */}
-              <div className="relative pl-8 space-y-8 before:absolute before:left-4 before:h-full before:w-0.5 before:bg-gray-700">
-                {/* Timeline Item */}
-                {/* @ts-ignore */}
-                <div className="relative">
-                  {/* Circle marker */}
-                  {/* @ts-ignore */}
-                  <div className="absolute -left-8 mt-1.5 h-6 w-6 rounded-full border-2 border-blue-500 bg-gray-900 flex items-center justify-center">
-                    {/* @ts-ignore */}
-                    <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  {/* @ts-ignore */}
-                  <div className="card p-4 rounded-lg">
-                    {/* @ts-ignore */}
-                    <h3 className="text-lg font-medium">2023 - Present</h3>
-                    {/* @ts-ignore */}
-                    <h4 className="text-blue-400 font-medium">Advanced Frontend Frameworks</h4>
-                    {/* @ts-ignore */}
-                    <p className="mt-2">
-                      Deepening expertise in React, Next.js, and TypeScript. Exploring advanced state management, performance optimization, and testing methodologies.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Timeline Item */}
-                {/* @ts-ignore */}
-                <div className="relative">
-                  {/* Circle marker */}
-                  {/* @ts-ignore */}
-                  <div className="absolute -left-8 mt-1.5 h-6 w-6 rounded-full border-2 border-green-500 bg-gray-900 flex items-center justify-center">
-                    {/* @ts-ignore */}
-                    <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  {/* @ts-ignore */}
-                  <div className="card p-4 rounded-lg">
-                    {/* @ts-ignore */}
-                    <h3 className="text-lg font-medium">2021 - 2023</h3>
-                    {/* @ts-ignore */}
-                    <h4 className="text-green-400 font-medium">Full Stack Development</h4>
-                    {/* @ts-ignore */}
-                    <p className="mt-2">
-                      Expanded knowledge to include backend technologies such as Node.js, Express, and MongoDB. Learned about API design, authentication, and deployment.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Timeline Item */}
-                {/* @ts-ignore */}
-                <div className="relative">
-                  {/* Circle marker */}
-                  {/* @ts-ignore */}
-                  <div className="absolute -left-8 mt-1.5 h-6 w-6 rounded-full border-2 border-purple-500 bg-gray-900 flex items-center justify-center">
-                    {/* @ts-ignore */}
-                    <div className="h-2 w-2 rounded-full bg-purple-500"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  {/* @ts-ignore */}
-                  <div className="card p-4 rounded-lg">
-                    {/* @ts-ignore */}
-                    <h3 className="text-lg font-medium">2019 - 2021</h3>
-                    {/* @ts-ignore */}
-                    <h4 className="text-purple-400 font-medium">Frontend Fundamentals</h4>
-                    {/* @ts-ignore */}
-                    <p className="mt-2">
-                      Started with HTML, CSS, and JavaScript. Learned responsive design principles and basic UX concepts. Began working with React.
-                    </p>
-                  </div>
-                </div>
+              <div className="relative pl-8 space-y-8 before:absolute before:left-4 before:h-full before:w-0.5 before:bg-current before:opacity-20">
+                {/* Timeline Items */}
+                <TimelineItem
+                  year="2023"
+                  title="Full Stack Development"
+                  description="Mastered modern web development with Next.js, React, and TypeScript. Implemented complex features and optimized performance."
+                />
+                <TimelineItem
+                  year="2022"
+                  title="Cloud & DevOps"
+                  description="Gained expertise in AWS, Docker, and CI/CD pipelines. Implemented automated deployment workflows and microservices architecture."
+                />
+                <TimelineItem
+                  year="2021"
+                  title="Mobile Development"
+                  description="Learned React Native and Flutter. Built cross-platform mobile applications with native performance."
+                />
+                <TimelineItem
+                  year="2020"
+                  title="Backend Development"
+                  description="Focused on Node.js, Express, and database design. Built scalable APIs and implemented security best practices."
+                />
               </div>
             </div>
           </MacOSWindow>
           
           {/* Certifications */}
-          <MacOSWindow title="Certifications & Achievements" variant="system">
+          <MacOSWindow title="Certifications" variant="system">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Certificate Card */}
-              {/* @ts-ignore */}
-              <div className="card p-6 rounded-xl hover:shadow-md transition-shadow">
-                {/* @ts-ignore */}
-                <h3 className="text-xl font-semibold mb-2">AWS Certified Developer</h3>
-                {/* @ts-ignore */}
-                <p className="mb-3">Amazon Web Services</p>
-                {/* @ts-ignore */}
-                <div className="flex justify-between items-center">
-                  {/* @ts-ignore */}
-                  <span className="text-sm">Issued: Jan 2023</span>
-                  {/* @ts-ignore */}
-                  <span className="card text-xs font-medium px-2.5 py-0.5 rounded-full">Cloud</span>
-                </div>
-              </div>
-              
-              {/* Certificate Card */}
-              {/* @ts-ignore */}
-              <div className="card p-6 rounded-xl hover:shadow-md transition-shadow">
-                {/* @ts-ignore */}
-                <h3 className="text-xl font-semibold mb-2">React Advanced Concepts</h3>
-                {/* @ts-ignore */}
-                <p className="mb-3">Frontend Masters</p>
-                {/* @ts-ignore */}
-                <div className="flex justify-between items-center">
-                  {/* @ts-ignore */}
-                  <span className="text-sm">Issued: Mar 2022</span>
-                  {/* @ts-ignore */}
-                  <span className="card text-xs font-medium px-2.5 py-0.5 rounded-full">Frontend</span>
-                </div>
-              </div>
-              
-              {/* Certificate Card */}
-              {/* @ts-ignore */}
-              <div className="card p-6 rounded-xl hover:shadow-md transition-shadow">
-                {/* @ts-ignore */}
-                <h3 className="text-xl font-semibold mb-2">UI/UX Design Fundamentals</h3>
-                {/* @ts-ignore */}
-                <p className="mb-3">Interaction Design Foundation</p>
-                {/* @ts-ignore */}
-                <div className="flex justify-between items-center">
-                  {/* @ts-ignore */}
-                  <span className="text-sm">Issued: Sep 2021</span>
-                  {/* @ts-ignore */}
-                  <span className="card text-xs font-medium px-2.5 py-0.5 rounded-full">Design</span>
-                </div>
-              </div>
-              
-              {/* Certificate Card */}
-              {/* @ts-ignore */}
-              <div className="card p-6 rounded-xl hover:shadow-md transition-shadow">
-                {/* @ts-ignore */}
-                <h3 className="text-xl font-semibold mb-2">Full Stack JavaScript</h3>
-                {/* @ts-ignore */}
-                <p className="mb-3">Udemy</p>
-                {/* @ts-ignore */}
-                <div className="flex justify-between items-center">
-                  {/* @ts-ignore */}
-                  <span className="text-sm">Issued: Dec 2020</span>
-                  {/* @ts-ignore */}
-                  <span className="card text-xs font-medium px-2.5 py-0.5 rounded-full">Full Stack</span>
-                </div>
-              </div>
+              <CertificationCard
+                title="AWS Certified Developer"
+                organization="Amazon Web Services"
+                date="2023"
+                category="Cloud Computing"
+              />
+              <CertificationCard
+                title="Professional Web Developer"
+                organization="freeCodeCamp"
+                date="2022"
+                category="Web Development"
+              />
+              <CertificationCard
+                title="React Native Specialist"
+                organization="Coursera"
+                date="2022"
+                category="Mobile Development"
+              />
+              <CertificationCard
+                title="Node.js Advanced Concepts"
+                organization="Udemy"
+                date="2021"
+                category="Backend Development"
+              />
             </div>
           </MacOSWindow>
         </div>
       </main>
       
-      {/* Apple-style Dock at the bottom */}
+      {/* Apple-style Dock */}
       <AppleDock />
     </div>
   );
-} 
+}
+
+interface TimelineItemProps {
+  year: string;
+  title: string;
+  description: string;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({ year, title, description }) => {
+  return (
+    <div className="relative">
+      {/* Circle marker */}
+      <div className="absolute -left-8 mt-1.5 h-6 w-6 rounded-full border-2 border-current flex items-center justify-center">
+        <span className="text-xs font-medium">{year}</span>
+      </div>
+      
+      {/* Content */}
+      <div className="card rounded-lg p-4">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="mt-2">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+interface CertificationCardProps {
+  title: string;
+  organization: string;
+  date: string;
+  category: string;
+}
+
+const CertificationCard: React.FC<CertificationCardProps> = ({ title, organization, date, category }) => {
+  return (
+    <div className="card rounded-lg p-4">
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="font-semibold">{title}</h3>
+          <p className="text-sm mt-1">{organization}</p>
+        </div>
+        <span className="text-sm">{date}</span>
+      </div>
+      <div className="mt-3">
+        <span className="inline-block px-2 py-1 text-xs rounded-full card">
+          {category}
+        </span>
+      </div>
+    </div>
+  );
+}; 
