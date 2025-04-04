@@ -69,7 +69,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
 
     return (
       <div 
-        className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg"
+        className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-lg"
         style={{ backgroundColor: getRandomColor() }}
       >
         {initial}
@@ -86,7 +86,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className={`fixed bottom-4 left-0 right-0 mx-auto w-fit ${className}`}
+      className={`fixed bottom-2 sm:bottom-4 left-0 right-0 mx-auto z-50 w-fit ${className}`}
     >
       <div className="relative">
         {/* Dock Background */}
@@ -98,7 +98,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
         />
         
         {/* Dock Items */}
-        <div className="relative flex items-end gap-2 px-4 py-2">
+        <div className="relative flex items-end gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2">
           {items.map((item, index) => {
             const isActive = pathname === item.href;
             
@@ -134,7 +134,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="w-12 h-12 relative flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 relative flex items-center justify-center">
                       {imageErrors[item.icon] ? (
                         <FallbackIcon name={item.name} />
                       ) : (
@@ -162,7 +162,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                     />
                   </motion.div>
                   
-                  {/* Tooltip */}
+                  {/* Tooltip - Hidden on small screens */}
                   <AnimatePresence>
                     {mounted && hoveredIndex === index && (
                       <motion.div
@@ -170,7 +170,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                         animate={{ opacity: 1, y: -8 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className={`absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg whitespace-nowrap text-sm
+                        className={`absolute -top-8 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg whitespace-nowrap text-xs sm:text-sm hidden sm:block
                           ${theme === 'dark' ? 'bg-gray-800/90 text-white' : 'bg-white/90 text-gray-800'}`}
                       >
                         {item.name}

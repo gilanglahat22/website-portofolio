@@ -52,39 +52,39 @@ const PinnedRepoCard = ({ repo }: { repo: Repository }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="card rounded-md p-4 border border-neutral-200/50 dark:border-neutral-800/30 h-full bg-white/50 dark:bg-black/20 backdrop-blur-xl"
+      className="card rounded-md p-3 sm:p-4 border border-neutral-200/50 dark:border-neutral-800/30 h-full bg-white/50 dark:bg-black/20 backdrop-blur-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between mb-2">
           <div className="flex items-center">
-            <svg className="w-4 h-4 mr-2 text-neutral-600 dark:text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-neutral-600 dark:text-neutral-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
             </svg>
             <a 
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+              className="font-semibold text-sm sm:text-base text-blue-600 dark:text-blue-400 hover:underline truncate"
             >
               {repo.name}
             </a>
           </div>
           {repo.fork && (
-            <span className="text-xs text-neutral-500 dark:text-neutral-400">
+            <span className="text-xs text-neutral-500 dark:text-neutral-400 ml-1 hidden sm:inline">
               Forked from {repo.source?.full_name}
             </span>
           )}
         </div>
         
         {repo.description && (
-          <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4 flex-grow">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 mb-2 sm:mb-4 flex-grow line-clamp-3">
             {repo.description}
           </p>
         )}
         
-        <div className="flex items-center space-x-4 text-sm text-neutral-600 dark:text-neutral-400">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
           {repo.language && (
             <span className="flex items-center">
               <span className={`w-3 h-3 rounded-full mr-1 ${
@@ -121,24 +121,26 @@ const PinnedRepoCard = ({ repo }: { repo: Repository }) => {
 };
 
 const Achievement = ({ image, alt }: { image: string; alt: string }) => (
-  <div className="rounded-full overflow-hidden w-16 h-16 bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
+  <div className="rounded-full overflow-hidden w-12 h-12 sm:w-16 sm:h-16 bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
     <Image 
       src={image} 
       alt={alt} 
       width={64} 
       height={64}
+      className="w-full h-full"
       unoptimized
     />
   </div>
 );
 
 const Organization = ({ image, alt }: { image: string; alt: string }) => (
-  <div className="rounded-lg overflow-hidden w-8 h-8 bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
+  <div className="rounded-lg overflow-hidden w-6 h-6 sm:w-8 sm:h-8 bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
     <Image 
       src={image} 
       alt={alt} 
       width={32} 
       height={32}
+      className="w-full h-full"
       unoptimized
     />
   </div>
@@ -161,33 +163,53 @@ const ContributionGraph = ({ data }: { data: ContributionDay[] }) => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const days = ['Mon', 'Wed', 'Fri'];
 
+  // Function to check window width for client-side rendering
+  const useWindowWidth = () => {
+    const [width, setWidth] = useState(0);
+    
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      handleResize();
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+    return width;
+  };
+  
+  const width = useWindowWidth();
+  const isMobile = width < 768; // md breakpoint
+  
+  // Adjust weeks for mobile view
+  const displayedWeeks = isMobile ? weeks.slice(-13) : weeks; // Show only last quarter on mobile
+
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-300 dark:scrollbar-thumb-neutral-700">
       <div className="min-w-max">
         {/* Month labels */}
         <div className="flex mb-2 text-xs text-neutral-500 dark:text-neutral-400">
-          <div className="w-8" /> {/* Spacing for day labels */}
+          <div className="w-6 sm:w-8" /> {/* Spacing for day labels */}
           {months.map((month, i) => (
-            <div key={month} className="flex-1 text-center">{month}</div>
+            <div key={month} className="flex-1 text-center text-[0.6rem] sm:text-xs">{month}</div>
           ))}
         </div>
         
         <div className="flex">
           {/* Day labels */}
-          <div className="flex flex-col justify-between mr-2 text-xs text-neutral-500 dark:text-neutral-400 h-[104px]">
+          <div className="flex flex-col justify-between mr-1 sm:mr-2 text-[0.6rem] sm:text-xs text-neutral-500 dark:text-neutral-400 h-[104px]">
             {days.map(day => (
               <div key={day} className="h-3 leading-3">{day}</div>
             ))}
           </div>
 
           {/* Contribution squares */}
-          <div className="flex gap-1">
-            {weeks.map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-1">
+          <div className="flex gap-[2px] sm:gap-1">
+            {displayedWeeks.map((week, weekIndex) => (
+              <div key={weekIndex} className="flex flex-col gap-[2px] sm:gap-1">
                 {week.map((day, dayIndex) => (
                   <div
                     key={`${weekIndex}-${dayIndex}`}
-                    className={`w-3 h-3 rounded-sm ${getLevelColor(day.level)} hover:ring-2 hover:ring-neutral-400 dark:hover:ring-neutral-500`}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-sm ${getLevelColor(day.level)} hover:ring-1 sm:hover:ring-2 hover:ring-neutral-400 dark:hover:ring-neutral-500`}
                     title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                   />
                 ))}
@@ -197,15 +219,15 @@ const ContributionGraph = ({ data }: { data: ContributionDay[] }) => {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center justify-end mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-          <span className="mr-2">Less</span>
+        <div className="flex items-center justify-end mt-2 text-[0.6rem] sm:text-xs text-neutral-500 dark:text-neutral-400">
+          <span className="mr-1 sm:mr-2">Less</span>
           {[0, 1, 2, 3, 4].map((level) => (
             <div
               key={level}
-              className={`w-3 h-3 rounded-sm ${getLevelColor(level)} mx-0.5`}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-sm ${getLevelColor(level)} mx-0.5`}
             />
           ))}
-          <span className="ml-2">More</span>
+          <span className="ml-1 sm:ml-2">More</span>
         </div>
       </div>
     </div>
@@ -296,8 +318,8 @@ export default function GitHub() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white mx-auto"></div>
-          <p className="mt-4 text-neutral-900 dark:text-white">Loading GitHub profile...</p>
+          <div className="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-gray-900 dark:border-white mx-auto"></div>
+          <p className="mt-4 text-sm sm:text-base text-neutral-900 dark:text-white">Loading GitHub profile...</p>
         </div>
       </div>
     );
@@ -315,53 +337,53 @@ export default function GitHub() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
-      <main className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <main className="py-4 sm:py-8 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-8">
           {/* Left Column - Profile Info */}
-          <div className="lg:w-1/4">
-            <div className="mb-4 relative">
+          <div className="w-full lg:w-1/4">
+            <div className="mb-4 relative mx-auto lg:mx-0 max-w-[200px] lg:max-w-none">
               <Image
                 src={profile?.avatar_url || ''}
                 alt={profile?.name || 'GitHub Avatar'}
                 width={296}
                 height={296}
-                className="rounded-full"
+                className="rounded-full w-full aspect-square object-cover"
               />
               {/* Achievement Badge */}
-              <div className="absolute bottom-4 right-4 bg-white/50 dark:bg-black/20 rounded-full p-1 border-2 border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
-                <span role="img" aria-label="achievement" className="text-xl">✌️</span>
+              <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-white/50 dark:bg-black/20 rounded-full p-1 border-2 border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
+                <span role="img" aria-label="achievement" className="text-base sm:text-xl">✌️</span>
               </div>
             </div>
-            <div className="mb-4">
-              <h1 className="text-2xl font-bold text-neutral-900 dark:text-white">{profile?.name}</h1>
-              <p className="text-xl text-neutral-600 dark:text-neutral-400">{profile?.login}</p>
+            <div className="mb-3 sm:mb-4 text-center lg:text-left">
+              <h1 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">{profile?.name}</h1>
+              <p className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400">{profile?.login}</p>
             </div>
-            <div className="mb-4">
-              <p className="text-neutral-700 dark:text-neutral-300">Software Engineer & Security Analyst</p>
+            <div className="mb-3 sm:mb-4 text-center lg:text-left">
+              <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300">Software Engineer & Security Analyst</p>
             </div>
             
             <a
               href="https://github.com/gilanglahat22"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full mb-6 inline-flex items-center justify-center px-4 py-2 text-sm font-semibold bg-white/50 hover:bg-white/80 dark:bg-black/20 dark:hover:bg-black/40 text-neutral-900 dark:text-white border border-neutral-200/50 dark:border-neutral-800/30 rounded-md transition-colors duration-200 backdrop-blur-xl"
+              className="w-full mb-4 sm:mb-6 inline-flex items-center justify-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold bg-white/50 hover:bg-white/80 dark:bg-black/20 dark:hover:bg-black/40 text-neutral-900 dark:text-white border border-neutral-200/50 dark:border-neutral-800/30 rounded-md transition-colors duration-200 backdrop-blur-xl"
             >
-              <svg className="w-5 h-5 mr-2" viewBox="0 0 16 16" fill="currentColor">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
               </svg>
               View on GitHub
             </a>
 
-            <div className="flex items-center mb-4">
-              <svg className="w-4 h-4 mr-2 text-neutral-600 dark:text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center mb-3 sm:mb-4 justify-center lg:justify-start">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-neutral-600 dark:text-neutral-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              <span className="text-neutral-700 dark:text-neutral-300">
+              <span className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
                 <strong>48</strong> followers · <strong>75</strong> following
               </span>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2 text-sm text-center lg:text-left">
               <div className="flex items-center">
                 <svg className="w-4 h-4 mr-2 text-neutral-600 dark:text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -391,9 +413,9 @@ export default function GitHub() {
             </div>
 
             {/* Achievements Section */}
-            <div className="mt-6">
-              <h2 className="text-base font-semibold mb-2">Achievements</h2>
-              <div className="flex gap-2">
+            <div className="mt-4 sm:mt-6 text-center lg:text-left">
+              <h2 className="text-sm sm:text-base font-semibold mb-2">Achievements</h2>
+              <div className="flex gap-2 justify-center lg:justify-start">
                 <Achievement 
                   image="https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png" 
                   alt="YOLO Achievement" 
@@ -410,9 +432,9 @@ export default function GitHub() {
             </div>
 
             {/* Organizations Section */}
-            <div className="mt-6">
-              <h2 className="text-base font-semibold mb-2">Organizations</h2>
-              <div className="flex gap-2">
+            <div className="mt-4 sm:mt-6 text-center lg:text-left">
+              <h2 className="text-sm sm:text-base font-semibold mb-2">Organizations</h2>
+              <div className="flex gap-2 justify-center lg:justify-start">
                 <Organization 
                   image="https://avatars.githubusercontent.com/u/35373553?s=64&v=4" 
                   alt="Organization 1" 
@@ -426,15 +448,15 @@ export default function GitHub() {
           </div>
 
           {/* Right Column - Pinned Repositories and Contributions */}
-          <div className="lg:w-3/4">
+          <div className="w-full lg:w-3/4 mt-6 lg:mt-0">
             {/* Contribution Graph */}
-            <div className="card mb-8 bg-white/50 dark:bg-black/20 p-4 rounded-lg border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-base font-semibold text-neutral-900 dark:text-white">617 contributions in 2022</h2>
+            <div className="card mb-6 sm:mb-8 bg-white/50 dark:bg-black/20 p-3 sm:p-4 rounded-lg border border-neutral-200/50 dark:border-neutral-800/30 backdrop-blur-xl">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h2 className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-white">617 contributions in 2022</h2>
                 <select 
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="text-sm bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 rounded-md px-2 py-1 text-neutral-900 dark:text-white backdrop-blur-xl"
+                  className="text-xs sm:text-sm bg-white/50 dark:bg-black/20 border border-neutral-200/50 dark:border-neutral-800/30 rounded-md px-1.5 sm:px-2 py-0.5 sm:py-1 text-neutral-900 dark:text-white backdrop-blur-xl"
                 >
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
@@ -445,13 +467,13 @@ export default function GitHub() {
             </div>
 
             {/* Pinned Repositories */}
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-base font-semibold text-neutral-900 dark:text-white">Pinned</h2>
-              <Link href="/customize" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+            <div className="mb-3 sm:mb-4 flex items-center justify-between">
+              <h2 className="text-sm sm:text-base font-semibold text-neutral-900 dark:text-white">Pinned</h2>
+              <Link href="/customize" className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 hover:underline">
                 Customize your pins
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {pinnedRepos.map((repo) => (
                 <PinnedRepoCard key={repo.name} repo={repo} />
               ))}

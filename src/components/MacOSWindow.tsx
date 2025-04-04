@@ -63,15 +63,15 @@ const MacOSWindow = ({
       }}
     >
       {/* Window Header */}
-      <div className="flex items-center px-4 py-2 border-b border-inherit bg-opacity-50">
+      <div className="flex items-center px-2 sm:px-4 py-1.5 sm:py-2 border-b border-inherit bg-opacity-50">
         {/* Traffic Light Controls */}
-        <div className="flex space-x-2 mr-4">
+        <div className="flex space-x-1.5 sm:space-x-2 mr-2 sm:mr-4">
           {/* Close Button */}
           <button 
             onClick={onClose}
             onMouseEnter={() => setIsCloseHovered(true)}
             onMouseLeave={() => setIsCloseHovered(false)}
-            className={`relative w-3 h-3 rounded-full transition-all duration-150
+            className={`relative w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-150
               ${isHovered 
                 ? 'bg-red-500 hover:bg-red-600' 
                 : theme === 'dark' || variant === 'dark'
@@ -81,7 +81,7 @@ const MacOSWindow = ({
           >
             {isCloseHovered && (
               <span className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-2 h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
+                <svg className="w-1.5 h-1.5 sm:w-2 sm:h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
                   <path d="M3 3l6 6M9 3l-6 6" />
                 </svg>
               </span>
@@ -92,7 +92,7 @@ const MacOSWindow = ({
           <div 
             onMouseEnter={() => setIsMinimizeHovered(true)}
             onMouseLeave={() => setIsMinimizeHovered(false)}
-            className={`relative w-3 h-3 rounded-full transition-all duration-150
+            className={`relative w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-150
               ${isHovered 
                 ? 'bg-yellow-500 hover:bg-yellow-600' 
                 : theme === 'dark' || variant === 'dark'
@@ -101,7 +101,7 @@ const MacOSWindow = ({
           >
             {isMinimizeHovered && (
               <span className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-2 h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
+                <svg className="w-1.5 h-1.5 sm:w-2 sm:h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
                   <path d="M3 6h6" />
                 </svg>
               </span>
@@ -112,7 +112,7 @@ const MacOSWindow = ({
           <div 
             onMouseEnter={() => setIsMaximizeHovered(true)}
             onMouseLeave={() => setIsMaximizeHovered(false)}
-            className={`relative w-3 h-3 rounded-full transition-all duration-150
+            className={`relative w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-150
               ${isHovered 
                 ? 'bg-green-500 hover:bg-green-600' 
                 : theme === 'dark' || variant === 'dark'
@@ -121,7 +121,7 @@ const MacOSWindow = ({
           >
             {isMaximizeHovered && (
               <span className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-2 h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
+                <svg className="w-1.5 h-1.5 sm:w-2 sm:h-2" viewBox="0 0 12 12" fill="none" stroke="rgba(0,0,0,0.4)" strokeWidth="2">
                   <path d="M3.5 3.5h5v5h-5z" />
                 </svg>
               </span>
@@ -131,17 +131,17 @@ const MacOSWindow = ({
         
         {/* Window Title */}
         <div className="flex-1 text-center">
-          <h3 className="text-sm font-medium truncate">
+          <h3 className="text-xs sm:text-sm font-medium truncate">
             {title}
           </h3>
         </div>
         
         {/* Right spacing to balance the traffic lights */}
-        <div className="w-14" />
+        <div className="w-10 sm:w-14" />
       </div>
       
       {/* Window Content */}
-      <div className="p-4">
+      <div className="p-2 sm:p-4">
         {children}
       </div>
     </div>
