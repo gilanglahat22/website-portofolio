@@ -135,6 +135,22 @@ export default function Projects() {
       tags: ["C++", "Java", "Algorithms", "Data Structures", "Problem Solving"],
       category: "algorithm",
       link: "https://github.com/gilanglahat22/Competitive-Programming"
+    },
+    {
+      title: "Avalanche Consensus Protocol Optimization",
+      description: "Research on optimizing blockchain's Avalanche consensus protocol using algorithmic improvements for faster transaction verification while maintaining security.",
+      image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["Blockchain", "Consensus Algorithms", "Research", "C++"],
+      category: "blockchain",
+      link: "https://github.com/gilanglahat22/Avalanche-Research"
+    },
+    {
+      title: "KLAB Smile Company Platform",
+      description: "Developed corporate platform with Laravel, Nginx, MySQL to increase customer engagement by 222% and boost revenue, optimizing database queries and improving website traffic.",
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      tags: ["Laravel", "Nginx", "MySQL", "Database Optimization", "API Integration"],
+      category: "web",
+      link: "https://github.com/gilanglahat22/KLAB-Platform"
     }
   ];
 
@@ -183,6 +199,12 @@ export default function Projects() {
                     onClick={() => setFilter('algorithm')}
                   >
                     Algorithms
+                  </button>
+                  <button 
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === 'blockchain' ? 'bg-blue-600 shadow-sm text-white' : ''}`}
+                    onClick={() => setFilter('blockchain')}
+                  >
+                    Blockchain
                   </button>
                 </div>
               </div>

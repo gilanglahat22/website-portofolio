@@ -5,6 +5,8 @@ import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 import SkillsGrid from '@/components/SkillsGrid';
 import { useTheme } from '@/contexts/ThemeContext';
+import CertificationCard from '@/components/CertificationCard';
+import MacOSTerminal from '@/components/MacOSTerminal';
 
 export default function Skills() {
   const { theme } = useTheme();
@@ -31,65 +33,122 @@ export default function Skills() {
             <SkillsGrid />
           </MacOSWindow>
           
-          {/* Experience Timeline */}
-          <MacOSWindow title="Learning Journey" variant="system">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">My Learning Path</h2>
+          {/* Timeline Section */}
+          <MacOSWindow title="Experience Timeline" variant="system">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">My Journey</h2>
+              <p>A timeline of my learning path and achievements in software development.</p>
               
-              {/* Timeline */}
-              <div className="relative pl-8 space-y-8 before:absolute before:left-4 before:h-full before:w-0.5 before:bg-current before:opacity-20">
-                {/* Timeline Items */}
-                <TimelineItem
-                  year="2024"
-                  title="Full Stack Development"
-                  description="Expanded my expertise in web application development, working as Junior Software Engineer at PT Fata Organa Solusi on the hashigake.jp project and developing complex matching applications."
-                />
-                <TimelineItem
-                  year="2023"
-                  title="Machine Learning & Internship"
-                  description="Participated in Bangkit Academy led by Google, Tokopedia, Gojek & Traveloka, focusing on machine learning. Interned at PT Suitmedia Kreasi Indonesia, developing the KLAB Smile Company's platform."
-                />
-                <TimelineItem
-                  year="2022"
-                  title="Competitive Programming"
-                  description="Advanced my problem-solving skills through competitive programming competitions, becoming a finalist in ICPC Asia Jakarta and Gemastik XV Divisi Pemrograman."
-                />
-                <TimelineItem
-                  year="2020"
-                  title="Software Engineering Fundamentals"
-                  description="Started my Bachelor's in Informatics Engineering at Bandung Institute of Technology, focusing on software engineering, blockchain, and mathematical problems."
-                />
+              <div className="space-y-4 py-4">
+                {/* Experience Timeline */}
+                <MacOSTerminal title="Timeline">
+                  <div className="space-y-4">
+                    {/* 2024 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2024</h3>
+                      <p>Software Engineer at PT Peta Organa Solusi, Jakarta</p>
+                    </div>
+                    
+                    {/* 2023 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2023</h3>
+                      <p>Graduated from Bandung Institute of Technology</p>
+                    </div>
+                    
+                    {/* 2022 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2022</h3>
+                      <p>Intern at Smile Inc., Tokyo</p>
+                    </div>
+                    
+                    {/* 2021 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2021</h3>
+                      <p>Started competitive programming journey</p>
+                    </div>
+                    
+                    {/* 2020 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2020</h3>
+                      <p>Began studying Computer Science at Bandung Institute of Technology</p>
+                    </div>
+                  </div>
+                </MacOSTerminal>
               </div>
             </div>
           </MacOSWindow>
           
-          {/* Achievements */}
-          <MacOSWindow title="Achievements" variant="system">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <CertificationCard
-                title="Finalist ICPC Asia Jakarta"
-                organization="International Collegiate Programming Contest"
-                date="2021"
-                category="Competitive Programming"
-              />
-              <CertificationCard
-                title="Top 40 Indonesia National Contest"
-                organization="National Programming Competition"
-                date="2021"
-                category="Algorithm Design"
-              />
-              <CertificationCard
-                title="Finalist Gemastik XV"
-                organization="National STEM Competition"
-                date="2022"
-                category="Programming Division"
-              />
-              <CertificationCard
-                title="4th Place ITB Gemastik"
-                organization="Bandung Institute of Technology"
-                date="2022"
-                category="Competitive Programming"
-              />
+          {/* Achievements Section */}
+          <MacOSWindow title="Achievements & Certifications" variant="system">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Achievements & Certifications</h2>
+              <p>Recognition and accomplishments from my academic and professional journey.</p>
+              
+              <div className="space-y-6 py-4">
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Achievements</h3>
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-lg card relative">
+                      <h4 className="text-lg font-medium">National Competitive Programming Winner</h4>
+                      <p className="text-sm text-gray-600 dark:text-neutral-400">2022 - Bandung Institute of Technology</p>
+                      <p className="mt-2">1st place in the National Algorithm Competition, solving complex algorithmic challenges within tight time constraints.</p>
+                    </div>
+                    
+                    <div className="p-4 rounded-lg card relative">
+                      <h4 className="text-lg font-medium">Best Academic Achievement Award</h4>
+                      <p className="text-sm text-gray-600 dark:text-neutral-400">2023 - Computer Science Department</p>
+                      <p className="mt-2">Recognized for outstanding academic performance and research contributions in algorithms and data structures.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Certifications</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <CertificationCard
+                      title="Basic Data Science"
+                      organization="LinkedIn Learning"
+                      date="March 2023"
+                      category="Data Science"
+                    />
+                    <CertificationCard
+                      title="Basic SQL"
+                      organization="LinkedIn Learning"
+                      date="April 2023"
+                      category="Database"
+                    />
+                    <CertificationCard
+                      title="Basic Artificial Intelligence"
+                      organization="LinkedIn Learning"
+                      date="May 2023"
+                      category="AI"
+                    />
+                    <CertificationCard
+                      title="Basic Project Management"
+                      organization="LinkedIn Learning"
+                      date="June 2023"
+                      category="Project Management"
+                    />
+                    <CertificationCard
+                      title="Self-Development Strategy"
+                      organization="LinkedIn Learning"
+                      date="July 2023"
+                      category="Personal Growth"
+                    />
+                    <CertificationCard
+                      title="Machine Learning Cohort"
+                      organization="LinkedIn Learning"
+                      date="August 2023"
+                      category="Machine Learning"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </MacOSWindow>
         </div>
@@ -119,32 +178,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, title, description })
       <div className="card rounded-lg p-4">
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="mt-2">{description}</p>
-      </div>
-    </div>
-  );
-};
-
-interface CertificationCardProps {
-  title: string;
-  organization: string;
-  date: string;
-  category: string;
-}
-
-const CertificationCard: React.FC<CertificationCardProps> = ({ title, organization, date, category }) => {
-  return (
-    <div className="card rounded-lg p-4">
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-semibold">{title}</h3>
-          <p className="text-sm mt-1">{organization}</p>
-        </div>
-        <span className="text-sm">{date}</span>
-      </div>
-      <div className="mt-3">
-        <span className="inline-block px-2 py-1 text-xs rounded-full card">
-          {category}
-        </span>
       </div>
     </div>
   );

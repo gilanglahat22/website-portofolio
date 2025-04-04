@@ -1,0 +1,46 @@
+
+> putra-putri-maritim-national-2024@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.4
+  - Local:        http://localhost:3000
+  - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1610ms
+(node:23817) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ○ Compiling / ...
+ ✓ Compiled / in 3s (1285 modules)
+ HEAD / 200 in 3245ms
+ ○ Compiling /skills ...
+ ✓ Compiled /skills in 1624ms (1339 modules)
+ HEAD /skills 200 in 1823ms
+ ✓ Compiled /projects in 298ms (1322 modules)
+ HEAD /projects 200 in 426ms
+ ✓ Compiled / in 185ms (643 modules)
+ GET / 200 in 527ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 2.3s (1312 modules)
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 1944ms (1318 modules)
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 727ms (670 modules)
+ ✓ Compiled /skills in 450ms (687 modules)
+ ✓ Compiled /_not-found in 256ms (1342 modules)
+ GET /icons/skills/php.svg 404 in 431ms
+ ⨯ The requested resource isn't a valid image for /icons/skills/php.svg received text/html; charset=utf-8
+ ✓ Compiled /experience in 278ms (1339 modules)
+ ✓ Compiled /public-chat in 293ms (1345 modules)
+ ✓ Compiled /github in 227ms (1351 modules)
+ ✓ Compiled / in 91ms (697 modules)
+ ✓ Compiled /about in 136ms (697 modules)
+ ✓ Compiled /blog in 103ms (701 modules)
+ GET /icons/skills/php.svg 404 in 95ms
+ ⨯ The requested resource isn't a valid image for /icons/skills/php.svg received text/html; charset=utf-8
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 662ms (1359 modules)
+ ✓ Compiled /public-chat in 83ms (699 modules)
+ GET /icons/skills/php.svg 404 in 153ms
+ ⨯ The requested resource isn't a valid image for /icons/skills/php.svg received text/html; charset=utf-8
