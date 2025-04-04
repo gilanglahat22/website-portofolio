@@ -135,7 +135,7 @@ export default function About() {
                       
                       <div className="border-l-4 border-blue-500 pl-4">
                         <h4 className="font-medium">Full Stack Developer</h4>
-                        <p className="text-sm mb-1">Faina Labs (Freelance) | August 2023 - Present</p>
+                        <p className="text-sm mb-1">Feline Labs (Freelance) | August 2023 - Present</p>
                         <p>Developed APIs with TypeScript, Node.js, Laravel, React, Express, PHP Laravel, Kotlin, MySQL, and MongoDB. Successfully executed multiple event projects for prestigious clients.</p>
                       </div>
                       
@@ -205,7 +205,7 @@ export default function About() {
                   </p>
                   
                   <p>
-                    With a diverse background in software development, I've worked on a variety of projects from competitive programming challenges to enterprise applications. I've had the opportunity to work with companies like PT Fata Organa Solusi, Faina Labs, and PT Suitmedia Kreasi Indonesia, gaining expertise in both frontend and backend development.
+                    With a diverse background in software development, I've worked on a variety of projects from competitive programming challenges to enterprise applications. I've had the opportunity to work with companies like PT Fata Organa Solusi, Feline Labs, and PT Suitmedia Kreasi Indonesia, gaining expertise in both frontend and backend development.
                   </p>
                   
                   <p>
