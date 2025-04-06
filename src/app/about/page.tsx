@@ -100,12 +100,12 @@ export default function About() {
                       
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Email</h3>
-                        <p>muhgilangramadhan.3011@gmail.com</p>
+                        <p>contact@example.com</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Phone</h3>
-                        <p>+62-823-8221-1182</p>
+                        <p>+62-xxx-xxxx-xxxx</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">

@@ -154,7 +154,7 @@ export default function Contact() {
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div className="card p-4 rounded-lg">
                 <h3 className="text-lg font-medium mb-2">Email</h3>
-                <p>muhgilangramadhan.3011@gmail.com</p>
+                <p>contact@example.com</p>
               </div>
               
               <div className="card p-4 rounded-lg">
