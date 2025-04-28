@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import React from 'react';
@@ -37,8 +38,7 @@ const ThemeAwareContent = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
               >
-                Software Engineer & Security Analyst from Bandung Institute of Technology.
-                Specializing in web development, algorithms, and cybersecurity solutions.
+                I'm a passionate Software Engineer specializing in backend development, distributed systems, and blockchain, dedicated to delivering value through technology.
               </motion.p>
             </div>
             

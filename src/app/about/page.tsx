@@ -100,12 +100,12 @@ export default function About() {
                       
                       <div className="card p-3 rounded-lg">
                         <h3 className="font-medium">Email</h3>
-                        <p>contact@example.com</p>
+                        <p>muhgilangramadhan.3011@gmail.com</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
-                        <h3 className="font-medium">Phone</h3>
-                        <p>+62-xxx-xxxx-xxxx</p>
+                        <h3 className="font-medium">Profiles</h3>
+                        <p>LinkedIn | GitHub | ORCID | TRX</p>
                       </div>
                       
                       <div className="card p-3 rounded-lg">
@@ -128,15 +128,28 @@ export default function About() {
                     <h3 className="text-xl font-medium mb-4">Professional Experience</h3>
                     <div className="space-y-4 mb-6">
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Junior Software Engineer</h4>
-                        <p className="text-sm mb-1">PT Fata Organa Solusi | July 2024 - March 2025</p>
-                        <p>Main PIC for hashigake.jp project, matching application for multiple companies against tenant storage data. Developed detailed software documentation and implemented secure services.</p>
+                        <h4 className="font-medium">Research and Development Team (Full Time)</h4>
+                        <p className="text-sm mb-1">MarkAny | April 2022 - Present</p>
+                        <p>Research and Develop EndPoint Detection & Response by service in C/C++ and Deep Learning. Detecting software supply-chain threats with Windows Filtering Platform.</p>
                       </div>
                       
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Full Stack Developer</h4>
-                        <p className="text-sm mb-1">Feline Labs (Freelance) | August 2023 - Present</p>
+                        <h4 className="font-medium">Junior Software Engineer (Full Time)</h4>
+                        <p className="text-sm mb-1">PT Fata Organa Solusi | July 2024 - March 2025</p>
+                        <p>Main PIC for hashigake.jp project, matching application for multiple companies against tenant storage data. Developed and applied standardized secure client-configuration microservices.</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium">Full Stack Developer (Freelance)</h4>
+                        <p className="text-sm mb-1">Feline Labs | August 2023 - Present</p>
                         <p>Developed APIs with TypeScript, Node.js, Laravel, React, Express, PHP Laravel, Kotlin, MySQL, and MongoDB. Successfully executed multiple event projects for prestigious clients.</p>
+                      </div>
+
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium">Web Developer (Part Time)</h4>
+                        <p className="text-sm mb-1">PT Fata Organa Solusi | December 2023 – June 2024</p>
+                        <p>Developed Fullstack Web App with ASP .Net, React, Sql Server Includes Frontend and API Services with Azure 
+                        Services.</p>
                       </div>
                       
                       <div className="border-l-4 border-blue-500 pl-4">
@@ -148,7 +161,14 @@ export default function About() {
                     
                     <h3 className="text-xl font-medium mb-4">Skills</h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                      {['Java', 'Go', 'TypeScript', 'C/C++/C#', 'PHP', 'Python', 'SQL', 'Kotlin', 'Rust', 'Docker', 'Node.js', 'Laravel'].map((skill) => (
+                      {[
+                        'Java', 'Go', 'TypeScript', 'C/C++/C#', 'PHP', 'Python', 
+                        'SQL', 'JavaScript/TypeScript', 'Kotlin', 'Rust', 
+                        'React', 'Angular', 'Vue', 'WebGL', 'Laravel', 
+                        '.Net', 'Go Fiber', 'SpringBoot', 'Docker', 'Express', 
+                        'Node.js', 'Flask', 'Laravel', 'Kafka', 'SQL', 'MongoDB',
+                        'OOP', 'SOAP', 'SOLID Design', 'Algorithms', 'Data Structures'
+                      ].map((skill) => (
                         <div key={skill} className="card p-2 rounded-lg text-center border border-blue-100 dark:border-blue-900">
                           <span>{skill}</span>
                         </div>
@@ -159,13 +179,14 @@ export default function About() {
                     <div className="space-y-3">
                       <div className="border-l-4 border-blue-500 pl-4">
                         <h4 className="font-medium">Bachelor Engineering of Informatics</h4>
-                        <p>Bandung Institute of Technology | GPA: 3.30/4.00</p>
-                        <p className="text-sm">August 2020 - July 2025 (Expected)</p>
+                        <p>Bandung Institute of Technology</p>
+                        <p className="text-sm">August 2020 - July 2025 (Expectation)</p>
+                        <p className="text-sm mt-1">Relevant Coursework: Algorithm design, Operating system, Distributed system, and mathematical problems.</p>
                       </div>
                       
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">Machine Learning Cohort</h4>
-                        <p>Bangkit Academy | February 2023 - December 2023</p>
+                        <h4 className="font-medium">Thesis</h4>
+                        <p className="text-sm">Research multinode blockchain's Avalanche consensus protocol using dynamic graph algorithm</p>
                       </div>
                     </div>
                   </div>

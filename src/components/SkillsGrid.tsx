@@ -82,11 +82,11 @@ export default function SkillsGrid() {
     { name: 'PHP', icon: '/icons/skills/php.svg', color: 'bg-gradient-to-br from-indigo-500 to-purple-600', level: 4 },
     { name: 'Python', icon: '/icons/skills/python.svg', color: 'bg-gradient-to-br from-yellow-500 to-yellow-700', level: 4 },
     { name: 'SQL', icon: '/icons/skills/database.svg', color: 'bg-gradient-to-br from-cyan-500 to-cyan-700', level: 5 },
-    { name: 'JavaScript', icon: '/icons/skills/javascript.svg', color: 'bg-gradient-to-br from-yellow-500 to-amber-600', level: 5 },
+    { name: 'JavaScript/TypeScript', icon: '/icons/skills/javascript.svg', color: 'bg-gradient-to-br from-yellow-500 to-amber-600', level: 5 },
     { name: 'Kotlin', icon: '/icons/skills/kotlin.svg', color: 'bg-gradient-to-br from-purple-400 to-purple-600', level: 4 },
     { name: 'Rust', icon: '/icons/skills/rust.svg', color: 'bg-gradient-to-br from-orange-700 to-red-800', level: 4 },
-    { name: 'Node.js', icon: '/icons/skills/nodejs.svg', color: 'bg-gradient-to-br from-green-600 to-green-800', level: 4 },
-    { name: 'Docker', icon: '/icons/skills/docker.svg', color: 'bg-gradient-to-br from-blue-500 to-blue-700', level: 4 },
+    { name: 'React', icon: '/icons/skills/react.svg', color: 'bg-gradient-to-br from-blue-300 to-blue-500', level: 4 },
+    { name: 'Angular', icon: '/icons/skills/angular.svg', color: 'bg-gradient-to-br from-red-500 to-red-700', level: 4 },
   ];
 
   return (
@@ -99,7 +99,7 @@ export default function SkillsGrid() {
           {/* @ts-ignore */}
           <h2 className="text-2xl font-semibold mb-1" style={{ color: "#042043" }}>Technical Skills</h2>
           {/* @ts-ignore */}
-          <p className="text-gray-600 dark:text-gray-400">Programming Languages & Backend Development Technologies</p>
+          <p className="text-gray-600 dark:text-gray-400">Programming Languages & Object-Oriented Programming</p>
         </div>
         
         {/* @ts-ignore */}

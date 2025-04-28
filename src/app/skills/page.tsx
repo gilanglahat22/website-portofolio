@@ -46,36 +46,50 @@ export default function Skills() {
                     {/* 2024 */}
                     <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
                       <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2024</h3>
-                      <p>Software Engineer at PT Peta Organa Solusi, Jakarta</p>
+                      <h3 className="text-xl font-bold">2024-2025</h3>
+                      <p>Junior Software Engineer at PT Feta Organa Solusi</p>
+                    </div>
+                    
+                    {/* 2023 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2023-Present</h3>
+                      <p>Full Stack Developer at Follow</p>
+                    </div>
+                    
+                    {/* 2023 */}
+                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
+                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
+                      <h3 className="text-xl font-bold">2023-2024</h3>
+                      <p>Web Developer at PT Feta Organa Solusi (Part Time)</p>
                     </div>
                     
                     {/* 2023 */}
                     <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
                       <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
                       <h3 className="text-xl font-bold">2023</h3>
-                      <p>Graduated from Bandung Institute of Technology</p>
+                      <p>Software Engineer at PT Rangoon Technology</p>
                     </div>
                     
                     {/* 2022 */}
                     <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
                       <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2022</h3>
-                      <p>Intern at Smile Inc., Tokyo</p>
+                      <h3 className="text-xl font-bold">2022-2023</h3>
+                      <p>Machine Learning Engineer at Bangkok Outpatient</p>
                     </div>
                     
-                    {/* 2021 */}
+                    {/* 2022 */}
                     <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
                       <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2021</h3>
-                      <p>Started competitive programming journey</p>
+                      <h3 className="text-xl font-bold">2022-Present</h3>
+                      <p>Research and Development Team at Rangoon Technology and BerbanyAny</p>
                     </div>
                     
                     {/* 2020 */}
                     <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 relative">
                       <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2020</h3>
-                      <p>Began studying Computer Science at Bandung Institute of Technology</p>
+                      <h3 className="text-xl font-bold">2020-2025</h3>
+                      <p>Bachelor Engineering of Informatics at Bandung Institute of Technology</p>
                     </div>
                   </div>
                 </MacOSTerminal>
