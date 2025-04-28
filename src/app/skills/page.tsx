@@ -33,70 +33,6 @@ export default function Skills() {
             <SkillsGrid />
           </MacOSWindow>
           
-          {/* Timeline Section */}
-          <MacOSWindow title="Experience Timeline" variant="system">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold">My Journey</h2>
-              <p>A timeline of my learning path and achievements in software development.</p>
-              
-              <div className="space-y-4 py-4">
-                {/* Experience Timeline */}
-                <MacOSTerminal title="Timeline">
-                  <div className="space-y-4">
-                    {/* 2024 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2024-2025</h3>
-                      <p>Junior Software Engineer at PT Feta Organa Solusi</p>
-                    </div>
-                    
-                    {/* 2023 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2023-Present</h3>
-                      <p>Full Stack Developer at Follow</p>
-                    </div>
-                    
-                    {/* 2023 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2023-2024</h3>
-                      <p>Web Developer at PT Feta Organa Solusi (Part Time)</p>
-                    </div>
-                    
-                    {/* 2023 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2023</h3>
-                      <p>Software Engineer at PT Rangoon Technology</p>
-                    </div>
-                    
-                    {/* 2022 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2022-2023</h3>
-                      <p>Machine Learning Engineer at Bangkok Outpatient</p>
-                    </div>
-                    
-                    {/* 2022 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 pb-2 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2022-Present</h3>
-                      <p>Research and Development Team at Rangoon Technology and BerbanyAny</p>
-                    </div>
-                    
-                    {/* 2020 */}
-                    <div className="border-l-2 border-gray-200 dark:border-neutral-800 pl-4 relative">
-                      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-0"></div>
-                      <h3 className="text-xl font-bold">2020-2025</h3>
-                      <p>Bachelor Engineering of Informatics at Bandung Institute of Technology</p>
-                    </div>
-                  </div>
-                </MacOSTerminal>
-              </div>
-            </div>
-          </MacOSWindow>
-          
           {/* Achievements Section */}
           <MacOSWindow title="Achievements & Certifications" variant="system">
             <div className="space-y-4">
@@ -104,23 +40,6 @@ export default function Skills() {
               <p>Recognition and accomplishments from my academic and professional journey.</p>
               
               <div className="space-y-6 py-4">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">Achievements</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 rounded-lg card relative">
-                      <h4 className="text-lg font-medium">National Competitive Programming Winner</h4>
-                      <p className="text-sm text-gray-600 dark:text-neutral-400">2022 - Bandung Institute of Technology</p>
-                      <p className="mt-2">1st place in the National Algorithm Competition, solving complex algorithmic challenges within tight time constraints.</p>
-                    </div>
-                    
-                    <div className="p-4 rounded-lg card relative">
-                      <h4 className="text-lg font-medium">Best Academic Achievement Award</h4>
-                      <p className="text-sm text-gray-600 dark:text-neutral-400">2023 - Computer Science Department</p>
-                      <p className="mt-2">Recognized for outstanding academic performance and research contributions in algorithms and data structures.</p>
-                    </div>
-                  </div>
-                </div>
-                
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Certifications</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
