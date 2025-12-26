@@ -21,6 +21,7 @@ const dockItems = [
   { name: 'Experience', icon: '/icons/dock/experience.svg', href: '/experience' },
   { name: 'Contact', icon: '/icons/dock/contact.svg', href: '/contact' },
   { name: 'Public Chat', icon: '/icons/dock/public-chat.svg', href: '/public-chat' },
+  { name: 'Gallery', icon: '/icons/dock/gallery.svg', href: '/gallery' },
   { name: 'GitHub', icon: '/icons/dock/github.svg', href: '/github' },
 ];
 

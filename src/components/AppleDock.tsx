@@ -143,8 +143,18 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                           alt={item.name}
                           className={`w-full h-full object-contain transition-opacity duration-300 ${theme === 'light' ? 'invert' : ''}`}
                           onError={() => handleImageError(item.icon)}
-                          whileHover={mounted ? { rotate: [0, -10, 10, -5, 5, 0] } : {}}
-                          transition={{ duration: 0.5 }}
+                          whileHover={mounted ? { 
+                            rotate: [0, -10, 10, -5, 5, 0],
+                            transition: { duration: 0.5 }
+                          } : {}}
+                          animate={isActive && mounted ? {
+                            y: [0, -20, 0, -10, 0],
+                            transition: { 
+                              duration: 1.5,
+                              repeat: Infinity,
+                              repeatDelay: 3 
+                            }
+                          } : {}}
                         />
                       )}
                     </div>

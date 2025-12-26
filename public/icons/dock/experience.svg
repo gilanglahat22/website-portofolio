@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 8C4 6.89543 4.89543 6 6 6H18C19.1046 6 20 6.89543 20 8V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V8Z" fill="white" stroke="white" strokeWidth="1.5"/>
-  <path d="M8 4V7M16 4V7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-  <path d="M4 10H20" stroke="#1A1A1A" strokeWidth="1.5"/>
-  <path d="M8 14H10M14 14H16M8 17H10M14 17H16" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="180" fill="white"/>
+  
+  <!-- Red Top -->
+  <path d="M0 180 C0 80.5887 80.5887 0 180 0 H620 C719.411 0 800 80.5887 800 180 V220 H0 V180 Z" fill="#FF3B30"/>
+  
+  <!-- Current Date -->
+  <text x="50%" y="600" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="350" fill="#1C1C1E">XP</text>
+  <text x="50%" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="100" fill="white">WORK</text>
+</svg>

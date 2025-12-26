@@ -1,5 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 4C4 2.89543 4.89543 2 6 2H8.5C9.12951 2 9.72229 2.25934 10.1481 2.72361L11.4239 4.14721C11.8497 4.61148 12.4425 4.87083 13.072 4.87083H18C19.1046 4.87083 20 5.76626 20 6.87083V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4Z" fill="white" stroke="white" strokeWidth="1.5"/>
-  <path d="M8 10H16M8 14H12" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Back of folder -->
+   <path d="M50 200 C50 120 100 100 180 100 H300 L350 150 H750 C800 150 800 200 800 250 V700 H50 V200 Z" fill="#60A5FA"/>
+   
+   <!-- Front of folder -->
+   <rect x="0" y="250" width="800" height="550" rx="50" fill="url(#paint0_linear)"/>
+   
+   <!-- Folder Icon/Symbol -->
+   <rect x="250" y="450" width="300" height="150" rx="20" stroke="white" stroke-width="20" stroke-opacity="0.5" fill="none"/>
+   <line x1="250" y1="525" x2="550" y2="525" stroke="white" stroke-width="20" stroke-opacity="0.5"/>
+   
+  <defs>
+    <linearGradient id="paint0_linear" x1="400" y1="200" x2="400" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+</svg>

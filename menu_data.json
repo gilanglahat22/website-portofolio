@@ -7,6 +7,13 @@
     "isHaveContainer": false
   },
   {
+    "id": "gallery",
+    "label": "Gallery",
+    "link": "/gallery",
+    "color": "#0B0706",
+    "isHaveContainer": false
+  },
+  {
     "id": "2",
     "label": "Cek Status Pendaftaran",
     "link": "/cek-data",

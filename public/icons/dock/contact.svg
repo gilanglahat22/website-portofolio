@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" fill="white" stroke="white" strokeWidth="1.5"/>
-  <path d="M4 6L10.8906 11.2604C11.5624 11.7798 12.4376 11.7798 13.1094 11.2604L20 6" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="180" fill="url(#paint0_linear)"/>
+  
+  <g filter="url(#filter0_d)">
+    <path d="M100 250 H700 V550 H100 V250 Z" fill="white"/>
+    <path d="M100 250 L400 450 L700 250" stroke="#E5E5EA" stroke-width="10"/>
+    <path d="M100 550 L300 400" stroke="#E5E5EA" stroke-width="10"/>
+    <path d="M700 550 L500 400" stroke="#E5E5EA" stroke-width="10"/>
+  </g>
+  
+  <defs>
+    <linearGradient id="paint0_linear" x1="400" y1="0" x2="400" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5AC8FA"/>
+      <stop offset="1" stop-color="#007AFF"/>
+    </linearGradient>
+    <filter id="filter0_d" x="0" y="0" width="800" height="800" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+</svg>

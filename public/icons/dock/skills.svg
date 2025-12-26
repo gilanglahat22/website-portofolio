@@ -1,5 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  <circle cx="12" cy="12" r="3" stroke="#1A1A1A" strokeWidth="1.5"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="180" fill="url(#paint0_linear)"/>
+  
+  <!-- Outer Gear -->
+  <path d="M400 150 L450 50 L550 50 L600 150 C650 170 680 200 710 240 L800 280 L780 380 L680 400 C680 430 680 430 680 460 L780 480 L800 580 L710 620 C680 660 650 690 600 710 L550 800 L450 800 L400 700 C350 700 300 680 260 650 L180 680 L100 620 L150 520 C130 480 120 440 120 400 C120 360 130 320 150 280 L100 180 L180 120 L260 150 C300 120 350 100 400 100" 
+  fill="#B0B0B5" stroke="#8E8E93" stroke-width="10"/>
+
+  <circle cx="400" cy="400" r="180" fill="#3A3A3C"/>
+  <circle cx="400" cy="400" r="120" fill="#636366"/>
+  
+  <defs>
+    <linearGradient id="paint0_linear" x1="400" y1="0" x2="400" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5E5EA"/>
+      <stop offset="1" stop-color="#D1D1D6"/>
+    </linearGradient>
+  </defs>
+</svg>

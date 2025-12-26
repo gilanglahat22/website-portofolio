@@ -1,5 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="white" stroke="white" strokeWidth="1.5"/>
-  <path d="M7 7H17M7 11H17M7 15H13" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="180" fill="white"/>
+  
+  <!-- Yellow Top -->
+  <path d="M0 180 C0 80.5887 80.5887 0 180 0 H620 C719.411 0 800 80.5887 800 180 V240 H0 V180 Z" fill="#FFD60A"/>
+  <rect y="240" width="800" height="560" rx="0" fill="#F5F5F7"/>
+  <path d="M0 620 H800 V800 H0 V620 Z" fill="#F5F5F7" opacity="0.1"/>
+  
+  <!-- Lines -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#C7C7CC" stroke-width="4"/>
+  <line x1="100" y1="450" x2="700" y2="450" stroke="#C7C7CC" stroke-width="4"/>
+  <line x1="100" y1="550" x2="700" y2="550" stroke="#C7C7CC" stroke-width="4"/>
+  <line x1="100" y1="650" x2="700" y2="650" stroke="#C7C7CC" stroke-width="4"/>
+  
+  <!-- Scribble text -->
+  <path d="M120 320 H600 M120 420 H680 M120 520 H500" stroke="#999" stroke-width="10" stroke-linecap="round" opacity="0.3"/>
+</svg>

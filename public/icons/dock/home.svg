@@ -1,5 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M9 22V12h6v10" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-</svg> 
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="180" fill="white"/>
+  <!-- Finder Face Background -->
+  <path d="M0 400 C0 180 180 0 400 0 C620 0 800 180 800 400 L800 800 L0 800 Z" fill="#00C7FF" fill-opacity="0.1"/>
+  <rect width="800" height="800" rx="180" fill="url(#paint0_linear)"/>
+  <rect width="800" height="800" rx="180" fill="url(#paint1_linear)"/>
+  
+  <!-- Face Line -->
+  <path d="M400 680 C550 680 660 580 660 480 M140 480 C140 580 250 680 400 680" stroke="#003559" stroke-width="30" stroke-linecap="round"/>
+  <path d="M400 100 V800" stroke="#003559" stroke-width="10" stroke-opacity="0.2"/>
+  <path d="M250 300 C250 300 280 400 250 500" stroke="#003559" stroke-width="30" stroke-linecap="round"/>
+  <path d="M550 300 C550 300 520 400 550 500" stroke="#003559" stroke-width="30" stroke-linecap="round"/>
+  
+  <defs>
+    <linearGradient id="paint0_linear" x1="400" y1="0" x2="400" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5F3FF"/>
+      <stop offset="1" stop-color="#C2E2FF"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0.5" stop-color="#007AFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#0062CC" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Optimised Face Split -->
+  <mask id="face-mask">
+      <rect width="800" height="800" rx="180" fill="white"/>
+  </mask>
+  <g mask="url(#face-mask)">
+      <path d="M400 0 V800 L0 800 L0 0 Z" fill="#E0F0FD"/> <!-- Left Side -->
+      <path d="M800 0 V800 L400 800 L400 0 Z" fill="#F0F7FF"/> <!-- Right Side -->
+      
+      <!-- Blue Smile 1 -->
+      <path d="M400 375 Q 160 375 160 625 L 400 625 Z" fill="#007AFF"/>
+      <path d="M400 375 Q 640 375 640 625 L 400 625 Z" fill="#0062CC"/>
+      
+      <!-- Eyes -->
+      <circle cx="260" cy="250" r="40" fill="#002040"/>
+       <circle cx="540" cy="250" r="40" fill="#002040"/>
+  </g>
+</svg>
