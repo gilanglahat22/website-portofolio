@@ -125,10 +125,10 @@ export default function PublicChat() {
                   {/* Online users */}
                   <div className="flex -space-x-1 sm:-space-x-2">
                     {/* Show avatar placeholders for first 5 users on larger screens, 3 on mobile */}
-                    {[...Array(getWindowWidth() < 640 ? 3 : 5)].map((_, index) => (
+                    {[...Array(5)].map((_, index) => (
                       <div 
                         key={index}
-                        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-800 flex items-center justify-center"
+                        className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-800 flex items-center justify-center ${index >= 3 ? 'hidden sm:flex' : 'flex'}`}
                         style={{ backgroundColor: generateRandomColor(`Anonymous_${index}`) }}
                       >
                         <span className="text-[10px] sm:text-xs font-bold text-white">
@@ -137,7 +137,10 @@ export default function PublicChat() {
                       </div>
                     ))}
                     <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full card border-2 border-gray-800 flex items-center justify-center">
-                      <span className="text-[10px] sm:text-xs font-bold">+{getWindowWidth() < 640 ? '14' : '12'}</span>
+                      <span className="text-[10px] sm:text-xs font-bold">
+                        <span className="sm:hidden">+14</span>
+                        <span className="hidden sm:inline">+12</span>
+                      </span>
                     </div>
                   </div>
                 </div>

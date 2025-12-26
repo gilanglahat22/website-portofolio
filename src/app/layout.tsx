@@ -41,7 +41,7 @@ export default function RootLayout({
             </div>
             
             {/* Main Content */}
-            <div className="relative z-10">
+            <div className="relative z-10 pb-24 sm:pb-32">
               {children}
             </div>
             

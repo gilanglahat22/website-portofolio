@@ -98,7 +98,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
         />
         
         {/* Dock Items */}
-        <div className="relative flex items-end gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2">
+        <div className="relative flex items-end gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 overflow-x-auto max-w-[95vw] sm:max-w-full no-scrollbar">
           {items.map((item, index) => {
             const isActive = pathname === item.href;
             

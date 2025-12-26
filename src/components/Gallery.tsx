@@ -110,7 +110,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             </button>
 
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition-colors hidden sm:block p-2"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition-colors p-2"
               onClick={prevImage}
             >
               <FaChevronLeft />
@@ -140,7 +140,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             </div>
 
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition-colors hidden sm:block p-2"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition-colors p-2"
               onClick={nextImage}
             >
               <FaChevronRight />

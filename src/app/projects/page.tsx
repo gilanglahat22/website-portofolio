@@ -169,7 +169,7 @@ export default function Projects() {
               
               {/* Apple-style segmented control filter */}
               <div className="flex justify-center my-6">
-                <div className="inline-flex p-1 rounded-xl card">
+                <div className="flex flex-wrap justify-center gap-2 p-1 rounded-xl card w-full sm:w-auto">
                   <button 
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === null ? 'bg-blue-600 shadow-sm text-white' : ''}`}
                     onClick={() => setFilter(null)}

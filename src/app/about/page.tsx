@@ -56,7 +56,7 @@ export default function About() {
       <main className="pt-8 px-6 pb-32">
         <div className="max-w-6xl mx-auto">
           <MacOSWindow title="About Me" variant="system">
-            <div className="flex border-b mb-8">
+            <div className="flex border-b mb-8 overflow-x-auto no-scrollbar">
               <button 
                 className={`py-3 px-6 font-medium ${activeTab === 'profile' ? 'border-b-2 border-blue-500 text-blue-500' : ''}`}
                 onClick={() => setActiveTab('profile')}

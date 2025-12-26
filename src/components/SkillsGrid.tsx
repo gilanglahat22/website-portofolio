@@ -93,7 +93,8 @@ export default function SkillsGrid() {
     // @ts-ignore
     <div className="space-y-6">
       {/* @ts-ignore */}
-      <div className="flex justify-between items-center mb-6">
+      {/* @ts-ignore */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         {/* @ts-ignore */}
         <div>
           {/* @ts-ignore */}
@@ -103,7 +104,7 @@ export default function SkillsGrid() {
         </div>
         
         {/* @ts-ignore */}
-        <div className="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-xs font-medium flex items-center">
+        <div className="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-xs font-medium flex items-center self-start sm:self-auto">
           5 = Expert&nbsp;&nbsp;•&nbsp;&nbsp;1 = Beginner
         </div>
       </div>
