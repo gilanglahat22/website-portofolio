@@ -61,7 +61,8 @@
     color-scheme: dark;
     --background-color: 10, 10, 10;
     --text-color:
-      240, 240, 240; /* Increased brightness for better visibility */
+      240, 240, 240;
+    /* Increased brightness for better visibility */
     --window-bg: 17, 24, 39, 0.95;
     --window-border: 55, 65, 81, 0.5;
     --dock-bg: 255, 255, 255, 0.1;
@@ -122,7 +123,7 @@
   background-attachment: fixed;
 }
 
-/* Light theme text visibility */
+/* Light theme text visibility - exclude buttons so they can have custom colors */
 .light-theme p,
 .light-theme h1,
 .light-theme h2,
@@ -130,12 +131,11 @@
 .light-theme h4,
 .light-theme h5,
 .light-theme h6,
-.light-theme span,
-.light-theme div,
-.light-theme a,
+.light-theme span:not(button span),
+.light-theme div:not(button div),
+.light-theme a:not(button a),
 .light-theme li,
-.light-theme label,
-.light-theme button {
+.light-theme label {
   color: rgb(33, 33, 33) !important;
 }
 
@@ -161,7 +161,7 @@
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2) !important;
 }
 
-/* Dark theme text visibility */
+/* Dark theme text visibility - exclude buttons so they can have custom colors */
 .dark-theme p,
 .dark-theme h1,
 .dark-theme h2,
@@ -169,12 +169,11 @@
 .dark-theme h4,
 .dark-theme h5,
 .dark-theme h6,
-.dark-theme span,
-.dark-theme div,
-.dark-theme a,
+.dark-theme span:not(button span),
+.dark-theme div:not(button div),
+.dark-theme a:not(button a),
 .dark-theme li,
 .dark-theme label,
-.dark-theme button,
 .dark-theme input,
 .dark-theme textarea {
   color: rgba(255, 255, 255, 0.95) !important;
@@ -182,24 +181,27 @@
 
 /* Specifically target common text color classes that might have lower contrast */
 .dark-theme .text-gray-300,
+.dark-theme .text-slate-300,
+.dark-theme .text-neutral-300 {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
 .dark-theme .text-gray-400,
-.dark-theme .text-gray-500,
-.dark-theme .text-gray-600,
-.dark-theme .text-gray-700,
-.dark-theme .text-gray-800,
 .dark-theme .text-slate-400,
+.dark-theme .text-neutral-400 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dark-theme .text-gray-500,
 .dark-theme .text-slate-500,
+.dark-theme .text-neutral-500 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.dark-theme .text-gray-600,
 .dark-theme .text-slate-600,
-.dark-theme .text-neutral-400,
-.dark-theme .text-neutral-500,
-.dark-theme .text-neutral-600,
-.dark-theme .opacity-50,
-.dark-theme .opacity-60,
-.dark-theme .opacity-70,
-.dark-theme .opacity-75,
-.dark-theme .opacity-80 {
-  color: rgba(255, 255, 255, 0.9) !important;
-  opacity: 1 !important;
+.dark-theme .text-neutral-600 {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* For elements that might need darker text but still readable */
@@ -276,17 +278,19 @@
   .text-balance {
     text-wrap: balance;
   }
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
+
   .animation-delay-4000 {
     animation-delay: 4s;
   }
-  
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -297,12 +301,15 @@
   0% {
     transform: translate(0px, 0px) scale(1);
   }
+
   33% {
     transform: translate(30px, -50px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
+
   100% {
     transform: translate(0px, 0px) scale(1);
   }
@@ -365,12 +372,14 @@ html {
 
 .Toastify__toast-container {
   /* Container styles */
-  width: 400px; /* Adjust width as needed */
+  width: 400px;
+  /* Adjust width as needed */
 }
 
 .Toastify__toast {
   /* Individual toast styles */
-  font-family: "Cinzel Decorative", sans-serif; /* Use your custom font */
+  font-family: "Cinzel Decorative", sans-serif;
+  /* Use your custom font */
 }
 
 /* Theme transition */

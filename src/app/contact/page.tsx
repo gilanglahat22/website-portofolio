@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   const { theme } = useTheme();
-  
+
   const [dataToSend, setDataToSend] = useState({
     contact: {
       name: "",
@@ -23,10 +23,11 @@ export default function Contact() {
 
   const subjectOptions = [
     "Software Engineering Opportunity",
-    "Fullstack Development Project",
+    "Backend Development Project",
+    "Distributed Systems Consultation",
+    "AI/LLM Integration",
     "Competitive Programming",
     "Blockchain Research",
-    "Machine Learning Collaboration",
     "Other",
   ];
 
@@ -61,12 +62,12 @@ export default function Contact() {
         >
           <div className="p-4 sm:p-6">
             <h1 className="text-3xl font-bold mb-6">Get In Touch</h1>
-            
+
             <p className="mb-8">
-              I'm interested in software engineering opportunities, fullstack development projects, and competitive programming collaborations.
+              I'm interested in software engineering opportunities, backend development projects, distributed systems, and AI/LLM integration.
               Feel free to reach out if you have a project that matches my skills or want to discuss potential collaboration.
             </p>
-            
+
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
               <TextInputField
                 setDataToSend={setDataToSend}
@@ -79,7 +80,7 @@ export default function Contact() {
                 required={true}
                 customPlaceholder={false}
               />
-              
+
               <NumberInputField
                 setDataToSend={setDataToSend}
                 dataToSend={dataToSend}
@@ -89,7 +90,7 @@ export default function Contact() {
                 form_id="phone"
                 required={false}
               />
-              
+
               <TextInputField
                 setDataToSend={setDataToSend}
                 dataToSend={dataToSend}
@@ -101,7 +102,7 @@ export default function Contact() {
                 required={true}
                 customPlaceholder={false}
               />
-              
+
               <DropdownInputField
                 setDataToSend={setDataToSend}
                 dataToSend={dataToSend}
@@ -112,7 +113,7 @@ export default function Contact() {
                 dropdownOptions={subjectOptions}
                 required={true}
               />
-              
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
@@ -126,7 +127,7 @@ export default function Contact() {
                     id="message"
                     rows={4}
                     value={dataToSend.contact.message}
-                    onChange={(e) => 
+                    onChange={(e) =>
                       setDataToSend({
                         ...dataToSend,
                         contact: {
@@ -140,7 +141,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              
+
               <div className="sm:col-span-2">
                 <button
                   type="submit"
@@ -150,21 +151,26 @@ export default function Contact() {
                 </button>
               </div>
             </form>
-            
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">Email</h3>
-                <p>contact@example.com</p>
+                <h3 className="text-lg font-medium mb-2">📧 Email</h3>
+                <p className="text-sm">muhgilangramadhan.3011@gmail.com</p>
               </div>
-              
+
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">GitHub</h3>
-                <p>github.com/gilanglahat22</p>
+                <h3 className="text-lg font-medium mb-2">📱 Phone</h3>
+                <p className="text-sm">+62 823-8221-1182</p>
               </div>
-              
+
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">Location</h3>
-                <p>Bandung, West Java, Indonesia</p>
+                <h3 className="text-lg font-medium mb-2">💻 GitHub</h3>
+                <p className="text-sm">github.com/gilanglahat22</p>
+              </div>
+
+              <div className="card p-4 rounded-lg">
+                <h3 className="text-lg font-medium mb-2">📍 Location</h3>
+                <p className="text-sm">West Jakarta, Jakarta, Indonesia</p>
               </div>
             </div>
           </div>
@@ -172,4 +178,4 @@ export default function Contact() {
       </motion.div>
     </div>
   );
-} 
+}
