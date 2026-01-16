@@ -1,0 +1,108 @@
+# Muhammad Gilang Ramadhan
+**Location:** West Jakarta, Jakarta | **Email:** muhgilangramadhan.3011@gmail.com
+**Links:** LinkedIn | GitHub | [cite_start]**Phone:** +62 823-8221-1182 [cite: 1, 9]
+
+## Professional Summary
+[cite_start]I'm a passionate Software Engineer with expertise in backend engineering, distributed systems, and management systems, dedicated to delivering value through technology with Several Competitive Programming Experiences. [cite: 2]
+
+## Education
+**Bandung Institute of Technology (ITB)** | *Bachelor of Informatics Engineering (IF)*
+[cite_start]*September 2020 – October 2025 (Expected)* [cite: 4, 10]
+* [cite_start]**Thesis:** Research on optimizing blockchain's Avalanche Consensus Protocol Optimization Using Microservices Architecture. [cite: 6, 7]
+
+## Skills
+* [cite_start]**Core:** Object-Oriented Programming, SOLID Design Principle, Data Structures and Algorithm, Distributed Systems, Backend Engineering, System Design, Software Architecture, Computer Networks. [cite: 11]
+* [cite_start]**Technologies:** CI/CD, Microservices, Git, Web Development, RESTful API, Cloud Computing, Machine Learning, LLM Optimization, Langchain. [cite: 11]
+* [cite_start]**Languages:** Indonesian, English. [cite: 12]
+
+## Work Experiences
+
+### **Software Engineer (Fulltime)** | *Quantum Teknologi Nusantara*
+[cite_start]*September 2025 – Present* [cite: 14]
+* [cite_start]Architecting and building OCR services using LLM optimization with clustering for the Nexius product (https://nexiusai.com) to convert bank statements into structured accounting data and actionable business insights using FastAPI, Langchain, and Clustering DbScan for Ambiguous Data Handling. [cite: 15]
+* [cite_start]Leading research and development of new technologies and standardization codes to improve feature performance, OCR accuracy, and reliability across the platform. [cite: 16]
+* [cite_start]Helped the infra team to develop Reliability Management for backend services and frontend activity logs, migrate Nexius Server from matrix server to layerstack server, and separate monolithic services into distributed services (microservices and background services). [cite: 17]
+
+### **Fullstack Engineer (Freelance)** | *One Code Solution*
+[cite_start]*June 2025 – August 2025* [cite: 18]
+* [cite_start]Architected and maintained a scalable backend ecosystem for Philip Morris International, supporting multiple regional platforms (Kazakhstan, Chesterfield-PH, and PRJWHEART) by implementing Domain-Driven Design (DDD) and the Template Pattern. [cite: 19]
+* [cite_start]Developed full-stack mobile solutions using Vue.js and Sitefinity, delivering features such as biometric credential management, user authentication, profile management, and reward redemption engines. [cite: 20]
+
+### **R&D Team - Ransomware Detection (Fulltime)** | *MarkAny*
+[cite_start]*April 2025 – May 2025* [cite: 21]
+* [cite_start]Researched and developed Endpoint Detection & Response (EDR) solutions, with a specialized focus on Intrusion Detection Systems (IDS). [cite: 22]
+* [cite_start]Analyzed user behavior monitoring and security patterns utilizing the Indonesian National Cyber and Crypto Agency (BSSN) dataset. [cite: 23]
+
+### **Junior Software Engineer (Fulltime)** | *PT Fata Organa Solusi*
+[cite_start]*July 2024 – March 2025* [cite: 24]
+* [cite_start]Served as the PIC Assistant for the Hashigake matching application (https://hashigake.jp/), architecting a multi-tenant system using .NET and React/TypeScript while collaborating across QA, PM, and Data Science teams. [cite: 25]
+* [cite_start]Completed onboarding with Japanese language training and developed a website for the CAC Empath Japanese Company project, focusing on backend services development and maintenance of 1-on-1 matching app features. [cite: 26]
+
+### **Full Stack Developer (Freelance)** | *Feline Labs*
+[cite_start]*August 2023 – March 2025* [cite: 27]
+* [cite_start]Led development of Web Apps using HTML/CSS Native, Tailwind, React, Express, PHP Laravel, Kotlin, MySQL, MongoDB, CI/CD, and Payment Gateway integration (Midtrans). [cite: 28]
+* [cite_start]Successfully executed event projects for clients including PPMaritim Indonesia, PPMaritim Sumsel, Putra Putri Sriwijaya, and others. [cite: 29]
+
+### **Web Developer (Part Time)** | *PT Fata Organa Solusi*
+[cite_start]*December 2023 – June 2024* [cite: 30]
+* [cite_start]Developed Fullstack Web App with ASP.Net, React, and SQL Server (including Frontend and API Services with Azure Services) for the Pondering Circle Project. [cite: 31]
+* [cite_start]Assisted full-time engineers in bug fixing critical features (voting logic, UI behaviors). [cite: 32]
+* [cite_start]Optimized code quality and stability, reducing the average bug rate from 30% to 5% per sprint through improved development practices and rigorous testing. [cite: 33]
+
+### **Software Engineer (Internship)** | *PT Suitmedia Kreasi Indonesia*
+[cite_start]*May 2023 – November 2023* [cite: 34]
+* [cite_start]Developed KLAR Smile Company's official API and CMS website using Laravel, Nginx, MySQL, and Docker. [cite: 35]
+* [cite_start]Optimized database queries and backend performance, reducing latency by 30%. [cite: 36]
+
+## Selected Projects
+
+[cite_start]**Nexius AI (FastAPI, Python)** [cite: 50]
+* [cite_start]An end-to-end OCR pipeline for financial documents (bank statements, invoices, receipts) available at https://nexiusai.com. [cite: 50, 53, 63]
+* [cite_start]Designed a modular OCR normalization, feature extraction, and validation pipeline. [cite: 55, 62]
+* [cite_start]Implemented ambiguous-transaction clustering using text features and domain rules to recommend categories/COA mappings. [cite: 64, 65]
+* [cite_start]Created a Weighted Purity evaluator (size-weighted cluster purity with outlier penalties) to quantify clustering quality. [cite: 66, 68]
+* [cite_start]Delivered real-time observability with SSE (Server-Sent Events) using event-driven architecture, heartbeats, auto-reconnect, and structured logs. [cite: 69]
+
+[cite_start]**Avalanche Consensus Service (GitHub)** [cite: 76]
+* [cite_start]Implements a DAG-based consensus engine using dynamic graph algorithms. [cite: 77]
+* [cite_start]Engineered network sampling logic with configurable parameters to manage transaction lifecycles from proposal to finalization. [cite: 78]
+* [cite_start]**Key Parameters:** [cite: 56, 79, 81, 82]
+    * *K:* The sample size (number of validators to query).
+    * *Alpha:* The threshold for decision making (positive responses needed).
+    * *BetaVirtuous:* Confidence threshold for virtuous vertices.
+    * *BetaRogue:* Confidence threshold for conflicting vertices.
+
+[cite_start]**Corporatematching Website - Hashigake (CAC Empath Product)** [cite: 72]
+* [cite_start]Developed integration schemas including WebSocket integration for meeting platforms, admin management systems, and cronjobs for status updates. [cite: 73]
+* [cite_start]Utilized Azure Bus Services and Grid Events for messaging backend services. [cite: 73]
+* [cite_start]Optimized frontend performance with complex Redux state management. [cite: 74]
+* [cite_start]Enhanced observability by building a centralized telemetry framework, reducing Mean Time To Resolution (MTTR). [cite: 75]
+
+[cite_start]**DeepCare Mobile App** [cite: 84]
+* [cite_start]Developed a digital wallet application for healthcare to address ICU urgency. [cite: 84, 87]
+* [cite_start]**Backend:** FastAPI (Python) with MongoDB and Firebase for real-time sync. [cite: 89]
+* [cite_start]**ML:** TensorFlow models for predicting patient outcomes. [cite: 90]
+* [cite_start]**Data:** Google BigQuery for large-scale analytics. [cite: 91]
+* [cite_start]**Mobile:** Kotlin (Android) interface. [cite: 92]
+
+[cite_start]**Pondering Circle Website** [cite: 93]
+* Internal voting website for CAC Empath Inc. employees.
+* [cite_start]Architected scalable backend using ASP.NET, React, and SQL Server with optimized stored procedures achieving 50% API response reliability. [cite: 94]
+* [cite_start]Implemented real-time analytics dashboards and robust database schema with MySQL clustering for high availability. [cite: 95, 96]
+
+[cite_start]**Philip Morris International Website Factory** [cite: 70]
+* [cite_start]Developed redeem engines for lucky promos and digital engagement features using ASP.NET and Vue.js integrated with Sitefinity CMS. [cite: 71]
+
+**Open Source Projects**
+* [cite_start]**Nakafa AI:** Learning Platform for University and High School Students. [cite: 100]
+* [cite_start]**TELISIK:** Free Learning Platform for UTBK Preparation. [cite: 101]
+
+## Organizational Experience
+* [cite_start]**Competitive Programming Committee, Arkavidia 8.0** (Sept 2022 – Oct 2023): Designed and reviewed problems across various difficulty levels. [cite: 38, 39]
+* [cite_start]**Competition Division Staff, HMIF ITB** (April 2021 – March 2023): Conducted training for 30+ participants in competitive programming. [cite: 40, 41]
+
+## Achievements
+* [cite_start]**Finalist ICPC Asia Jakarta Regional 2021:** Qualified through INC, competing against 100+ national teams. [cite: 43, 44]
+* [cite_start]**National Finalist - Indonesia National Contest 2021 (Top 40):** Placed 42nd among all undergraduate teams. [cite: 44, 45]
+* [cite_start]**Participant of Gemastik XV Programming Division 2022:** Selected as ITB's 4th place team representative. [cite: 45, 46]
+* [cite_start]**Top 7% in Meta Hacker Cup Round 1 2022:** Ranked 18th in Indonesia and 946th globally out of 12,330 participants. [cite: 47, 48]

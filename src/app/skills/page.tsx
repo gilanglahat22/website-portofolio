@@ -41,25 +41,49 @@ export default function Skills() {
 
               <div className="space-y-6 py-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="card p-4 rounded-lg border-l-4 border-yellow-500">
+                  <a
+                    href="https://icpc.global/ICPCID/N1FILTJWC0D4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card p-4 rounded-lg border-l-4 border-yellow-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer block"
+                  >
                     <h3 className="font-semibold text-lg">🏆 Finalist ICPC Asia Jakarta Regional 2021</h3>
                     <p className="text-sm mt-1">Qualified through INC, competing against 100+ national teams in the prestigious ACM International Collegiate Programming Contest.</p>
-                  </div>
+                    <span className="text-xs text-blue-500 mt-2 inline-block">View ICPC Profile →</span>
+                  </a>
 
-                  <div className="card p-4 rounded-lg border-l-4 border-blue-500">
+                  <a
+                    href="https://icpc.global/ICPCID/N1FILTJWC0D4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card p-4 rounded-lg border-l-4 border-blue-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer block"
+                  >
                     <h3 className="font-semibold text-lg">🥈 Indonesia National Contest 2021 (Top 40)</h3>
                     <p className="text-sm mt-1">Placed 42nd among all undergraduate teams in the national programming contest.</p>
-                  </div>
+                    <span className="text-xs text-blue-500 mt-2 inline-block">View ICPC Profile →</span>
+                  </a>
 
-                  <div className="card p-4 rounded-lg border-l-4 border-green-500">
+                  <a
+                    href="https://www.linkedin.com/in/muhammad-gilang-ramadhan-54b58a20b/details/certifications/1738303065136/single-media-viewer/?profileId=ACoAADVM-osBxaALQRCedj4NExDzmKmAzGyAnKY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card p-4 rounded-lg border-l-4 border-green-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer block"
+                  >
                     <h3 className="font-semibold text-lg">🎯 Gemastik XV Programming Division 2022</h3>
                     <p className="text-sm mt-1">Selected as ITB's 4th place team representative for the national competition.</p>
-                  </div>
+                    <span className="text-xs text-blue-500 mt-2 inline-block">View Certificate →</span>
+                  </a>
 
-                  <div className="card p-4 rounded-lg border-l-4 border-purple-500">
+                  <a
+                    href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/certificate/1658558797848533"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card p-4 rounded-lg border-l-4 border-purple-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer block"
+                  >
                     <h3 className="font-semibold text-lg">🌍 Meta Hacker Cup Round 1 2022 (Top 7%)</h3>
                     <p className="text-sm mt-1">Ranked 18th in Indonesia and 946th globally out of 12,330 participants.</p>
-                  </div>
+                    <span className="text-xs text-blue-500 mt-2 inline-block">View Certificate →</span>
+                  </a>
                 </div>
               </div>
             </div>

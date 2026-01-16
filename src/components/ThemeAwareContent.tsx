@@ -84,7 +84,7 @@ const ThemeAwareContent = () => {
               <Link href="/skills" className="block">
                 <div className="card p-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <h3 className="text-xl font-semibold mb-2">Skills</h3>
-                  <p>Discover my expertise in C++, TypeScript, JavaScript, PHP, and cybersecurity analysis.</p>
+                  <p>Discover my expertise in Backend Development especially in distributed System, Still Learning AI Optimization using Context Engineering and AI LLM</p>
                 </div>
               </Link>
 
