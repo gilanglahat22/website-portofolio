@@ -140,7 +140,7 @@ export default function About() {
                       </div>
 
                       <div className="border-l-4 border-blue-500 pl-4">
-                        <h4 className="font-medium">R&D Team - Ransomware Detection (Fulltime)</h4>
+                        <h4 className="font-medium">R&D Team - Ransomware Detection (Apprenticeship)</h4>
                         <p className="text-sm mb-1">MarkAny | April 2025 - May 2025</p>
                         <p>Researched and developed EDR solutions with focus on IDS. Analyzed user behavior using BSSN dataset.</p>
                       </div>

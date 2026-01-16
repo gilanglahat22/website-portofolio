@@ -100,7 +100,7 @@ export default function Experience() {
       skills: ["Vue.js", "ASP.NET", "Sitefinity", "DDD", "Mobile Development"]
     },
     {
-      title: "R&D Team - Ransomware Detection (Fulltime)",
+      title: "R&D Team - Ransomware Detection (Apprenticeship)",
       company: "MarkAny",
       date: "April 2025 - May 2025",
       description: [
