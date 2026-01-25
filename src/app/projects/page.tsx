@@ -131,7 +131,7 @@ export default function Projects() {
     {
       title: "Philip Morris International Platforms",
       description: "Developed redeem engines for lucky promos and digital engagement features using ASP.NET and Vue.js integrated with Sitefinity CMS for multiple regional platforms.",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      image: "/pmi.svg",
       tags: ["ASP.NET", "Vue.js", "Sitefinity", "DDD", "Template Pattern"],
       category: "web",
       link: "https://github.com/gilanglahat22"
@@ -147,18 +147,10 @@ export default function Projects() {
     {
       title: "TELISIK",
       description: "Free learning platform for UTBK (Indonesian university entrance exam) preparation, helping students prepare for their academic future.",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      image: "/telisik.jpg",
       tags: ["Education", "Open Source", "React", "Node.js", "MongoDB"],
       category: "web",
       link: "https://github.com/gilanglahat22/telisik"
-    },
-    {
-      title: "Competitive Programming Solutions",
-      description: "Collection of optimized solutions from ICPC, Gemastik, Meta Hacker Cup and other competitions. Ranked 18th in Indonesia for Meta Hacker Cup Round 1 2022.",
-      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      tags: ["C++", "Algorithms", "Data Structures", "Problem Solving"],
-      category: "algorithm",
-      link: "https://github.com/gilanglahat22/Competitive-Programming"
     }
   ];
 
