@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, ta
               alt={title}
               width={600}
               height={400}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
             <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}></div>
           </div>
@@ -91,7 +91,7 @@ export default function Projects() {
     {
       title: "Nexius AI",
       description: "End-to-end OCR pipeline for financial documents (bank statements, invoices, receipts). Designed modular OCR normalization, feature extraction, and validation pipeline with ambiguous-transaction clustering.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      image: "/nexius.png",
       tags: ["FastAPI", "Python", "LLM", "Langchain", "Clustering", "SSE"],
       category: "ai",
       link: "https://nexiusai.com"
@@ -107,7 +107,7 @@ export default function Projects() {
     {
       title: "Hashigake - Corporate Matching",
       description: "Corporate matching website for CAC Empath with WebSocket integration for meeting platforms, admin management systems, and Azure Bus Services for messaging backend services.",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      image: "/hashigake.png",
       tags: ["React", "TypeScript", ".NET", "Azure", "WebSocket", "Redux"],
       category: "web",
       link: "https://hashigake.jp"
@@ -115,7 +115,7 @@ export default function Projects() {
     {
       title: "DeepCare Mobile App",
       description: "Digital wallet application for healthcare addressing ICU urgency. Backend with FastAPI, MongoDB, and Firebase for real-time sync. TensorFlow models for predicting patient outcomes.",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      image: "/DeepCare.png",
       tags: ["FastAPI", "MongoDB", "Firebase", "TensorFlow", "Kotlin", "BigQuery"],
       category: "mobile",
       link: "https://github.com/gilanglahat22/DeepCare"
