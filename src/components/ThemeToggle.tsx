@@ -10,7 +10,7 @@ const ThemeToggle = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative p-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 shadow-lg"
+      className="portfolio-icon-button relative"
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: -20 }}
@@ -30,7 +30,7 @@ const ThemeToggle = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-yellow-300"
+          className="text-lime-200"
         >
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -54,7 +54,7 @@ const ThemeToggle = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-indigo-700"
+          className="text-white"
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>

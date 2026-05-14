@@ -4,75 +4,53 @@
 
 @layer base {
   :root {
-    /* Light theme variables */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-
-  .dark-theme {
-    /* Dark theme variables */
-    --background: 222.2 84% 4.9%;
-    --foreground: 0 0% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 217.2 91.2% 69.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 85%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 0 0% 98%;
-    --border: 217.2 32.6% 25%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 68%;
-    --shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --background-color: 5, 5, 5;
+    --text-color: 246, 246, 242;
+    --surface-color: 18, 18, 18;
+    --surface-soft-color: 28, 28, 28;
+    --surface-border: 255, 255, 255, 0.14;
+    --window-bg: 18, 18, 18, 0.78;
+    --window-border: 255, 255, 255, 0.14;
+    --dock-bg: 14, 14, 14, 0.82;
+    --dock-border: 255, 255, 255, 0.16;
+    --accent-green: 132, 204, 22;
+    --accent-green-soft: 190, 242, 100;
   }
 
   .light-theme {
     color-scheme: light;
     --background-color: 255, 255, 255;
-    --text-color: 33, 33, 33;
-    --window-bg: 255, 255, 255, 0.95;
-    --window-border: 229, 231, 235, 0.5;
-    --dock-bg: 255, 255, 255, 0.1;
-    --dock-border: 255, 255, 255, 0.2;
+    --text-color: 18, 18, 18;
+    --surface-color: 255, 255, 255;
+    --surface-soft-color: 246, 246, 246;
+    --surface-border: 0, 0, 0, 0.12;
+    --window-bg: 255, 255, 255, 0.86;
+    --window-border: 0, 0, 0, 0.12;
+    --dock-bg: 255, 255, 255, 0.9;
+    --dock-border: 0, 0, 0, 0.12;
+    --accent-green: 77, 124, 15;
+    --accent-green-soft: 63, 98, 18;
   }
 
   .dark-theme {
     color-scheme: dark;
-    --background-color: 10, 10, 10;
-    --text-color:
-      240, 240, 240;
-    /* Increased brightness for better visibility */
-    --window-bg: 17, 24, 39, 0.95;
-    --window-border: 55, 65, 81, 0.5;
-    --dock-bg: 255, 255, 255, 0.1;
-    --dock-border: 255, 255, 255, 0.2;
+    --background-color: 5, 5, 5;
+    --text-color: 246, 246, 242;
+    --surface-color: 18, 18, 18;
+    --surface-soft-color: 28, 28, 28;
+    --surface-border: 255, 255, 255, 0.14;
+    --window-bg: 18, 18, 18, 0.78;
+    --window-border: 255, 255, 255, 0.14;
+    --dock-bg: 14, 14, 14, 0.82;
+    --dock-border: 255, 255, 255, 0.16;
   }
 
   body {
-    @apply transition-colors duration-300;
-    background-color: rgb(var(--background-color));
+    min-height: 100vh;
+    background: rgb(var(--background-color));
     color: rgb(var(--text-color));
+    font-feature-settings: "ss01" on, "cv01" on;
+    text-rendering: geometricPrecision;
   }
 
   @font-face {
@@ -91,187 +69,526 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-/* Body background styles for each theme */
+.portfolio-app-shell {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(var(--accent-green), 0.12), transparent 42%),
+    linear-gradient(180deg, rgb(var(--background-color)) 0%, rgb(var(--background-color)) 100%);
+}
+
+.light-theme .portfolio-app-shell {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(var(--accent-green), 0.08), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
+
+.dark-theme .portfolio-app-shell {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(var(--accent-green), 0.1), transparent 42%),
+    linear-gradient(180deg, #050505 0%, #080808 100%);
+}
+
+.portfolio-backdrop {
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(var(--text-color), 0.035) 0 1px, transparent 1px 120px),
+    linear-gradient(180deg, rgba(var(--text-color), 0.035), transparent 18%);
+  opacity: 0.72;
+}
+
+.portfolio-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--text-color), 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--text-color), 0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 76%, transparent 100%);
+}
+
+.portfolio-backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(var(--background-color), 0.28) 65%, rgba(var(--background-color), 0.9) 100%);
+}
+
+.portfolio-top-nav {
+  background: linear-gradient(180deg, rgba(var(--background-color), 0.9), rgba(var(--background-color), 0.72), transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.portfolio-logo-mark,
+.portfolio-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(var(--surface-border));
+  background: rgba(var(--surface-color), 0.72);
+  color: rgb(var(--text-color));
+  box-shadow: inset 0 1px 0 rgba(var(--text-color), 0.08), 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-logo-mark {
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 0.9rem;
+}
+
+.portfolio-icon-button {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.portfolio-icon-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--accent-green), 0.5);
+  background: rgba(var(--accent-green), 0.12);
+}
+
+.portfolio-icon-button-active {
+  border-color: rgba(59, 130, 246, 0.9) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--text-color), 0.08),
+    0 0 0 2px rgba(59, 130, 246, 0.85),
+    0 12px 30px rgba(0, 0, 0, 0.16) !important;
+}
+
+.portfolio-popover {
+  position: absolute;
+  z-index: 70;
+  border: 1px solid rgba(var(--surface-border));
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(145deg, rgba(var(--surface-color), 0.94), rgba(var(--surface-soft-color), 0.88));
+  color: rgb(var(--text-color));
+  box-shadow:
+    inset 0 1px 0 rgba(var(--text-color), 0.06),
+    0 24px 70px rgba(0, 0, 0, 0.22);
+  padding: 0.75rem;
+  backdrop-filter: blur(26px) saturate(145%);
+  -webkit-backdrop-filter: blur(26px) saturate(145%);
+}
+
+.portfolio-popover input {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: rgb(var(--text-color)) !important;
+  box-shadow: none !important;
+}
+
+.portfolio-search-result {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 1.15rem;
+  padding: 0.75rem;
+  text-align: left;
+  color: rgb(var(--text-color));
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.portfolio-search-result:hover {
+  background: rgba(var(--accent-green), 0.1);
+  transform: translateY(-1px);
+}
+
+.portfolio-menu-option,
+.portfolio-menu-command {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(var(--surface-border));
+  background: rgba(var(--surface-soft-color), 0.52);
+  color: rgb(var(--text-color));
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.portfolio-menu-option {
+  min-width: 0;
+  gap: 0.65rem;
+  border-radius: 1.15rem;
+  padding: 0.7rem;
+}
+
+.portfolio-menu-command {
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.portfolio-menu-option:hover,
+.portfolio-menu-command:hover {
+  border-color: rgba(var(--accent-green), 0.42);
+  background: rgba(var(--accent-green), 0.1);
+  transform: translateY(-1px);
+}
+
+.apple-dock-bg {
+  background: rgba(var(--dock-bg)) !important;
+  border-color: rgba(var(--dock-border)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--text-color), 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.18) !important;
+}
+
+.window-container {
+  border-radius: 2.25rem !important;
+  background:
+    linear-gradient(145deg, rgba(var(--window-bg)), rgba(var(--surface-soft-color), 0.72)) !important;
+  border: 1px solid rgba(var(--window-border)) !important;
+  color: rgb(var(--text-color)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--text-color), 0.08),
+    0 28px 80px rgba(0, 0, 0, 0.18) !important;
+  backdrop-filter: blur(26px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(145%) !important;
+}
+
+.window-container > div:first-child {
+  border-color: rgba(var(--surface-border)) !important;
+  background: linear-gradient(180deg, rgba(var(--text-color), 0.055), rgba(var(--text-color), 0.018));
+}
+
+.window-container h1,
+.window-container h2,
+.window-container h3,
+.window-container h4,
+.window-container p,
+.window-container li,
+.window-container span,
+.window-container label {
+  color: inherit;
+}
+
+.card,
+.portfolio-glass-card {
+  background:
+    linear-gradient(145deg, rgba(var(--surface-color), 0.86), rgba(var(--surface-soft-color), 0.72)) !important;
+  border: 1px solid rgba(var(--surface-border)) !important;
+  color: rgb(var(--text-color)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(var(--text-color), 0.08),
+    0 20px 55px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(20px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+}
+
+.card {
+  border-radius: 1.85rem !important;
+}
+
+.portfolio-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(var(--text-color));
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.portfolio-section-title::before,
+.portfolio-section-title::after {
+  content: "";
+  width: 1rem;
+  height: 1.4rem;
+  border-color: rgba(var(--accent-green-soft), 0.7);
+}
+
+.portfolio-section-title::before {
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 0 0 0 0.45rem;
+}
+
+.portfolio-section-title::after {
+  border-right: 2px solid;
+  border-top: 2px solid;
+  border-radius: 0 0.45rem 0 0;
+}
+
+.portfolio-app-shell .bg-white,
+.portfolio-app-shell .bg-black,
+.portfolio-app-shell .bg-gray-100,
+.portfolio-app-shell .bg-gray-800,
+.portfolio-app-shell .bg-gray-900 {
+  background-color: transparent !important;
+}
+
+.portfolio-app-shell input,
+.portfolio-app-shell textarea,
+.portfolio-app-shell select {
+  background: rgba(var(--surface-color), 0.86) !important;
+  border: 1px solid rgba(var(--surface-border)) !important;
+  border-radius: 1rem !important;
+  color: rgb(var(--text-color)) !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.portfolio-app-shell input::placeholder,
+.portfolio-app-shell textarea::placeholder,
+.portfolio-app-shell select::placeholder {
+  color: rgba(var(--text-color), 0.48) !important;
+}
+
+.portfolio-app-shell input:focus,
+.portfolio-app-shell textarea:focus,
+.portfolio-app-shell select:focus {
+  border-color: rgba(var(--accent-green-soft), 0.78) !important;
+  box-shadow: 0 0 0 3px rgba(var(--accent-green), 0.18) !important;
+}
+
+.portfolio-app-shell button,
+.portfolio-app-shell a {
+  text-underline-offset: 4px;
+}
+
+.light-theme .portfolio-app-shell [class~="text-white"],
+.light-theme .portfolio-app-shell [class~="text-white/85"],
+.light-theme .portfolio-app-shell [class~="text-white/80"] {
+  color: rgba(18, 18, 18, 0.94) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="text-white/75"],
+.light-theme .portfolio-app-shell [class~="text-white/70"] {
+  color: rgba(18, 18, 18, 0.72) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="text-white/60"],
+.light-theme .portfolio-app-shell [class~="text-white/50"] {
+  color: rgba(18, 18, 18, 0.58) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="text-lime-50"],
+.light-theme .portfolio-app-shell [class~="text-lime-100"],
+.light-theme .portfolio-app-shell [class~="text-lime-200"] {
+  color: rgb(var(--accent-green-soft)) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="border-white/70"],
+.light-theme .portfolio-app-shell [class~="border-white/60"],
+.light-theme .portfolio-app-shell [class~="border-white/20"],
+.light-theme .portfolio-app-shell [class~="border-white/15"],
+.light-theme .portfolio-app-shell [class~="border-white/10"] {
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="bg-white/5"],
+.light-theme .portfolio-app-shell [class~="bg-white/10"] {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="bg-lime-200/10"],
+.light-theme .portfolio-app-shell [class~="bg-lime-200/20"] {
+  background-color: rgba(var(--accent-green), 0.1) !important;
+}
+
+.light-theme .portfolio-app-shell .hover\:text-white:hover {
+  color: rgb(var(--text-color)) !important;
+}
+
+.light-theme .portfolio-app-shell .hover\:text-lime-200:hover {
+  color: rgb(var(--accent-green-soft)) !important;
+}
+
+.light-theme .portfolio-app-shell .hover\:bg-lime-200\/10:hover,
+.light-theme .portfolio-app-shell .hover\:bg-lime-200\/15:hover,
+.light-theme .portfolio-app-shell .hover\:bg-lime-200\/20:hover {
+  background-color: rgba(var(--accent-green), 0.1) !important;
+}
+
+.light-theme .portfolio-app-shell [class~="border-lime-200"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/20"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/25"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/40"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/50"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/60"],
+.light-theme .portfolio-app-shell [class~="border-lime-200/70"] {
+  border-color: rgba(var(--accent-green), 0.42) !important;
+}
+
+.portfolio-app-shell .text-blue-300,
+.portfolio-app-shell .text-blue-400,
+.portfolio-app-shell .text-blue-500,
+.portfolio-app-shell .text-blue-600,
+.portfolio-app-shell .text-indigo-500,
+.portfolio-app-shell .text-indigo-600,
+.portfolio-app-shell .text-purple-300 {
+  color: rgba(var(--accent-green-soft), 0.9) !important;
+}
+
+.portfolio-app-shell .border-blue-400,
+.portfolio-app-shell .border-blue-500,
+.portfolio-app-shell .border-blue-600,
+.portfolio-app-shell .border-indigo-500,
+.portfolio-app-shell .border-purple-700 {
+  border-color: rgba(var(--accent-green-soft), 0.42) !important;
+}
+
+.portfolio-app-shell .bg-blue-600,
+.portfolio-app-shell .bg-blue-700,
+.portfolio-app-shell .bg-indigo-600,
+.portfolio-app-shell .bg-purple-900\/30,
+.portfolio-app-shell .bg-blue-900\/30,
+.portfolio-app-shell .bg-blue-900\/50 {
+  background-color: rgba(var(--accent-green), 0.18) !important;
+}
+
+.portfolio-app-shell .hover\:bg-blue-600:hover,
+.portfolio-app-shell .hover\:bg-blue-700:hover,
+.portfolio-app-shell .hover\:bg-indigo-600:hover,
+.portfolio-app-shell .hover\:text-blue-500:hover,
+.portfolio-app-shell .hover\:text-blue-400:hover {
+  color: rgba(255, 255, 255, 0.96) !important;
+  background-color: rgba(var(--accent-green), 0.22) !important;
+}
+
 .light-theme body {
-  background-color: rgb(250, 250, 250);
-  color: rgb(33, 33, 33);
-  /* MacOS Sonoma Light Wallpaper-inspired Gradient */
-  background-image:
-    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%),
-    linear-gradient(to bottom, #d6dbdc, #ffffff);
+  background: #ffffff !important;
+  color: #111111 !important;
 }
 
-.dark-theme body {
-  background-color: rgb(20, 20, 20);
-  color: rgb(240, 240, 240);
-  /* MacOS Sequoia Dark Wallpaper-inspired Gradient */
-  background-image:
-    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%),
-    linear-gradient(to bottom, #0f172a, #000000);
-  background-attachment: fixed;
+.light-theme .portfolio-app-shell {
+  background: #ffffff !important;
+  color: #111111 !important;
 }
 
-/* Light theme text visibility - exclude buttons so they can have custom colors */
-.light-theme p,
-.light-theme h1,
-.light-theme h2,
-.light-theme h3,
-.light-theme h4,
-.light-theme h5,
-.light-theme h6,
-.light-theme span:not(button span),
-.light-theme div:not(button div),
-.light-theme a:not(button a),
-.light-theme li,
-.light-theme label {
-  color: rgb(33, 33, 33) !important;
+.light-theme .portfolio-backdrop,
+.light-theme .portfolio-backdrop::before,
+.light-theme .portfolio-backdrop-grid {
+  background: transparent !important;
+  opacity: 0 !important;
 }
 
-/* Light theme form elements */
-.light-theme input,
-.light-theme textarea,
-.light-theme select {
-  background-color: rgba(255, 255, 255, 1) !important;
-  color: rgb(33, 33, 33) !important;
-  border-color: rgba(200, 200, 200, 0.8) !important;
+.light-theme .portfolio-top-nav {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78), transparent) !important;
+  color: #111111 !important;
 }
 
-.light-theme input::placeholder,
-.light-theme textarea::placeholder,
-.light-theme select::placeholder {
-  color: rgba(100, 100, 100, 0.8) !important;
-}
-
-.light-theme input:focus,
-.light-theme textarea:focus,
-.light-theme select:focus {
-  border-color: rgba(79, 70, 229, 0.8) !important;
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2) !important;
-}
-
-/* Dark theme text visibility - exclude buttons so they can have custom colors */
-.dark-theme p,
-.dark-theme h1,
-.dark-theme h2,
-.dark-theme h3,
-.dark-theme h4,
-.dark-theme h5,
-.dark-theme h6,
-.dark-theme span:not(button span),
-.dark-theme div:not(button div),
-.dark-theme a:not(button a),
-.dark-theme li,
-.dark-theme label,
-.dark-theme input,
-.dark-theme textarea {
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Specifically target common text color classes that might have lower contrast */
-.dark-theme .text-gray-300,
-.dark-theme .text-slate-300,
-.dark-theme .text-neutral-300 {
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-
-.dark-theme .text-gray-400,
-.dark-theme .text-slate-400,
-.dark-theme .text-neutral-400 {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.dark-theme .text-gray-500,
-.dark-theme .text-slate-500,
-.dark-theme .text-neutral-500 {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-.dark-theme .text-gray-600,
-.dark-theme .text-slate-600,
-.dark-theme .text-neutral-600 {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* For elements that might need darker text but still readable */
-.dark-theme .text-gray-200,
-.dark-theme .text-slate-300,
-.dark-theme .text-neutral-300,
-.dark-theme .opacity-85,
-.dark-theme .opacity-90 {
-  color: rgba(255, 255, 255, 0.95) !important;
-  opacity: 1 !important;
-}
-
-/* Fix form inputs in dark mode */
-.dark-theme input::placeholder,
-.dark-theme textarea::placeholder,
-.dark-theme select::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.dark-theme input,
-.dark-theme textarea,
-.dark-theme select {
-  background-color: rgba(30, 30, 30, 0.8) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(75, 75, 75, 0.5) !important;
-}
-
-.dark-theme input:focus,
-.dark-theme textarea:focus,
-.dark-theme select:focus {
-  border-color: rgba(147, 197, 253, 0.8) !important;
-  box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.3) !important;
-}
-
-/* MacOS Window styling for light and dark modes */
-/* MacOS Window styling for light and dark modes */
-.light-theme .window-container {
-  background-color: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
-}
-
-.dark-theme .window-container {
-  background-color: rgba(30, 30, 35, 0.65) !important;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 20px 40px -1px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Card and container styling for light and dark modes */
+.light-theme .window-container,
 .light-theme .card,
-.light-theme .container,
-.light-theme .bg-white,
-.light-theme .bg-gray-100,
-.light-theme .bg-gray-200 {
-  background-color: rgba(250, 250, 250, 0.95) !important;
-  color: rgb(33, 33, 33) !important;
+.light-theme .portfolio-glass-card,
+.light-theme .portfolio-popover,
+.light-theme .apple-dock-bg {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
 }
 
-.dark-theme .card,
-.dark-theme .container,
-.dark-theme .bg-white,
-.dark-theme .bg,
-.dark-theme .bg-gray-800,
-.dark-theme .bg-gray-900 {
-  background-color: rgba(30, 30, 30, 0.95) !important;
-  color: rgba(255, 255, 255, 0.95) !important;
+.light-theme .window-container {
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.04),
+    0 28px 80px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .card,
+.light-theme .portfolio-glass-card {
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.04),
+    0 18px 44px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .portfolio-logo-mark,
+.light-theme .portfolio-icon-button,
+.light-theme .portfolio-menu-option,
+.light-theme .portfolio-menu-command,
+.light-theme .portfolio-search-result {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+}
+
+.light-theme .portfolio-app-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, input, textarea, select, kbd),
+.light-theme .window-container :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, input, textarea, select, kbd),
+.light-theme .card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, input, textarea, select, kbd),
+.light-theme .portfolio-glass-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, input, textarea, select, kbd),
+.light-theme .portfolio-popover :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, input, textarea, select, kbd) {
+  color: #111111 !important;
+}
+
+.light-theme .portfolio-app-shell [class*="text-white"],
+.light-theme .portfolio-app-shell [class*="text-lime"],
+.light-theme .portfolio-app-shell [class*="text-blue"],
+.light-theme .portfolio-app-shell [class*="text-indigo"],
+.light-theme .portfolio-app-shell [class*="text-purple"],
+.light-theme .portfolio-app-shell [class*="text-gray"],
+.light-theme .portfolio-app-shell [class*="text-slate"],
+.light-theme .portfolio-app-shell [class*="text-neutral"] {
+  color: #111111 !important;
+}
+
+.light-theme .portfolio-app-shell [class*="bg-black"],
+.light-theme .portfolio-app-shell [class*="bg-gray-800"],
+.light-theme .portfolio-app-shell [class*="bg-gray-900"],
+.light-theme .portfolio-app-shell [class*="bg-neutral-800"],
+.light-theme .portfolio-app-shell [class*="bg-neutral-900"] {
+  background-color: #ffffff !important;
+}
+
+.light-theme .portfolio-app-shell [class*="border-white"],
+.light-theme .portfolio-app-shell [class*="border-gray"],
+.light-theme .portfolio-app-shell [class*="border-neutral"],
+.light-theme .portfolio-app-shell [class*="border-slate"] {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .portfolio-app-shell input::placeholder,
+.light-theme .portfolio-app-shell textarea::placeholder {
+  color: rgba(17, 17, 17, 0.5) !important;
+}
+
+.light-theme .portfolio-app-shell input,
+.light-theme .portfolio-app-shell textarea,
+.light-theme .portfolio-app-shell select,
+.light-theme .portfolio-app-shell option,
+.light-theme .portfolio-app-shell .card input,
+.light-theme .portfolio-app-shell .card textarea,
+.light-theme .portfolio-app-shell .card select {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+  caret-color: #111111 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.14),
+    0 10px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-theme .portfolio-app-shell input::placeholder,
+.light-theme .portfolio-app-shell textarea::placeholder {
+  color: rgba(17, 17, 17, 0.45) !important;
+  -webkit-text-fill-color: rgba(17, 17, 17, 0.45) !important;
+}
+
+.light-theme .portfolio-app-shell select option {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+.light-theme .portfolio-app-shell input:focus,
+.light-theme .portfolio-app-shell textarea:focus,
+.light-theme .portfolio-app-shell select:focus {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  border-color: rgba(var(--accent-green), 0.55) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--accent-green), 0.38),
+    0 0 0 4px rgba(var(--accent-green), 0.12) !important;
 }
 
 @layer utilities {
@@ -319,70 +636,53 @@
   animation: blob 7s infinite;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
+::-webkit-scrollbar-track {
+  background: rgba(5, 14, 8, 0.28);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(219, 247, 196, 0.2);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(219, 247, 196, 0.34);
+}
+
 .light-theme ::-webkit-scrollbar-track {
-  background: rgba(200, 200, 200, 0.2);
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .light-theme ::-webkit-scrollbar-thumb {
-  background: rgba(150, 150, 150, 0.4);
-  border-radius: 5px;
-  transition: background-color 0.2s;
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .light-theme ::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 100, 100, 0.5);
+  background: rgba(0, 0, 0, 0.28);
 }
 
-.dark-theme ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+::selection {
+  background: rgba(178, 235, 94, 0.35);
+  color: rgba(255, 255, 255, 0.98);
 }
 
-.dark-theme ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  transition: background-color 0.2s;
-}
-
-.dark-theme ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Selection color */
 .light-theme ::selection {
-  background: rgba(79, 70, 229, 0.2);
-  color: rgb(33, 33, 33);
-}
-
-.dark-theme ::selection {
-  background: rgba(147, 197, 253, 0.3);
-  color: rgba(255, 255, 255, 0.95);
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+  background: rgba(var(--accent-green), 0.2);
+  color: rgb(var(--text-color));
 }
 
 .Toastify__toast-container {
-  /* Container styles */
   width: 400px;
-  /* Adjust width as needed */
 }
 
 .Toastify__toast {
-  /* Individual toast styles */
-  font-family: "Cinzel Decorative", sans-serif;
-  /* Use your custom font */
+  font-family: inherit;
 }
 
-/* Theme transition */
 .theme-transition {
   transition:
     background-color 0.3s ease,

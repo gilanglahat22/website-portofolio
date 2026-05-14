@@ -1229,7 +1229,12 @@ class CertificateAutomation:
 
 export default function BlogPost() {
     const params = useParams();
-    const slug = params.slug as string;
+    const slugParam = params?.slug;
+    const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
+
+    if (!slug) {
+        notFound();
+    }
 
     const post = blogPosts[slug];
 

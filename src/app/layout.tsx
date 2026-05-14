@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
-import AppleDock from '@/components/AppleDock';
 import { ThemeProvider } from '@/contexts/ThemeContext';
-import ThemeToggle from '@/components/ThemeToggle';
+import { portfolio } from '@/data/portfolio';
+import PortfolioChrome from "@/components/PortfolioChrome";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Your Portfolio",
-  description: "A modern portfolio website with macOS-style UI",
+  title: `${portfolio.name} | Software Engineer`,
+  description: portfolio.headline,
 };
 
 const dockItems = [
@@ -32,29 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={manrope.className}>
         <ThemeProvider>
-          <div className="min-h-screen relative overflow-x-hidden transition-colors duration-300 dark:bg-gradient-to-br dark:from-gray-900 dark:to-black light:bg-gradient-to-br light:from-gray-100 light:to-white">
-            {/* Theme Toggle Button */}
-            <div className="fixed top-4 right-4 z-50">
-              <ThemeToggle />
-            </div>
-            
-            {/* Main Content */}
-            <div className="relative z-10 pb-24 sm:pb-32">
-              {children}
-            </div>
-            
-            {/* Background Blur Effects */}
-            <div className="fixed inset-0 z-0">
-              <div className="absolute top-20 left-20 w-72 h-72 dark:bg-purple-500 light:bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
-              <div className="absolute top-40 right-20 w-72 h-72 dark:bg-yellow-500 light:bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
-              <div className="absolute -bottom-8 left-40 w-72 h-72 dark:bg-pink-500 light:bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
-            </div>
-            
-            {/* Dock */}
-            <AppleDock items={dockItems} className="z-50" />
-          </div>
+          <PortfolioChrome dockItems={dockItems}>{children}</PortfolioChrome>
         </ThemeProvider>
       </body>
     </html>

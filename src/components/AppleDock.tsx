@@ -91,8 +91,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
       <div className="relative">
         {/* Dock Background */}
         <motion.div 
-          className={`absolute inset-0 backdrop-blur-xl rounded-2xl shadow-2xl border transition-colors duration-300
-            ${theme === 'dark' ? 'bg-white/10 border-white/20' : 'bg-black/10 border-black/10'}`}
+          className="apple-dock-bg absolute inset-0 rounded-3xl border shadow-2xl backdrop-blur-2xl transition-colors duration-300"
           layoutId="dock-bg"
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
         />
@@ -141,7 +140,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                         <motion.img
                           src={item.icon}
                           alt={item.name}
-                          className={`w-full h-full object-contain transition-opacity duration-300 ${theme === 'light' ? 'invert' : ''}`}
+                          className="w-full h-full object-contain transition-opacity duration-300 drop-shadow-lg"
                           onError={() => handleImageError(item.icon)}
                           whileHover={mounted ? { 
                             rotate: [0, -10, 10, -5, 5, 0],
@@ -161,8 +160,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                     
                     {/* Dot Indicator for Active Link */}
                     <motion.div 
-                      className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full
-                        ${theme === 'dark' ? 'bg-white/50' : 'bg-black/50'}`}
+                      className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-lime-200/80"
                       initial={{ scale: 0 }}
                       animate={{ 
                         scale: isActive ? 1 : 0,
@@ -180,8 +178,7 @@ const AppleDock = ({ items = [], className = '' }: Props) => {
                         animate={{ opacity: 1, y: -8 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className={`absolute -top-8 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg whitespace-nowrap text-xs sm:text-sm hidden sm:block
-                          ${theme === 'dark' ? 'bg-gray-800/90 text-white' : 'bg-white/90 text-gray-800'}`}
+                        className="absolute -top-8 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-[#132113]/90 px-2 py-0.5 text-xs text-white shadow-xl backdrop-blur sm:block sm:px-3 sm:py-1 sm:text-sm"
                       >
                         {item.name}
                       </motion.div>

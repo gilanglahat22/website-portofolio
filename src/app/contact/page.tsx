@@ -5,12 +5,10 @@ import TextInputField from "@/components/TextInputField";
 import NumberInputField from "@/components/NumberInputField";
 import DropdownInputField from "@/components/DropdownInputField";
 import MacOSWindow from "@/components/MacOSWindow";
-import { useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
+import { portfolio } from "@/data/portfolio";
 
 export default function Contact() {
-  const { theme } = useTheme();
-
   const [dataToSend, setDataToSend] = useState({
     contact: {
       name: "",
@@ -25,9 +23,9 @@ export default function Contact() {
     "Software Engineering Opportunity",
     "Backend Development Project",
     "Distributed Systems Consultation",
-    "AI/LLM Integration",
-    "Competitive Programming",
-    "Blockchain Research",
+    "AI Document Processing",
+    "Cloud-native Backend Services",
+    "Multi-tenant Platform Work",
     "Other",
   ];
 
@@ -64,8 +62,9 @@ export default function Contact() {
             <h1 className="text-3xl font-bold mb-6">Get In Touch</h1>
 
             <p className="mb-8">
-              I'm interested in software engineering opportunities, backend development projects, distributed systems, and AI/LLM integration.
-              Feel free to reach out if you have a project that matches my skills or want to discuss potential collaboration.
+              I am interested in software engineering opportunities, backend-heavy product work,
+              distributed systems, cloud-native services, and AI document processing platforms.
+              Feel free to reach out for roles or collaborations aligned with the portfolio in my CV.
             </p>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
@@ -136,7 +135,7 @@ export default function Contact() {
                         },
                       })
                     }
-                    className="card block w-full rounded-md px-3.5 py-2 shadow-sm focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="card block w-full rounded-md px-3.5 py-2 shadow-sm focus:ring-2 focus:ring-inset focus:ring-lime-200 sm:text-sm sm:leading-6"
                     required
                   />
                 </div>
@@ -145,7 +144,7 @@ export default function Contact() {
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="card w-full rounded-md py-3 px-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 hover:bg-indigo-600 hover:text-white"
+                  className="card w-full rounded-md py-3 px-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-200 focus:ring-offset-2 transition duration-300 hover:border-lime-200/60 hover:text-white"
                 >
                   Send Message
                 </button>
@@ -154,24 +153,37 @@ export default function Contact() {
 
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">📧 Email</h3>
-                <p className="text-sm">muhgilangramadhan.3011@gmail.com</p>
+                <h3 className="text-lg font-medium mb-2">Email</h3>
+                <a className="text-sm break-words hover:text-lime-200" href={`mailto:${portfolio.email}`}>
+                  {portfolio.email}
+                </a>
               </div>
 
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">📱 Phone</h3>
-                <p className="text-sm">+62 823-8221-1182</p>
+                <h3 className="text-lg font-medium mb-2">Phone</h3>
+                <a className="text-sm hover:text-lime-200" href={`tel:${portfolio.phone.replace(/\s/g, "")}`}>
+                  {portfolio.phone}
+                </a>
               </div>
 
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">💻 GitHub</h3>
-                <p className="text-sm">github.com/gilanglahat22</p>
+                <h3 className="text-lg font-medium mb-2">GitHub</h3>
+                <a className="text-sm break-words hover:text-lime-200" href={portfolio.githubUrl} target="_blank" rel="noopener noreferrer">
+                  {portfolio.githubLabel}
+                </a>
               </div>
 
               <div className="card p-4 rounded-lg">
-                <h3 className="text-lg font-medium mb-2">📍 Location</h3>
-                <p className="text-sm">West Jakarta, Jakarta, Indonesia</p>
+                <h3 className="text-lg font-medium mb-2">Location</h3>
+                <p className="text-sm">{portfolio.location}</p>
               </div>
+            </div>
+
+            <div className="mt-6 card p-4 rounded-lg">
+              <h3 className="text-lg font-medium mb-2">LinkedIn</h3>
+              <a className="text-sm break-words hover:text-lime-200" href={portfolio.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                {portfolio.linkedinLabel}
+              </a>
             </div>
           </div>
         </MacOSWindow>

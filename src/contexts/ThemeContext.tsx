@@ -32,9 +32,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       const storedTheme = localStorage.getItem('theme') as Theme | null;
       if (storedTheme) {
         setTheme(storedTheme);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        // Use light theme if user prefers light mode and no preference is stored
-        setTheme('light');
+      } else {
+        setTheme('dark');
       }
     } catch (error) {
       // Ignore localStorage errors (might happen during SSR)
