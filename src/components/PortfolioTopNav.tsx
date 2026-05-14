@@ -253,7 +253,7 @@ export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }
                 <label className="sr-only" htmlFor="portfolio-search">
                   Search website content
                 </label>
-                <div className="flex items-center gap-2 rounded-2xl border border-[rgba(var(--surface-border))] bg-[rgba(var(--surface-color),0.82)] px-3 py-2">
+                <div className="portfolio-search-bar flex items-center gap-2 rounded-2xl border border-[rgba(var(--surface-border))] bg-[rgba(var(--surface-color),0.82)] px-3 py-2">
                   <Search className="h-4 w-4 shrink-0 text-current opacity-60" />
                   <input
                     ref={searchInputRef}
