@@ -98,8 +98,9 @@ export default function Projects() {
             <div className="space-y-4">
               <h1 className="text-3xl font-bold">Selected Projects</h1>
               <p>
-                CV-backed project work across AI document processing, multi-tenant corporate platforms,
-                internal voting systems, regional campaign products, and open-source learning tools.
+                Selected project work from the CV: AI-powered financial document processing, education
+                platforms, a Japanese B2B matching product, internal voting workflows, and an AI mental
+                wellness chatbot.
               </p>
 
               <div className="flex justify-center my-6">

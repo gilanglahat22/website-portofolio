@@ -12,26 +12,26 @@ export default function About() {
   const photos = [
     {
       id: 1,
-      title: "Backend Engineering",
-      description: "Building scalable APIs, distributed workers, and production services.",
+      title: "AI-Powered SaaS",
+      description: "Building Nexius AI for OCR, parsing, extraction, validation, journal mapping, reports, and delivery.",
       imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 2,
-      title: "AI Document Processing",
-      description: "Developing OCR, validation, journal mapping, and reporting flows for Nexius AI.",
+      title: "Backend & Architecture",
+      description: "Designing FastAPI, .NET, REST API, Domain-Driven Design, microservice, and event-driven systems.",
       imageUrl: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 3,
-      title: "Distributed Systems",
-      description: "Designing event-driven backends with queues, workers, observability, and cloud deployment.",
+      title: "Distributed Delivery",
+      description: "Shipping queue-backed workers, Kubernetes/Rancher deployment, observability, and cloud-native services.",
       imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 4,
-      title: "Competitive Programming",
-      description: "ICPC Asia Jakarta Regional finalist with national and global programming competition experience.",
+      title: "AI, Data & Analytics",
+      description: "Working with LLM applications, LangChain, OCR pipelines, data extraction, clustering, and evaluation metrics.",
       imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
@@ -42,8 +42,8 @@ export default function About() {
     },
     {
       id: 6,
-      title: "Production Web Platforms",
-      description: "Shipping web products for financial, corporate matching, CMS, and campaign workflows.",
+      title: "Competitive Programming",
+      description: "ICPC Asia Jakarta Regional finalist, Gemastik XV participant, and Meta Hacker Cup top 7% finisher.",
       imageUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
   ];
@@ -164,7 +164,7 @@ export default function About() {
               </div>
             ) : activeTab === "photos" ? (
               <div>
-                <h2 className="text-3xl font-semibold mb-6">Engineering Focus</h2>
+                <h2 className="text-3xl font-semibold mb-6">CV Focus Areas</h2>
                 <p className="mb-8">
                   A portfolio view of the areas highlighted in the CV, from production backend systems to
                   AI document processing and competitive programming.
@@ -191,7 +191,7 @@ export default function About() {
               </div>
             ) : (
               <div className="space-y-6">
-                <h2 className="text-3xl font-semibold mb-2">My Story</h2>
+                <h2 className="text-3xl font-semibold mb-2">CV Story</h2>
 
                 <div className="space-y-4">
                   <p>
@@ -201,7 +201,7 @@ export default function About() {
                   </p>
 
                   <p>
-                    Professionally, I have worked across backend, fullstack, AI, security, and platform
+                    Professionally, I have worked across backend, full stack, AI, security, and platform
                     engineering roles. At Quantum Teknologi Nusantara, I build Nexius AI services for
                     financial document processing. Before that, I developed PMI regional platforms with
                     One Code Solution, researched endpoint security concepts at MarkAny, and delivered

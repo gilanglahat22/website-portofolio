@@ -14,9 +14,8 @@ export default function Skills() {
             <div className="space-y-4">
               <h1 className="text-3xl font-bold">Technical Skills</h1>
               <p>
-                {portfolio.summary} My technical foundation includes Object-Oriented Programming,
-                SOLID Design Principle, Data Structures and Algorithms, System Design, REST API design,
-                cloud computing, and production-oriented web development.
+                {portfolio.summary} The CV groups my skill set across full stack UI, backend architecture,
+                AI/data analytics, and infrastructure delivery.
               </p>
             </div>
           </MacOSWindow>
@@ -27,7 +26,7 @@ export default function Skills() {
 
           <MacOSWindow title="Achievements & Competitions" variant="system">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Competitive Programming Achievements</h2>
+              <h2 className="text-2xl font-bold">Achievements</h2>
               <p>Programming competition achievements listed in the CV.</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">

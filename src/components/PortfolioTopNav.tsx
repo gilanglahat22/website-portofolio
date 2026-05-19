@@ -12,7 +12,7 @@ import {
   Search,
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
-import { achievements, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
+import { achievements, caseStudies, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
 
 export interface DockItem {
   name: string;
@@ -37,8 +37,9 @@ interface SearchItem {
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/experience", label: "Experience" },
-  { href: "/projects", label: "Work Type's", hasMenu: true },
-  { href: "/skills", label: "More" },
+  { href: "/projects", label: "Projects", hasMenu: true },
+  { href: "/skills", label: "Skills" },
+  { href: "/blog", label: "Case Studies" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -78,6 +79,13 @@ const buildSearchIndex = (): SearchItem[] => {
       href: "/skills",
       section: "Page",
       keywords: skillGroups.map((group) => `${group.title} ${group.items.join(" ")}`).join(" "),
+    },
+    {
+      title: "Case Studies",
+      description: "CV-backed notes on product, backend, AI, and education work.",
+      href: "/blog",
+      section: "Page",
+      keywords: caseStudies.map((item) => `${item.title} ${item.categories.join(" ")}`).join(" "),
     },
     {
       title: "Contact",
@@ -127,7 +135,15 @@ const buildSearchIndex = (): SearchItem[] => {
     keywords: achievement.description,
   }));
 
-  return [...pageItems, ...projectItems, ...experienceItems, ...skillItems, ...achievementItems];
+  const caseStudyItems = caseStudies.map((study) => ({
+    title: study.title,
+    description: study.excerpt,
+    href: `/blog/${study.slug}`,
+    section: "Case Study",
+    keywords: `${study.categories.join(" ")} ${study.sections.map((section) => section.heading).join(" ")}`,
+  }));
+
+  return [...pageItems, ...projectItems, ...experienceItems, ...skillItems, ...achievementItems, ...caseStudyItems];
 };
 
 export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }: PortfolioTopNavProps) {

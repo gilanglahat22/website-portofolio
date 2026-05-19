@@ -209,7 +209,7 @@ export default function AppleSidebar() {
           </button>
         </div>
         <p>COPYRIGHT © {new Date().getFullYear()}</p>
-        <p>Muhammad Gilang Ramadhan. All rights reserved.</p>
+        <p>{portfolio.name}. All rights reserved.</p>
       </div>
     </div>
   );

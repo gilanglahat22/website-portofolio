@@ -119,7 +119,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
         <div className="min-h-screen">
             <main className="pt-8 px-4 sm:px-6 pb-32">
                 <div className="max-w-7xl mx-auto">
-                    <MacOSWindow title="Photo Gallery" variant="system" className="min-h-[80vh]">
+                    <MacOSWindow title="Career Gallery" variant="system" className="min-h-[80vh]">
                         {/* Main Tabs */}
                         <div className="flex border-b border-neutral-300 dark:border-neutral-600 mb-6">
                             <button
@@ -130,7 +130,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                     }`}
                                 style={{ color: activeTab === 'gilang' ? '#60a5fa' : '#ffffff' }}
                             >
-                                👤 Gilang Photos
+                                👤 Career Photos
                                 <span
                                     className="px-2 py-0.5 text-xs font-bold rounded-full"
                                     style={{ backgroundColor: '#1e3a5f', color: '#93c5fd' }}
@@ -146,7 +146,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                     }`}
                                 style={{ color: activeTab === 'wfc' ? '#60a5fa' : '#ffffff' }}
                             >
-                                ☕ WFC Collection
+                                ☕ Remote Engineering
                                 <span
                                     className="px-2 py-0.5 text-xs font-bold rounded-full"
                                     style={{ backgroundColor: '#5c3c1b', color: '#fcd34d' }}
@@ -250,7 +250,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                 )}
                             </>
                         ) : (
-                            // WFC Tab
+                            // Remote engineering tab
                             <>
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
@@ -258,10 +258,10 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                     className="mb-6 p-4 bg-amber-900 rounded-xl border border-amber-700"
                                 >
                                     <h2 className="text-xl font-bold flex items-center gap-2 text-white">
-                                        ☕ WFC Collection
+                                        ☕ Remote Engineering
                                     </h2>
                                     <p className="text-sm mt-1 text-amber-200">
-                                        Work From Cafe and remote work moments
+                                        Remote work and focused engineering moments
                                     </p>
                                 </motion.div>
 
@@ -270,7 +270,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                 ) : (
                                     <div className="flex flex-col items-center justify-center p-20 text-center opacity-60">
                                         <span className="text-5xl mb-4">☕</span>
-                                        <p className="text-xl font-medium">No WFC photos found</p>
+                                        <p className="text-xl font-medium">No remote-work photos found</p>
                                         <p className="text-sm mt-2">Add JPEG/PNG images to public/WFC to see them here.</p>
                                     </div>
                                 )}

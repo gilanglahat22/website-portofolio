@@ -5,14 +5,14 @@ import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 import { useTheme } from '@/contexts/ThemeContext';
 
-// Sample data for initial chat messages
+// Sample data for a portfolio inquiry board.
 const initialMessages = [
-  { id: 1, username: "Anonymous_42", text: "Hello everyone! Anyone here?", timestamp: "2 hours ago" },
-  { id: 2, username: "Anonymous_89", text: "Hey there! Yes, I'm here. What's up?", timestamp: "1 hour ago" },
-  { id: 3, username: "Anonymous_17", text: "Just checking out this anonymous chat. Pretty cool!", timestamp: "1 hour ago" },
-  { id: 4, username: "Anonymous_55", text: "Does anyone know good resources for learning React?", timestamp: "45 minutes ago" },
-  { id: 5, username: "Anonymous_23", text: "I'd recommend the official React docs and courses by Maximilian Schwarzmüller.", timestamp: "30 minutes ago" },
-  { id: 6, username: "Anonymous_76", text: "Thanks for the recommendation!", timestamp: "15 minutes ago" },
+  { id: 1, username: "Recruiter_42", text: "Can you summarize Gilang's current focus?", timestamp: "2 hours ago" },
+  { id: 2, username: "Portfolio_Desk", text: "AI-powered B2B SaaS, backend-focused product engineering, scalable APIs, and distributed workers.", timestamp: "1 hour ago" },
+  { id: 3, username: "Engineer_17", text: "What is the strongest production backend example?", timestamp: "1 hour ago" },
+  { id: 4, username: "Portfolio_Desk", text: "Nexius AI: FastAPI services, RabbitMQ workers, SSE progress, Kubernetes pods, and observability with OpenTelemetry/SigNoz.", timestamp: "45 minutes ago" },
+  { id: 5, username: "Founder_23", text: "Does the CV include education products too?", timestamp: "30 minutes ago" },
+  { id: 6, username: "Portfolio_Desk", text: "Yes. Nakafa AI and TELISIK are listed as education-focused platforms.", timestamp: "15 minutes ago" },
 ];
 
 // Define the message type
@@ -33,8 +33,7 @@ export default function PublicChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [newMessage, setNewMessage] = useState("");
   const [username, setUsername] = useState(() => {
-    // Generate a random username like "Anonymous_XX"
-    return `Anonymous_${Math.floor(Math.random() * 100)}`;
+    return `Visitor_${Math.floor(Math.random() * 100)}`;
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState<TypingState>({});
@@ -47,7 +46,7 @@ export default function PublicChat() {
   // Simulate other users typing (just for demo)
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomUser = `Anonymous_${Math.floor(Math.random() * 100)}`;
+      const randomUser = `Visitor_${Math.floor(Math.random() * 100)}`;
       if (Math.random() > 0.7) {
         setIsTyping(prev => ({...prev, [randomUser]: true}));
         setTimeout(() => {
@@ -105,7 +104,7 @@ export default function PublicChat() {
       {/* Main Content */}
       <main className="pt-4 sm:pt-6 md:pt-8 px-2 sm:px-4 md:px-6 pb-32">
         <div className="max-w-4xl mx-auto">
-          <MacOSWindow title="Public Anonymous Chat" variant="system">
+          <MacOSWindow title="Portfolio Inquiry Board" variant="system">
             <div className="h-[calc(100vh-150px)] sm:h-[calc(100vh-200px)] md:h-[calc(100vh-250px)] flex flex-col">
               {/* Chat header */}
               <div className="p-2 sm:p-3 md:p-4 border-b border-gray-700">
@@ -117,7 +116,7 @@ export default function PublicChat() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm sm:text-base font-medium">Public Chat Room</h3>
+                      <h3 className="text-sm sm:text-base font-medium">CV Inquiry Board</h3>
                       <p className="text-xs sm:text-sm">{messages.length} messages</p>
                     </div>
                   </div>
@@ -129,7 +128,7 @@ export default function PublicChat() {
                       <div 
                         key={index}
                         className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-800 flex items-center justify-center ${index >= 3 ? 'hidden sm:flex' : 'flex'}`}
-                        style={{ backgroundColor: generateRandomColor(`Anonymous_${index}`) }}
+                        style={{ backgroundColor: generateRandomColor(`Visitor_${index}`) }}
                       >
                         <span className="text-[10px] sm:text-xs font-bold text-white">
                           {String.fromCharCode(65 + index)}
@@ -223,7 +222,7 @@ export default function PublicChat() {
                     type="text"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
-                    placeholder="Type your message..."
+                    placeholder="Ask about the CV, projects, or engineering background..."
                     className="card flex-1 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   />
                   <button

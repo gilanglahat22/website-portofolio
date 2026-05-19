@@ -140,7 +140,7 @@ export default function Sidebar() {
       {/* Footer */}
       <div className="border-t border-gray-800 p-4 text-xs text-gray-500">
         <p>COPYRIGHT © {new Date().getFullYear()}</p>
-        <p>Muhammad Gilang Ramadhan. All rights reserved.</p>
+        <p>{portfolio.name}. All rights reserved.</p>
       </div>
     </div>
   );

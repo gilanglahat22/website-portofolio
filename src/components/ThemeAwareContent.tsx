@@ -40,8 +40,8 @@ const ThemeAwareContent = () => {
             <section className="grid min-h-[620px] grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-8">
                 <div className="space-y-5">
-                  <p className="inline-flex items-center gap-2 rounded-full border border-lime-200/20 bg-white/5 px-4 py-2 text-sm font-semibold text-lime-100">
-                    <ServerCog className="h-4 w-4" />
+                  <p className="inline-flex max-w-full items-start gap-2 rounded-full border border-lime-200/20 bg-white/5 px-4 py-2 text-left text-sm font-semibold leading-5 text-lime-100">
+                    <ServerCog className="mt-0.5 h-4 w-4 shrink-0" />
                     {portfolio.title}
                   </p>
                   <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
@@ -69,7 +69,7 @@ const ThemeAwareContent = () => {
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/60">
                       <Play className="h-5 w-5 fill-white" />
                     </span>
-                    GitHub Demo...
+                    GitHub Profile
                   </Link>
                 </div>
 
@@ -83,7 +83,7 @@ const ThemeAwareContent = () => {
                       <p className="text-sm text-lime-200">{portfolio.location}</p>
                     </div>
                   </div>
-                  <p className="mt-5 text-sm leading-6 text-white/70">
+                <p className="mt-5 text-sm leading-6 text-white/70">
                     {portfolio.summary}
                   </p>
                 </div>
@@ -152,7 +152,7 @@ const ThemeAwareContent = () => {
                           target="_blank"
                           className="inline-flex items-center gap-2 rounded-xl border border-white/60 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-lime-200 hover:bg-lime-200/10"
                         >
-                          Explore <ArrowUpRight className="h-4 w-4" />
+                          {project.linkLabel ?? "Explore"} <ArrowUpRight className="h-4 w-4" />
                         </Link>
                       ) : null}
                     </div>
@@ -163,7 +163,7 @@ const ThemeAwareContent = () => {
 
             <section className="space-y-8">
               <div className="text-center">
-                <h2 className="portfolio-section-title text-3xl">Top Systems</h2>
+                <h2 className="portfolio-section-title text-3xl">CV Selected Projects</h2>
               </div>
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {projectCards.map((project) => (
@@ -191,7 +191,7 @@ const ThemeAwareContent = () => {
 
             <section className="space-y-8">
               <div className="text-center">
-                <h2 className="portfolio-section-title text-3xl">Engineering Reviews</h2>
+                <h2 className="portfolio-section-title text-3xl">Achievements</h2>
               </div>
               <div className="grid gap-6 md:grid-cols-3">
                 {achievements.slice(0, 3).map((achievement) => (
@@ -215,11 +215,11 @@ const ThemeAwareContent = () => {
                 </div>
               </div>
               <div className="space-y-6">
-                <p className="text-sm font-bold uppercase tracking-[0.24em] text-lime-200/75">Best 02</p>
-                <h2 className="text-3xl font-extrabold text-white">Backend, AI, and Distributed Systems Collection</h2>
+                <p className="text-sm font-bold uppercase tracking-[0.24em] text-lime-200/75">Core Skills</p>
+                <h2 className="text-3xl font-extrabold text-white">Full stack, AI, backend, and cloud-native delivery</h2>
                 <p className="max-w-2xl text-sm leading-6 text-white/70">
                   {skillGroups[0].items.slice(0, 5).join(", ")}. I pair those fundamentals with
-                  {` ${skillGroups[1].items.slice(0, 5).join(", ")} `}
+                  {` ${skillGroups[1].items.slice(0, 6).join(", ")} `}
                   to ship maintainable production platforms.
                 </p>
                 <div className="flex flex-wrap gap-3">
