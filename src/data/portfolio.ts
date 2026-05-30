@@ -49,11 +49,11 @@ export interface CaseStudyItem {
 
 export const portfolio = {
   name: "Muhammad Gilang Ramadhan",
-  title: "Backend-focused Fullstack Engineer",
+  title: "Software Engineer",
   headline:
-    "Backend-focused Fullstack Engineer building scalable APIs, multi-tenant systems, distributed workers, and production web platforms.",
+    "Software Engineer building scalable gaming marketplaces, distributed systems, event-driven architectures, and production backend platforms.",
   summary:
-    "Software Engineer with 3+ years of experience across Python/FastAPI, React/TypeScript, REST API design, event-driven architecture, Docker, Kubernetes/Rancher, SQL systems, and cloud-native backend services.",
+    "Software Engineer with 4+ years of experience across Python/FastAPI, React/TypeScript, REST API design, event-driven architecture, Docker, Kubernetes/Rancher, SQL systems, and cloud-native backend services. Currently at Bukalapak in the Gaming Division — itemku C2C marketplace.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -80,8 +80,20 @@ export const portfolio = {
 export const experiences: ExperienceItem[] = [
   {
     title: "Software Engineer | Full-time",
+    company: "Bukalapak",
+    date: "June 2026 - Present",
+    description: [
+      "Joined Bukalapak's Gaming Division as a Software Engineer, working on itemku — Indonesia's leading C2C marketplace for gaming items, virtual goods, and game accounts.",
+      "Contributing to backend systems and platform features that power the itemku marketplace, supporting game-item transactions, seller flows, buyer discovery, and C2C trading infrastructure.",
+      "Building and maintaining scalable services for the gaming commerce ecosystem, enabling peer-to-peer transactions across a wide range of games and digital goods categories.",
+    ],
+    logo: "/icons/bukalapak.png",
+    skills: ["Software Engineering", "Marketplace", "C2C Platform", "Gaming", "Backend Systems"],
+  },
+  {
+    title: "Software Engineer | Full-time",
     company: "Quantum Teknologi Nusantara",
-    date: "September 2025 - Present",
+    date: "September 2025 - May 2026",
     description: [
       "Built and optimized Nexius AI, a 7-stage AI financial document processing SaaS covering OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
       "Standardized FastAPI backend architecture using Domain-Driven Design across multiple services to improve maintainability, service consistency, and readiness for future AI integrations.",
@@ -358,7 +370,7 @@ export const caseStudies: CaseStudyItem[] = [
   {
     title: "Nexius AI: Building an AI Financial Document Processing SaaS",
     slug: "nexius-ai-financial-document-processing",
-    date: "September 2025 - Present",
+    date: "September 2025 - May 2026",
     readTime: 6,
     excerpt:
       "A CV-backed look at the 7-stage Nexius AI platform: OCR, parsing, extraction, validation, journal mapping, reporting, and delivery.",
@@ -368,7 +380,7 @@ export const caseStudies: CaseStudyItem[] = [
       {
         heading: "Product Scope",
         body: [
-          "At Quantum Teknologi Nusantara, my current work centers on Nexius AI, an AI-powered financial document processing SaaS. The platform converts uploaded financial documents into structured, validated outputs that users can review and download.",
+          "At Quantum Teknologi Nusantara (September 2025 – May 2026), I worked on Nexius AI, an AI-powered financial document processing SaaS. The platform converts uploaded financial documents into structured, validated outputs that users can review and download.",
           "The product spans customer-facing upload flows, partner and affiliate portals, and internal admin dashboards, so engineering decisions need to support both product usability and operational visibility.",
         ],
       },
