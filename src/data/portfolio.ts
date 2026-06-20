@@ -276,14 +276,13 @@ export const projects: ProjectItem[] = [
 
 export const achievements: AchievementItem[] = [
   {
-    title: "Finalist, ICPC Asia Jakarta Regional 2021",
-    description: "Qualified through Indonesia National Contest against 100+ national teams.",
-    link: "https://icpc.global/ICPCID/N1FILTJWC0D4",
-    linkLabel: "View ICPC profile",
+    title: "Finalist, Coding Algorithm Tournament (CAT) 2026",
+    description:
+      "Selected as one of the Top 30 finalists from over 2,000 participants nationwide across Indonesia in student, university, and professional categories.",
   },
   {
-    title: "National Finalist, Indonesia National Contest 2021",
-    description: "Placed in the top undergraduate university team category.",
+    title: "Finalist, ICPC Asia Jakarta Regional 2021",
+    description: "Qualified through Indonesia National Contest against 100+ national teams.",
     link: "https://icpc.global/ICPCID/N1FILTJWC0D4",
     linkLabel: "View ICPC profile",
   },

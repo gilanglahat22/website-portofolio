@@ -778,6 +778,21 @@ html {
   color: #111111 !important;
 }
 
+.light-theme .terminal-command,
+.light-theme .terminal-pill {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #111111 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.04),
+    0 10px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-theme .terminal-command :where(span, p),
+.light-theme .terminal-pill :where(span, p) {
+  color: #111111 !important;
+}
+
 .light-theme .terminal-shell,
 .light-theme .terminal-shell .terminal-card,
 .light-theme .terminal-shell .terminal-stat,
@@ -852,8 +867,57 @@ html {
   color: #f8fafc !important;
 }
 
+.dark-theme .terminal-command,
+.dark-theme .terminal-pill {
+  background: rgba(5, 5, 5, 0.86) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #f8fafc !important;
+}
+
 .dark-theme .portfolio-top-nav {
   background: linear-gradient(180deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.78), transparent) !important;
+}
+
+.light-theme .portfolio-app-shell .terminal-command,
+.light-theme .portfolio-app-shell a.terminal-command,
+.light-theme .portfolio-app-shell button.terminal-command,
+.light-theme .terminal-shell .terminal-command,
+.light-theme .terminal-shell a.terminal-command,
+.light-theme .terminal-shell button.terminal-command {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.04),
+    0 10px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-theme .portfolio-app-shell .terminal-command::before,
+.light-theme .terminal-shell .terminal-command::before {
+  color: rgb(var(--accent-green-soft)) !important;
+  -webkit-text-fill-color: rgb(var(--accent-green-soft)) !important;
+}
+
+.light-theme .portfolio-app-shell .terminal-command :where(svg, span, p),
+.light-theme .terminal-shell .terminal-command :where(svg, span, p) {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+.dark-theme .portfolio-app-shell .terminal-command,
+.dark-theme .portfolio-app-shell a.terminal-command,
+.dark-theme .portfolio-app-shell button.terminal-command,
+.dark-theme .terminal-shell .terminal-command,
+.dark-theme .terminal-shell a.terminal-command,
+.dark-theme .terminal-shell button.terminal-command {
+  background: #050505 !important;
+  background-color: #050505 !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
 }
 
 .dark-theme .portfolio-app-shell [class*="text-black"],
