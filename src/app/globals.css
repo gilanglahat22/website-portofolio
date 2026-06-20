@@ -453,11 +453,31 @@ html {
 }
 
 .portfolio-app-shell .bg-white,
+.portfolio-app-shell .bg-gray-100 {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
 .portfolio-app-shell .bg-black,
-.portfolio-app-shell .bg-gray-100,
 .portfolio-app-shell .bg-gray-800,
-.portfolio-app-shell .bg-gray-900 {
-  background-color: transparent !important;
+.portfolio-app-shell .bg-gray-900,
+.portfolio-app-shell .bg-neutral-800,
+.portfolio-app-shell .bg-neutral-900 {
+  background-color: #050505 !important;
+  color: #f8fafc !important;
+}
+
+.portfolio-app-shell .bg-white :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.portfolio-app-shell .bg-gray-100 :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button) {
+  color: #111111;
+}
+
+.portfolio-app-shell .bg-black :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.portfolio-app-shell .bg-gray-800 :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.portfolio-app-shell .bg-gray-900 :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.portfolio-app-shell .bg-neutral-800 :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.portfolio-app-shell .bg-neutral-900 :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button) {
+  color: #f8fafc;
 }
 
 .portfolio-app-shell input,
@@ -663,12 +683,21 @@ html {
   color: #111111 !important;
 }
 
-.light-theme .portfolio-app-shell [class*="bg-black"],
-.light-theme .portfolio-app-shell [class*="bg-gray-800"],
-.light-theme .portfolio-app-shell [class*="bg-gray-900"],
-.light-theme .portfolio-app-shell [class*="bg-neutral-800"],
-.light-theme .portfolio-app-shell [class*="bg-neutral-900"] {
-  background-color: #ffffff !important;
+.light-theme .portfolio-app-shell [class~="bg-black"],
+.light-theme .portfolio-app-shell [class~="bg-gray-800"],
+.light-theme .portfolio-app-shell [class~="bg-gray-900"],
+.light-theme .portfolio-app-shell [class~="bg-neutral-800"],
+.light-theme .portfolio-app-shell [class~="bg-neutral-900"] {
+  background-color: #050505 !important;
+  color: #f8fafc !important;
+}
+
+.light-theme .portfolio-app-shell [class~="bg-black"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.light-theme .portfolio-app-shell [class~="bg-gray-800"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.light-theme .portfolio-app-shell [class~="bg-gray-900"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.light-theme .portfolio-app-shell [class~="bg-neutral-800"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.light-theme .portfolio-app-shell [class~="bg-neutral-900"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button) {
+  color: #f8fafc !important;
 }
 
 .light-theme .portfolio-app-shell [class*="border-white"],
@@ -742,65 +771,73 @@ html {
   -webkit-text-fill-color: #111111 !important;
 }
 
-.light-theme {
-  --background-color: 2, 6, 8;
-  --text-color: 236, 253, 245;
-  --surface-color: 7, 16, 20;
-  --surface-soft-color: 11, 25, 29;
-  --surface-border: 148, 255, 194, 0.17;
-  --window-bg: 5, 13, 16, 0.84;
-  --window-border: 148, 255, 194, 0.18;
-  --dock-bg: 4, 13, 16, 0.86;
-  --dock-border: 148, 255, 194, 0.18;
-  --accent-green: 74, 222, 128;
-  --accent-green-soft: 190, 242, 100;
-  --accent-cyan: 34, 211, 238;
-}
-
-.light-theme body,
-.light-theme .portfolio-app-shell {
-  background:
-    radial-gradient(circle at 14% 4%, rgba(var(--accent-cyan), 0.14), transparent 28rem),
-    radial-gradient(circle at 82% 0%, rgba(var(--accent-green), 0.16), transparent 30rem),
-    linear-gradient(180deg, #020608 0%, #03090b 52%, #020506 100%) !important;
-  color: rgb(var(--text-color)) !important;
-}
-
-.light-theme .portfolio-backdrop,
-.light-theme .portfolio-backdrop::before,
-.light-theme .portfolio-backdrop-grid {
-  opacity: 1 !important;
-}
-
-.light-theme .window-container,
-.light-theme .card,
-.light-theme .portfolio-glass-card,
-.light-theme .portfolio-popover,
-.light-theme .apple-dock-bg,
 .light-theme .terminal-card,
-.light-theme .terminal-shell,
 .light-theme .terminal-stat {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+}
+
+.light-theme .terminal-shell,
+.light-theme .terminal-shell .terminal-card,
+.light-theme .terminal-shell .terminal-stat,
+.light-theme .fixed .terminal-shell {
   background:
-    linear-gradient(145deg, rgba(var(--surface-color), 0.9), rgba(var(--surface-soft-color), 0.76)) !important;
-  border-color: rgba(var(--surface-border)) !important;
-  color: rgb(var(--text-color)) !important;
+    linear-gradient(135deg, rgba(74, 222, 128, 0.09), transparent 26%),
+    linear-gradient(180deg, rgba(3, 12, 15, 0.96), rgba(7, 16, 20, 0.9)) !important;
+  border-color: rgba(148, 255, 194, 0.2) !important;
+  color: #f8fafc !important;
 }
 
-.light-theme .portfolio-app-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
-.light-theme .window-container :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
-.light-theme .card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
-.light-theme .portfolio-glass-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
-.light-theme .portfolio-popover :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .terminal-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .terminal-shell [class*="text-white"],
+.light-theme .terminal-shell [class*="text-gray"],
+.light-theme .terminal-shell [class*="text-neutral"] {
+  color: #f8fafc !important;
+}
+
+.light-theme .terminal-shell [class*="text-white/75"],
+.light-theme .terminal-shell [class*="text-white/70"],
+.light-theme .terminal-shell [class*="text-white/68"],
+.light-theme .terminal-shell [class*="text-white/65"],
+.light-theme .terminal-shell [class*="text-white/60"],
+.light-theme .terminal-shell [class*="text-white/55"],
+.light-theme .terminal-shell [class*="text-white/50"],
+.light-theme .terminal-shell [class*="text-white/45"],
+.light-theme .terminal-shell [class*="text-white/35"] {
+  color: rgba(248, 250, 252, 0.68) !important;
+}
+
 .light-theme .terminal-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
-.light-theme .terminal-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd) {
-  color: rgb(var(--text-color)) !important;
+.light-theme .terminal-stat :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd) {
+  color: #111111 !important;
 }
 
-.light-theme .terminal-kicker,
-.light-theme .terminal-label,
-.light-theme .terminal-prompt-line::before,
-.light-theme .portfolio-app-shell [class*="text-lime"] {
-  color: rgb(var(--accent-green-soft)) !important;
+.light-theme .terminal-shell .terminal-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .terminal-shell .terminal-stat :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd) {
+  color: #f8fafc !important;
+}
+
+.dark-theme .portfolio-app-shell [class*="text-black"],
+.dark-theme .portfolio-app-shell [class*="text-gray-900"],
+.dark-theme .portfolio-app-shell [class*="text-neutral-900"],
+.dark-theme .portfolio-app-shell [class*="text-slate-900"] {
+  color: #f8fafc !important;
+}
+
+.dark-theme .portfolio-app-shell [class~="bg-white"],
+.dark-theme .portfolio-app-shell [class~="bg-gray-100"],
+.dark-theme .portfolio-app-shell [class~="bg-neutral-100"],
+.dark-theme .portfolio-app-shell [class~="bg-slate-100"] {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+.dark-theme .portfolio-app-shell [class~="bg-white"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.dark-theme .portfolio-app-shell [class~="bg-gray-100"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.dark-theme .portfolio-app-shell [class~="bg-neutral-100"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button),
+.dark-theme .portfolio-app-shell [class~="bg-slate-100"] :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button) {
+  color: #111111 !important;
 }
 
 @layer utilities {
