@@ -3,6 +3,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AppleDock from "@/components/AppleDock";
+import PortfolioTerminal from "@/components/PortfolioTerminal";
 import PortfolioTopNav, { DockItem } from "@/components/PortfolioTopNav";
 
 interface PortfolioChromeProps {
@@ -12,6 +13,7 @@ interface PortfolioChromeProps {
 
 export default function PortfolioChrome({ children, dockItems }: PortfolioChromeProps) {
   const [dockVisible, setDockVisible] = useState(true);
+  const [terminalOpen, setTerminalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -25,6 +27,22 @@ export default function PortfolioChrome({ children, dockItems }: PortfolioChrome
     } catch {
       // Ignore storage errors in restricted browser contexts.
     }
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "`") {
+        event.preventDefault();
+        setTerminalOpen((current) => !current);
+      }
+
+      if (event.key === "Escape") {
+        setTerminalOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const toggleDock = () => {
@@ -47,6 +65,8 @@ export default function PortfolioChrome({ children, dockItems }: PortfolioChrome
         dockItems={dockItems}
         dockVisible={dockVisible}
         onToggleDock={toggleDock}
+        terminalOpen={terminalOpen}
+        onOpenTerminal={() => setTerminalOpen(true)}
       />
 
       <div className={`relative z-10 pt-20 transition-[padding] duration-300 ${dockVisible ? "pb-24 sm:pb-32" : "pb-10"}`}>
@@ -70,6 +90,12 @@ export default function PortfolioChrome({ children, dockItems }: PortfolioChrome
           </motion.div>
         ) : null}
       </AnimatePresence>
+
+      <PortfolioTerminal
+        open={terminalOpen}
+        onClose={() => setTerminalOpen(false)}
+        dockItems={dockItems}
+      />
     </div>
   );
 }

@@ -4,17 +4,20 @@
 
 @layer base {
   :root {
-    --background-color: 5, 5, 5;
-    --text-color: 246, 246, 242;
-    --surface-color: 18, 18, 18;
-    --surface-soft-color: 28, 28, 28;
-    --surface-border: 255, 255, 255, 0.14;
-    --window-bg: 18, 18, 18, 0.78;
-    --window-border: 255, 255, 255, 0.14;
-    --dock-bg: 14, 14, 14, 0.82;
-    --dock-border: 255, 255, 255, 0.16;
-    --accent-green: 132, 204, 22;
+    --background-color: 2, 6, 8;
+    --text-color: 236, 253, 245;
+    --surface-color: 7, 16, 20;
+    --surface-soft-color: 11, 25, 29;
+    --surface-border: 148, 255, 194, 0.17;
+    --window-bg: 5, 13, 16, 0.84;
+    --window-border: 148, 255, 194, 0.18;
+    --dock-bg: 4, 13, 16, 0.86;
+    --dock-border: 148, 255, 194, 0.18;
+    --accent-green: 74, 222, 128;
     --accent-green-soft: 190, 242, 100;
+    --accent-cyan: 34, 211, 238;
+    --terminal-red: 248, 113, 113;
+    --terminal-amber: 251, 191, 36;
   }
 
   .light-theme {
@@ -75,8 +78,9 @@ html {
 
 .portfolio-app-shell {
   background:
-    radial-gradient(ellipse at 50% -10%, rgba(var(--accent-green), 0.12), transparent 42%),
-    linear-gradient(180deg, rgb(var(--background-color)) 0%, rgb(var(--background-color)) 100%);
+    radial-gradient(circle at 14% 4%, rgba(var(--accent-cyan), 0.14), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(var(--accent-green), 0.16), transparent 30rem),
+    linear-gradient(180deg, #020608 0%, #03090b 52%, #020506 100%);
 }
 
 .light-theme .portfolio-app-shell {
@@ -87,16 +91,17 @@ html {
 
 .dark-theme .portfolio-app-shell {
   background:
-    radial-gradient(ellipse at 50% -10%, rgba(var(--accent-green), 0.1), transparent 42%),
-    linear-gradient(180deg, #050505 0%, #080808 100%);
+    radial-gradient(circle at 14% 4%, rgba(var(--accent-cyan), 0.14), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(var(--accent-green), 0.16), transparent 30rem),
+    linear-gradient(180deg, #020608 0%, #03090b 52%, #020506 100%);
 }
 
 .portfolio-backdrop {
   pointer-events: none;
   background:
-    linear-gradient(120deg, rgba(var(--text-color), 0.035) 0 1px, transparent 1px 120px),
-    linear-gradient(180deg, rgba(var(--text-color), 0.035), transparent 18%);
-  opacity: 0.72;
+    linear-gradient(120deg, rgba(var(--accent-green), 0.06) 0 1px, transparent 1px 118px),
+    linear-gradient(180deg, rgba(var(--accent-cyan), 0.055), transparent 18%);
+  opacity: 0.86;
 }
 
 .portfolio-backdrop::before {
@@ -104,10 +109,25 @@ html {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(var(--text-color), 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--text-color), 0.018) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(var(--accent-green), 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-cyan), 0.032) 1px, transparent 1px);
+  background-size: 64px 64px;
   mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 76%, transparent 100%);
+}
+
+.portfolio-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+  opacity: 0.22;
+  mix-blend-mode: screen;
 }
 
 .portfolio-backdrop-grid {
@@ -117,7 +137,7 @@ html {
 }
 
 .portfolio-top-nav {
-  background: linear-gradient(180deg, rgba(var(--background-color), 0.9), rgba(var(--background-color), 0.72), transparent);
+  background: linear-gradient(180deg, rgba(2, 6, 8, 0.94), rgba(2, 6, 8, 0.76), transparent);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -136,7 +156,8 @@ html {
 .portfolio-logo-mark {
   width: 2.45rem;
   height: 2.45rem;
-  border-radius: 0.9rem;
+  border-radius: 0.7rem;
+  color: rgb(var(--accent-green));
 }
 
 .portfolio-icon-button {
@@ -153,10 +174,11 @@ html {
 }
 
 .portfolio-icon-button-active {
-  border-color: rgba(59, 130, 246, 0.9) !important;
+  border-color: rgba(var(--accent-cyan), 0.9) !important;
   box-shadow:
     inset 0 1px 0 rgba(var(--text-color), 0.08),
-    0 0 0 2px rgba(59, 130, 246, 0.85),
+    0 0 0 2px rgba(var(--accent-cyan), 0.24),
+    0 0 28px rgba(var(--accent-cyan), 0.14),
     0 12px 30px rgba(0, 0, 0, 0.16) !important;
 }
 
@@ -240,25 +262,32 @@ html {
   border-color: rgba(var(--dock-border)) !important;
   box-shadow:
     inset 0 1px 0 rgba(var(--text-color), 0.08),
-    0 20px 50px rgba(0, 0, 0, 0.18) !important;
+    0 0 0 1px rgba(var(--accent-green), 0.05),
+    0 20px 50px rgba(0, 0, 0, 0.38),
+    0 0 42px rgba(var(--accent-green), 0.09) !important;
 }
 
 .window-container {
-  border-radius: 2.25rem !important;
+  border-radius: 1.35rem !important;
   background:
-    linear-gradient(145deg, rgba(var(--window-bg)), rgba(var(--surface-soft-color), 0.72)) !important;
+    linear-gradient(145deg, rgba(var(--window-bg)), rgba(var(--surface-soft-color), 0.74)) !important;
   border: 1px solid rgba(var(--window-border)) !important;
   color: rgb(var(--text-color)) !important;
   box-shadow:
     inset 0 1px 0 rgba(var(--text-color), 0.08),
-    0 28px 80px rgba(0, 0, 0, 0.18) !important;
+    inset 0 0 80px rgba(var(--accent-cyan), 0.025),
+    0 28px 80px rgba(0, 0, 0, 0.42),
+    0 0 60px rgba(var(--accent-green), 0.07) !important;
   backdrop-filter: blur(26px) saturate(145%) !important;
   -webkit-backdrop-filter: blur(26px) saturate(145%) !important;
 }
 
 .window-container > div:first-child {
   border-color: rgba(var(--surface-border)) !important;
-  background: linear-gradient(180deg, rgba(var(--text-color), 0.055), rgba(var(--text-color), 0.018));
+  background:
+    linear-gradient(90deg, rgba(var(--accent-green), 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(var(--text-color), 0.055), rgba(var(--text-color), 0.018));
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .window-container h1,
@@ -275,18 +304,123 @@ html {
 .card,
 .portfolio-glass-card {
   background:
-    linear-gradient(145deg, rgba(var(--surface-color), 0.86), rgba(var(--surface-soft-color), 0.72)) !important;
+    linear-gradient(145deg, rgba(var(--surface-color), 0.9), rgba(var(--surface-soft-color), 0.76)) !important;
   border: 1px solid rgba(var(--surface-border)) !important;
   color: rgb(var(--text-color)) !important;
   box-shadow:
     inset 0 1px 0 rgba(var(--text-color), 0.08),
-    0 20px 55px rgba(0, 0, 0, 0.12) !important;
+    0 18px 45px rgba(0, 0, 0, 0.22) !important;
   backdrop-filter: blur(20px) saturate(145%);
   -webkit-backdrop-filter: blur(20px) saturate(145%);
 }
 
 .card {
-  border-radius: 1.85rem !important;
+  border-radius: 1.15rem !important;
+}
+
+.terminal-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(var(--surface-border));
+  background:
+    linear-gradient(135deg, rgba(var(--accent-green), 0.09), transparent 26%),
+    linear-gradient(180deg, rgba(3, 12, 15, 0.94), rgba(7, 16, 20, 0.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 80px rgba(var(--accent-green), 0.035),
+    0 28px 72px rgba(0, 0, 0, 0.34);
+}
+
+.terminal-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--accent-green), 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-cyan), 0.032) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+  pointer-events: none;
+}
+
+.terminal-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(var(--surface-border));
+  background: rgba(var(--surface-color), 0.68);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.terminal-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(var(--accent-green), 0.09), transparent 42%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.terminal-card:hover::after {
+  opacity: 1;
+}
+
+.terminal-label,
+.terminal-command,
+.terminal-kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.terminal-kicker {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(var(--accent-green-soft), 0.9);
+}
+
+.terminal-command {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(var(--surface-border));
+  border-radius: 999px;
+  background: rgba(var(--surface-color), 0.76);
+  color: rgb(var(--text-color));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.terminal-command::before {
+  content: "$";
+  color: rgb(var(--accent-green-soft));
+}
+
+.terminal-stat {
+  border: 1px solid rgba(var(--surface-border));
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(var(--accent-green), 0.08), transparent),
+    rgba(var(--surface-color), 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.terminal-pill {
+  border: 1px solid rgba(var(--accent-green), 0.2);
+  border-radius: 999px;
+  background: rgba(var(--accent-green), 0.08);
+  color: rgba(var(--text-color), 0.78);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.75rem;
+}
+
+.terminal-prompt-line {
+  color: rgba(var(--text-color), 0.72);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.terminal-prompt-line::before {
+  content: ">";
+  margin-right: 0.6rem;
+  color: rgb(var(--accent-green-soft));
 }
 
 .portfolio-section-title {
@@ -606,6 +740,67 @@ html {
   background-color: #ffffff !important;
   color: #111111 !important;
   -webkit-text-fill-color: #111111 !important;
+}
+
+.light-theme {
+  --background-color: 2, 6, 8;
+  --text-color: 236, 253, 245;
+  --surface-color: 7, 16, 20;
+  --surface-soft-color: 11, 25, 29;
+  --surface-border: 148, 255, 194, 0.17;
+  --window-bg: 5, 13, 16, 0.84;
+  --window-border: 148, 255, 194, 0.18;
+  --dock-bg: 4, 13, 16, 0.86;
+  --dock-border: 148, 255, 194, 0.18;
+  --accent-green: 74, 222, 128;
+  --accent-green-soft: 190, 242, 100;
+  --accent-cyan: 34, 211, 238;
+}
+
+.light-theme body,
+.light-theme .portfolio-app-shell {
+  background:
+    radial-gradient(circle at 14% 4%, rgba(var(--accent-cyan), 0.14), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(var(--accent-green), 0.16), transparent 30rem),
+    linear-gradient(180deg, #020608 0%, #03090b 52%, #020506 100%) !important;
+  color: rgb(var(--text-color)) !important;
+}
+
+.light-theme .portfolio-backdrop,
+.light-theme .portfolio-backdrop::before,
+.light-theme .portfolio-backdrop-grid {
+  opacity: 1 !important;
+}
+
+.light-theme .window-container,
+.light-theme .card,
+.light-theme .portfolio-glass-card,
+.light-theme .portfolio-popover,
+.light-theme .apple-dock-bg,
+.light-theme .terminal-card,
+.light-theme .terminal-shell,
+.light-theme .terminal-stat {
+  background:
+    linear-gradient(145deg, rgba(var(--surface-color), 0.9), rgba(var(--surface-soft-color), 0.76)) !important;
+  border-color: rgba(var(--surface-border)) !important;
+  color: rgb(var(--text-color)) !important;
+}
+
+.light-theme .portfolio-app-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .window-container :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .portfolio-glass-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .portfolio-popover :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .terminal-card :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd),
+.light-theme .terminal-shell :where(h1, h2, h3, h4, h5, h6, p, li, label, span, a, button, kbd) {
+  color: rgb(var(--text-color)) !important;
+}
+
+.light-theme .terminal-kicker,
+.light-theme .terminal-label,
+.light-theme .terminal-prompt-line::before,
+.light-theme .portfolio-app-shell [class*="text-lime"] {
+  color: rgb(var(--accent-green-soft)) !important;
 }
 
 @layer utilities {

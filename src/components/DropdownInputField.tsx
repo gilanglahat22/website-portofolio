@@ -34,7 +34,7 @@ const DropdownInputField: React.FC<DropdownFieldProps> = ({
           }}
           name={form_id}
           id={form_id}
-          className="block w-full rounded-md px-4 py-2 text-sm shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-base"
+          className="block w-full rounded-md px-4 py-2 text-sm shadow-sm focus:border-lime-200 focus:ring focus:ring-lime-200/30 sm:text-base"
           required={required}
         >
           <option value="">Pilih Opsi</option>

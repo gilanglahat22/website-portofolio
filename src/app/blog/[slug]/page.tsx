@@ -21,16 +21,16 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <Link
           href="/blog"
-          className="card mb-6 inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60 hover:text-white"
+          className="terminal-command mb-6 inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60"
         >
           <FaArrowLeft className="h-3.5 w-3.5" />
           Back to Case Studies
         </Link>
 
-        <MacOSWindow title={post.title} variant="system">
+        <MacOSWindow title={`~/case-studies/${post.slug}`} variant="system">
           <article className="space-y-8">
             <header className="space-y-5">
-              <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-lg bg-white/5 sm:h-80">
+              <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-[1.3rem] border border-white/10 bg-white/5 sm:h-80">
                 {isSvg ? (
                   <img
                     src={post.featuredImage}
@@ -49,7 +49,7 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
               </div>
 
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-4 text-sm opacity-75">
+                <div className="terminal-label flex flex-wrap items-center gap-4 text-sm opacity-75">
                   <span className="flex items-center gap-2">
                     <FaCalendar className="h-3.5 w-3.5" />
                     {post.date}
@@ -61,11 +61,11 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
                 </div>
 
                 <h1 className="text-3xl font-bold leading-tight sm:text-4xl">{post.title}</h1>
-                <p className="text-lg opacity-80">{post.excerpt}</p>
+                <p className="text-lg text-white/70">{post.excerpt}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {post.categories.map((category) => (
-                    <span key={category} className="card rounded-full px-3 py-1 text-sm">
+                    <span key={category} className="terminal-pill px-3 py-1 text-sm">
                       {category}
                     </span>
                   ))}
@@ -78,14 +78,14 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
                 <section key={section.heading} className="space-y-4">
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
                   {section.body.map((paragraph) => (
-                    <p key={paragraph} className="leading-7 opacity-85">
+                    <p key={paragraph} className="leading-7 text-white/75">
                       {paragraph}
                     </p>
                   ))}
                   {section.bullets ? (
                     <ul className="list-disc space-y-2 pl-6">
                       {section.bullets.map((bullet) => (
-                        <li key={bullet} className="leading-7 opacity-85">
+                        <li key={bullet} className="leading-7 text-white/75">
                           {bullet}
                         </li>
                       ))}

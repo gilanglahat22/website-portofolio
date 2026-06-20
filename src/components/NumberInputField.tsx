@@ -36,7 +36,7 @@ const NumberInputField: React.FC<NumberInputFieldProps> = ({
           name={form_id}
           id={form_id}
           autoComplete="tel"
-          className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ring-gray-300`}
+          className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-lime-200/20 focus:ring-2 focus:ring-inset focus:ring-lime-200 sm:text-sm sm:leading-6"
           placeholder={`Masukkan ${form_name} Kamu`}
           required={required} // Controlled by the 'required' parameter
         />

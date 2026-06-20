@@ -10,6 +10,7 @@ import {
   ExternalLink,
   Menu,
   Search,
+  Terminal,
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { achievements, caseStudies, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
@@ -24,6 +25,8 @@ interface PortfolioTopNavProps {
   dockItems: DockItem[];
   dockVisible: boolean;
   onToggleDock: () => void;
+  terminalOpen: boolean;
+  onOpenTerminal: () => void;
 }
 
 interface SearchItem {
@@ -146,7 +149,13 @@ const buildSearchIndex = (): SearchItem[] => {
   return [...pageItems, ...projectItems, ...experienceItems, ...skillItems, ...achievementItems, ...caseStudyItems];
 };
 
-export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }: PortfolioTopNavProps) {
+export default function PortfolioTopNav({
+  dockItems,
+  dockVisible,
+  onToggleDock,
+  terminalOpen,
+  onOpenTerminal,
+}: PortfolioTopNavProps) {
   const pathname = usePathname();
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -208,12 +217,12 @@ export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }
           <span className="portfolio-logo-mark">
             <Code2 className="h-5 w-5" strokeWidth={2.4} />
           </span>
-          <span className="text-lg font-extrabold tracking-tight text-white sm:text-xl">
-            Gilang.
+          <span className="terminal-label text-lg font-extrabold tracking-tight text-white sm:text-xl">
+            GilangOS
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex lg:gap-12">
+        <nav className="terminal-label hidden items-center gap-8 text-sm font-medium text-white/70 md:flex lg:gap-12">
           {navItems.map((item) => {
             const isActive = item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
 
@@ -239,6 +248,20 @@ export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }
             aria-expanded={searchOpen}
           >
             <Search className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSearchOpen(false);
+              setMenuOpen(false);
+              onOpenTerminal();
+            }}
+            className={`portfolio-icon-button ${terminalOpen ? "portfolio-icon-button-active" : ""}`}
+            aria-label="Open hacker terminal navigation"
+            aria-expanded={terminalOpen}
+            title="Open terminal (Ctrl+`)"
+          >
+            <Terminal className="h-5 w-5" />
           </button>
           <button
             type="button"
@@ -318,7 +341,7 @@ export default function PortfolioTopNav({ dockItems, dockVisible, onToggleDock }
             <div className="portfolio-popover right-0 top-14 w-[min(92vw,22rem)]">
               <div className="mb-3 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-extrabold">Menu Options</p>
+                  <p className="terminal-label text-sm font-extrabold">Menu Options</p>
                   <p className="text-xs opacity-65">
                     {dockVisible ? "Compact shortcuts" : "Apple dock is hidden"}
                   </p>

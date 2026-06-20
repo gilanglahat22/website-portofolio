@@ -8,22 +8,21 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: string;
-  bgColor: string;
 }
 
-const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
     <div
       className={`
         relative 
+        terminal-card
         p-6 
-        rounded-2xl 
-        ${bgColor}
+        rounded-2xl
         overflow-hidden
         transition-all duration-300
-        ${isHovered ? 'shadow-lg scale-[1.02]' : 'shadow-md'} 
+        ${isHovered ? 'scale-[1.02] border-lime-200/40' : ''} 
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -32,11 +31,11 @@ const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) =>
       <div className={`
         w-14 h-14
         rounded-2xl
-        bg-white/20
+        bg-lime-200/10
         backdrop-blur-md
         flex items-center justify-center
         mb-5
-        border border-white/30
+        border border-lime-200/20
         shadow-sm
         transition-all duration-300
         ${isHovered ? 'transform -translate-y-1' : ''}
@@ -52,14 +51,14 @@ const ServiceCard = ({ title, description, icon, bgColor }: ServiceCardProps) =>
       
       {/* Content */}
       <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-      <p className="text-white/80 text-sm">{description}</p>
+      <p className="text-white/65 text-sm leading-6">{description}</p>
       
       {/* Floating Orb Decoration */}
       <div className={`
         absolute -right-12 -bottom-12
         w-40 h-40
         rounded-full
-        bg-gradient-to-tr from-white/10 to-white/5
+        bg-gradient-to-tr from-lime-200/10 to-cyan-300/5
         blur-2xl
         transition-all duration-500
         ${isHovered ? 'opacity-90 scale-110' : 'opacity-60'}
@@ -74,35 +73,32 @@ export default function ServiceSection() {
       title: "UI/UX Design",
       description: "Creating intuitive and engaging user interfaces with a focus on user experience and aesthetics.",
       icon: "https://cdn-icons-png.flaticon.com/128/9421/9421426.png",
-      bgColor: "bg-gradient-to-br from-purple-600 to-indigo-700"
     },
     {
       title: "Frontend Development",
       description: "Building responsive and performant web applications using modern frontend technologies.",
       icon: "https://cdn-icons-png.flaticon.com/128/8688/8688382.png",
-      bgColor: "bg-gradient-to-br from-blue-600 to-blue-800"
     },
     {
       title: "Mobile Apps",
       description: "Developing cross-platform mobile applications with a native feel and optimal performance.",
       icon: "https://cdn-icons-png.flaticon.com/128/545/545245.png",
-      bgColor: "bg-gradient-to-br from-green-600 to-green-800"
     },
     {
       title: "Code Reviews",
       description: "Providing thorough code reviews to ensure quality, maintainability, and best practices.",
       icon: "https://cdn-icons-png.flaticon.com/128/9741/9741157.png",
-      bgColor: "bg-gradient-to-br from-amber-600 to-orange-700"
     }
   ];
   
   return (
-    <MacOSWindow title="Services I Offer" variant="dark">
+    <MacOSWindow title="~/services/offerings" variant="dark">
       <div className="space-y-6">
         {/* Header */}
         <div className="mb-6">
+          <p className="terminal-kicker mb-3 text-xs">services</p>
           <h2 className="text-2xl font-semibold text-white mb-1">Services I Provide</h2>
-          <p className="text-gray-300">Specializing in the following areas</p>
+          <p className="text-white/60">Specializing in the following areas</p>
         </div>
         
         {/* Services Grid */}
@@ -113,7 +109,6 @@ export default function ServiceSection() {
               title={service.title}
               description={service.description}
               icon={service.icon}
-              bgColor={service.bgColor}
             />
           ))}
         </div>
@@ -122,8 +117,9 @@ export default function ServiceSection() {
         <div className="mt-8 flex justify-center">
           <button className="
             px-6 py-3
+            terminal-command
             bg-white/10
-            hover:bg-white/20
+            hover:bg-lime-200/10
             backdrop-blur-md
             rounded-full
             text-white

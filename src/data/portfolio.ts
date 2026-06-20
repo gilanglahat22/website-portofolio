@@ -49,11 +49,11 @@ export interface CaseStudyItem {
 
 export const portfolio = {
   name: "Muhammad Gilang Ramadhan",
-  title: "Software Engineer",
+  title: "Fullstack Software Engineer",
   headline:
-    "Software Engineer building scalable gaming marketplaces, distributed systems, event-driven architectures, and production backend platforms.",
+    "Fullstack Software Engineer building AI-enabled products across backend platforms, frontend experiences, distributed systems, and production-ready web applications.",
   summary:
-    "Software Engineer with 4+ years of experience across Python/FastAPI, React/TypeScript, REST API design, event-driven architecture, Docker, Kubernetes/Rancher, SQL systems, and cloud-native backend services. Currently at Bukalapak in the Gaming Division — itemku C2C marketplace.",
+    "Fullstack Software Engineer with 3 years of experience across AI, backend, and frontend engineering using Python/FastAPI, React/TypeScript, REST API design, event-driven architecture, Docker, Kubernetes/Rancher, SQL systems, and cloud-native services. Experienced across accounting, consulting, AI, gaming, marketplace, C2C, and B2B company domains. Currently at Bukalapak in the Gaming Division — itemku C2C marketplace.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -70,10 +70,10 @@ export const portfolio = {
       "Optimization of blockchain Avalanche Consensus Protocol using microservices architecture.",
   },
   focusAreas: [
-    "Backend-focused product engineering",
-    "Distributed workers and scalable APIs",
-    "Education and analytics platforms",
-    "AI-powered SaaS",
+    "Fullstack product engineering",
+    "AI-enabled backend and frontend systems",
+    "Marketplace, C2C, and B2B platforms",
+    "Accounting, consulting, gaming, and AI SaaS domains",
   ],
 };
 

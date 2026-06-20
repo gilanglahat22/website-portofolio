@@ -24,9 +24,9 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <MacOSWindow title={project.title} variant="system" className="h-full">
+      <MacOSWindow title={`~/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`} variant="system" className="h-full">
         <div className="space-y-4">
-          <div className="relative h-48 w-full overflow-hidden rounded-[1.5rem] bg-white/5">
+          <div className="relative h-48 w-full overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5">
             {isSvg ? (
               <img
                 src={project.image}
@@ -46,20 +46,20 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
           </div>
 
           <div>
-            <p className="text-sm font-medium text-lime-100">{project.subtitle}</p>
+            <p className="terminal-kicker text-xs">{project.subtitle}</p>
             <h3 className="text-xl font-semibold">{project.title}</h3>
-            <p className="mt-2 text-sm">{project.description}</p>
+            <p className="mt-2 text-sm text-white/70">{project.description}</p>
           </div>
 
           <ul className="space-y-2 list-disc pl-5">
             {project.highlights.slice(0, 3).map((highlight) => (
-              <li key={highlight} className="text-sm">{highlight}</li>
+              <li key={highlight} className="text-sm text-white/65">{highlight}</li>
             ))}
           </ul>
 
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span key={tag} className="card text-xs font-medium px-2.5 py-1 rounded-full">
+              <span key={tag} className="terminal-pill px-2.5 py-1">
                 {tag}
               </span>
             ))}
@@ -70,12 +70,12 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
               <Link
                 href={project.link}
                 target="_blank"
-                className="card px-4 py-2 rounded-full text-sm font-medium hover:border-lime-200/60 hover:text-white transition-colors"
+                className="terminal-command px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60"
               >
                 {project.linkLabel ?? "View Project"}
               </Link>
             ) : (
-              <span className="card px-4 py-2 rounded-full text-sm font-medium opacity-70">
+              <span className="terminal-pill px-4 py-2 opacity-70">
                 Private or in progress
               </span>
             )}
@@ -94,21 +94,22 @@ export default function Projects() {
     <div className="min-h-screen">
       <main className="pt-8 px-6 pb-32">
         <div className="max-w-6xl mx-auto space-y-8">
-          <MacOSWindow title="Selected Projects" variant="system">
+          <MacOSWindow title="~/projects/index" variant="system">
             <div className="space-y-4">
+              <p className="terminal-kicker text-xs">domain catalog</p>
               <h1 className="text-3xl font-bold">Selected Projects</h1>
-              <p>
+              <p className="text-white/70">
                 Selected project work from the CV: AI-powered financial document processing, education
                 platforms, a Japanese B2B matching product, internal voting workflows, and an AI mental
                 wellness chatbot.
               </p>
 
               <div className="flex justify-center my-6">
-                <div className="flex flex-wrap justify-center gap-2 p-1 rounded-xl card w-full sm:w-auto">
+                <div className="terminal-card flex flex-wrap justify-center gap-2 rounded-xl p-1 w-full sm:w-auto">
                   {filters.map((item) => (
                     <button
                       key={item.label}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${filter === item.key ? "bg-lime-200/20 shadow-sm text-lime-50" : "text-white/70 hover:text-white"}`}
+                      className={`terminal-label rounded-lg px-4 py-2 text-sm font-medium transition-all ${filter === item.key ? "bg-lime-200/20 shadow-sm text-lime-50" : "text-white/70 hover:text-white"}`}
                       onClick={() => setFilter(item.key)}
                     >
                       {item.label}

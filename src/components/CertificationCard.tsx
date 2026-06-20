@@ -18,23 +18,23 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   credential,
 }) => {
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-md group card">
+    <Card className="terminal-card group overflow-hidden rounded-[1.5rem] transition-all hover:-translate-y-1 hover:border-lime-200/40">
       <CardContent className="p-5">
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-              <FaAward className="text-blue-600 w-6 h-6" />
+            <div className="flex-shrink-0 w-10 h-10 rounded-full border border-lime-200/25 bg-lime-200/10 flex items-center justify-center">
+              <FaAward className="text-lime-200 w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-medium">{title}</h3>
-              <p className="text-sm text-gray-600 dark:text-neutral-400">{organization}</p>
-              <p className="text-xs text-gray-500 dark:text-neutral-500 mt-1">{date}</p>
+              <p className="text-sm text-white/60">{organization}</p>
+              <p className="terminal-label text-xs text-white/45 mt-1">{date}</p>
               {credential && (
                 <a 
                   href={credential} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center mt-2 text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="inline-flex items-center mt-2 text-xs text-lime-200 hover:text-white"
                 >
                   View credential
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         </div>
         
         <div className="mt-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+          <span className="terminal-pill inline-flex items-center px-2.5 py-0.5">
             {category}
           </span>
         </div>

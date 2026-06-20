@@ -18,12 +18,12 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <MacOSWindow
-        title={post.title}
+        title={`~/case-studies/${post.slug}`}
         variant="system"
         className={`h-full transition-all duration-300 ${isHovered ? "shadow-lg" : "shadow-md"}`}
       >
         <div className="space-y-4">
-          <div className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg bg-white/5 sm:h-48">
+          <div className="relative flex h-40 items-center justify-center overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5 sm:h-48">
             {isSvg ? (
               <img
                 src={post.featuredImage}
@@ -43,16 +43,16 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
 
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-              <span>{post.date}</span>
-              <span>{post.readTime} min read</span>
+              <span className="terminal-label text-white/55">{post.date}</span>
+              <span className="terminal-label text-white/55">{post.readTime} min read</span>
             </div>
 
             <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="text-sm">{post.excerpt}</p>
+            <p className="text-sm text-white/70">{post.excerpt}</p>
 
             <div className="flex flex-wrap gap-2 pt-1">
               {post.categories.map((category) => (
-                <span key={category} className="card rounded-full px-2 py-1 text-xs">
+                <span key={category} className="terminal-pill px-2 py-1">
                   {category}
                 </span>
               ))}
@@ -60,7 +60,7 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
 
             <Link
               href={`/blog/${post.slug}`}
-              className="card inline-block rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60 hover:text-white"
+              className="terminal-command inline-flex rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60"
             >
               Read Case Study
             </Link>
@@ -75,10 +75,11 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <MacOSWindow title="CV Case Studies" variant="system" className="mb-8">
+        <MacOSWindow title="~/case-studies/index" variant="system" className="mb-8">
           <div className="space-y-4">
+            <p className="terminal-kicker text-xs">engineering notes</p>
             <h1 className="text-3xl font-bold">CV Case Studies</h1>
-            <p>
+            <p className="text-white/70">
               Notes drawn from the attached CV: AI-powered SaaS, backend architecture,
               regional B2B platforms, education products, and the competitive programming
               foundation behind the work.
