@@ -107,20 +107,6 @@ export const experiences: ExperienceItem[] = [
     skills: ["Python", "FastAPI", "MongoDB", "RabbitMQ", "SSE", "Kubernetes", "OpenTelemetry"],
   },
   {
-    title: "Full Stack Engineer | Freelance",
-    company: "One Code Solution",
-    date: "June 2025 - August 2025",
-    description: [
-      "Built and maintained full-stack features for 3 regional Philip Morris International platforms: Kazakhstan, Chesterfield Philippines, and PRJWHEART.",
-      "Developed Vue.js, ASP.NET, and Sitefinity CMS modules for authentication, profile management, biometric credentials, content flows, and reward redemption workflows.",
-      "Built campaign-based redemption engines covering 3 promo patterns: lucky promo campaigns, SKU-based campaigns, and UPC-based promotional flows.",
-      "Implemented reusable backend patterns using Domain-Driven Design and Template Pattern to reduce duplicated logic across customized regional and brand-specific products.",
-      "Worked in a client-aligned consultancy environment requiring fast iteration, strong requirement analysis, and reliable delivery across product, content, and engineering stakeholders.",
-    ],
-    logo: "/icons/one_code.jpeg",
-    skills: ["Vue.js", "ASP.NET", "Sitefinity CMS", "DDD", "Template Pattern", "Reward Engines"],
-  },
-  {
     title: "Research and Development Engineer | Apprenticeship",
     company: "MarkAny",
     date: "April 2025 - May 2025",
