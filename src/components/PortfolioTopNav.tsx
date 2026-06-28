@@ -85,7 +85,7 @@ const buildSearchIndex = (): SearchItem[] => {
     },
     {
       title: "Case Studies",
-      description: "CV-backed notes on product, backend, AI, and education work.",
+      description: "Notes on projects, engineering decisions, and lessons learned.",
       href: "/blog",
       section: "Page",
       keywords: caseStudies.map((item) => `${item.title} ${item.categories.join(" ")}`).join(" "),

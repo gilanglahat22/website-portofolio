@@ -10,7 +10,7 @@ export default function SkillsGrid() {
         <div>
           <h2 className="portfolio-section-title text-2xl">Technical Skills</h2>
           <p className="mt-3 text-sm text-white/60">
-            Core skills from the CV, grouped by product engineering area.
+            A working toolkit shaped by real projects and still growing with each new problem.
           </p>
         </div>
       </div>

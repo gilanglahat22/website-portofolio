@@ -80,9 +80,9 @@ export default function Blog() {
             <p className="terminal-kicker text-xs">engineering notes</p>
             <h1 className="text-3xl font-bold">CV Case Studies</h1>
             <p className="text-white/70">
-              Notes drawn from the attached CV: AI-powered SaaS, backend architecture,
-              regional B2B platforms, education products, and the competitive programming
-              foundation behind the work.
+              Notes on projects, decisions, and lessons from work and study. They cover backend systems,
+              web products, AI experiments, education projects, and the problem-solving habits I picked up
+              from competitive programming.
             </p>
           </div>
         </MacOSWindow>

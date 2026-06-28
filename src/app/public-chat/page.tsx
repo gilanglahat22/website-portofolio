@@ -8,7 +8,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 // Sample data for a portfolio inquiry board.
 const initialMessages = [
   { id: 1, username: "Recruiter_42", text: "Can you summarize Gilang's current focus?", timestamp: "2 hours ago" },
-  { id: 2, username: "Portfolio_Desk", text: "AI-powered B2B SaaS, backend-focused product engineering, scalable APIs, and distributed workers.", timestamp: "1 hour ago" },
+  { id: 2, username: "Portfolio_Desk", text: "Learning unfamiliar systems, building useful software, and sharpening his engineering fundamentals. He also likes to tinker with AI and algorithms.", timestamp: "1 hour ago" },
   { id: 3, username: "Engineer_17", text: "What is the strongest production backend example?", timestamp: "1 hour ago" },
   { id: 4, username: "Portfolio_Desk", text: "Nexius AI: FastAPI services, RabbitMQ workers, SSE progress, Kubernetes pods, and observability with OpenTelemetry/SigNoz.", timestamp: "45 minutes ago" },
   { id: 5, username: "Founder_23", text: "Does the CV include education products too?", timestamp: "30 minutes ago" },

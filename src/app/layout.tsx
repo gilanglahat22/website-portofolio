@@ -8,7 +8,7 @@ import PortfolioChrome from "@/components/PortfolioChrome";
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${portfolio.name} | Full Stack Software Engineer`,
+  title: `${portfolio.name} | Software Engineer`,
   description: portfolio.headline,
 };
 

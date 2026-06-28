@@ -20,12 +20,11 @@ export default function Contact() {
   });
 
   const subjectOptions = [
-    "Full Stack Software Engineer Role",
-    "AI-Powered B2B SaaS Opportunity",
-    "Distributed Systems Consultation",
-    "AI Document Processing Platform",
-    "Backend Architecture Project",
-    "Education or Analytics Product",
+    "Software Engineer Role",
+    "Engineering Collaboration",
+    "Backend or Web Project",
+    "Open Source or Side Project",
+    "Learning and Community",
     "Other",
   ];
 
@@ -63,9 +62,9 @@ export default function Contact() {
             <h1 className="text-3xl font-bold mb-6">Get In Touch</h1>
 
             <p className="mb-8 text-white/70">
-              I am interested in full stack software engineering opportunities, AI-powered B2B SaaS,
-              backend-focused product engineering, distributed systems, education technology, and
-              analytics platforms aligned with the attached CV.
+              I am open to software engineering opportunities, thoughtful collaborations, and conversations
+              about building or learning together. I am especially interested in teams that value clear
+              thinking, kind feedback, steady improvement, and useful software.
             </p>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">

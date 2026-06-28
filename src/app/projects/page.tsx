@@ -99,9 +99,9 @@ export default function Projects() {
               <p className="terminal-kicker text-xs">domain catalog</p>
               <h1 className="text-3xl font-bold">Selected Projects</h1>
               <p className="text-white/70">
-                Selected project work from the CV: AI-powered financial document processing, education
-                platforms, a Japanese B2B matching product, internal voting workflows, and an AI mental
-                wellness chatbot.
+                A mix of work projects and personal experiments. They span document processing, education,
+                B2B workflows, internal tools, and small explorations with AI—each one taught me something
+                different about building software for real people.
               </p>
 
               <div className="flex justify-center my-6">

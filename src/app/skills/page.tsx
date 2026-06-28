@@ -3,7 +3,7 @@
 import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
 import SkillsGrid from "@/components/SkillsGrid";
-import { achievements, portfolio, skillGroups } from "@/data/portfolio";
+import { achievements, skillGroups } from "@/data/portfolio";
 
 export default function Skills() {
   return (
@@ -15,8 +15,9 @@ export default function Skills() {
               <p className="terminal-kicker text-xs">capability map</p>
               <h1 className="text-3xl font-bold">Technical Skills</h1>
               <p className="text-white/70">
-                {portfolio.summary} The CV groups my skill set across full stack UI, backend architecture,
-                AI/data analytics, and infrastructure delivery.
+                These are tools I have used across work, study, and side projects—not a claim that I have
+                mastered every one of them. I am strongest when I can understand the problem first, then
+                learn or choose the technology that fits it.
               </p>
             </div>
           </MacOSWindow>
@@ -29,7 +30,10 @@ export default function Skills() {
             <div className="space-y-4">
               <p className="terminal-kicker text-xs">proof of work</p>
               <h2 className="text-2xl font-bold">Achievements</h2>
-              <p className="text-white/70">Programming competition achievements listed in the CV.</p>
+              <p className="text-white/70">
+                Competitive programming has been one way for me to practice structured thinking, patience,
+                and careful handling of edge cases.
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
                 {achievements.map((achievement) => {
@@ -68,7 +72,7 @@ export default function Skills() {
           <MacOSWindow title="~/skills/core-competencies" variant="system">
             <div className="space-y-4">
               <p className="terminal-kicker text-xs">stack trace</p>
-              <h2 className="text-2xl font-bold">Technologies & Expertise</h2>
+              <h2 className="text-2xl font-bold">Technologies I Have Used</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
                 {skillGroups.map((group) => (

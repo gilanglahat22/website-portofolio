@@ -34,16 +34,16 @@ const ProjectVisual = ({ project, className = "" }) => {
 };
 
 const systemStats = [
-  { label: "Experience", value: "2+ years", detail: "fullstack delivery" },
+  { label: "Experience", value: "2+ years", detail: "learning by building" },
   { label: "Current", value: "Bukalapak", detail: "gaming marketplace" },
-  { label: "Focus", value: "AI + Fullstack", detail: "backend, frontend, product systems" },
+  { label: "Mindset", value: "Stay curious", detail: "think, build, learn, repeat" },
 ];
 
 const systemSignals = [
-  { icon: ServerCog, label: "backend.core", value: "FastAPI, .NET, REST APIs" },
-  { icon: Network, label: "frontend.app", value: "React, TypeScript, Vue, dashboards" },
-  { icon: Cpu, label: "ai.pipeline", value: "OCR, LLM apps, evaluation" },
-  { icon: DatabaseZap, label: "domain.layer", value: "Accounting, AI, gaming, C2C, B2B" },
+  { icon: ServerCog, label: "engineering.work", value: "APIs, web apps, and product systems" },
+  { icon: Network, label: "learning.mode", value: "Read, ask, build, and iterate" },
+  { icon: Cpu, label: "ai.sandbox", value: "LLMs, OCR, and small experiments" },
+  { icon: DatabaseZap, label: "off.hours", value: "Algorithms, contests, and side projects" },
 ];
 
 const ThemeAwareContent = () => {
@@ -57,24 +57,24 @@ const ThemeAwareContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <MacOSWindow title="~/portfolio/fullstack-ai-engineer" variant="system" className="w-full">
+        <MacOSWindow title="~/portfolio/software-engineer" variant="system" className="w-full">
           <div className="space-y-14 px-2 py-4 sm:px-4 lg:px-6">
             <section className="terminal-shell rounded-[2rem] px-5 py-7 sm:px-8 lg:px-10">
               <div className="relative z-10 grid min-h-[620px] grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                 <div className="space-y-8">
                   <div className="space-y-5">
                     <p className="terminal-command px-4 py-2 text-xs font-semibold">
-                      boot --profile fullstack-ai-engineer
+                      boot --profile curious-software-engineer
                     </p>
                     <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                      Build fullstack
+                      Software engineer,
                       <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-cyan-300 bg-clip-text text-transparent">
-                        AI products
+                        always learning
                       </span>
                     </h1>
                     <p className="max-w-2xl text-base font-medium leading-7 text-white/72 sm:text-lg">
-                      {portfolio.headline} I work across backend services, frontend applications, AI workflows,
-                      and product domains including accounting, consulting, gaming, marketplace, C2C, and B2B.
+                      {portfolio.headline} My work has taken me through backend services, web applications,
+                      distributed systems, and a few useful AI experiments along the way.
                     </p>
                   </div>
 
@@ -141,7 +141,7 @@ const ThemeAwareContent = () => {
                         <div className="space-y-2 text-sm">
                           <p className="terminal-prompt-line">role: {experiences[0].title}</p>
                           <p className="terminal-prompt-line">company: {experiences[0].company}</p>
-                          <p className="terminal-prompt-line">status: shipping production systems</p>
+                          <p className="terminal-prompt-line">status: learning while shipping</p>
                         </div>
                       </div>
                     </div>
@@ -266,12 +266,12 @@ const ThemeAwareContent = () => {
                 ))}
               </div>
               <div className="relative z-10 space-y-6">
-                <p className="terminal-kicker text-xs">core skills</p>
-                <h2 className="text-3xl font-extrabold text-white">Full stack, AI, backend, and cloud-native delivery</h2>
+                <p className="terminal-kicker text-xs">working toolkit</p>
+                <h2 className="text-3xl font-extrabold text-white">A practical toolkit that keeps growing</h2>
                 <p className="max-w-2xl text-sm leading-6 text-white/70">
-                  {skillGroups[0].items.slice(0, 5).join(", ")}. I pair those fundamentals with
+                  I have worked with {skillGroups[0].items.slice(0, 5).join(", ")}, alongside
                   {` ${skillGroups[1].items.slice(0, 6).join(", ")} `}
-                  to ship maintainable production platforms.
+                  to solve everyday product and engineering problems. The list changes as I learn; the fundamentals stay important.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/skills" className="terminal-command px-5 py-2.5 text-sm font-semibold">

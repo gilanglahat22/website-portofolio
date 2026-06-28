@@ -49,11 +49,11 @@ export interface CaseStudyItem {
 
 export const portfolio = {
   name: "Muhammad Gilang Ramadhan",
-  title: "Fullstack Software Engineer",
+  title: "Software Engineer",
   headline:
-    "Fullstack Software Engineer building AI-enabled products across backend platforms, frontend experiences, distributed systems, and production-ready web applications.",
+    "Software engineer who learns quickly, enjoys understanding how systems work, and stays curious by building, experimenting, and asking better questions.",
   summary:
-    "Fullstack Software Engineer with 3 years of experience across AI, backend, and frontend engineering using Python/FastAPI, React/TypeScript, REST API design, event-driven architecture, Docker, Kubernetes/Rancher, SQL systems, and cloud-native services. Experienced across accounting, consulting, AI, gaming, marketplace, C2C, and B2B company domains. Currently at Bukalapak in the Gaming Division — itemku C2C marketplace.",
+    "I am a software engineer with 2+ years of experience working across backend services, web applications, and product systems. I enjoy learning unfamiliar domains, breaking problems into smaller parts, and improving things one iteration at a time. Outside day-to-day work, I tinker with AI, practice competitive programming when I have time, and keep exploring ideas that make me a more thoughtful engineer.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -70,10 +70,10 @@ export const portfolio = {
       "Optimization of blockchain Avalanche Consensus Protocol using microservices architecture.",
   },
   focusAreas: [
-    "Fullstack product engineering",
-    "AI-enabled backend and frontend systems",
-    "Marketplace, C2C, and B2B platforms",
-    "Accounting, consulting, gaming, and AI SaaS domains",
+    "Learning unfamiliar systems by building",
+    "Backend services and practical web applications",
+    "AI experiments and small side projects",
+    "Algorithms, problem solving, and engineering fundamentals",
   ],
 };
 
@@ -83,9 +83,9 @@ export const experiences: ExperienceItem[] = [
     company: "Bukalapak",
     date: "June 2026 - Present",
     description: [
-      "Joined Bukalapak's Gaming Division as a Software Engineer, working on itemku — Indonesia's leading C2C marketplace for gaming items, virtual goods, and game accounts.",
+      "Joined Bukalapak's Gaming Division as a Software Engineer, working on itemku, a C2C marketplace for gaming items, virtual goods, and game accounts.",
       "Contributing to backend systems and platform features that power the itemku marketplace, supporting game-item transactions, seller flows, buyer discovery, and C2C trading infrastructure.",
-      "Building and maintaining scalable services for the gaming commerce ecosystem, enabling peer-to-peer transactions across a wide range of games and digital goods categories.",
+      "Building and maintaining services for peer-to-peer transactions across games and digital goods categories.",
     ],
     logo: "/icons/bukalapak.png",
     skills: ["Software Engineering", "Marketplace", "C2C Platform", "Gaming", "Backend Systems"],
@@ -95,7 +95,7 @@ export const experiences: ExperienceItem[] = [
     company: "Quantum Teknologi Nusantara",
     date: "September 2025 - May 2026",
     description: [
-      "Built and optimized Nexius AI, a 7-stage AI financial document processing SaaS covering OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
+      "Worked on Nexius AI, a financial document processing product covering OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
       "Standardized FastAPI backend architecture using Domain-Driven Design across multiple services to improve maintainability, service consistency, and readiness for future AI integrations.",
       "Migrated long-running file-processing flows from a monolith into RabbitMQ-based distributed workers and Kubernetes worker pods, improving scalability under high upload volume.",
       "Developed production REST APIs and real-time SSE progress tracking for upload status, queue visibility, per-report/month processing state, worker heartbeat, and background jobs.",
@@ -127,7 +127,7 @@ export const experiences: ExperienceItem[] = [
       "Developed services using .NET, React/TypeScript, Azure Service Bus, WebSocket services, cron jobs, and event-driven communication for real-time and asynchronous workflows.",
       "Built key platform modules for meeting synchronization, automatic meeting status updates, messaging backend services, admin management, and real-time communication features.",
       "Implemented asynchronous communication using Azure Service Bus to improve reliability between backend services and external integration workflows.",
-      "Collaborated with QA, Project Management, and Data Science teams to deliver production-ready features across a multi-functional engineering workflow.",
+      "Collaborated with QA, Project Management, and Data Science teams to prepare features for release.",
     ],
     logo: "/icons/fata_organa.jpeg",
     skills: [".NET", "React", "TypeScript", "Azure Service Bus", "WebSocket", "Redux"],
@@ -150,7 +150,7 @@ export const experiences: ExperienceItem[] = [
     company: "PT Suitmedia Kreasi Indonesia",
     date: "May 2023 - November 2023",
     description: [
-      "Developed API and CMS features for KLAR Smile's official platform using Laravel, NGINX, MySQL, and Docker, supporting production-ready customer engagement workflows.",
+      "Developed API and CMS features for KLAR Smile's official platform using Laravel, NGINX, MySQL, and Docker.",
       "Optimized backend queries and application performance, reducing API latency by approximately 10%.",
       "Supported content management, API integration, backend debugging, and deployment-readiness improvements for a live customer-facing platform.",
     ],
@@ -162,7 +162,7 @@ export const experiences: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
   {
     title: "Nexius AI",
-    subtitle: "AI-powered financial document processing SaaS",
+    subtitle: "Financial document processing platform",
     description:
       "A production SaaS platform that processes financial documents through OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
     highlights: [
@@ -179,13 +179,13 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "Nakafa AI Learning Platform",
-    subtitle: "Open-source AI learning platform",
+    subtitle: "An open-source learning experiment",
     description:
-      "An AI learning platform for university and high school students, aligned with education accessibility, student guidance, and AI-enabled learning support.",
+      "A learning platform experiment for university and high school students, exploring how AI can support accessible study guidance.",
     highlights: [
-      "Built an open-source education product focused on accessible learning support for university and high school students.",
-      "Designed around student guidance, learning-resource discovery, and AI-enabled study workflows.",
-      "Connected the product direction to a broader interest in AI-enabled education from Southeast Asia.",
+      "Built the project as a way to explore accessible learning support for university and high school students.",
+      "Experimented with student guidance, learning-resource discovery, and AI-assisted study workflows.",
+      "Used the project to learn more about education products and the needs of students in Southeast Asia.",
     ],
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     tags: ["AI", "Education", "Learning Platform", "Open Source"],
@@ -244,9 +244,9 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "Nexorrae",
-    subtitle: "AI mental wellness chatbot",
+    subtitle: "A reflection-first chatbot experiment",
     description:
-      "An open-source AI chatbot that helps users write freely, reflect deeply, and receive gentle AI-guided support only when they choose.",
+      "An open-source experiment in reflective writing, with optional AI guidance available only when the user asks for it.",
     highlights: [
       "Created an open-source AI chatbot centered on reflective writing and user agency.",
       "Designed the experience so AI support is optional and intentionally invoked by the user.",
@@ -288,7 +288,7 @@ export const achievements: AchievementItem[] = [
 
 export const skillGroups: SkillGroupItem[] = [
   {
-    title: "Full Stack & UI",
+    title: "Web & UI",
     icon: "/icons/skills/react.svg",
     items: [
       "React.js",
@@ -316,7 +316,7 @@ export const skillGroups: SkillGroupItem[] = [
     ],
   },
   {
-    title: "AI, Data & Analytics",
+    title: "Data & AI Tools",
     icon: "/icons/skills/data.svg",
     items: [
       "LLM applications",
@@ -353,19 +353,19 @@ export const skillGroups: SkillGroupItem[] = [
 
 export const caseStudies: CaseStudyItem[] = [
   {
-    title: "Nexius AI: Building an AI Financial Document Processing SaaS",
+    title: "Nexius AI: Lessons from a Financial Document Processing System",
     slug: "nexius-ai-financial-document-processing",
     date: "September 2025 - May 2026",
     readTime: 6,
     excerpt:
-      "A CV-backed look at the 7-stage Nexius AI platform: OCR, parsing, extraction, validation, journal mapping, reporting, and delivery.",
-    categories: ["AI SaaS", "FastAPI", "RabbitMQ", "Observability"],
+      "What I learned while working across OCR, parsing, validation, background processing, reporting, and delivery in Nexius AI.",
+    categories: ["Document Processing", "FastAPI", "RabbitMQ", "Observability"],
     featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     sections: [
       {
         heading: "Product Scope",
         body: [
-          "At Quantum Teknologi Nusantara (September 2025 – May 2026), I worked on Nexius AI, an AI-powered financial document processing SaaS. The platform converts uploaded financial documents into structured, validated outputs that users can review and download.",
+          "At Quantum Teknologi Nusantara (September 2025 – May 2026), I worked on Nexius AI, a financial document processing product that uses OCR and AI-assisted workflows. The platform converts uploaded documents into structured outputs that users can review and download.",
           "The product spans customer-facing upload flows, partner and affiliate portals, and internal admin dashboards, so engineering decisions need to support both product usability and operational visibility.",
         ],
       },
@@ -465,8 +465,8 @@ export const caseStudies: CaseStudyItem[] = [
       {
         heading: "Education Product Direction",
         body: [
-          "Nakafa AI and TELISIK reflect my interest in AI-enabled education and accessible learning platforms for students.",
-          "Nakafa AI focuses on AI learning support for university and high school students, while TELISIK supports Indonesian students preparing for UTBK through free learning resources.",
+          "Nakafa AI and TELISIK reflect my interest in accessible learning tools and learning through side projects.",
+          "Nakafa AI experiments with AI-assisted study support for university and high school students, while TELISIK helps Indonesian students prepare for UTBK through free learning resources.",
         ],
       },
       {

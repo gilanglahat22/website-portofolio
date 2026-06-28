@@ -12,38 +12,38 @@ export default function About() {
   const photos = [
     {
       id: 1,
-      title: "AI-Powered SaaS",
-      description: "Building Nexius AI for OCR, parsing, extraction, validation, journal mapping, reports, and delivery.",
+      title: "Learning by Building",
+      description: "I understand new ideas best by making something, testing it, and learning from what does not work yet.",
       imageUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 2,
-      title: "Backend & Architecture",
-      description: "Designing FastAPI, .NET, REST API, Domain-Driven Design, microservice, and event-driven systems.",
+      title: "Systems & Backend",
+      description: "I enjoy tracing how data moves through APIs, queues, databases, services, and the people who use them.",
       imageUrl: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 3,
-      title: "Distributed Delivery",
-      description: "Shipping queue-backed workers, Kubernetes/Rancher deployment, observability, and cloud-native services.",
+      title: "AI Tinkering",
+      description: "I experiment with LLMs, OCR, and small automations to understand where AI is genuinely useful—and where it is not.",
       imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 4,
-      title: "AI, Data & Analytics",
-      description: "Working with LLM applications, LangChain, OCR pipelines, data extraction, clustering, and evaluation metrics.",
+      title: "Competitive Programming",
+      description: "When time allows, I return to algorithmic problems to practice reasoning from constraints and handling edge cases.",
       imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 5,
-      title: "ITB Research",
+      title: "Academic Curiosity",
       description: portfolio.education.thesis,
       imageUrl: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 6,
-      title: "Competitive Programming",
-      description: "ICPC Asia Jakarta Regional finalist, Gemastik XV participant, and Meta Hacker Cup top 7% finisher.",
+      title: "Always a Student",
+      description: "Documentation, side projects, engineering notes, and conversations with teammates all remain part of how I learn.",
       imageUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
   ];
@@ -120,10 +120,10 @@ export default function About() {
                     <p className="mb-4 text-white/70">{portfolio.summary}</p>
 
                     <p className="mb-6 text-white/70">
-                      I focus on backend-heavy product engineering: scalable APIs, multi-tenant systems,
-                      distributed workers, real-time status tracking, and production web platforms. My recent
-                      work spans AI-powered financial document processing, regional digital platforms,
-                      corporate matching systems, cybersecurity research, and CMS/API products.
+                      I am comfortable moving between backend and frontend work, but I do not define myself by
+                      one stack. What matters more to me is understanding the problem, asking useful questions,
+                      and leaving the code a little clearer than I found it. AI is one of the areas I like to
+                      explore, alongside distributed systems, product engineering, and algorithms.
                     </p>
 
                     <h3 className="text-xl font-medium mb-4">Professional Experience</h3>
@@ -137,7 +137,7 @@ export default function About() {
                       ))}
                     </div>
 
-                    <h3 className="text-xl font-medium mb-4">Core Skills</h3>
+                    <h3 className="text-xl font-medium mb-4">Working Toolkit</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                       {skillGroups.slice(0, 4).map((group) => (
                         <div key={group.title} className="terminal-card p-3 rounded-xl">
@@ -165,11 +165,11 @@ export default function About() {
               </div>
             ) : activeTab === "photos" ? (
               <div>
-                <p className="terminal-kicker mb-3 text-xs">focus areas</p>
-                <h2 className="text-3xl font-semibold mb-6">CV Focus Areas</h2>
+                <p className="terminal-kicker mb-3 text-xs">things I keep exploring</p>
+                <h2 className="text-3xl font-semibold mb-6">What I Am Curious About</h2>
                 <p className="mb-8 text-white/70">
-                  A portfolio view of the areas highlighted in the CV, from production backend systems to
-                  AI document processing and competitive programming.
+                  Engineering is too broad to pretend I have finished learning it. These are a few areas I
+                  return to through work, side projects, reading, and practice.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -193,54 +193,54 @@ export default function About() {
               </div>
             ) : (
               <div className="space-y-6">
-                <p className="terminal-kicker text-xs">fullstack story</p>
-                <h2 className="text-3xl font-semibold mb-2">CV Story</h2>
+                <p className="terminal-kicker text-xs">engineering story</p>
+                <h2 className="text-3xl font-semibold mb-2">How I Learn and Work</h2>
 
                 <div className="space-y-4 text-white/70">
                   <p>
-                    My engineering path started at Bandung Institute of Technology, where I studied
-                    Informatics Engineering and researched Avalanche Consensus Protocol optimization with
-                    a microservices architecture.
+                    I started taking software seriously at Bandung Institute of Technology. Competitive
+                    programming taught me to reason from constraints and check edge cases; coursework and my
+                    thesis taught me that real systems are usually messier—and more interesting—than the neat
+                    version on paper.
                   </p>
 
                   <p>
-                    Professionally, I have worked across backend, full stack, AI, security, and platform
-                    engineering roles. At Quantum Teknologi Nusantara, I build Nexius AI services for
-                    financial document processing. Before that, I developed PMI regional platforms with
-                    One Code Solution, researched endpoint security concepts at MarkAny, and delivered
-                    Japanese corporate matching and internal voting systems at PT Fata Organa Solusi.
+                    Professionally, I have worked on backend services, web applications, document processing,
+                    security research, and marketplace products. Each role brought an unfamiliar domain or
+                    tool. My usual approach is to understand the context, ask questions early, build a small
+                    mental model, and improve it as I work.
                   </p>
 
                   <p>
-                    I enjoy the parts of engineering where product pressure and systems design meet:
-                    reliable APIs, distributed processing, observability, domain modeling, and user-facing
-                    workflows that make complex operations easier to run.
+                    Outside work, I still like to tinker. Sometimes that means a small AI experiment, sometimes
+                    a side project, and sometimes returning to a competitive programming problem. I do it less
+                    to collect technologies and more to keep my thinking flexible.
                   </p>
                 </div>
 
-                <h3 className="text-xl font-medium mt-8">What Drives Me</h3>
+                <h3 className="text-xl font-medium mt-8">What Keeps Me Going</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="terminal-card p-4 rounded-2xl">
-                    <h4 className="font-medium text-lg mb-2">Production Reliability</h4>
+                    <h4 className="font-medium text-lg mb-2">Learning in Context</h4>
                     <p>
-                      Building systems that remain observable, maintainable, and resilient under real
-                      workload pressure.
+                      I learn quickly when I can connect a new concept to a real problem, test it, and get
+                      feedback from the result.
                     </p>
                   </div>
 
                   <div className="terminal-card p-4 rounded-2xl">
-                    <h4 className="font-medium text-lg mb-2">Algorithmic Thinking</h4>
+                    <h4 className="font-medium text-lg mb-2">Engineering Thinking</h4>
                     <p>
-                      Applying competitive programming habits to debugging, performance tuning, and
-                      complex backend design.
+                      I like turning vague problems into smaller questions, weighing trade-offs, and checking
+                      assumptions before reaching for complexity.
                     </p>
                   </div>
 
                   <div className="terminal-card p-4 rounded-2xl">
-                    <h4 className="font-medium text-lg mb-2">Practical AI Systems</h4>
+                    <h4 className="font-medium text-lg mb-2">Steady Curiosity</h4>
                     <p>
-                      Turning OCR, LLM, clustering, and automation workflows into useful production
-                      software.
+                      There is always another layer to understand. I want to keep learning without pretending
+                      to know everything already.
                     </p>
                   </div>
                 </div>

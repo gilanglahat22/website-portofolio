@@ -268,7 +268,7 @@ export default function PortfolioTerminal({ open, onClose, dockItems }: Portfoli
                 </div>
                 <div>
                   <p className="terminal-label text-sm font-bold text-white">GilangOS Terminal</p>
-                  <p className="terminal-label text-xs text-white/45">fullstack-ai-shell</p>
+                  <p className="terminal-label text-xs text-white/45">curious-engineer-shell</p>
                 </div>
               </div>
               <button
