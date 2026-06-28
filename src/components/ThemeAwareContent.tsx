@@ -34,7 +34,7 @@ const ProjectVisual = ({ project, className = "" }) => {
 };
 
 const systemStats = [
-  { label: "Experience", value: "3 years", detail: "fullstack delivery" },
+  { label: "Experience", value: "2+ years", detail: "fullstack delivery" },
   { label: "Current", value: "Bukalapak", detail: "gaming marketplace" },
   { label: "Focus", value: "AI + Fullstack", detail: "backend, frontend, product systems" },
 ];
@@ -66,7 +66,7 @@ const ThemeAwareContent = () => {
                     <p className="terminal-command px-4 py-2 text-xs font-semibold">
                       boot --profile fullstack-ai-engineer
                     </p>
-                    <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
                       Build fullstack
                       <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-cyan-300 bg-clip-text text-transparent">
                         AI products
