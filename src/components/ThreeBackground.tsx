@@ -16,6 +16,7 @@ type Palette = {
   line: string;
   nodeOpacity: number;
   lineOpacity: number;
+  geometryOpacity: number;
 };
 
 const DARK_PALETTE: Palette = {
@@ -24,6 +25,7 @@ const DARK_PALETTE: Palette = {
   line: "#4ade80",
   nodeOpacity: 0.85,
   lineOpacity: 0.22,
+  geometryOpacity: 0.4,
 };
 
 const LIGHT_PALETTE: Palette = {
@@ -32,7 +34,51 @@ const LIGHT_PALETTE: Palette = {
   line: "#4d7c0f",
   nodeOpacity: 0.55,
   lineOpacity: 0.12,
+  geometryOpacity: 0.2,
 };
+
+const GEOMETRY_KINDS = [
+  "icosahedron",
+  "octahedron",
+  "torus",
+  "dodecahedron",
+  "tetrahedron",
+  "torusKnot",
+] as const;
+
+type GeometryKind = (typeof GEOMETRY_KINDS)[number];
+
+interface GeoSpec {
+  kind: GeometryKind;
+  position: [number, number, number];
+  scale: number;
+  rotSpeed: [number, number, number];
+  floatAmp: number;
+  floatFreq: number;
+  phase: number;
+  color: string;
+}
+
+function buildGeometrySpecs(palette: Palette): GeoSpec[] {
+  return GEOMETRY_KINDS.map((kind, i) => ({
+    kind,
+    position: [
+      (Math.random() * 2 - 1) * 8.5,
+      (Math.random() * 2 - 1) * 4.8,
+      (Math.random() * 2 - 1) * 3.5 - 1.5,
+    ],
+    scale: 0.55 + Math.random() * 0.65,
+    rotSpeed: [
+      0.12 + Math.random() * 0.28,
+      0.12 + Math.random() * 0.28,
+      0.05 + Math.random() * 0.15,
+    ],
+    floatAmp: 0.4 + Math.random() * 0.4,
+    floatFreq: 0.12 + Math.random() * 0.16,
+    phase: Math.random() * Math.PI * 2,
+    color: i % 2 === 0 ? palette.node : palette.line,
+  }));
+}
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -174,6 +220,59 @@ const NetworkScene = ({ palette }: { palette: Palette }) => {
   );
 };
 
+const geometryNode = (kind: GeometryKind) => {
+  switch (kind) {
+    case "icosahedron":
+      return <icosahedronGeometry args={[1, 0]} />;
+    case "octahedron":
+      return <octahedronGeometry args={[1, 0]} />;
+    case "torus":
+      return <torusGeometry args={[0.8, 0.26, 8, 24]} />;
+    case "dodecahedron":
+      return <dodecahedronGeometry args={[1, 0]} />;
+    case "tetrahedron":
+      return <tetrahedronGeometry args={[1, 0]} />;
+    case "torusKnot":
+      return <torusKnotGeometry args={[0.65, 0.2, 100, 12]} />;
+    default:
+      return null;
+  }
+};
+
+const GeometryMesh = ({ spec, opacity }: { spec: GeoSpec; opacity: number }) => {
+  const ref = useRef<THREE.Mesh>(null);
+  const basePos = useMemo(() => new THREE.Vector3(...spec.position), [spec.position]);
+
+  useFrame((state, delta) => {
+    if (!ref.current) return;
+    const t = state.clock.getElapsedTime();
+    ref.current.rotation.x += spec.rotSpeed[0] * delta;
+    ref.current.rotation.y += spec.rotSpeed[1] * delta;
+    ref.current.rotation.z += spec.rotSpeed[2] * delta;
+    ref.current.position.y = basePos.y + Math.sin(t * spec.floatFreq + spec.phase) * spec.floatAmp;
+    ref.current.position.x = basePos.x + Math.cos(t * spec.floatFreq * 0.7 + spec.phase) * (spec.floatAmp * 0.6);
+    ref.current.position.z = basePos.z + Math.sin(t * spec.floatFreq * 0.5 + spec.phase) * (spec.floatAmp * 0.5);
+  });
+
+  return (
+    <mesh ref={ref} position={spec.position} scale={spec.scale}>
+      {geometryNode(spec.kind)}
+      <meshBasicMaterial color={spec.color} wireframe transparent opacity={opacity} />
+    </mesh>
+  );
+};
+
+const FloatingGeometries = ({ palette }: { palette: Palette }) => {
+  const specs = useMemo(() => buildGeometrySpecs(palette), [palette]);
+  return (
+    <group>
+      {specs.map((spec, index) => (
+        <GeometryMesh key={`${spec.kind}-${index}`} spec={spec} opacity={palette.geometryOpacity} />
+      ))}
+    </group>
+  );
+};
+
 const FovRig = () => {
   const { camera } = useThree();
   useEffect(() => {
@@ -209,6 +308,7 @@ const ThreeBackground = () => {
       >
         <FovRig />
         <NetworkScene palette={palette} />
+        <FloatingGeometries palette={palette} />
       </Canvas>
     </div>
   );

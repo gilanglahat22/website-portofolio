@@ -68,9 +68,9 @@ const ThemeAwareContent = () => {
                       whoami --engineer --scale --applied-ai
                     </p>
                     <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                      Competitive programmer,
+                      Software engineer,
                       <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-cyan-300 bg-clip-text text-transparent">
-                        built into a systems engineer
+                        built for scale
                       </span>
                     </h1>
                     <p className="max-w-2xl text-base font-medium leading-7 text-white/72 sm:text-lg">

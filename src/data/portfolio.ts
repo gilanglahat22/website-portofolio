@@ -224,22 +224,6 @@ export const projects: ProjectItem[] = [
     linkLabel: "Visit Nexius AI",
   },
   {
-    title: "Nakafa AI Learning Platform",
-    subtitle: "Open-source AI-assisted learning experiment",
-    description:
-      "A learning platform for university and high school students exploring how AI can deliver accessible, personalized study guidance at low cost.",
-    highlights: [
-      "Built the platform to explore accessible, AI-assisted learning support for university and high school students.",
-      "Prototyped student guidance, learning-resource discovery, and AI-assisted study workflows end to end.",
-      "Used the project as a testbed for applying LLMs to real education constraints across Southeast Asia.",
-    ],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-    tags: ["AI", "Education", "Learning Platform", "Open Source"],
-    category: "open-source",
-    link: "https://nakafa.com",
-    linkLabel: "Visit Nakafa",
-  },
-  {
     title: "TELISIK",
     subtitle: "Free learning platform for UTBK preparation",
     description:
@@ -504,15 +488,15 @@ export const caseStudies: CaseStudyItem[] = [
     date: "2020 - 2025",
     readTime: 5,
     excerpt:
-      "The education and algorithmic foundation behind Nakafa AI, TELISIK, ITB Informatics Engineering, and programming competition achievements.",
-    categories: ["Education", "AI Learning", "ITB", "Programming Competitions"],
+      "The education and algorithmic foundation behind TELISIK, ITB Informatics Engineering, and programming competition achievements.",
+    categories: ["Education", "ITB", "Programming Competitions"],
     featuredImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80",
     sections: [
       {
         heading: "Education Product Direction",
         body: [
-          "Nakafa AI and TELISIK reflect my interest in accessible learning tools and learning through side projects.",
-          "Nakafa AI experiments with AI-assisted study support for university and high school students, while TELISIK helps Indonesian students prepare for UTBK through free learning resources.",
+          "TELISIK reflects my interest in accessible learning tools and learning through side projects.",
+          "TELISIK helps Indonesian students prepare for UTBK through free, accessible learning resources.",
         ],
       },
       {

@@ -12,7 +12,7 @@ const initialMessages = [
   { id: 3, username: "Engineer_17", text: "What is the strongest production backend example?", timestamp: "1 hour ago" },
   { id: 4, username: "Portfolio_Desk", text: "Nexius AI: FastAPI services, RabbitMQ workers, SSE progress, Kubernetes pods, and observability with OpenTelemetry/SigNoz.", timestamp: "45 minutes ago" },
   { id: 5, username: "Founder_23", text: "Does the CV include education products too?", timestamp: "30 minutes ago" },
-  { id: 6, username: "Portfolio_Desk", text: "Yes. Nakafa AI and TELISIK are listed as education-focused platforms.", timestamp: "15 minutes ago" },
+  { id: 6, username: "Portfolio_Desk", text: "Yes. TELISIK is listed as an education-focused platform.", timestamp: "15 minutes ago" },
 ];
 
 // Define the message type
