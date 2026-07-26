@@ -58,7 +58,7 @@ export default function Experience() {
         <MacOSWindow title="~/experience/timeline" variant="system">
           <div className="p-6">
             <div className="mb-8 max-w-3xl mx-auto">
-              <p className="terminal-kicker text-xs">career runtime</p>
+              <p className="terminal-kicker text-xs">career timeline</p>
               <h1 className="mt-3 text-3xl font-bold mb-4">Professional Experience</h1>
               <p className="text-lg text-white/70">{portfolio.summary}</p>
             </div>

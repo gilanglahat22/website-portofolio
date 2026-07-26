@@ -15,9 +15,9 @@ export default function Skills() {
               <p className="terminal-kicker text-xs">capability map</p>
               <h1 className="text-3xl font-bold">Technical Skills</h1>
               <p className="text-white/70">
-                These are tools I have used across work, study, and side projects—not a claim that I have
-                mastered every one of them. I am strongest when I can understand the problem first, then
-                learn or choose the technology that fits it.
+                Tools I have used to ship production backend systems, applied AI pipelines, and web
+                applications — not a claim of mastery over every one of them. I am strongest when I understand
+                the problem and its constraints first, then choose the technology that actually fits.
               </p>
             </div>
           </MacOSWindow>

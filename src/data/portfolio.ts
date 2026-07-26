@@ -32,6 +32,13 @@ export interface SkillGroupItem {
   items: string[];
 }
 
+export interface LifeChapter {
+  year: string;
+  title: string;
+  body: string;
+  tags: string[];
+}
+
 export interface CaseStudyItem {
   title: string;
   slug: string;
@@ -51,9 +58,9 @@ export const portfolio = {
   name: "Muhammad Gilang Ramadhan",
   title: "Software Engineer",
   headline:
-    "Software engineer who learns quickly, enjoys understanding how systems work, and stays curious by building, experimenting, and asking better questions.",
+    "Software engineer building distributed backend systems and applied AI products at scale — shaped by competitive programming, sharpened by production incidents, and driven by the same question every time: how does this hold up at 10x the load?",
   summary:
-    "I am a software engineer with 2+ years of experience working across backend services, web applications, and product systems. I enjoy learning unfamiliar domains, breaking problems into smaller parts, and improving things one iteration at a time. Outside day-to-day work, I tinker with AI, practice competitive programming when I have time, and keep exploring ideas that make me a more thoughtful engineer.",
+    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My path started in competitive programming — ICPC Asia Jakarta Regional and Meta Hacker Cup — where I learned to reason from constraints, prove correctness before writing code, and treat edge cases as the real spec. That discipline now shows up in the systems I build: distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals FAANG-caliber teams care about — throughput, latency, correctness under concurrency, and clear system boundaries — and I stay hands-on with algorithms and AI experiments outside of work to keep that edge sharp.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -70,12 +77,51 @@ export const portfolio = {
       "Optimization of blockchain Avalanche Consensus Protocol using microservices architecture.",
   },
   focusAreas: [
-    "Learning unfamiliar systems by building",
-    "Backend services and practical web applications",
-    "AI experiments and small side projects",
-    "Algorithms, problem solving, and engineering fundamentals",
+    "Distributed backend systems & high-throughput services",
+    "Applied AI in production — OCR, LLM pipelines, evaluation",
+    "Competitive programming & algorithmic problem solving",
+    "Marketplace and platform engineering at scale",
   ],
 };
+
+export const lifeStory: LifeChapter[] = [
+  {
+    year: "2020",
+    title: "Where it started: a judge, not a job",
+    body: "Before there were jobs, there was an online judge and a clock. Competitive programming is what pulled me into computer science seriously — not the syntax, but the discipline of turning an ambiguous problem into a provable solution under a time limit. That habit of reasoning from constraints first never left.",
+    tags: ["ICPC", "Problem Solving", "ITB"],
+  },
+  {
+    year: "2020 – 2025",
+    title: "Formal training, informal obsession",
+    body: "I studied Informatics Engineering at Bandung Institute of Technology while chasing contest results on the side — an ICPC Asia Jakarta Regional finals berth, a top-7% global finish in Meta Hacker Cup, a national final at Gemastik. My thesis pushed the same instincts into systems territory: optimizing the Avalanche consensus protocol with a microservices architecture.",
+    tags: ["Avalanche Consensus", "Microservices", "Thesis"],
+  },
+  {
+    year: "2023 – 2024",
+    title: "First production code, real users",
+    body: "Internship and early roles at Suitmedia and Fata Organa Solusi turned theory into shipped software: Laravel APIs cutting live latency, a .NET/React B2B platform synchronizing meetings and messaging in real time, and an internal voting system with SQL Server tuned under load. This is where I learned that clever code matters less than code that survives contact with production.",
+    tags: [".NET", "React", "Azure Service Bus", "SQL Server"],
+  },
+  {
+    year: "2025 – 2026",
+    title: "Applied AI, at production scale",
+    body: "At Quantum Teknologi Nusantara I built the backbone of Nexius AI — an OCR-to-LLM financial document pipeline running on FastAPI, RabbitMQ, and Kubernetes. Moving long-running jobs off a monolith and onto distributed workers, then instrumenting the whole system with OpenTelemetry, taught me what 'production-grade AI system' actually requires beyond a model that works in a notebook.",
+    tags: ["FastAPI", "RabbitMQ", "Kubernetes", "OpenTelemetry"],
+  },
+  {
+    year: "2026 – Present",
+    title: "Marketplace scale, gaming division",
+    body: "Now at Bukalapak, one of Indonesia's largest technology companies, building backend systems for itemku — a C2C marketplace moving gaming items, virtual goods, and game accounts between buyers and sellers. Different domain, same core problem I've chased since the judge days: keep a system correct and fast while real people depend on it.",
+    tags: ["Bukalapak", "C2C Marketplace", "Backend Systems"],
+  },
+  {
+    year: "Next",
+    title: "What I'm building toward",
+    body: "I'm aiming at the intersection of high-scale distributed systems and applied AI — the kind of engineering problems FAANG and top-tier product companies solve at a size and speed I want to be tested by. Competitive programming gave me the reflexes; production systems gave me the scars. I'm looking for the next room where both matter.",
+    tags: ["FAANG-caliber Systems", "Applied AI", "High-Scale SDE"],
+  },
+];
 
 export const experiences: ExperienceItem[] = [
   {
@@ -83,9 +129,9 @@ export const experiences: ExperienceItem[] = [
     company: "Bukalapak",
     date: "June 2026 - Present",
     description: [
-      "Joined Bukalapak's Gaming Division as a Software Engineer, working on itemku, a C2C marketplace for gaming items, virtual goods, and game accounts.",
-      "Contributing to backend systems and platform features that power the itemku marketplace, supporting game-item transactions, seller flows, buyer discovery, and C2C trading infrastructure.",
-      "Building and maintaining services for peer-to-peer transactions across games and digital goods categories.",
+      "Joined the Gaming Division at Bukalapak — one of Indonesia's largest technology companies — as a Software Engineer on itemku, a C2C marketplace for gaming items, virtual goods, and game accounts.",
+      "Build and operate backend systems powering itemku's core marketplace: transaction processing, seller flows, buyer discovery, and peer-to-peer trading infrastructure across games and digital goods categories.",
+      "Work across the full transaction lifecycle of a C2C platform, where correctness under concurrency and reliable state transitions matter as much as feature velocity.",
     ],
     logo: "/icons/bukalapak.png",
     skills: ["Software Engineering", "Marketplace", "C2C Platform", "Gaming", "Backend Systems"],
@@ -95,13 +141,13 @@ export const experiences: ExperienceItem[] = [
     company: "Quantum Teknologi Nusantara",
     date: "September 2025 - May 2026",
     description: [
-      "Worked on Nexius AI, a financial document processing product covering OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
-      "Standardized FastAPI backend architecture using Domain-Driven Design across multiple services to improve maintainability, service consistency, and readiness for future AI integrations.",
-      "Migrated long-running file-processing flows from a monolith into RabbitMQ-based distributed workers and Kubernetes worker pods, improving scalability under high upload volume.",
-      "Developed production REST APIs and real-time SSE progress tracking for upload status, queue visibility, per-report/month processing state, worker heartbeat, and background jobs.",
-      "Improved product observability with OpenTelemetry, SigNoz, structured logs, queue diagnostics, and progress snapshots to make production issues easier to trace and debug.",
-      "Delivered end-to-end features across 3 product surfaces: customer application, partner/affiliate portal, and admin dashboard.",
-      "Supported AI quality evaluation through clustering logic, transaction categorization, Chart of Accounts mapping workflows, and metric-based validation of ambiguous transaction results.",
+      "Built core backend for Nexius AI, a production Applied AI system turning raw financial documents into structured, auditable data through OCR, parsing, extraction, validation, journal mapping, and report generation.",
+      "Standardized FastAPI service architecture around Domain-Driven Design across multiple services, improving maintainability and giving the platform a consistent foundation for further AI integration.",
+      "Re-architected long-running file-processing pipelines off a monolith and onto RabbitMQ-based distributed workers running on Kubernetes, enabling the system to absorb high upload volume without falling over.",
+      "Shipped production REST APIs and real-time SSE progress streams covering upload status, queue visibility, per-report/month processing state, worker heartbeat, and background jobs.",
+      "Instrumented the platform with OpenTelemetry, SigNoz, structured logs, and queue diagnostics, turning a distributed async system into one that's debuggable in production.",
+      "Owned end-to-end delivery across 3 product surfaces: the customer application, the partner/affiliate portal, and the internal admin dashboard.",
+      "Supported AI quality through ambiguous-transaction clustering, Chart of Accounts mapping, and metric-based validation, keeping automated categorization trustworthy at scale.",
     ],
     logo: "/icons/quantum.jpeg",
     skills: ["Python", "FastAPI", "MongoDB", "RabbitMQ", "SSE", "Kubernetes", "OpenTelemetry"],
@@ -111,9 +157,9 @@ export const experiences: ExperienceItem[] = [
     company: "MarkAny",
     date: "April 2025 - May 2025",
     description: [
-      "Completed a 2-month R&D apprenticeship focused on Endpoint Detection & Response, Intrusion Detection Systems, user behavior monitoring, and anomaly detection.",
-      "Analyzed cybersecurity datasets from Indonesia's National Cyber and Crypto Agency to identify patterns related to endpoint behavior and security event classification.",
-      "Produced technical research insights on user behavior monitoring, threat detection, security pattern analysis, and anomaly-driven endpoint protection concepts.",
+      "Completed a 2-month R&D apprenticeship on Endpoint Detection & Response, Intrusion Detection Systems, user behavior monitoring, and anomaly detection.",
+      "Analyzed cybersecurity datasets from Indonesia's National Cyber and Crypto Agency to surface patterns in endpoint behavior and security event classification.",
+      "Produced technical research on user behavior monitoring, threat detection, and anomaly-driven endpoint protection — an early exercise in reasoning about systems under adversarial conditions.",
     ],
     logo: "/icons/markany.png",
     skills: ["EDR", "IDS", "Anomaly Detection", "Security Research", "Dataset Analysis"],
@@ -123,11 +169,11 @@ export const experiences: ExperienceItem[] = [
     company: "PT Fata Organa Solusi",
     date: "July 2024 - March 2025",
     description: [
-      "Served as PIC Assistant for Hashigake, a Japanese multi-tenant B2B corporate matching platform, supporting backend architecture, frontend delivery, QA coordination, and production releases.",
-      "Developed services using .NET, React/TypeScript, Azure Service Bus, WebSocket services, cron jobs, and event-driven communication for real-time and asynchronous workflows.",
-      "Built key platform modules for meeting synchronization, automatic meeting status updates, messaging backend services, admin management, and real-time communication features.",
-      "Implemented asynchronous communication using Azure Service Bus to improve reliability between backend services and external integration workflows.",
-      "Collaborated with QA, Project Management, and Data Science teams to prepare features for release.",
+      "Served as PIC Assistant for Hashigake, a Japanese multi-tenant B2B corporate matching platform, owning slices of backend architecture, frontend delivery, QA coordination, and production releases.",
+      "Built services using .NET, React/TypeScript, Azure Service Bus, WebSocket services, cron jobs, and event-driven communication for real-time and asynchronous workflows.",
+      "Delivered core platform modules for meeting synchronization, automatic status updates, messaging backend services, admin management, and real-time communication.",
+      "Implemented asynchronous communication via Azure Service Bus to improve reliability between backend services and external integrations.",
+      "Worked directly with QA, Project Management, and Data Science teams to ship features into a live multi-tenant production system.",
     ],
     logo: "/icons/fata_organa.jpeg",
     skills: [".NET", "React", "TypeScript", "Azure Service Bus", "WebSocket", "Redux"],
@@ -137,10 +183,10 @@ export const experiences: ExperienceItem[] = [
     company: "PT Fata Organa Solusi",
     date: "December 2023 - June 2024",
     description: [
-      "Developed a full-stack internal voting platform using ASP.NET, React, SQL Server, and Azure Services, covering 3 core layers: frontend, backend APIs, and database integration.",
-      "Architected voting flows for employee participation, vote submission, percentage calculation, result reporting, and administrative review.",
-      "Optimized SQL Server logic using stored procedures and database tuning to improve API reliability and maintainability for internal business workflows.",
-      "Improved voting percentage calculation, UI behavior, and reporting accuracy in collaboration with full-time engineers and QA teams.",
+      "Built a full-stack internal voting platform using ASP.NET, React, SQL Server, and Azure Services across 3 layers: frontend, backend APIs, and database integration.",
+      "Designed voting flows for employee participation, vote submission, percentage calculation, result reporting, and administrative review.",
+      "Optimized SQL Server logic with stored procedures and database tuning to improve API reliability under concurrent voting load.",
+      "Refined voting percentage calculation, UI behavior, and reporting accuracy alongside full-time engineers and QA.",
     ],
     logo: "/icons/fata_organa.jpeg",
     skills: ["ASP.NET", "React", "SQL Server", "Azure Services", "Stored Procedures", "QA"],
@@ -150,9 +196,9 @@ export const experiences: ExperienceItem[] = [
     company: "PT Suitmedia Kreasi Indonesia",
     date: "May 2023 - November 2023",
     description: [
-      "Developed API and CMS features for KLAR Smile's official platform using Laravel, NGINX, MySQL, and Docker.",
-      "Optimized backend queries and application performance, reducing API latency by approximately 10%.",
-      "Supported content management, API integration, backend debugging, and deployment-readiness improvements for a live customer-facing platform.",
+      "Built API and CMS features for KLAR Smile's official platform using Laravel, NGINX, MySQL, and Docker.",
+      "Optimized backend queries and application performance, cutting API latency by roughly 10% on a live customer-facing platform.",
+      "Supported content management, API integration, backend debugging, and deployment-readiness for a system real customers relied on daily.",
     ],
     logo: "/icons/suitmedia.png",
     skills: ["Laravel", "NGINX", "MySQL", "Docker", "CMS", "API Development"],
@@ -162,14 +208,14 @@ export const experiences: ExperienceItem[] = [
 export const projects: ProjectItem[] = [
   {
     title: "Nexius AI",
-    subtitle: "Financial document processing platform",
+    subtitle: "Applied AI platform for financial document processing",
     description:
-      "A production SaaS platform that processes financial documents through OCR, parsing, extraction, validation, journal mapping, report generation, and download delivery.",
+      "A production SaaS platform that turns raw financial documents into structured, auditable data through an OCR-to-LLM pipeline: parsing, extraction, validation, journal mapping, report generation, and delivery.",
     highlights: [
-      "Designed a modular OCR and document-processing pipeline covering parsing, normalization, feature extraction, validation, transaction mapping, and report generation.",
+      "Designed a modular OCR and document-processing pipeline: parsing, normalization, feature extraction, validation, transaction mapping, and report generation.",
       "Built backend services connecting document ingestion, background workers, structured output generation, user review flows, real-time progress events, and queue-based AI processing.",
-      "Implemented ambiguous transaction clustering and a Weighted Purity evaluator to measure clustering quality using size-weighted purity and outlier penalties.",
-      "Improved observability with OpenTelemetry, SigNoz, structured logs, queue diagnostics, and progress snapshots.",
+      "Built ambiguous-transaction clustering and a Weighted Purity evaluator that scores clustering quality with size-weighted purity and outlier penalties, keeping automated categorization honest at scale.",
+      "Improved observability with OpenTelemetry, SigNoz, structured logs, queue diagnostics, and progress snapshots so a distributed async pipeline stays debuggable in production.",
     ],
     image: "/icons/quantum.jpeg",
     tags: ["FastAPI", "Python", "MongoDB", "RabbitMQ", "OCR", "SSE"],
@@ -179,13 +225,13 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "Nakafa AI Learning Platform",
-    subtitle: "An open-source learning experiment",
+    subtitle: "Open-source AI-assisted learning experiment",
     description:
-      "A learning platform experiment for university and high school students, exploring how AI can support accessible study guidance.",
+      "A learning platform for university and high school students exploring how AI can deliver accessible, personalized study guidance at low cost.",
     highlights: [
-      "Built the project as a way to explore accessible learning support for university and high school students.",
-      "Experimented with student guidance, learning-resource discovery, and AI-assisted study workflows.",
-      "Used the project to learn more about education products and the needs of students in Southeast Asia.",
+      "Built the platform to explore accessible, AI-assisted learning support for university and high school students.",
+      "Prototyped student guidance, learning-resource discovery, and AI-assisted study workflows end to end.",
+      "Used the project as a testbed for applying LLMs to real education constraints across Southeast Asia.",
     ],
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     tags: ["AI", "Education", "Learning Platform", "Open Source"],
@@ -213,12 +259,12 @@ export const projects: ProjectItem[] = [
     title: "Hashigake",
     subtitle: "Multi-tenant B2B corporate matching platform",
     description:
-      "A Japanese B2B corporate matching platform with meeting synchronization, messaging flows, admin management, and real-time updates.",
+      "A Japanese B2B corporate matching platform built for multi-tenant scale, with real-time meeting synchronization, messaging, and admin management.",
     highlights: [
-      "Developed backend service integrations for a Japanese B2B corporate matching platform.",
-      "Built meeting synchronization, messaging flows, admin management, and real-time update modules.",
-      "Implemented asynchronous communication using Azure Service Bus.",
-      "Improved frontend maintainability through structured Redux state management.",
+      "Built backend service integrations for a Japanese multi-tenant B2B corporate matching platform.",
+      "Delivered meeting synchronization, messaging flows, admin management, and real-time update modules.",
+      "Implemented event-driven, asynchronous communication using Azure Service Bus.",
+      "Improved frontend maintainability through structured Redux state management across a multi-tenant codebase.",
     ],
     image: "/hashigake.png",
     tags: [".NET", "React", "TypeScript", "Azure Service Bus", "WebSocket", "Redux"],
@@ -232,9 +278,9 @@ export const projects: ProjectItem[] = [
     description:
       "A full-stack internal employee voting platform with backend APIs, frontend flows, SQL Server data structures, and Azure Services integration.",
     highlights: [
-      "Architected and implemented backend APIs, frontend flows, and database structures for an internal employee voting platform.",
+      "Designed and built backend APIs, frontend flows, and database structures for an internal employee voting platform.",
       "Improved voting percentage calculation, UI behavior, reporting accuracy, and administrative review flows.",
-      "Improved SQL Server reliability through stored procedures and backend tuning.",
+      "Improved SQL Server reliability under concurrent load through stored procedures and backend tuning.",
     ],
     image: "/icons/fata_organa.jpeg",
     tags: ["ASP.NET", "React", "SQL Server", "Azure Services", "Stored Procedures"],

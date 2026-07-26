@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import AppleDock from "@/components/AppleDock";
+import BiographyTimeline from "@/components/BiographyTimeline";
 import MacOSWindow from "@/components/MacOSWindow";
-import { experiences, portfolio, skillGroups } from "@/data/portfolio";
+import ProfileHighlight from "@/components/ProfileHighlight";
+import { experiences, lifeStory, portfolio, skillGroups } from "@/data/portfolio";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("profile");
@@ -52,7 +54,7 @@ export default function About() {
     <div className="min-h-screen">
       <main className="pt-8 px-6 pb-32">
         <div className="max-w-6xl mx-auto">
-          <MacOSWindow title="~/about/operator-profile" variant="system">
+          <MacOSWindow title="~/about/engineer-profile" variant="system">
             <div className="mb-8 flex overflow-x-auto border-b border-white/10 no-scrollbar">
               {[
                 ["profile", "Profile"],
@@ -71,19 +73,17 @@ export default function About() {
 
             {activeTab === "profile" ? (
               <div>
-                <p className="terminal-kicker mb-3 text-xs">operator profile</p>
+                <p className="terminal-kicker mb-3 text-xs">engineer profile</p>
                 <h2 className="text-3xl font-semibold mb-6">{portfolio.name}</h2>
 
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="md:w-1/3">
-                    <div className="terminal-card rounded-[1.5rem] overflow-hidden w-full aspect-square mb-4 relative">
-                      <Image
-                        src="/main_profile.jpeg"
-                        alt={portfolio.name}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
+                    <ProfileHighlight
+                      src="/main_profile.jpeg"
+                      alt={portfolio.name}
+                      badge="Software Engineer"
+                      className="mb-6 w-full"
+                    />
 
                     <div className="space-y-3">
                       <div className="terminal-card p-3 rounded-xl">
@@ -120,10 +120,10 @@ export default function About() {
                     <p className="mb-4 text-white/70">{portfolio.summary}</p>
 
                     <p className="mb-6 text-white/70">
-                      I am comfortable moving between backend and frontend work, but I do not define myself by
-                      one stack. What matters more to me is understanding the problem, asking useful questions,
-                      and leaving the code a little clearer than I found it. AI is one of the areas I like to
-                      explore, alongside distributed systems, product engineering, and algorithms.
+                      I move comfortably across the stack, but I do not define myself by one layer of it. What
+                      matters more is understanding the problem, reasoning from its constraints, and leaving the
+                      system a little more correct and a little clearer than I found it. Applied AI, distributed
+                      systems, and competitive programming are the three threads that keep pulling me back in.
                     </p>
 
                     <h3 className="text-xl font-medium mb-4">Professional Experience</h3>
@@ -193,29 +193,15 @@ export default function About() {
               </div>
             ) : (
               <div className="space-y-6">
-                <p className="terminal-kicker text-xs">engineering story</p>
-                <h2 className="text-3xl font-semibold mb-2">How I Learn and Work</h2>
+                <p className="terminal-kicker text-xs">the origin story</p>
+                <h2 className="text-3xl font-semibold mb-2">From Competitive Programmer to Systems Engineer</h2>
+                <p className="max-w-3xl text-white/70">
+                  A chronological look at how a habit of solving algorithmic puzzles under a clock turned into
+                  a career building backend systems and applied AI products that real users depend on.
+                </p>
 
-                <div className="space-y-4 text-white/70">
-                  <p>
-                    I started taking software seriously at Bandung Institute of Technology. Competitive
-                    programming taught me to reason from constraints and check edge cases; coursework and my
-                    thesis taught me that real systems are usually messier—and more interesting—than the neat
-                    version on paper.
-                  </p>
-
-                  <p>
-                    Professionally, I have worked on backend services, web applications, document processing,
-                    security research, and marketplace products. Each role brought an unfamiliar domain or
-                    tool. My usual approach is to understand the context, ask questions early, build a small
-                    mental model, and improve it as I work.
-                  </p>
-
-                  <p>
-                    Outside work, I still like to tinker. Sometimes that means a small AI experiment, sometimes
-                    a side project, and sometimes returning to a competitive programming problem. I do it less
-                    to collect technologies and more to keep my thinking flexible.
-                  </p>
+                <div className="pt-4">
+                  <BiographyTimeline chapters={lifeStory} />
                 </div>
 
                 <h3 className="text-xl font-medium mt-8">What Keeps Me Going</h3>

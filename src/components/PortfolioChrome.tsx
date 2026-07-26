@@ -1,10 +1,15 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import AppleDock from "@/components/AppleDock";
 import PortfolioTerminal from "@/components/PortfolioTerminal";
 import PortfolioTopNav, { DockItem } from "@/components/PortfolioTopNav";
+
+const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
+  ssr: false,
+});
 
 interface PortfolioChromeProps {
   children: ReactNode;
@@ -72,6 +77,8 @@ export default function PortfolioChrome({ children, dockItems }: PortfolioChrome
       <div className={`relative z-10 pt-20 transition-[padding] duration-300 ${dockVisible ? "pb-24 sm:pb-32" : "pb-10"}`}>
         {children}
       </div>
+
+      {mounted ? <ThreeBackground /> : null}
 
       <div className="portfolio-backdrop fixed inset-0 z-0">
         <div className="portfolio-backdrop-grid" />

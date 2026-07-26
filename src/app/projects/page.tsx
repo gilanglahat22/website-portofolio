@@ -99,9 +99,10 @@ export default function Projects() {
               <p className="terminal-kicker text-xs">domain catalog</p>
               <h1 className="text-3xl font-bold">Selected Projects</h1>
               <p className="text-white/70">
-                A mix of work projects and personal experiments. They span document processing, education,
-                B2B workflows, internal tools, and small explorations with AI—each one taught me something
-                different about building software for real people.
+                Production systems and personal experiments, spanning applied AI document processing, B2B
+                platforms at multi-tenant scale, and open-source explorations in education and LLM tooling.
+                Each one is a different proof point of the same habit: understand the constraints, then build
+                something that holds up under real usage.
               </p>
 
               <div className="flex justify-center my-6">

@@ -15,6 +15,7 @@ import {
   ServerCog,
 } from "lucide-react";
 import MacOSWindow from "@/components/MacOSWindow";
+import ProfileHighlight from "@/components/ProfileHighlight";
 import { achievements, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
 
 const ProjectVisual = ({ project, className = "" }) => {
@@ -34,16 +35,16 @@ const ProjectVisual = ({ project, className = "" }) => {
 };
 
 const systemStats = [
-  { label: "Experience", value: "2+ years", detail: "learning by building" },
-  { label: "Current", value: "Bukalapak", detail: "gaming marketplace" },
-  { label: "Mindset", value: "Stay curious", detail: "think, build, learn, repeat" },
+  { label: "Experience", value: "2+ years", detail: "backend & applied AI" },
+  { label: "Current", value: "Bukalapak", detail: "C2C marketplace, gaming" },
+  { label: "Competitive Programming", value: "Top 7%", detail: "Meta Hacker Cup, global" },
 ];
 
 const systemSignals = [
-  { icon: ServerCog, label: "engineering.work", value: "APIs, web apps, and product systems" },
-  { icon: Network, label: "learning.mode", value: "Read, ask, build, and iterate" },
-  { icon: Cpu, label: "ai.sandbox", value: "LLMs, OCR, and small experiments" },
-  { icon: DatabaseZap, label: "off.hours", value: "Algorithms, contests, and side projects" },
+  { icon: ServerCog, label: "systems.work", value: "Distributed backend services & high-throughput APIs" },
+  { icon: Cpu, label: "applied.ai", value: "OCR-to-LLM pipelines, running in production" },
+  { icon: Network, label: "competitive.programming", value: "ICPC finalist, Gemastik, Meta Hacker Cup" },
+  { icon: DatabaseZap, label: "scale.mindset", value: "Correctness and throughput under real load" },
 ];
 
 const ThemeAwareContent = () => {
@@ -64,17 +65,16 @@ const ThemeAwareContent = () => {
                 <div className="space-y-8">
                   <div className="space-y-5">
                     <p className="terminal-command px-4 py-2 text-xs font-semibold">
-                      boot --profile curious-software-engineer
+                      whoami --engineer --scale --applied-ai
                     </p>
                     <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                      Software engineer,
+                      Competitive programmer,
                       <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-cyan-300 bg-clip-text text-transparent">
-                        always learning
+                        built into a systems engineer
                       </span>
                     </h1>
                     <p className="max-w-2xl text-base font-medium leading-7 text-white/72 sm:text-lg">
-                      {portfolio.headline} My work has taken me through backend services, web applications,
-                      distributed systems, and a few useful AI experiments along the way.
+                      {portfolio.headline}
                     </p>
                   </div>
 
@@ -112,38 +112,27 @@ const ThemeAwareContent = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
+                  <div className="mx-auto w-full max-w-xs sm:max-w-sm">
+                    <ProfileHighlight
+                      src="/main_profile.jpeg"
+                      alt={portfolio.name}
+                      priority
+                      badge="Engineer · High-Scale Systems"
+                      className="w-full"
+                    />
+                  </div>
+
                   <div className="terminal-card rounded-[1.5rem] p-4">
-                    <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-red-400" />
-                        <span className="h-3 w-3 rounded-full bg-amber-300" />
-                        <span className="h-3 w-3 rounded-full bg-lime-300" />
-                      </div>
-                      <p className="terminal-label text-xs text-white/50">runtime.status</p>
+                    <div>
+                      <p className="terminal-kicker text-xs">engineer</p>
+                      <h2 className="mt-2 text-2xl font-bold text-white">{portfolio.name}</h2>
+                      <p className="mt-1 text-sm text-white/55">{portfolio.location}</p>
                     </div>
-                    <div className="grid gap-4 sm:grid-cols-[0.76fr_1fr]">
-                      <div className="relative aspect-square overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5">
-                        <Image
-                          src="/main_profile.jpeg"
-                          alt={portfolio.name}
-                          fill
-                          priority
-                          className="object-cover object-top"
-                        />
-                      </div>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="terminal-kicker text-xs">operator</p>
-                          <h2 className="mt-2 text-2xl font-bold text-white">{portfolio.name}</h2>
-                          <p className="mt-1 text-sm text-white/55">{portfolio.location}</p>
-                        </div>
-                        <div className="space-y-2 text-sm">
-                          <p className="terminal-prompt-line">role: {experiences[0].title}</p>
-                          <p className="terminal-prompt-line">company: {experiences[0].company}</p>
-                          <p className="terminal-prompt-line">status: learning while shipping</p>
-                        </div>
-                      </div>
+                    <div className="mt-4 space-y-2 text-sm">
+                      <p className="terminal-prompt-line">role: {experiences[0].title}</p>
+                      <p className="terminal-prompt-line">company: {experiences[0].company}</p>
+                      <p className="terminal-prompt-line">focus: distributed systems, applied AI, competitive programming</p>
                     </div>
                   </div>
 
@@ -210,7 +199,7 @@ const ThemeAwareContent = () => {
             <section className="space-y-8">
               <div className="text-center">
                 <p className="terminal-kicker text-xs">project index</p>
-                <h2 className="portfolio-section-title mt-3 text-3xl">CV Selected Projects</h2>
+                <h2 className="portfolio-section-title mt-3 text-3xl">More Projects</h2>
               </div>
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {projectCards.map((project) => (
@@ -267,11 +256,11 @@ const ThemeAwareContent = () => {
               </div>
               <div className="relative z-10 space-y-6">
                 <p className="terminal-kicker text-xs">working toolkit</p>
-                <h2 className="text-3xl font-extrabold text-white">A practical toolkit that keeps growing</h2>
+                <h2 className="text-3xl font-extrabold text-white">A toolkit built for production, sharpened by competition</h2>
                 <p className="max-w-2xl text-sm leading-6 text-white/70">
-                  I have worked with {skillGroups[0].items.slice(0, 5).join(", ")}, alongside
+                  I ship with {skillGroups[0].items.slice(0, 5).join(", ")}, alongside
                   {` ${skillGroups[1].items.slice(0, 6).join(", ")} `}
-                  to solve everyday product and engineering problems. The list changes as I learn; the fundamentals stay important.
+                  to build systems that hold up under real load — the same rigor competitive programming trained into me from day one.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/skills" className="terminal-command px-5 py-2.5 text-sm font-semibold">
