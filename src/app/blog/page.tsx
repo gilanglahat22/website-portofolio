@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
+import { ArrowUpRight } from "lucide-react";
 import { CaseStudyItem, caseStudies } from "@/data/portfolio";
 
 const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
@@ -22,13 +23,13 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
         variant="system"
         className={`h-full transition-all duration-300 ${isHovered ? "shadow-lg" : "shadow-md"}`}
       >
-        <div className="space-y-4">
+        <Link href={`/blog/${post.slug}`} className="group block space-y-4">
           <div className="relative flex h-40 items-center justify-center overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5 sm:h-48">
             {isSvg ? (
               <img
                 src={post.featuredImage}
                 alt={post.title}
-                className="h-full w-full object-contain p-6"
+                className="h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
               />
             ) : (
               <Image
@@ -36,7 +37,7 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
                 alt={post.title}
                 width={800}
                 height={400}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             )}
           </div>
@@ -47,7 +48,7 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
               <span className="terminal-label text-white/55">{post.readTime} min read</span>
             </div>
 
-            <h2 className="text-xl font-semibold">{post.title}</h2>
+            <h2 className="text-xl font-semibold transition-colors group-hover:text-lime-100">{post.title}</h2>
             <p className="text-sm text-white/70">{post.excerpt}</p>
 
             <div className="flex flex-wrap gap-2 pt-1">
@@ -58,14 +59,12 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
               ))}
             </div>
 
-            <Link
-              href={`/blog/${post.slug}`}
-              className="terminal-command inline-flex rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60"
-            >
+            <span className="inline-flex items-center gap-2 pt-1 text-sm font-semibold text-lime-100">
               Read Case Study
-            </Link>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+            </span>
           </div>
-        </div>
+        </Link>
       </MacOSWindow>
     </div>
   );
