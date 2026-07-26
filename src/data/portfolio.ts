@@ -60,7 +60,7 @@ export const portfolio = {
   headline:
     "Software engineer building distributed backend systems and applied AI products at scale — shaped by competitive programming, sharpened by production incidents, and driven by the same question every time: how does this hold up at 10x the load?",
   summary:
-    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My path started in competitive programming — ICPC Asia Jakarta Regional and Meta Hacker Cup — where I learned to reason from constraints, prove correctness before writing code, and treat edge cases as the real spec. That discipline now shows up in the systems I build: distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals FAANG-caliber teams care about — throughput, latency, correctness under concurrency, and clear system boundaries — and I stay hands-on with algorithms and AI experiments outside of work to keep that edge sharp.",
+    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My work spans distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals FAANG-caliber teams care about — throughput, latency, correctness under concurrency, and clear system boundaries. Outside of work, I also practice competitive programming and tinkering AI to keep my problem-solving sharp.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -516,6 +516,125 @@ export const caseStudies: CaseStudyItem[] = [
           "National Finalist, Indonesia National Contest 2021.",
           "Participant, Gemastik XV Programming Division 2022.",
           "Top 7% in Meta Hacker Cup Round 1 2022.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Dynamic Programming: Turning Brute Force Into Something That Scales",
+    slug: "dynamic-programming-field-notes",
+    date: "2020 - Present",
+    readTime: 6,
+    excerpt:
+      "How I think about dynamic programming — from spotting overlapping subproblems in a contest to using the same instinct to design caching and reprocessing logic in production systems.",
+    categories: ["Data Structures", "Algorithms", "Competitive Programming"],
+    featuredImage: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    sections: [
+      {
+        heading: "Why Dynamic Programming Matters",
+        body: [
+          "Dynamic programming (DP) is what happens when a brute-force recursive solution keeps re-solving the same subproblem, and you decide to remember the answer instead of recomputing it. Two properties make a problem a DP candidate: optimal substructure, where the best answer is built from the best answers to its subproblems, and overlapping subproblems, where the same subproblem recurs throughout a naive recursion tree.",
+          "In competitive programming, spotting these two properties quickly is often the difference between a solution that finishes in time and one that times out. The same instinct — cache what's expensive to recompute — shows up constantly in production systems, from memoized API calls to precomputed aggregation tables.",
+        ],
+      },
+      {
+        heading: "Top-Down vs. Bottom-Up",
+        body: [
+          "Top-down DP (memoization) starts from the original problem and recurses downward, storing each subproblem's answer the first time it's computed. It reads close to the natural recursive definition, which makes it easier to derive correctly under time pressure.",
+          "Bottom-up DP (tabulation) builds the answer iteratively from the smallest subproblems upward. It avoids recursion overhead and stack limits, and it's usually easier to optimize for memory once the recurrence is proven correct.",
+        ],
+        bullets: [
+          "Start top-down to find the correct recurrence; convert to bottom-up once the transition is proven.",
+          "Watch for problems where only the last k rows of the table are needed — that's a rolling-array space optimization.",
+          "Most DP bugs come from an incomplete state definition, not a wrong transition.",
+        ],
+      },
+      {
+        heading: "Patterns Worth Knowing Cold",
+        body: [
+          "A handful of patterns cover most interview and contest DP problems: 0/1 and unbounded knapsack, longest increasing subsequence (including its O(n log n) form), interval DP such as matrix chain multiplication, digit DP for counting numbers with a property, and bitmask DP for small-set combinatorial problems like TSP on at most ~20 nodes.",
+          "Recognizing which pattern a new problem maps to is a skill built from repetition — the reason I keep returning to problem sets even outside of active contests.",
+        ],
+        bullets: [
+          "Knapsack family — subset sum, partition, coin change.",
+          "Sequence DP — LIS, LCS, edit distance.",
+          "Interval DP — matrix chain multiplication, palindrome partitioning.",
+          "Bitmask DP — assignment problems, small-graph TSP.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Segment Trees: Answering Range Queries Without Rescanning the Array",
+    slug: "segment-trees-range-queries",
+    date: "2020 - Present",
+    readTime: 5,
+    excerpt:
+      "A practical walkthrough of segment trees — the structure that turns O(n) range queries and updates into O(log n) — and why the same idea underlies real-time analytics and time-series systems.",
+    categories: ["Data Structures", "Algorithms", "Competitive Programming"],
+    featuredImage: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    sections: [
+      {
+        heading: "The Problem It Solves",
+        body: [
+          "A segment tree answers two kinds of questions efficiently on an array: 'what is the sum/min/max/gcd of elements between index l and r?' and 'update the value at index i.' A naive approach recomputes a range answer in O(n) per query; a segment tree pushes both operations down to O(log n) by precomputing answers for fixed sub-ranges and combining them.",
+          "It's built as a binary tree over the array, where each node stores the aggregated answer for the range it represents: the root covers the whole array, leaves cover single elements, and every internal node combines its two children.",
+        ],
+      },
+      {
+        heading: "Building, Querying, and Updating",
+        body: [
+          "Construction is O(n): build recursively, combining children into parents. A query walks down from the root, splitting the requested range across at most O(log n) nodes whose ranges are fully or partially covered. A point update walks a single root-to-leaf path and recomputes the O(log n) ancestors on the way back up.",
+        ],
+        bullets: [
+          "Point update, range query — the classic form (sum, min, max, gcd).",
+          "Range update, range query — needs lazy propagation to stay O(log n).",
+          "Merge sort tree, persistent segment tree — variants for order statistics and versioned history.",
+        ],
+      },
+      {
+        heading: "Where the Same Idea Shows Up in Production",
+        body: [
+          "The core trick — precompute range aggregates so you never rescan raw data — is the same idea behind time-series rollups, real-time dashboards, and range-based rate limiters. Building progress tracking and queue diagnostics for Nexius AI relied on the same mental model: don't recompute a summary from scratch on every request; maintain a structure that answers 'what happened in this window' in far less than linear time.",
+          "Competitive programming is where I learned to reach for this trade-off instinctively — spend a little more on the write path so the read path stays fast, which matters far more once traffic scales.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Graphs: The Data Structure Behind Almost Every Interesting System",
+    slug: "graph-algorithms-field-guide",
+    date: "2020 - Present",
+    readTime: 7,
+    excerpt:
+      "Adjacency lists, traversal, shortest paths, and union-find — the graph toolkit I reach for in contests, and the same toolkit that shows up in dependency graphs, service topologies, and marketplace matching.",
+    categories: ["Data Structures", "Algorithms", "Competitive Programming"],
+    featuredImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    sections: [
+      {
+        heading: "Representations First",
+        body: [
+          "Almost every graph problem starts with picking a representation. An adjacency list (one list per node) is the default for sparse graphs and most competitive programming problems — O(V + E) space and fast iteration over a node's neighbors. An adjacency matrix trades space (O(V²)) for O(1) edge lookups, useful when the graph is dense or small.",
+          "Getting the representation right early avoids rewriting the whole solution later — something I learned the hard way in early contests.",
+        ],
+      },
+      {
+        heading: "Traversal and Shortest Paths",
+        body: [
+          "BFS explores level by level and gives shortest paths on unweighted graphs; DFS explores depth-first and underlies cycle detection, topological sort, and connected components. For weighted graphs, Dijkstra's algorithm (with a priority queue) handles non-negative weights in O((V + E) log V); Bellman-Ford handles negative weights and detects negative cycles in O(VE); Floyd-Warshall computes all-pairs shortest paths in O(V³) when the graph is small enough.",
+        ],
+        bullets: [
+          "BFS/DFS — connectivity, cycle detection, topological sort.",
+          "Dijkstra — single-source shortest path, non-negative weights.",
+          "Bellman-Ford — negative weights, negative-cycle detection.",
+          "Floyd-Warshall — all-pairs shortest path on small graphs.",
+        ],
+      },
+      {
+        heading: "Beyond Shortest Path",
+        body: [
+          "Union-Find (Disjoint Set Union) answers connectivity and grouping questions in near-constant time per operation and is the backbone of Kruskal's minimum spanning tree algorithm. Tarjan's and Kosaraju's algorithms find strongly connected components in directed graphs, which matters for anything modeling dependencies or cyclic relationships.",
+          "These structures map directly onto real systems: a service dependency graph is a DAG that needs topological sort before deployment ordering makes sense; a C2C marketplace matching buyers to sellers across categories is a bipartite graph; and clustering ambiguous transactions, like I did at Nexius AI, borrows the same connected-components thinking used to group nodes in a graph.",
         ],
       },
     ],
