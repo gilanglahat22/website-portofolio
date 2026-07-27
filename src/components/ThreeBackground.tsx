@@ -17,6 +17,10 @@ type Palette = {
   nodeOpacity: number;
   lineOpacity: number;
   geometryOpacity: number;
+  solidOpacity: number;
+  fog: string;
+  lightWarm: string;
+  lightCool: string;
 };
 
 const DARK_PALETTE: Palette = {
@@ -25,7 +29,11 @@ const DARK_PALETTE: Palette = {
   line: "#4ade80",
   nodeOpacity: 0.85,
   lineOpacity: 0.22,
-  geometryOpacity: 0.4,
+  geometryOpacity: 0.45,
+  solidOpacity: 0.22,
+  fog: "#030907",
+  lightWarm: "#a3e635",
+  lightCool: "#22d3ee",
 };
 
 const LIGHT_PALETTE: Palette = {
@@ -34,7 +42,11 @@ const LIGHT_PALETTE: Palette = {
   line: "#4d7c0f",
   nodeOpacity: 0.55,
   lineOpacity: 0.12,
-  geometryOpacity: 0.2,
+  geometryOpacity: 0.28,
+  solidOpacity: 0.1,
+  fog: "#f4f6f2",
+  lightWarm: "#65a30d",
+  lightCool: "#0891b2",
 };
 
 const GEOMETRY_KINDS = [
@@ -239,26 +251,49 @@ const geometryNode = (kind: GeometryKind) => {
   }
 };
 
-const GeometryMesh = ({ spec, opacity }: { spec: GeoSpec; opacity: number }) => {
-  const ref = useRef<THREE.Mesh>(null);
+const GeometryMesh = ({ spec, palette }: { spec: GeoSpec; palette: Palette }) => {
+  const groupRef = useRef<THREE.Group>(null);
+  const spinRef = useRef<THREE.Mesh>(null);
   const basePos = useMemo(() => new THREE.Vector3(...spec.position), [spec.position]);
+  const parallax = useRef({ x: 0, y: 0 });
+  const depthFactor = useMemo(() => 0.35 + (spec.position[2] + 5) * 0.06, [spec.position]);
 
   useFrame((state, delta) => {
-    if (!ref.current) return;
+    if (!groupRef.current || !spinRef.current) return;
     const t = state.clock.getElapsedTime();
-    ref.current.rotation.x += spec.rotSpeed[0] * delta;
-    ref.current.rotation.y += spec.rotSpeed[1] * delta;
-    ref.current.rotation.z += spec.rotSpeed[2] * delta;
-    ref.current.position.y = basePos.y + Math.sin(t * spec.floatFreq + spec.phase) * spec.floatAmp;
-    ref.current.position.x = basePos.x + Math.cos(t * spec.floatFreq * 0.7 + spec.phase) * (spec.floatAmp * 0.6);
-    ref.current.position.z = basePos.z + Math.sin(t * spec.floatFreq * 0.5 + spec.phase) * (spec.floatAmp * 0.5);
+
+    spinRef.current.rotation.x += spec.rotSpeed[0] * delta;
+    spinRef.current.rotation.y += spec.rotSpeed[1] * delta;
+    spinRef.current.rotation.z += spec.rotSpeed[2] * delta;
+
+    parallax.current.x += (state.pointer.x * depthFactor - parallax.current.x) * 0.04;
+    parallax.current.y += (state.pointer.y * depthFactor - parallax.current.y) * 0.04;
+
+    groupRef.current.position.y =
+      basePos.y + Math.sin(t * spec.floatFreq + spec.phase) * spec.floatAmp + parallax.current.y;
+    groupRef.current.position.x =
+      basePos.x + Math.cos(t * spec.floatFreq * 0.7 + spec.phase) * (spec.floatAmp * 0.6) + parallax.current.x;
+    groupRef.current.position.z = basePos.z + Math.sin(t * spec.floatFreq * 0.5 + spec.phase) * (spec.floatAmp * 0.5);
   });
 
   return (
-    <mesh ref={ref} position={spec.position} scale={spec.scale}>
-      {geometryNode(spec.kind)}
-      <meshBasicMaterial color={spec.color} wireframe transparent opacity={opacity} />
-    </mesh>
+    <group ref={groupRef} position={spec.position}>
+      <mesh ref={spinRef} scale={spec.scale}>
+        {geometryNode(spec.kind)}
+        <meshBasicMaterial color={spec.color} wireframe transparent opacity={palette.geometryOpacity} />
+        <mesh scale={0.94}>
+          {geometryNode(spec.kind)}
+          <meshStandardMaterial
+            color={spec.color}
+            flatShading
+            roughness={0.35}
+            metalness={0.2}
+            transparent
+            opacity={palette.solidOpacity}
+          />
+        </mesh>
+      </mesh>
+    </group>
   );
 };
 
@@ -267,17 +302,53 @@ const FloatingGeometries = ({ palette }: { palette: Palette }) => {
   return (
     <group>
       {specs.map((spec, index) => (
-        <GeometryMesh key={`${spec.kind}-${index}`} spec={spec} opacity={palette.geometryOpacity} />
+        <GeometryMesh key={`${spec.kind}-${index}`} spec={spec} palette={palette} />
       ))}
     </group>
   );
 };
 
+const SceneLights = ({ palette }: { palette: Palette }) => {
+  const pointRef = useRef<THREE.PointLight>(null);
+
+  useFrame((state) => {
+    if (!pointRef.current) return;
+    const t = state.clock.getElapsedTime();
+    pointRef.current.position.set(Math.sin(t * 0.25) * 6, Math.cos(t * 0.2) * 3.5, 4 + Math.sin(t * 0.15) * 2);
+    pointRef.current.intensity = 1.1 + Math.sin(t * 0.6) * 0.3;
+  });
+
+  return (
+    <>
+      <ambientLight intensity={0.55} />
+      <directionalLight position={[4, 6, 5]} intensity={0.5} color={palette.lightWarm} />
+      <pointLight ref={pointRef} color={palette.lightCool} distance={16} decay={2} intensity={1.2} />
+    </>
+  );
+};
+
 const FovRig = () => {
   const { camera } = useThree();
+  const scrollTarget = useRef(0);
+
   useEffect(() => {
     camera.position.set(0, 0, 9);
+
+    const handleScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      scrollTarget.current = max > 0 ? window.scrollY / max : 0;
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [camera]);
+
+  useFrame(() => {
+    const desiredZ = 9 - scrollTarget.current * 2.2;
+    camera.position.z += (desiredZ - camera.position.z) * 0.05;
+    camera.lookAt(0, 0, 0);
+  });
+
   return null;
 };
 
@@ -306,7 +377,9 @@ const ThreeBackground = () => {
         gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
         camera={{ fov: 50, position: [0, 0, 9] }}
       >
+        <fog attach="fog" args={[palette.fog, 7, 17]} />
         <FovRig />
+        <SceneLights palette={palette} />
         <NetworkScene palette={palette} />
         <FloatingGeometries palette={palette} />
       </Canvas>

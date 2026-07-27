@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { achievements, caseStudies, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
+import { codeLabEntries } from "@/data/codeLab";
 
 export interface DockItem {
   name: string;
@@ -43,6 +44,7 @@ const navItems = [
   { href: "/projects", label: "Projects", hasMenu: true },
   { href: "/skills", label: "Skills" },
   { href: "/blog", label: "Case Studies" },
+  { href: "/code-lab", label: "Code Lab" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -89,6 +91,13 @@ const buildSearchIndex = (): SearchItem[] => {
       href: "/blog",
       section: "Page",
       keywords: caseStudies.map((item) => `${item.title} ${item.categories.join(" ")}`).join(" "),
+    },
+    {
+      title: "Code Lab",
+      description: "Hands-on SOLID principles and design pattern examples with a VSCode-style editor and terminal.",
+      href: "/code-lab",
+      section: "Page",
+      keywords: codeLabEntries.map((entry) => `${entry.title} ${entry.fileName}`).join(" "),
     },
     {
       title: "Contact",
@@ -146,7 +155,23 @@ const buildSearchIndex = (): SearchItem[] => {
     keywords: `${study.categories.join(" ")} ${study.sections.map((section) => section.heading).join(" ")}`,
   }));
 
-  return [...pageItems, ...projectItems, ...experienceItems, ...skillItems, ...achievementItems, ...caseStudyItems];
+  const codeLabItems = codeLabEntries.map((entry) => ({
+    title: entry.title,
+    description: entry.summary,
+    href: "/code-lab",
+    section: entry.group === "solid" ? "SOLID" : "Design Pattern",
+    keywords: `${entry.fileName} ${entry.keyPoints.join(" ")}`,
+  }));
+
+  return [
+    ...pageItems,
+    ...projectItems,
+    ...experienceItems,
+    ...skillItems,
+    ...achievementItems,
+    ...caseStudyItems,
+    ...codeLabItems,
+  ];
 };
 
 export default function PortfolioTopNav({

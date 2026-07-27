@@ -16,6 +16,7 @@ const dockItems = [
   { name: 'Home', icon: '/icons/dock/home.svg', href: '/' },
   { name: 'About', icon: '/icons/dock/about.svg', href: '/about' },
   { name: 'Case Studies', icon: '/icons/dock/blog.svg', href: '/blog' },
+  { name: 'Code Lab', icon: '/icons/dock/code-lab.svg', href: '/code-lab' },
   { name: 'Projects', icon: '/icons/dock/projects.svg', href: '/projects' },
   { name: 'Skills', icon: '/icons/dock/skills.svg', href: '/skills' },
   { name: 'Experience', icon: '/icons/dock/experience.svg', href: '/experience' },

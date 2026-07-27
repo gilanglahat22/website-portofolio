@@ -60,7 +60,7 @@ export const portfolio = {
   headline:
     "Software engineer building distributed backend systems and applied AI products at scale — shaped by competitive programming, sharpened by production incidents, and driven by the same question every time: how does this hold up at 10x the load?",
   summary:
-    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My work spans distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals FAANG-caliber teams care about — throughput, latency, correctness under concurrency, and clear system boundaries. Outside of work, I also practice competitive programming and tinkering AI to keep my problem-solving sharp.",
+    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My work spans distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals that top-tier product engineering teams care about — throughput, latency, correctness under concurrency, and clear system boundaries. Outside of work, I'm an ICPC Asia Jakarta Regional finalist and Meta Hacker Cup top-7% finisher, and I still practice competitive programming and tinker with AI to keep my problem-solving sharp.",
   location: "South Jakarta, Jakarta, Indonesia",
   email: "muhammadgilangr471@gmail.com",
   phone: "+62 823-8221-1182",
@@ -94,7 +94,7 @@ export const lifeStory: LifeChapter[] = [
   {
     year: "2020 – 2025",
     title: "Formal training, informal obsession",
-    body: "I studied Informatics Engineering at Bandung Institute of Technology while chasing contest results on the side — an ICPC Asia Jakarta Regional finals berth, a top-7% global finish in Meta Hacker Cup, a national final at Gemastik. My thesis pushed the same instincts into systems territory: optimizing the Avalanche consensus protocol with a microservices architecture.",
+    body: "I studied Informatics Engineering at Bandung Institute of Technology while chasing contest results on the side — an ICPC Asia Jakarta Regional finals berth, a top-7% global finish in Meta Hacker Cup, and a national-team selection at Gemastik. My thesis pushed the same instincts into systems territory: optimizing the Avalanche consensus protocol with a microservices architecture.",
     tags: ["Avalanche Consensus", "Microservices", "Thesis"],
   },
   {
@@ -118,8 +118,8 @@ export const lifeStory: LifeChapter[] = [
   {
     year: "Next",
     title: "What I'm building toward",
-    body: "I'm aiming at the intersection of high-scale distributed systems and applied AI — the kind of engineering problems FAANG and top-tier product companies solve at a size and speed I want to be tested by. Competitive programming gave me the reflexes; production systems gave me the scars. I'm looking for the next room where both matter.",
-    tags: ["FAANG-caliber Systems", "Applied AI", "High-Scale SDE"],
+    body: "I'm aiming at the intersection of high-scale distributed systems and applied AI — the kind of engineering problems top-tier product companies solve at a size and speed I want to be tested by. Competitive programming gave me the reflexes; production systems gave me the scars. I'm looking for the next room where both matter.",
+    tags: ["High-Scale Systems", "Applied AI", "SDE"],
   },
 ];
 
@@ -130,20 +130,21 @@ export const experiences: ExperienceItem[] = [
     date: "June 2026 - Present",
     description: [
       "Joined the Gaming Division at Bukalapak — one of Indonesia's largest technology companies — as a Software Engineer on itemku, a C2C marketplace for gaming items, virtual goods, and game accounts.",
-      "Build and operate backend systems powering itemku's core marketplace: transaction processing, seller flows, buyer discovery, and peer-to-peer trading infrastructure across games and digital goods categories.",
-      "Work across the full transaction lifecycle of a C2C platform, where correctness under concurrency and reliable state transitions matter as much as feature velocity.",
+      "Engineered and scaled mission-critical backend services for itemku's Order and Pricing domains, supporting reliable marketplace operations across international markets and processing more than 1.5 billion transactions daily.",
+      "Delivered high-impact seller capabilities for Tokoku while supporting production on-call rotations, resolving critical incidents to protect service availability and transaction integrity for a large-scale user base.",
+      "Architected AI-assisted engineering workflows for itemku, Bukalapak's most profitable product, integrating intelligent development tooling and automation to accelerate delivery and improve code quality.",
     ],
     logo: "/icons/bukalapak.png",
-    skills: ["Software Engineering", "Marketplace", "C2C Platform", "Gaming", "Backend Systems"],
+    skills: ["TypeScript", "Node.js", "Koa", "MySQL", "AWS", "Marketplace", "C2C Platform"],
   },
   {
     title: "Software Engineer | Full-time",
     company: "Quantum Teknologi Nusantara",
     date: "September 2025 - May 2026",
     description: [
-      "Built core backend for Nexius AI, a production Applied AI system turning raw financial documents into structured, auditable data through OCR, parsing, extraction, validation, journal mapping, and report generation.",
-      "Standardized FastAPI service architecture around Domain-Driven Design across multiple services, improving maintainability and giving the platform a consistent foundation for further AI integration.",
-      "Re-architected long-running file-processing pipelines off a monolith and onto RabbitMQ-based distributed workers running on Kubernetes, enabling the system to absorb high upload volume without falling over.",
+      "Joined as Founding Engineer and built the core backend for Nexius AI, a production Applied AI system turning raw financial documents into structured, auditable data through OCR, parsing, extraction, validation, journal mapping, and report generation.",
+      "Developed production-grade FastAPI services using LLM/VLM structured outputs, PyTorch-backed OCR pipelines, and deterministic fallback logic to improve financial-data extraction accuracy.",
+      "Re-architected long-running file-processing pipelines off a monolith and onto RabbitMQ-based distributed workers running on Kubernetes, with OpenTelemetry-based observability powering scalability and fault isolation across 100+ document-processing workloads per second.",
       "Shipped production REST APIs and real-time SSE progress streams covering upload status, queue visibility, per-report/month processing state, worker heartbeat, and background jobs.",
       "Instrumented the platform with OpenTelemetry, SigNoz, structured logs, and queue diagnostics, turning a distributed async system into one that's debuggable in production.",
       "Owned end-to-end delivery across 3 product surfaces: the customer application, the partner/affiliate portal, and the internal admin dashboard.",
