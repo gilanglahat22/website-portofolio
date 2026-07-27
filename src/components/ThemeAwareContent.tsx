@@ -37,7 +37,7 @@ const ProjectVisual = ({ project, className = "" }) => {
 const systemStats = [
   { label: "Experience", value: "2+ years", detail: "backend & applied AI" },
   { label: "Current", value: "Bukalapak", detail: "C2C marketplace, gaming" },
-  { label: "Competitive Programming", value: "Top 7%", detail: "Meta Hacker Cup, global" },
+  { label: "Competitive Programming", value: "Finalist", detail: "ICPC Asia Jakarta Regional" },
 ];
 
 const systemSignals = [
