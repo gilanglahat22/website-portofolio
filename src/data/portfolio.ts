@@ -139,7 +139,7 @@ export const experiences: ExperienceItem[] = [
     skills: ["Java", "Spring Boot", "IAM", "Middleware", "Access Control", "Platform Engineering"],
   },
   {
-    title: "Software Engineer, Core Team",
+    title: "Software Engineer, Core Team (Full-time)",
     company: "Bukalapak",
     date: "Jun 2026 - Present",
     location: "Jakarta, Indonesia",
@@ -153,7 +153,7 @@ export const experiences: ExperienceItem[] = [
     skills: ["TypeScript", "Node.js", "Koa", "MySQL", "AWS", "Marketplace", "C2C Platform"],
   },
   {
-    title: "Founding Engineer",
+    title: "Founding Engineer (Full-time)",
     company: "Quantum Teknologi Nusantara",
     date: "Sep 2025 - May 2026",
     location: "Jakarta, Indonesia",
@@ -183,7 +183,7 @@ export const experiences: ExperienceItem[] = [
     skills: ["EDR", "IDS", "Anomaly Detection", "Security Research", "Dataset Analysis"],
   },
   {
-    title: "Junior Software Engineer · Web Developer (Part-time)",
+    title: "Junior Software Engineer (Full-time) · Web Developer (Part-time)",
     company: "PT Fata Organa Solusi",
     date: "Dec 2023 - Mar 2025",
     location: "Indonesia",
