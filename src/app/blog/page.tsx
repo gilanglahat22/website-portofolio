@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
 import { ArrowUpRight } from "lucide-react";
 import { CaseStudyItem, caseStudies } from "@/data/portfolio";
@@ -37,7 +36,7 @@ const CaseStudyCard = ({ post }: { post: CaseStudyItem }) => {
                 alt={post.title}
                 width={800}
                 height={400}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
               />
             )}
           </div>
@@ -77,7 +76,7 @@ export default function Blog() {
         <MacOSWindow title="~/case-studies/index" variant="system" className="mb-8">
           <div className="space-y-4">
             <p className="terminal-kicker text-xs">engineering notes</p>
-            <h1 className="text-3xl font-bold">CV Case Studies</h1>
+            <h1 className="text-3xl font-bold">Inside the engineering notebook.</h1>
             <p className="text-white/70">
               Notes on projects, decisions, and lessons from work and study. They cover backend systems,
               web products, AI experiments, education projects, and the problem-solving habits I picked up
@@ -93,7 +92,7 @@ export default function Blog() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

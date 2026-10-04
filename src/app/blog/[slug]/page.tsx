@@ -2,7 +2,6 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import AppleDock from "@/components/AppleDock";
 import ArticleSection from "@/components/ArticleSection";
 import ArticleTOC from "@/components/ArticleTOC";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
@@ -153,7 +152,7 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
         </article>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

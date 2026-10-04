@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -116,8 +115,8 @@ export default function PublicChat() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm sm:text-base font-medium">CV Inquiry Board</h3>
-                      <p className="text-xs sm:text-sm">{messages.length} messages</p>
+                      <h3 className="text-sm sm:text-base font-medium">Portfolio Guestbook</h3>
+                      <p className="text-xs sm:text-sm">Local demo · {messages.length} messages</p>
                     </div>
                   </div>
                   
@@ -146,7 +145,7 @@ export default function PublicChat() {
               </div>
               
               {/* Messages area */}
-              <div className="flex-1 p-2 sm:p-3 md:p-4 overflow-y-auto card space-y-3 sm:space-y-4">
+              <div className="flex-1 p-2 sm:p-3 md:p-4 overflow-y-auto guestbook-messages space-y-3 sm:space-y-4">
                 {messages.map((message) => (
                   <div 
                     key={message.id} 
@@ -168,7 +167,7 @@ export default function PublicChat() {
                         <h4 className="font-bold text-xs sm:text-sm mr-2">{message.username}</h4>
                         <span className="text-[10px] sm:text-xs">{message.timestamp}</span>
                       </div>
-                      <div className="mt-1 card rounded-lg p-2 sm:p-3 text-xs sm:text-sm">
+                      <div className="mt-1 guestbook-bubble rounded-lg p-2 sm:p-3 text-xs sm:text-sm">
                         {message.text}
                       </div>
                     </div>
@@ -193,7 +192,7 @@ export default function PublicChat() {
                       <div className="flex items-baseline">
                         <h4 className="font-bold text-xs sm:text-sm">{Object.keys(isTyping)[0]}</h4>
                       </div>
-                      <div className="mt-1 card rounded-lg p-2 sm:p-3">
+                      <div className="mt-1 guestbook-bubble rounded-lg p-2 sm:p-3">
                         <div className="flex space-x-1">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-500 rounded-full animate-bounce"></div>
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
@@ -239,7 +238,7 @@ export default function PublicChat() {
       </main>
       
       {/* Apple-style Dock at the bottom */}
-      <AppleDock />
+
     </div>
   );
 } 

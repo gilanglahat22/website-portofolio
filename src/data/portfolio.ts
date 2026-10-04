@@ -2,6 +2,8 @@ export interface ExperienceItem {
   title: string;
   company: string;
   date: string;
+  location: string;
+  subtitle?: string;
   description: string[];
   logo: string;
   skills: string[];
@@ -58,12 +60,11 @@ export const portfolio = {
   name: "Muhammad Gilang Ramadhan",
   title: "Software Engineer",
   headline:
-    "Software engineer building distributed backend systems and applied AI products at scale — shaped by competitive programming, sharpened by production incidents, and driven by the same question every time: how does this hold up at 10x the load?",
+    "I’m a passionate Software Engineer with expertise in backend development, distributed systems, mathematics, and competitive programming, dedicated to delivering value through technology.",
   summary:
-    "I am a software engineer with 2+ years of experience shipping backend systems, applied AI products, and marketplace platforms into production. My work spans distributed workers processing high volumes of financial documents through an OCR-to-LLM pipeline, event-driven services synchronizing real-time state across marketplaces, and observability layers that make production failures explainable instead of mysterious. I care about the fundamentals that top-tier product engineering teams care about — throughput, latency, correctness under concurrency, and clear system boundaries. Outside of work, I keep sharp by tinkering with AI and practicing competitive programming.",
+    "I build reliable backend services and thoughtful software that solves real problems. My work connects distributed systems, applied AI, and platform engineering, grounded in mathematics and the problem-solving discipline of competitive programming.",
   location: "South Jakarta, Jakarta, Indonesia",
-  email: "muhammadgilangr471@gmail.com",
-  phone: "+62 823-8221-1182",
+  email: "muhgilangramadhan.3011@gmail.com",
   githubLabel: "github.com/gilanglahat22",
   githubUrl: "https://github.com/gilanglahat22",
   linkedinLabel: "Muhammad Gilang Ramadhan",
@@ -125,9 +126,23 @@ export const lifeStory: LifeChapter[] = [
 
 export const experiences: ExperienceItem[] = [
   {
-    title: "Software Engineer | Full-time",
+    title: "Backend Developer (Part-time)",
+    company: "LnData Inc",
+    date: "Aug 2026 - Present",
+    location: "Taipei, Taiwan · Remote",
+    description: [
+      "Develop backend services with Java and Spring Boot for Data Transform Core, the shared middleware connecting LnFusion, Data Mart, Gen BI, and Orchestration.",
+      "Build centralized Identity and Access Management (IAM) services for the researcher platform, covering departments, organizations, roles, permissions, and access policies.",
+      "Implement shared identity and authorization capabilities across the platform’s projects to support consistent access control and service integration.",
+    ],
+    logo: "/icons/lndata.webp",
+    skills: ["Java", "Spring Boot", "IAM", "Middleware", "Access Control", "Platform Engineering"],
+  },
+  {
+    title: "Software Engineer, Core Team",
     company: "Bukalapak",
-    date: "June 2026 - Present",
+    date: "Jun 2026 - Present",
+    location: "Jakarta, Indonesia",
     description: [
       "Joined the Gaming Division at Bukalapak — one of Indonesia's largest technology companies — as a Software Engineer on itemku, a C2C marketplace for gaming items, virtual goods, and game accounts.",
       "Engineered and scaled mission-critical backend services for itemku's Order and Pricing domains, supporting reliable marketplace operations across international markets and processing more than 1.5 billion transactions daily.",
@@ -138,9 +153,10 @@ export const experiences: ExperienceItem[] = [
     skills: ["TypeScript", "Node.js", "Koa", "MySQL", "AWS", "Marketplace", "C2C Platform"],
   },
   {
-    title: "Software Engineer | Full-time",
+    title: "Founding Engineer",
     company: "Quantum Teknologi Nusantara",
-    date: "September 2025 - May 2026",
+    date: "Sep 2025 - May 2026",
+    location: "Jakarta, Indonesia",
     description: [
       "Joined as Founding Engineer and built the core backend for Nexius AI, a production Applied AI system turning raw financial documents into structured, auditable data through OCR, parsing, extraction, validation, journal mapping, and report generation.",
       "Developed production-grade FastAPI services using LLM/VLM structured outputs, PyTorch-backed OCR pipelines, and deterministic fallback logic to improve financial-data extraction accuracy.",
@@ -154,9 +170,10 @@ export const experiences: ExperienceItem[] = [
     skills: ["Python", "FastAPI", "MongoDB", "RabbitMQ", "SSE", "Kubernetes", "OpenTelemetry"],
   },
   {
-    title: "Research and Development Engineer | Apprenticeship",
+    title: "R&D Engineer (Apprenticeship)",
     company: "MarkAny",
-    date: "April 2025 - May 2025",
+    date: "Apr 2025 - May 2025",
+    location: "Bandung, Indonesia",
     description: [
       "Completed a 2-month R&D apprenticeship on Endpoint Detection & Response, Intrusion Detection Systems, user behavior monitoring, and anomaly detection.",
       "Analyzed cybersecurity datasets from Indonesia's National Cyber and Crypto Agency to surface patterns in endpoint behavior and security event classification.",
@@ -166,36 +183,31 @@ export const experiences: ExperienceItem[] = [
     skills: ["EDR", "IDS", "Anomaly Detection", "Security Research", "Dataset Analysis"],
   },
   {
-    title: "Junior Software Engineer | Full-time",
+    title: "Junior Software Engineer · Web Developer (Part-time)",
     company: "PT Fata Organa Solusi",
-    date: "July 2024 - March 2025",
+    date: "Dec 2023 - Mar 2025",
+    location: "Indonesia",
+    subtitle: "Subholding of CAC Corp, Japan",
     description: [
       "Served as PIC Assistant for Hashigake, a Japanese multi-tenant B2B corporate matching platform, owning slices of backend architecture, frontend delivery, QA coordination, and production releases.",
       "Built services using .NET, React/TypeScript, Azure Service Bus, WebSocket services, cron jobs, and event-driven communication for real-time and asynchronous workflows.",
       "Delivered core platform modules for meeting synchronization, automatic status updates, messaging backend services, admin management, and real-time communication.",
       "Implemented asynchronous communication via Azure Service Bus to improve reliability between backend services and external integrations.",
       "Worked directly with QA, Project Management, and Data Science teams to ship features into a live multi-tenant production system.",
-    ],
-    logo: "/icons/fata_organa.jpeg",
-    skills: [".NET", "React", "TypeScript", "Azure Service Bus", "WebSocket", "Redux"],
-  },
-  {
-    title: "Web Developer | Part-time",
-    company: "PT Fata Organa Solusi",
-    date: "December 2023 - June 2024",
-    description: [
+
       "Built a full-stack internal voting platform using ASP.NET, React, SQL Server, and Azure Services across 3 layers: frontend, backend APIs, and database integration.",
       "Designed voting flows for employee participation, vote submission, percentage calculation, result reporting, and administrative review.",
       "Optimized SQL Server logic with stored procedures and database tuning to improve API reliability under concurrent voting load.",
       "Refined voting percentage calculation, UI behavior, and reporting accuracy alongside full-time engineers and QA.",
     ],
     logo: "/icons/fata_organa.jpeg",
-    skills: ["ASP.NET", "React", "SQL Server", "Azure Services", "Stored Procedures", "QA"],
+    skills: [".NET", "React", "TypeScript", "Azure Service Bus", "WebSocket", "Redux"],
   },
   {
-    title: "Software Engineer | Internship",
-    company: "PT Suitmedia Kreasi Indonesia",
-    date: "May 2023 - November 2023",
+    title: "Software Engineer (Internship)",
+    company: "Suitmedia Digital Agency",
+    date: "May 2023 - Nov 2023",
+    location: "Bandung, Indonesia",
     description: [
       "Built API and CMS features for KLAR Smile's official platform using Laravel, NGINX, MySQL, and Docker.",
       "Optimized backend queries and application performance, cutting API latency by roughly 10% on a live customer-facing platform.",

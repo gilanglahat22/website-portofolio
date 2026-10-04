@@ -12,7 +12,7 @@ interface ThemeContextType {
 
 // Default values for when the context is used outside of a provider
 const defaultThemeContext: ThemeContextType = {
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {}, // Remove console.warn to avoid spam in logs
   setTheme: () => {} // Remove console.warn to avoid spam in logs
 };
@@ -20,7 +20,7 @@ const defaultThemeContext: ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType>(defaultThemeContext);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
 
   // Once mounted, we can show the UI
@@ -30,10 +30,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Check for stored theme preference
     try {
       const storedTheme = localStorage.getItem('theme') as Theme | null;
-      if (storedTheme) {
+      if (storedTheme === 'light' || storedTheme === 'dark') {
         setTheme(storedTheme);
       } else {
-        setTheme('dark');
+        setTheme('light');
       }
     } catch (error) {
       // Ignore localStorage errors (might happen during SSR)
@@ -58,8 +58,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  // Fix hydration issues by only rendering after mounted
-  // Server-side rendering will use the default theme (dark)
+  // Keep the initial light theme consistent across server and client rendering.
   return (
     <ThemeContext.Provider value={{ 
       theme, 

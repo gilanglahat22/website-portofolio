@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import MacOSWindow from '@/components/MacOSWindow';
-import AppleDock from '@/components/AppleDock';
 
 interface PhotoCategory {
     id: string;
@@ -89,7 +88,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
             {photos.map((image, index) => (
                 <motion.div
                     key={`${folder}-${index}`}
-                    className="break-inside-avoid relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+                    className="photo-frame break-inside-avoid relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
                     variants={{
                         hidden: { opacity: 0, y: 30 },
                         visible: { opacity: 1, y: 0 },
@@ -120,36 +119,37 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
             <main className="pt-8 px-4 sm:px-6 pb-32">
                 <div className="max-w-7xl mx-auto">
                     <MacOSWindow title="Career Gallery" variant="system" className="min-h-[80vh]">
+                        <div className="page-intro"><p className="sketch-eyebrow">MOMENTS ALONG THE WAY</p><h1>A life beyond the editor.</h1><p>Snapshots from learning, building, and working together.</p></div>
                         {/* Main Tabs */}
-                        <div className="flex border-b border-neutral-300 dark:border-neutral-600 mb-6">
+                        <div className="flex flex-wrap border-b border-neutral-300 dark:border-neutral-600 mb-6">
                             <button
                                 onClick={() => { setActiveTab('gilang'); setSelectedCategory(null); }}
-                                className={`px-6 py-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${activeTab === 'gilang'
+                                className={`px-3 py-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${activeTab === 'gilang'
                                     ? 'border-blue-500'
                                     : 'border-transparent hover:border-neutral-400'
                                     }`}
-                                style={{ color: activeTab === 'gilang' ? '#60a5fa' : '#ffffff' }}
+                                aria-pressed={activeTab === 'gilang'}
                             >
                                 👤 Career Photos
                                 <span
                                     className="px-2 py-0.5 text-xs font-bold rounded-full"
-                                    style={{ backgroundColor: '#1e3a5f', color: '#93c5fd' }}
+                                    style={{ backgroundColor: "var(--blue)", color: "var(--ink)" }}
                                 >
                                     {allGilangPhotos.length}
                                 </span>
                             </button>
                             <button
                                 onClick={() => { setActiveTab('wfc'); setSelectedCategory(null); }}
-                                className={`px-6 py-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${activeTab === 'wfc'
+                                className={`px-3 py-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${activeTab === 'wfc'
                                     ? 'border-blue-500'
                                     : 'border-transparent hover:border-neutral-400'
                                     }`}
-                                style={{ color: activeTab === 'wfc' ? '#60a5fa' : '#ffffff' }}
+                                aria-pressed={activeTab === 'wfc'}
                             >
                                 ☕ Remote Engineering
                                 <span
                                     className="px-2 py-0.5 text-xs font-bold rounded-full"
-                                    style={{ backgroundColor: '#5c3c1b', color: '#fcd34d' }}
+                                    style={{ backgroundColor: "var(--yellow)", color: "var(--ink)" }}
                                 >
                                     {wfcCategory.photos.length}
                                 </span>
@@ -167,7 +167,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                                 ? 'bg-blue-600 text-white shadow-lg'
                                                 : 'bg-white dark:bg-neutral-800 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-700 border-2 border-gray-300 dark:border-neutral-500 shadow-sm'
                                                 }`}
-                                            style={{ color: selectedCategory === null ? 'white' : undefined }}
+                                            aria-pressed={selectedCategory === null}
                                         >
                                             📷 All Photos ({allGilangPhotos.length})
                                         </button>
@@ -179,7 +179,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                                     ? 'bg-blue-600 text-white shadow-lg'
                                                     : 'bg-white dark:bg-neutral-800 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-700 border-2 border-gray-300 dark:border-neutral-500 shadow-sm'
                                                     }`}
-                                                style={{ color: selectedCategory === category.id ? 'white' : undefined }}
+                                                aria-pressed={selectedCategory === category.id}
                                             >
                                                 {category.icon} {category.name} ({category.photos.length})
                                             </button>
@@ -192,7 +192,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                     <motion.div
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="mb-6 p-4 bg-slate-800 rounded-xl border border-slate-600"
+                                        className="mb-6 p-4 tone-blue rounded-xl border border-slate-600"
                                     >
                                         <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                                             {gilangCategories.find(c => c.id === selectedCategory)?.icon}
@@ -218,13 +218,13 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                                 <div className="flex items-center justify-between mb-4">
                                                     <h3
                                                         className="text-lg font-bold flex items-center gap-2"
-                                                        style={{ color: '#ffffff' }}
+                                                        style={{ color: "rgb(var(--text-color))" }}
                                                     >
                                                         <span>{category.icon}</span>
                                                         {category.name}
                                                         <span
                                                             className="text-sm font-normal"
-                                                            style={{ color: '#aaaaaa' }}
+                                                            style={{ color: "rgb(var(--text-color))" }}
                                                         >
                                                             ({category.photos.length} photos)
                                                         </span>
@@ -232,14 +232,14 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                                     <button
                                                         onClick={() => setSelectedCategory(category.id)}
                                                         className="text-sm font-semibold"
-                                                        style={{ color: '#60a5fa' }}
+                                                        style={{ color: "rgb(var(--text-color))" }}
                                                     >
                                                         View all →
                                                     </button>
                                                 </div>
                                                 <p
                                                     className="text-sm mb-4"
-                                                    style={{ color: '#bbbbbb' }}
+                                                    style={{ color: "rgb(var(--text-color))" }}
                                                 >
                                                     {category.description}
                                                 </p>
@@ -255,12 +255,12 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="mb-6 p-4 bg-amber-900 rounded-xl border border-amber-700"
+                                    className="mb-6 p-4 tone-yellow rounded-xl border border-amber-700"
                                 >
                                     <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                                         ☕ Remote Engineering
                                     </h2>
-                                    <p className="text-sm mt-1 text-amber-200">
+                                    <p className="text-sm mt-1 text-white/70">
                                         Remote work and focused engineering moments
                                     </p>
                                 </motion.div>
@@ -292,7 +292,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
             <AnimatePresence>
                 {selectedImage && (
                     <motion.div
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+                        className="fixed inset-0 z-50 flex items-center justify-center gallery-lightbox bg-black/95 backdrop-blur-sm"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -302,6 +302,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                         <button
                             className="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors z-50 focus:outline-none"
                             onClick={closeLightbox}
+                            aria-label="Close photo"
                         >
                             <IoClose />
                         </button>
@@ -315,6 +316,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                         <button
                             className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors p-3 bg-black/30 rounded-full hover:bg-black/50"
                             onClick={prevImage}
+                            aria-label="Previous photo"
                         >
                             <FaChevronLeft />
                         </button>
@@ -347,6 +349,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                         <button
                             className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors p-3 bg-black/30 rounded-full hover:bg-black/50"
                             onClick={nextImage}
+                            aria-label="Next photo"
                         >
                             <FaChevronRight />
                         </button>
@@ -383,7 +386,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({
                 )}
             </AnimatePresence>
 
-            <AppleDock />
+
         </div>
     );
 };

@@ -1,6 +1,5 @@
 "use client";
 
-import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
 import SkillsGrid from "@/components/SkillsGrid";
 import { achievements, skillGroups } from "@/data/portfolio";
@@ -13,7 +12,7 @@ export default function Skills() {
           <MacOSWindow title="~/skills/profile" variant="system">
             <div className="space-y-4">
               <p className="terminal-kicker text-xs">capability map</p>
-              <h1 className="text-3xl font-bold">Technical Skills</h1>
+              <h1 className="text-3xl font-bold">The tools behind the ideas.</h1>
               <p className="text-white/70">
                 Tools I have used to ship production backend systems, applied AI pipelines, and web
                 applications — not a claim of mastery over every one of them. I am strongest when I understand
@@ -71,7 +70,7 @@ export default function Skills() {
 
           <MacOSWindow title="~/skills/core-competencies" variant="system">
             <div className="space-y-4">
-              <p className="terminal-kicker text-xs">stack trace</p>
+              <p className="terminal-kicker text-xs">WORKING TOOLKIT</p>
               <h2 className="text-2xl font-bold">Technologies I Have Used</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
@@ -87,7 +86,7 @@ export default function Skills() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

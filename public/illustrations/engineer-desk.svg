@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 490" fill="none">
+<g stroke="#354638" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M68 112c-23 0-33-28-15-43 1-25 33-35 48-16 16-30 57-20 60 8 29-4 39 38 14 48Z" fill="#fffaf0"/>
+<path d="M440 70c-16-23 9-46 29-34 20-20 49-3 46 18 29 0 29 39 3 40h-64" fill="#fffaf0"/>
+<circle cx="480" cy="164" r="54" fill="#f5d481" stroke-dasharray="5 10"/>
+<path d="M80 198h77v15H80z" fill="#dca879"/><path d="M99 211v15m42-15v15"/>
+<path d="M92 195v-63h18v63m0 0v-52h17v52m0 0v-70h20v70" fill="#b3c8a1"/>
+<path d="M173 224h252a12 12 0 0 1 12 12v151H161V236a12 12 0 0 1 12-12Z" fill="#b3c8a1"/>
+<path d="M181 245h236v120H181z" fill="#fffaf0"/>
+<path d="m232 280-19 17 19 17m123-34 19 17-19 17m-46-41-16 48" stroke="#637c52" stroke-width="7"/>
+<path d="M145 388h311l26 20H121z" fill="#eedbb3"/><path d="M256 395h86"/>
+<path d="M67 412h472v19H67z" fill="#dca879"/><path d="M93 433v35m420-35v35" stroke-width="12"/>
+<path d="M457 371h41v35h-41z" fill="#fffaf0"/><path d="M498 378h10a9 9 0 0 1 0 18h-10m-30-35c-11-12 9-13 0-25m14 24c-11-12 9-13 0-25"/>
+<path d="M91 357h44l-7 49h-30z" fill="#f5d481"/><path d="M114 357v-65"/>
+<path d="M112 335c-23 3-34-12-31-29 23-2 35 10 31 29Zm4-18c23 3 34-12 31-29-23-2-35 10-31 29Z" fill="#93b775"/>
+<path d="M454 248h90v62h-90z" fill="#f1c1a3"/><path d="m467 262 6 6 10-10m-16 24h59m-59 12h39" stroke-width="3"/>
+<path d="m221 126 22-13 22 13v26l-22 13-22-13z" fill="#c3dce2"/><path d="m221 126 22 13 22-13m-22 13v26m0-26 1-1"/>
+<path d="m277 162 22-13 22 13v26l-22 13-22-13z" fill="#f5d481"/><path d="m277 162 22 13 22-13m-22 13v26m-56-36v16l34-1" stroke-dasharray="4 6"/>
+<path d="m358 123 22-13 22 13v26l-22 13-22-13z" fill="#b3c8a1"/><path d="m358 123 22 13 22-13m-22 13v26m-59 13h59v-13" stroke-dasharray="4 6"/>
+<path d="m49 267 4-14 4 14 14 4-14 4-4 14-4-14-14-4Zm371-156 4-14 4 14 14 4-14 4-4 14-4-14-14-4Z" fill="#f5d481" stroke-width="2"/>
+</g>
+<g fill="#637c52" font-family="monospace" font-size="16"><text x="199" y="347">build. learn. repeat.</text><text x="55" y="159">f(n)</text></g>
+</svg>

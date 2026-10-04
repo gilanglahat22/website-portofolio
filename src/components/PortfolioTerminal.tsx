@@ -41,7 +41,7 @@ const initialLines: TerminalLine[] = [
   {
     id: 1,
     type: "success",
-    text: "GilangOS terminal online. Type `help` to list available commands.",
+    text: "Sketchbook terminal ready. Type `help` to list available commands.",
   },
   {
     id: 2,

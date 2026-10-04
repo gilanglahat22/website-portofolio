@@ -1,283 +1,250 @@
-// @ts-nocheck
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  BadgeCheck,
-  BriefcaseBusiness,
-  Cpu,
-  DatabaseZap,
-  Github,
+  Braces,
   Network,
-  ServerCog,
+  Sigma,
+  Trophy,
+  Github,
+  ArrowRight,
 } from "lucide-react";
-import MacOSWindow from "@/components/MacOSWindow";
-import ProfileHighlight from "@/components/ProfileHighlight";
-import { achievements, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
+import {
+  achievements,
+  experiences,
+  portfolio,
+  projects,
+} from "@/data/portfolio";
 
-const ProjectVisual = ({ project, className = "" }) => {
-  if (project.image.endsWith(".svg")) {
-    return <img src={project.image} alt={project.title} className={className} />;
-  }
-
-  return (
-    <Image
-      src={project.image}
-      alt={project.title}
-      width={360}
-      height={280}
-      className={className}
-    />
-  );
-};
-
-const systemStats = [
-  { label: "Experience", value: "2+ years", detail: "backend & applied AI" },
-  { label: "Current", value: "Bukalapak", detail: "C2C marketplace, gaming" },
-  { label: "Competitive Programming", value: "Finalist", detail: "ICPC Asia Jakarta Regional" },
+const interests = [
+  {
+    icon: Braces,
+    title: "Backend development",
+    text: "Reliable APIs, clear boundaries, and services built to last.",
+    tone: "sage",
+  },
+  {
+    icon: Network,
+    title: "Distributed systems",
+    text: "Connecting services. Making complex systems work together.",
+    tone: "blue",
+  },
+  {
+    icon: Sigma,
+    title: "Mathematics",
+    text: "Reasoning from fundamentals, one useful abstraction at a time.",
+    tone: "peach",
+  },
+  {
+    icon: Trophy,
+    title: "Competitive programming",
+    text: "A love of algorithms, constraints, and that aha! moment.",
+    tone: "yellow",
+  },
 ];
 
-const systemSignals = [
-  { icon: ServerCog, label: "systems.work", value: "Distributed backend services & high-throughput APIs" },
-  { icon: Cpu, label: "applied.ai", value: "OCR-to-LLM pipelines, running in production" },
-  { icon: Network, label: "competitive.programming", value: "ICPC finalist, Gemastik, Meta Hacker Cup" },
-  { icon: DatabaseZap, label: "scale.mindset", value: "Correctness and throughput under real load" },
-];
-
-const ThemeAwareContent = () => {
-  const featuredProjects = projects.slice(0, 2);
-  const projectCards = projects.slice(0, 6);
-
+export default function ThemeAwareContent() {
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <MacOSWindow title="~/portfolio/software-engineer" variant="system" className="w-full">
-          <div className="space-y-14 px-2 py-4 sm:px-4 lg:px-6">
-            <section className="terminal-shell rounded-[2rem] px-5 py-7 sm:px-8 lg:px-10">
-              <div className="relative z-10 grid min-h-[620px] grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="space-y-8">
-                  <div className="space-y-5">
-                    <p className="terminal-command px-4 py-2 text-xs font-semibold">
-                      whoami --engineer --scale --applied-ai
-                    </p>
-                    <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                      Software engineer,
-                      <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-cyan-300 bg-clip-text text-transparent">
-                        built for scale
-                      </span>
-                    </h1>
-                    <p className="max-w-2xl text-base font-medium leading-7 text-white/72 sm:text-lg">
-                      {portfolio.headline}
-                    </p>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {systemStats.map((stat) => (
-                      <div key={stat.label} className="terminal-stat p-4">
-                        <p className="terminal-label text-[11px] uppercase tracking-[0.18em] text-white/45">{stat.label}</p>
-                        <p className="mt-2 text-2xl font-extrabold text-white">{stat.value}</p>
-                        <p className="mt-1 text-xs text-white/50">{stat.detail}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Link
-                      href="/projects"
-                      className="terminal-command px-5 py-3 text-sm font-semibold transition hover:border-lime-200/60 hover:bg-lime-200/10"
-                    >
-                      open projects
-                    </Link>
-                    <Link
-                      href="/experience"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white/75 transition hover:border-cyan-300/50 hover:text-white"
-                    >
-                      View experience <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                    <Link
-                      href={portfolio.githubUrl}
-                      target="_blank"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white/75 transition hover:border-lime-200/50 hover:text-white"
-                    >
-                      <Github className="h-4 w-4" />
-                      GitHub
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="space-y-5">
-                  <div className="mx-auto w-full max-w-xs sm:max-w-sm">
-                    <ProfileHighlight
-                      src="/main_profile.jpeg"
-                      alt={portfolio.name}
-                      priority
-                      badge="Engineer · High-Scale Systems"
-                      className="w-full"
-                    />
-                  </div>
-
-                  <div className="terminal-card rounded-[1.5rem] p-4">
-                    <div>
-                      <p className="terminal-kicker text-xs">engineer</p>
-                      <h2 className="mt-2 text-2xl font-bold text-white">{portfolio.name}</h2>
-                      <p className="mt-1 text-sm text-white/55">{portfolio.location}</p>
-                    </div>
-                    <div className="mt-4 space-y-2 text-sm">
-                      <p className="terminal-prompt-line">role: {experiences[0].title}</p>
-                      <p className="terminal-prompt-line">company: {experiences[0].company}</p>
-                      <p className="terminal-prompt-line">focus: distributed systems, applied AI, competitive programming</p>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {systemSignals.map((signal) => {
-                      const Icon = signal.icon;
-                      return (
-                        <div key={signal.label} className="terminal-card rounded-2xl p-4">
-                          <Icon className="h-5 w-5 text-lime-200" />
-                          <p className="terminal-label mt-3 text-xs text-lime-100">{signal.label}</p>
-                          <p className="mt-1 text-sm leading-6 text-white/62">{signal.value}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="space-y-8">
-              <div className="text-center">
-                <p className="terminal-kicker text-xs">featured deployments</p>
-                <h2 className="portfolio-section-title mt-3 text-3xl">Selected Work</h2>
-              </div>
-
-              <div className="space-y-8">
-                {featuredProjects.map((project, index) => (
-                  <div
-                    key={project.title}
-                    className={`terminal-card grid items-center gap-8 rounded-[2rem] p-6 sm:p-8 lg:grid-cols-2 ${index % 2 ? "" : "lg:grid-cols-[0.9fr_1.1fr]"}`}
-                  >
-                    <div className={`${index % 2 ? "lg:order-2" : ""}`}>
-                      <div className="mx-auto flex h-64 max-w-sm items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-8">
-                        <ProjectVisual project={project} className="max-h-full w-auto object-contain" />
-                      </div>
-                    </div>
-                    <div className="space-y-5">
-                      <p className="terminal-kicker text-xs">{project.subtitle}</p>
-                      <h3 className="text-3xl font-extrabold text-white">{project.title}</h3>
-                      <p className="max-w-xl text-sm leading-6 text-white/70">{project.description}</p>
-                      <p className="max-w-xl text-sm leading-6 text-white/60">{project.highlights[0]}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.slice(0, 5).map((tag) => (
-                          <span key={tag} className="terminal-pill px-3 py-1">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      {project.link ? (
-                        <Link
-                          href={project.link}
-                          target="_blank"
-                          className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-lime-200/60 hover:bg-lime-200/10"
-                        >
-                          {project.linkLabel ?? "Explore"} <ArrowUpRight className="h-4 w-4" />
-                        </Link>
-                      ) : null}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-8">
-              <div className="text-center">
-                <p className="terminal-kicker text-xs">project index</p>
-                <h2 className="portfolio-section-title mt-3 text-3xl">More Projects</h2>
-              </div>
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {projectCards.map((project) => (
-                  <Link
-                    key={project.title}
-                    href={project.link ?? "/projects"}
-                    target={project.link ? "_blank" : undefined}
-                    className="terminal-card group rounded-[1.5rem] p-6 transition hover:-translate-y-1 hover:border-lime-200/50"
-                  >
-                    <div className="mb-6 flex h-40 items-center justify-center rounded-[1.1rem] border border-white/10 bg-white/5 p-6">
-                      <ProjectVisual project={project} className="max-h-full w-auto object-contain transition group-hover:scale-105" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                    <p className="mt-3 min-h-16 text-sm leading-6 text-white/60">{project.description}</p>
-                    <div className="mt-5 flex items-center justify-between">
-                      <span className="terminal-pill px-3 py-1">{project.category}</span>
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/20 text-white/70">
-                        <BriefcaseBusiness className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-8">
-              <div className="text-center">
-                <p className="terminal-kicker text-xs">proof of work</p>
-                <h2 className="portfolio-section-title mt-3 text-3xl">Achievements</h2>
-              </div>
-              <div className="grid gap-6 md:grid-cols-3">
-                {achievements.slice(0, 3).map((achievement) => (
-                  <div key={achievement.title} className="terminal-card rounded-[1.5rem] p-6">
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-lime-200/25 bg-lime-200/10">
-                        <BadgeCheck className="h-5 w-5 text-lime-200" />
-                      </span>
-                      <p className="font-bold text-white">{achievement.title}</p>
-                    </div>
-                    <p className="text-sm leading-6 text-white/60">{achievement.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="terminal-shell grid items-center gap-10 rounded-[2rem] p-8 lg:grid-cols-[0.8fr_1.2fr]">
-              <div className="relative z-10 grid gap-3">
-                {skillGroups.map((group) => (
-                  <div key={group.title} className="terminal-card rounded-2xl p-4">
-                    <p className="terminal-label text-xs text-lime-100">{group.title}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/60">{group.items.slice(0, 5).join(" / ")}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="relative z-10 space-y-6">
-                <p className="terminal-kicker text-xs">working toolkit</p>
-                <h2 className="text-3xl font-extrabold text-white">A toolkit built for production, sharpened by competition</h2>
-                <p className="max-w-2xl text-sm leading-6 text-white/70">
-                  I ship with {skillGroups[0].items.slice(0, 5).join(", ")}, alongside
-                  {` ${skillGroups[1].items.slice(0, 6).join(", ")} `}
-                  to build systems that hold up under real load — the same rigor competitive programming trained into me from day one.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/skills" className="terminal-command px-5 py-2.5 text-sm font-semibold">
-                    inspect skills
-                  </Link>
-                  <Link href={portfolio.githubUrl} target="_blank" className="inline-flex items-center gap-2 text-sm font-semibold text-white/75">
-                    <Github className="h-4 w-4" />
-                    GitHub
-                  </Link>
-                </div>
-              </div>
-            </section>
+    <div className="sketch-home max-w-6xl mx-auto">
+      <section className="sketch-hero">
+        <div className="hero-copy">
+          <p className="sketch-eyebrow">
+            <span className="status-dot" /> SOFTWARE ENGINEER & CURIOUS BUILDER
+          </p>
+          <h1>
+            Hi, I’m Gilang.
+            <br />I build things
+            <br />
+            <span className="hero-highlight">that matter.</span>
+            <span className="hero-star" aria-hidden="true">
+              ✦
+            </span>
+          </h1>
+          <p className="hero-description">{portfolio.headline}</p>
+          <div className="flex flex-wrap gap-3 mt-7">
+            <Link className="sketch-button" href="/projects">
+              Explore my work <ArrowUpRight size={18} />
+            </Link>
+            <Link className="sketch-button secondary" href="/contact">
+              Let’s talk <ArrowRight size={18} />
+            </Link>
           </div>
-        </MacOSWindow>
-      </motion.div>
+          <div className="hero-note">
+            <span aria-hidden="true">↳</span> A little curiosity. A lot of
+            building.
+          </div>
+        </div>
+        <div className="hero-art">
+          <span className="art-note">my happy place</span>
+          <Image
+            src="/illustrations/engineer-desk.svg"
+            alt="Cartoon engineering workspace with a laptop, connected services, books, a plant, and a cup of tea"
+            width={600}
+            height={490}
+            priority
+          />
+          <div className="hero-profile">
+            <Image
+              src="/main_profile.jpeg"
+              alt={portfolio.name}
+              width={46}
+              height={46}
+            />
+            <div>
+              <strong>{portfolio.name}</strong>
+              <p>Jakarta, Indonesia · Building with purpose</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="home-section">
+        <div className="section-heading">
+          <div>
+            <p className="sketch-eyebrow">WHAT MAKES ME TICK</p>
+            <h2>Big ideas. Thoughtful engineering.</h2>
+          </div>
+          <span className="handwritten" aria-hidden="true">
+            always learning ↙
+          </span>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {interests.map(({ icon: Icon, title, text, tone }) => (
+            <article key={title} className={`interest-card tone-${tone}`}>
+              <span className="interest-icon">
+                <Icon size={26} strokeWidth={1.8} />
+              </span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="home-section">
+        <div className="section-heading">
+          <div>
+            <p className="sketch-eyebrow">FROM IDEA TO IMPACT</p>
+            <h2>A few things I’ve built</h2>
+          </div>
+          <Link className="text-link" href="/projects">
+            All projects <ArrowUpRight size={17} />
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {projects.slice(0, 3).map((project, index) => (
+            <article key={project.title} className="terminal-card home-project">
+              <div
+                className={`project-cover tone-${["blue", "yellow", "peach"][index]}`}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={220}
+                  height={130}
+                  className="object-contain max-h-32 w-auto"
+                />
+                <span className="project-number">0{index + 1}</span>
+              </div>
+              <div className="p-5">
+                <p className="terminal-kicker text-xs">
+                  {project.category === "ai"
+                    ? "APPLIED AI"
+                    : project.category === "web"
+                      ? "PLATFORM ENGINEERING"
+                      : "EDUCATION"}
+                </p>
+                <h3 className="mt-2 text-xl font-extrabold">{project.title}</h3>
+                <p className="mt-3 text-sm leading-6">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span className="terminal-pill px-2 py-1" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link
+                  href={project.link ?? "/projects"}
+                  target={project.link ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="text-link mt-5"
+                >
+                  {project.linkLabel ?? "Explore project"}{" "}
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="home-section grid lg:grid-cols-2 gap-7">
+        <div className="terminal-card p-6 sm:p-8">
+          <p className="sketch-eyebrow">THE JOURNEY SO FAR</p>
+          <h2 className="text-2xl font-extrabold mt-3 mb-6">
+            Learning through real work
+          </h2>
+          <div className="space-y-5">
+            {experiences.slice(0, 3).map((item) => (
+              <div key={item.company} className="career-preview">
+                <Image
+                  src={item.logo}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="rounded-lg object-contain"
+                />
+                <div>
+                  <h3 className="font-bold">{item.company}</h3>
+                  <p className="text-sm">{item.title}</p>
+                  <p className="text-xs mt-1 opacity-70">{item.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link href="/experience" className="text-link mt-6">
+            My full journey <ArrowUpRight size={16} />
+          </Link>
+        </div>
+        <div className="terminal-card p-6 sm:p-8 tone-yellow">
+          <p className="sketch-eyebrow">A PROBLEM-SOLVER AT HEART</p>
+          <h2 className="text-2xl font-extrabold mt-3 mb-6">
+            Small wins, big motivation.
+          </h2>
+          {achievements.slice(0, 3).map((item) => (
+            <div key={item.title} className="achievement-preview">
+              <Trophy size={20} className="shrink-0 mt-1" />
+              <div>
+                <h3 className="font-bold">{item.title}</h3>
+                <p className="text-sm leading-6 mt-1">{item.description}</p>
+              </div>
+            </div>
+          ))}
+          <Link href="/skills" className="text-link mt-5">
+            Skills & achievements <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </section>
+      <section className="home-cta tone-sage">
+        <span className="cta-spark" aria-hidden="true">
+          ✦
+        </span>
+        <p className="sketch-eyebrow">GOOD THINGS START WITH A CONVERSATION</p>
+        <h2>Let’s build something useful.</h2>
+        <p>
+          Have a problem to solve, an idea to explore, or just want to say hi?
+        </p>
+        <div className="flex flex-wrap justify-center gap-3 mt-6">
+          <Link href="/contact" className="sketch-button">
+            Say hello <ArrowUpRight size={18} />
+          </Link>
+          <Link
+            href={portfolio.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="sketch-button secondary"
+          >
+            <Github size={18} /> Find me on GitHub
+          </Link>
+        </div>
+      </section>
     </div>
   );
-};
-
-export default ThemeAwareContent;
+}

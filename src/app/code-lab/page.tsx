@@ -1,6 +1,5 @@
 "use client";
 
-import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
 import CodeLabWorkspace from "@/components/codelab/CodeLabWorkspace";
 
@@ -25,7 +24,7 @@ export default function CodeLab() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

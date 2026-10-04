@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import AppleDock from '@/components/AppleDock';
 import { useTheme } from '@/contexts/ThemeContext';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -690,7 +689,7 @@ export default function GitHub() {
             <span className="text-sm font-medium">Fetching from GitHub...</span>
           </div>
         </main>
-        <AppleDock />
+
       </div>
     );
   }
@@ -968,7 +967,7 @@ export default function GitHub() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

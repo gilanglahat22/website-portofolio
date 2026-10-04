@@ -1,19 +1,18 @@
 "use client";
 
-import { FormEvent, useMemo, useRef, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  BriefcaseBusiness,
-  ChevronDown,
-  Code2,
-  ExternalLink,
-  Menu,
-  Search,
-  Terminal,
-} from "lucide-react";
+import { Code2, ExternalLink, Menu, Search, Terminal } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
-import { achievements, caseStudies, experiences, portfolio, projects, skillGroups } from "@/data/portfolio";
+import {
+  achievements,
+  caseStudies,
+  experiences,
+  portfolio,
+  projects,
+  skillGroups,
+} from "@/data/portfolio";
 import { codeLabEntries } from "@/data/codeLab";
 
 export interface DockItem {
@@ -24,8 +23,6 @@ export interface DockItem {
 
 interface PortfolioTopNavProps {
   dockItems: DockItem[];
-  dockVisible: boolean;
-  onToggleDock: () => void;
   terminalOpen: boolean;
   onOpenTerminal: () => void;
 }
@@ -40,8 +37,9 @@ interface SearchItem {
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/experience", label: "Experience" },
-  { href: "/projects", label: "Projects", hasMenu: true },
+  { href: "/projects", label: "Projects" },
   { href: "/skills", label: "Skills" },
   { href: "/blog", label: "Case Studies" },
   { href: "/code-lab", label: "Code Lab" },
@@ -69,42 +67,55 @@ const buildSearchIndex = (): SearchItem[] => {
       description: "Professional experience and company history.",
       href: "/experience",
       section: "Page",
-      keywords: experiences.map((item) => `${item.company} ${item.title}`).join(" "),
+      keywords: experiences
+        .map((item) => `${item.company} ${item.title}`)
+        .join(" "),
     },
     {
       title: "Projects",
       description: "Selected projects and production systems.",
       href: "/projects",
       section: "Page",
-      keywords: projects.map((item) => `${item.title} ${item.tags.join(" ")}`).join(" "),
+      keywords: projects
+        .map((item) => `${item.title} ${item.tags.join(" ")}`)
+        .join(" "),
     },
     {
       title: "Skills",
-      description: "Technical skills, achievements, and engineering competencies.",
+      description:
+        "Technical skills, achievements, and engineering competencies.",
       href: "/skills",
       section: "Page",
-      keywords: skillGroups.map((group) => `${group.title} ${group.items.join(" ")}`).join(" "),
+      keywords: skillGroups
+        .map((group) => `${group.title} ${group.items.join(" ")}`)
+        .join(" "),
     },
     {
       title: "Case Studies",
-      description: "Notes on projects, engineering decisions, and lessons learned.",
+      description:
+        "Notes on projects, engineering decisions, and lessons learned.",
       href: "/blog",
       section: "Page",
-      keywords: caseStudies.map((item) => `${item.title} ${item.categories.join(" ")}`).join(" "),
+      keywords: caseStudies
+        .map((item) => `${item.title} ${item.categories.join(" ")}`)
+        .join(" "),
     },
     {
       title: "Code Lab",
-      description: "Hands-on SOLID principles and design pattern examples with a VSCode-style editor and terminal.",
+      description:
+        "Hands-on SOLID principles and design pattern examples with a VSCode-style editor and terminal.",
       href: "/code-lab",
       section: "Page",
-      keywords: codeLabEntries.map((entry) => `${entry.title} ${entry.fileName}`).join(" "),
+      keywords: codeLabEntries
+        .map((entry) => `${entry.title} ${entry.fileName}`)
+        .join(" "),
     },
     {
       title: "Contact",
-      description: `${portfolio.email} | ${portfolio.phone}`,
+      description: portfolio.email,
       href: "/contact",
       section: "Page",
-      keywords: `${portfolio.email} ${portfolio.phone} ${portfolio.location}`,
+      keywords: `${portfolio.email} ${portfolio.location}`,
     },
     {
       title: "GitHub",
@@ -176,8 +187,6 @@ const buildSearchIndex = (): SearchItem[] => {
 
 export default function PortfolioTopNav({
   dockItems,
-  dockVisible,
-  onToggleDock,
   terminalOpen,
   onOpenTerminal,
 }: PortfolioTopNavProps) {
@@ -190,6 +199,22 @@ export default function PortfolioTopNav({
   const [query, setQuery] = useState("");
   const searchIndex = useMemo(() => buildSearchIndex(), []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    setSearchOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const dismiss = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setSearchOpen(false);
+      }
+    };
+    window.addEventListener("keydown", dismiss);
+    return () => window.removeEventListener("keydown", dismiss);
+  }, []);
+
   const filteredResults = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
@@ -199,7 +224,8 @@ export default function PortfolioTopNav({
 
     return searchIndex
       .filter((item) => {
-        const haystack = `${item.title} ${item.description} ${item.section} ${item.keywords}`.toLowerCase();
+        const haystack =
+          `${item.title} ${item.description} ${item.section} ${item.keywords}`.toLowerCase();
         return haystack.includes(normalizedQuery);
       })
       .slice(0, 8);
@@ -231,34 +257,46 @@ export default function PortfolioTopNav({
     }
   };
 
-  const menuLinks = dockVisible
-    ? dockItems.slice(0, 6)
-    : dockItems;
+  const menuLinks = [
+    ...dockItems,
+    { name: "Gallery", href: "/gallery", icon: "/icons/dock/gallery.svg" },
+    {
+      name: "Public Chat",
+      href: "/public-chat",
+      icon: "/icons/dock/public-chat.svg",
+    },
+  ];
 
   return (
     <header className="portfolio-top-nav fixed left-0 right-0 top-0 z-50">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-center gap-3" aria-label="Go to home">
+        <Link
+          href="/"
+          className="flex items-center gap-3"
+          aria-label="Go to home"
+        >
           <span className="portfolio-logo-mark">
             <Code2 className="h-5 w-5" strokeWidth={2.4} />
           </span>
           <span className="terminal-label text-lg font-extrabold tracking-tight text-white sm:text-xl">
-            GilangOS
+            Gilang<span className="sketch-brand-dot">.</span>
           </span>
         </Link>
 
-        <nav className="terminal-label hidden items-center gap-8 text-sm font-medium text-white/70 md:flex lg:gap-12">
+        <nav className="terminal-label hidden items-center gap-5 text-sm font-medium text-white/70 xl:flex lg:gap-5">
           {navItems.map((item) => {
-            const isActive = item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
+            const isActive =
+              item.href === "/"
+                ? currentPath === "/"
+                : currentPath.startsWith(item.href);
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-1.5 transition-colors hover:text-white ${isActive ? "text-white" : ""}`}
+                className={`flex items-center gap-1.5 transition-colors hover:text-white ${isActive ? "nav-active" : ""}`}
               >
                 {item.label}
-                {item.hasMenu ? <ChevronDown className="h-3.5 w-3.5" /> : null}
               </Link>
             );
           })}
@@ -282,20 +320,11 @@ export default function PortfolioTopNav({
               onOpenTerminal();
             }}
             className={`portfolio-icon-button ${terminalOpen ? "portfolio-icon-button-active" : ""}`}
-            aria-label="Open hacker terminal navigation"
+            aria-label="Open terminal navigation"
             aria-expanded={terminalOpen}
             title="Open terminal (Ctrl+`)"
           >
             <Terminal className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
-            onClick={onToggleDock}
-            className={`portfolio-icon-button ${dockVisible ? "portfolio-icon-button-active" : ""}`}
-            aria-label={dockVisible ? "Hide Apple bottom dock" : "Show Apple bottom dock"}
-            title={dockVisible ? "Hide Apple dock" : "Show Apple dock"}
-          >
-            <BriefcaseBusiness className="h-5 w-5" />
           </button>
           <ThemeToggle />
           <button
@@ -305,7 +334,7 @@ export default function PortfolioTopNav({
               setSearchOpen(false);
             }}
             className={`portfolio-icon-button ${menuOpen ? "portfolio-icon-button-active" : ""}`}
-            aria-label={dockVisible ? "Open compact menu" : "Open menu options"}
+            aria-label="Open all pages"
             aria-expanded={menuOpen}
           >
             <Menu className="h-5 w-5" />
@@ -344,8 +373,12 @@ export default function PortfolioTopNav({
                         className="portfolio-search-result group"
                       >
                         <span className="min-w-0">
-                          <span className="block truncate text-sm font-bold">{result.title}</span>
-                          <span className="mt-0.5 block line-clamp-2 text-xs opacity-65">{result.description}</span>
+                          <span className="block truncate text-sm font-bold">
+                            {result.title}
+                          </span>
+                          <span className="mt-0.5 block line-clamp-2 text-xs opacity-65">
+                            {result.description}
+                          </span>
                         </span>
                         <span className="ml-3 shrink-0 rounded-full border border-current/10 px-2 py-1 text-[10px] font-semibold opacity-70">
                           {result.section}
@@ -366,18 +399,11 @@ export default function PortfolioTopNav({
             <div className="portfolio-popover right-0 top-14 w-[min(92vw,22rem)]">
               <div className="mb-3 flex items-center justify-between gap-4">
                 <div>
-                  <p className="terminal-label text-sm font-extrabold">Menu Options</p>
-                  <p className="text-xs opacity-65">
-                    {dockVisible ? "Compact shortcuts" : "Apple dock is hidden"}
+                  <p className="terminal-label text-sm font-extrabold">
+                    Menu Options
                   </p>
+                  <p className="text-xs opacity-65">Explore the sketchbook</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={onToggleDock}
-                  className="rounded-full border border-current/15 px-3 py-1.5 text-xs font-bold transition hover:bg-current/5"
-                >
-                  {dockVisible ? "Hide Dock" : "Show Dock"}
-                </button>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -388,8 +414,14 @@ export default function PortfolioTopNav({
                     onClick={() => setMenuOpen(false)}
                     className="portfolio-menu-option"
                   >
-                    <img src={item.icon} alt="" className="h-7 w-7 object-contain" />
-                    <span className="truncate text-xs font-bold">{item.name}</span>
+                    <img
+                      src={item.icon}
+                      alt=""
+                      className="h-7 w-7 object-contain"
+                    />
+                    <span className="truncate text-xs font-bold">
+                      {item.name}
+                    </span>
                   </Link>
                 ))}
               </div>

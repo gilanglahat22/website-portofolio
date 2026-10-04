@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 
 export default function ChatAnonymous() {
@@ -166,7 +165,7 @@ export default function ChatAnonymous() {
       </main>
       
       {/* Apple-style Dock at the bottom */}
-      <AppleDock />
+
     </div>
   );
 }

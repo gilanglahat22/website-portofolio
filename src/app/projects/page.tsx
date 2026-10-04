@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AppleDock from "@/components/AppleDock";
 import MacOSWindow from "@/components/MacOSWindow";
 import { ProjectItem, projects } from "@/data/portfolio";
 
@@ -26,7 +25,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
     >
       <MacOSWindow title={`~/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`} variant="system" className="h-full">
         <div className="space-y-4">
-          <div className="relative h-48 w-full overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5">
+          <div className={`project-image tone-${project.category === "ai" ? "blue" : project.category === "web" ? "peach" : "yellow"} relative h-48 w-full overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5`}>
             {isSvg ? (
               <img
                 src={project.image}
@@ -39,10 +38,10 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
                 alt={project.title}
                 width={600}
                 height={400}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-6"
               />
             )}
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`} />
+
           </div>
 
           <div>
@@ -96,7 +95,7 @@ export default function Projects() {
         <div className="max-w-6xl mx-auto space-y-8">
           <MacOSWindow title="~/projects/index" variant="system">
             <div className="space-y-4">
-              <p className="terminal-kicker text-xs">domain catalog</p>
+              <p className="terminal-kicker text-xs">BUILT WITH PURPOSE</p>
               <h1 className="text-3xl font-bold">Selected Projects</h1>
               <p className="text-white/70">
                 Production systems and personal experiments, spanning applied AI document processing, B2B
@@ -111,6 +110,7 @@ export default function Projects() {
                     <button
                       key={item.label}
                       className={`terminal-label rounded-lg px-4 py-2 text-sm font-medium transition-all ${filter === item.key ? "bg-lime-200/20 shadow-sm text-lime-50" : "text-white/70 hover:text-white"}`}
+                      aria-pressed={filter === item.key}
                       onClick={() => setFilter(item.key)}
                     >
                       {item.label}
@@ -129,7 +129,7 @@ export default function Projects() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import AppleDock from "@/components/AppleDock";
 import BiographyTimeline from "@/components/BiographyTimeline";
 import MacOSWindow from "@/components/MacOSWindow";
 import ProfileHighlight from "@/components/ProfileHighlight";
@@ -54,7 +53,7 @@ export default function About() {
     <div className="min-h-screen">
       <main className="pt-8 px-6 pb-32">
         <div className="max-w-6xl mx-auto">
-          <MacOSWindow title="~/about/engineer-profile" variant="system">
+          <MacOSWindow title="about / a little about me" variant="system">
             <div className="mb-8 flex overflow-x-auto border-b border-white/10 no-scrollbar">
               {[
                 ["profile", "Profile"],
@@ -63,6 +62,7 @@ export default function About() {
               ].map(([key, label]) => (
                 <button
                   key={key}
+                  aria-pressed={activeTab === key}
                   className={`terminal-label px-6 py-3 font-medium transition ${activeTab === key ? "border-b-2 border-lime-200 text-lime-100" : "text-white/60 hover:text-white"}`}
                   onClick={() => setActiveTab(key)}
                 >
@@ -94,11 +94,6 @@ export default function About() {
                       <div className="terminal-card p-3 rounded-xl">
                         <h3 className="font-medium">Email</h3>
                         <p className="break-words">{portfolio.email}</p>
-                      </div>
-
-                      <div className="terminal-card p-3 rounded-xl">
-                        <h3 className="font-medium">Phone</h3>
-                        <p>{portfolio.phone}</p>
                       </div>
 
                       <div className="terminal-card p-3 rounded-xl">
@@ -236,7 +231,7 @@ export default function About() {
         </div>
       </main>
 
-      <AppleDock />
+
     </div>
   );
 }

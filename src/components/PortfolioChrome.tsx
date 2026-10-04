@@ -1,103 +1,60 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import { AnimatePresence, motion } from "framer-motion";
-import AppleDock from "@/components/AppleDock";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import PortfolioTerminal from "@/components/PortfolioTerminal";
 import PortfolioTopNav, { DockItem } from "@/components/PortfolioTopNav";
+import { portfolio } from "@/data/portfolio";
 
-const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
-  ssr: false,
-});
-
-interface PortfolioChromeProps {
+export default function PortfolioChrome({
+  children,
+  dockItems,
+}: {
   children: ReactNode;
   dockItems: DockItem[];
-}
-
-export default function PortfolioChrome({ children, dockItems }: PortfolioChromeProps) {
-  const [dockVisible, setDockVisible] = useState(true);
+}) {
+  const pathname = usePathname();
   const [terminalOpen, setTerminalOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
-
-    try {
-      const storedDock = localStorage.getItem("portfolio-dock-visible");
-      if (storedDock !== null) {
-        setDockVisible(storedDock === "true");
-      }
-    } catch {
-      // Ignore storage errors in restricted browser contexts.
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handler = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === "`") {
         event.preventDefault();
-        setTerminalOpen((current) => !current);
+        setTerminalOpen((value) => !value);
       }
-
-      if (event.key === "Escape") {
-        setTerminalOpen(false);
-      }
+      if (event.key === "Escape") setTerminalOpen(false);
     };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, []);
-
-  const toggleDock = () => {
-    setDockVisible((current) => {
-      const nextValue = !current;
-
-      try {
-        localStorage.setItem("portfolio-dock-visible", String(nextValue));
-      } catch {
-        // Ignore storage errors in restricted browser contexts.
-      }
-
-      return nextValue;
-    });
-  };
-
   return (
-    <div className="portfolio-app-shell min-h-screen relative overflow-x-hidden transition-colors duration-300">
+    <div
+      className="portfolio-app-shell min-h-screen"
+      data-section={pathname?.split("/")[1] || "home"}
+    >
+      <a href="#page-content" className="skip-link">
+        Skip to content
+      </a>
       <PortfolioTopNav
         dockItems={dockItems}
-        dockVisible={dockVisible}
-        onToggleDock={toggleDock}
         terminalOpen={terminalOpen}
         onOpenTerminal={() => setTerminalOpen(true)}
       />
-
-      <div className={`relative z-10 pt-20 transition-[padding] duration-300 ${dockVisible ? "pb-24 sm:pb-32" : "pb-10"}`}>
+      <div id="page-content" className="portfolio-page-content">
         {children}
       </div>
-
-      {mounted ? <ThreeBackground /> : null}
-
-      <div className="portfolio-backdrop fixed inset-0 z-0">
-        <div className="portfolio-backdrop-grid" />
-      </div>
-
-      <AnimatePresence>
-        {mounted && dockVisible ? (
-          <motion.div
-            key="apple-dock"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 24 }}
-            transition={{ duration: 0.18 }}
-          >
-            <AppleDock items={dockItems} className="z-50" />
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-
+      <footer className="sketch-footer">
+        <Link href="/" className="font-extrabold">
+          Gilang’s sketchbook <span aria-hidden="true">✦</span>
+        </Link>
+        <p>Thoughtful systems. Useful technology. Always learning.</p>
+        <div className="flex gap-5">
+          <Link href={portfolio.githubUrl} target="_blank" rel="noreferrer">
+            GitHub ↗
+          </Link>
+          <Link href="/contact">Say hello ↗</Link>
+        </div>
+      </footer>
       <PortfolioTerminal
         open={terminalOpen}
         onClose={() => setTerminalOpen(false)}

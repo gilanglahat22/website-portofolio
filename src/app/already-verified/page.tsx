@@ -23,7 +23,7 @@ export default function AlreadyVerified() {
   }, [countdown, router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-[70vh] p-5">
       <div className="card rounded-lg shadow-lg p-8 max-w-md text-center">
         <h2 className="text-2xl font-semibold">
           Email Sudah Diverifikasi

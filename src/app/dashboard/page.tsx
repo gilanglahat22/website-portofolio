@@ -22,7 +22,6 @@ import ImageSlider from "@/components/ImageSlider";
 import { FooterCopyright } from "@/components/FooterCopyright";
 import Image from "next/image";
 import Link from "next/link";
-import AppleDock from '@/components/AppleDock';
 import MacOSWindow from '@/components/MacOSWindow';
 
 const imageGroups: { [key: string]: string[] } = {
@@ -614,7 +613,7 @@ export default function Dashboard() {
   
   return (
     // @ts-ignore
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen">
       {/* Main Content */}
       {/* @ts-ignore */}
       <main className="pt-8 px-6 pb-32">
@@ -625,7 +624,7 @@ export default function Dashboard() {
             {/* @ts-ignore */}
             <div className="space-y-4">
               {/* @ts-ignore */}
-              <div className="flex justify-between items-center">
+              <div className="flex flex-wrap gap-4 justify-between items-center">
                 {/* @ts-ignore */}
                 <h1 className="text-3xl font-bold text-white">Analytics Dashboard</h1>
                 
@@ -637,6 +636,7 @@ export default function Dashboard() {
             <button
                       key={period}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${selectedPeriod === period ? 'bg-gray-700 shadow-sm text-white' : 'text-gray-400 hover:text-gray-300'}`}
+                      aria-pressed={selectedPeriod === period}
                       onClick={() => setSelectedPeriod(period)}
                     >
                       {period.charAt(0).toUpperCase() + period.slice(1)}
@@ -647,7 +647,7 @@ export default function Dashboard() {
               
               {/* @ts-ignore */}
               <p className="text-gray-300">
-                Overview of your website performance and user engagement metrics.
+                Sample analytics dashboard with illustrative visitor and engagement data.
               </p>
             </div>
           </MacOSWindow>
@@ -766,7 +766,7 @@ export default function Dashboard() {
       </main>
       
       {/* Apple-style Dock at the bottom */}
-      <AppleDock />
+
     </div>
   );
 }

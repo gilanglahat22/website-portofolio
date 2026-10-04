@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import TextInputField from "@/components/TextInputField";
-import NumberInputField from "@/components/NumberInputField";
 import DropdownInputField from "@/components/DropdownInputField";
 import MacOSWindow from "@/components/MacOSWindow";
 import { motion } from "framer-motion";
@@ -12,12 +11,13 @@ export default function Contact() {
   const [dataToSend, setDataToSend] = useState({
     contact: {
       name: "",
-      phone_number: "",
       email: "",
       subject: "",
       message: "",
     },
   });
+
+  const [draftReady, setDraftReady] = useState(false);
 
   const subjectOptions = [
     "Software Engineer Role",
@@ -30,19 +30,10 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Form submitted with data:", dataToSend);
-    alert("Thank you for your message! I'll get back to you soon.");
-    // Reset form
-    setDataToSend({
-      contact: {
-        name: "",
-        phone_number: "",
-        email: "",
-        subject: "",
-        message: "",
-      },
-    });
+    const { name, email, subject, message } = dataToSend.contact;
+    const body = `Hi Gilang,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`;
+    window.location.href = `mailto:${portfolio.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setDraftReady(true);
   };
 
   return (
@@ -53,13 +44,13 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
       >
         <MacOSWindow
-          title="~/contact/secure-channel"
+          title="contact / say hello"
           variant="system"
           className="w-full max-w-4xl mx-auto"
         >
           <div className="p-4 sm:p-6">
-            <p className="terminal-kicker mb-3 text-xs">open channel</p>
-            <h1 className="text-3xl font-bold mb-6">Get In Touch</h1>
+            <p className="terminal-kicker mb-3 text-xs">LET’S CONNECT</p>
+            <h1 className="text-3xl font-bold mb-6">Good conversations start here.</h1>
 
             <p className="mb-8 text-white/70">
               I am open to software engineering opportunities, thoughtful collaborations, and conversations
@@ -78,16 +69,6 @@ export default function Contact() {
                 give_name="name"
                 required={true}
                 customPlaceholder={false}
-              />
-
-              <NumberInputField
-                setDataToSend={setDataToSend}
-                dataToSend={dataToSend}
-                parent_field="contact"
-                field_input="phone_number"
-                form_name="Phone Number"
-                form_id="phone"
-                required={false}
               />
 
               <TextInputField
@@ -146,23 +127,17 @@ export default function Contact() {
                   type="submit"
                   className="terminal-command w-full justify-center rounded-md py-3 px-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-200 focus:ring-offset-2 transition duration-300 hover:border-lime-200/60 hover:text-white"
                 >
-                  Send Message
+                  Open email draft
                 </button>
               </div>
+              <p className="sm:col-span-2 text-xs text-white/70" role="status">{draftReady ? "Your email app was requested. Review the draft and send it there. You can also use the email link below." : "This opens a draft in your email app for you to review and send."}</p>
             </form>
 
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <div className="terminal-card p-4 rounded-2xl">
                 <h3 className="text-lg font-medium mb-2">Email</h3>
                 <a className="text-sm break-words hover:text-lime-200" href={`mailto:${portfolio.email}`}>
                   {portfolio.email}
-                </a>
-              </div>
-
-              <div className="terminal-card p-4 rounded-2xl">
-                <h3 className="text-lg font-medium mb-2">Phone</h3>
-                <a className="text-sm hover:text-lime-200" href={`tel:${portfolio.phone.replace(/\s/g, "")}`}>
-                  {portfolio.phone}
                 </a>
               </div>
 
