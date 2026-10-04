@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Code2, ExternalLink, Menu, Search, Terminal } from "lucide-react";
+import { ExternalLink, Menu, Search, Terminal } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   achievements,
@@ -276,7 +276,7 @@ export default function PortfolioTopNav({
           aria-label="Go to home"
         >
           <span className="portfolio-logo-mark">
-            <Code2 className="h-5 w-5" strokeWidth={2.4} />
+            <span className="brand-monogram">gr</span>
           </span>
           <span className="terminal-label text-lg font-extrabold tracking-tight text-white sm:text-xl">
             Gilang<span className="sketch-brand-dot">.</span>

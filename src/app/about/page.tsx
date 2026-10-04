@@ -74,7 +74,7 @@ export default function About() {
             {activeTab === "profile" ? (
               <div>
                 <p className="terminal-kicker mb-3 text-xs">engineer profile</p>
-                <h2 className="text-3xl font-semibold mb-6">{portfolio.name}</h2>
+                <h2 className="profile-name text-3xl font-semibold mb-6">{portfolio.name}</h2>
 
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="md:w-1/3">
@@ -161,7 +161,7 @@ export default function About() {
             ) : activeTab === "photos" ? (
               <div>
                 <p className="terminal-kicker mb-3 text-xs">things I keep exploring</p>
-                <h2 className="text-3xl font-semibold mb-6">What I Am Curious About</h2>
+                <h2 className="profile-name text-3xl font-semibold mb-6">What I Am Curious About</h2>
                 <p className="mb-8 text-white/70">
                   Engineering is too broad to pretend I have finished learning it. These are a few areas I
                   return to through work, side projects, reading, and practice.

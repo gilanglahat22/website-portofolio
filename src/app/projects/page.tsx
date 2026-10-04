@@ -1,135 +1,100 @@
 "use client";
-
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import MacOSWindow from "@/components/MacOSWindow";
-import { ProjectItem, projects } from "@/data/portfolio";
-
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/portfolio";
 const filters = [
-  { key: null, label: "All" },
-  { key: "ai", label: "AI" },
-  { key: "web", label: "Web" },
-  { key: "open-source", label: "Open Source" },
+  { key: null, label: "Everything" },
+  { key: "ai", label: "Applied AI" },
+  { key: "web", label: "Web & platforms" },
+  { key: "open-source", label: "Independent" },
 ];
-
-const ProjectCard = ({ project }: { project: ProjectItem }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isSvg = project.image.endsWith(".svg");
-
+export default function Projects() {
+  const [filter, setFilter] = useState<string | null>(null);
+  const selected = filter
+    ? projects.filter((project) => project.category === filter)
+    : projects;
   return (
-    <div
-      className={`transition-all duration-300 ${isHovered ? "scale-[1.02]" : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <MacOSWindow title={`~/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`} variant="system" className="h-full">
-        <div className="space-y-4">
-          <div className={`project-image tone-${project.category === "ai" ? "blue" : project.category === "web" ? "peach" : "yellow"} relative h-48 w-full overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/5`}>
-            {isSvg ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-contain p-6"
-              />
-            ) : (
+    <main className="project-index max-w-6xl mx-auto px-6 py-12">
+      <header className="editorial-intro">
+        <p className="section-index">
+          The project index / {String(projects.length).padStart(2, "0")} entries
+        </p>
+        <h1>
+          Things I’ve
+          <br />
+          <em>put into the world.</em>
+        </h1>
+        <p>
+          Financial data pipelines, business platforms, and independent
+          experiments. A selection of the systems I’ve worked on.
+        </p>
+      </header>
+      <div className="index-filters" aria-label="Filter projects">
+        {filters.map((item) => (
+          <button
+            key={item.label}
+            aria-pressed={filter === item.key}
+            onClick={() => setFilter(item.key)}
+          >
+            {item.label}
+            <span>
+              {String(
+                item.key
+                  ? projects.filter((project) => project.category === item.key)
+                      .length
+                  : projects.length,
+              ).padStart(2, "0")}
+            </span>
+          </button>
+        ))}
+      </div>
+      <div>
+        {selected.map((project) => (
+          <article key={project.title} className="project-index-entry">
+            <span className="work-index">
+              {String(projects.indexOf(project) + 1).padStart(2, "0")}
+            </span>
+            <div className={`index-project-art work-${project.category}`}>
               <Image
                 src={project.image}
                 alt={project.title}
-                width={600}
-                height={400}
-                className="w-full h-full object-contain p-6"
+                width={400}
+                height={260}
+                className="object-contain"
               />
-            )}
-
-          </div>
-
-          <div>
-            <p className="terminal-kicker text-xs">{project.subtitle}</p>
-            <h3 className="text-xl font-semibold">{project.title}</h3>
-            <p className="mt-2 text-sm text-white/70">{project.description}</p>
-          </div>
-
-          <ul className="space-y-2 list-disc pl-5">
-            {project.highlights.slice(0, 3).map((highlight) => (
-              <li key={highlight} className="text-sm text-white/65">{highlight}</li>
-            ))}
-          </ul>
-
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span key={tag} className="terminal-pill px-2.5 py-1">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex justify-end">
-            {project.link ? (
-              <Link
-                href={project.link}
-                target="_blank"
-                className="terminal-command px-4 py-2 text-sm font-medium transition-colors hover:border-lime-200/60"
-              >
-                {project.linkLabel ?? "View Project"}
-              </Link>
-            ) : (
-              <span className="terminal-pill px-4 py-2 opacity-70">
-                Private or in progress
-              </span>
-            )}
-          </div>
-        </div>
-      </MacOSWindow>
-    </div>
-  );
-};
-
-export default function Projects() {
-  const [filter, setFilter] = useState<string | null>(null);
-  const filteredProjects = filter ? projects.filter((project) => project.category === filter) : projects;
-
-  return (
-    <div className="min-h-screen">
-      <main className="pt-8 px-6 pb-32">
-        <div className="max-w-6xl mx-auto space-y-8">
-          <MacOSWindow title="~/projects/index" variant="system">
-            <div className="space-y-4">
-              <p className="terminal-kicker text-xs">BUILT WITH PURPOSE</p>
-              <h1 className="text-3xl font-bold">Selected Projects</h1>
-              <p className="text-white/70">
-                Production systems and personal experiments, spanning applied AI document processing, B2B
-                platforms at multi-tenant scale, and open-source explorations in education and LLM tooling.
-                Each one is a different proof point of the same habit: understand the constraints, then build
-                something that holds up under real usage.
-              </p>
-
-              <div className="flex justify-center my-6">
-                <div className="terminal-card flex flex-wrap justify-center gap-2 rounded-xl p-1 w-full sm:w-auto">
-                  {filters.map((item) => (
-                    <button
-                      key={item.label}
-                      className={`terminal-label rounded-lg px-4 py-2 text-sm font-medium transition-all ${filter === item.key ? "bg-lime-200/20 shadow-sm text-lime-50" : "text-white/70 hover:text-white"}`}
-                      aria-pressed={filter === item.key}
-                      onClick={() => setFilter(item.key)}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
-          </MacOSWindow>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </div>
-      </main>
-
-
-    </div>
+            <div className="index-project-copy">
+              <p className="folio-meta">{project.subtitle}</p>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <p className="work-stack">{project.tags.join(" / ")}</p>
+              <details className="project-notes">
+                <summary>Engineering notes</summary>
+                <ul>
+                  {project.highlights.map((note) => (
+                    <li key={note}>{note}</li>
+                  ))}
+                </ul>
+              </details>
+              {project.link ? (
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ink-link"
+                >
+                  {project.linkLabel ?? "View project"}
+                  <ArrowUpRight size={17} />
+                </Link>
+              ) : (
+                <span className="folio-meta">Private / In progress</span>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </main>
   );
 }

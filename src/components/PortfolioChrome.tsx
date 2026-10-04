@@ -45,9 +45,9 @@ export default function PortfolioChrome({
       </div>
       <footer className="sketch-footer">
         <Link href="/" className="font-extrabold">
-          Gilang’s sketchbook <span aria-hidden="true">✦</span>
+          Muhammad Gilang Ramadhan
         </Link>
-        <p>Thoughtful systems. Useful technology. Always learning.</p>
+        <p>Software engineer · Jakarta, Indonesia</p>
         <div className="flex gap-5">
           <Link href={portfolio.githubUrl} target="_blank" rel="noreferrer">
             GitHub ↗

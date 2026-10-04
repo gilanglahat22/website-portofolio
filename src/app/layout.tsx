@@ -8,8 +8,16 @@ import PortfolioChrome from "@/components/PortfolioChrome";
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${portfolio.name} | Software Engineer`,
+  title: "Gilang Portofolio",
+  applicationName: "Gilang Portofolio",
   description: portfolio.headline,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 const dockItems = [

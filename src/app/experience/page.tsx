@@ -8,7 +8,7 @@ export default function Experience() {
     <main className="max-w-6xl mx-auto px-5 py-10 sm:px-8">
       <div className="page-intro">
         <p className="sketch-eyebrow">MY ENGINEERING JOURNEY</p>
-        <h1>Experience, one chapter at a time.</h1>
+        <h1>Where I’ve worked.</h1>
         <p>
           From first production code to shared platforms and distributed systems
           — a continuing journey of building, learning, and delivering value.

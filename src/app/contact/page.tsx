@@ -50,7 +50,7 @@ export default function Contact() {
         >
           <div className="p-4 sm:p-6">
             <p className="terminal-kicker mb-3 text-xs">LET’S CONNECT</p>
-            <h1 className="text-3xl font-bold mb-6">Good conversations start here.</h1>
+            <h1 className="text-3xl font-bold mb-6">Let’s talk.</h1>
 
             <p className="mb-8 text-white/70">
               I am open to software engineering opportunities, thoughtful collaborations, and conversations

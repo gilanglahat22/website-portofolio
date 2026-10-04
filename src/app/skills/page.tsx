@@ -12,7 +12,7 @@ export default function Skills() {
           <MacOSWindow title="~/skills/profile" variant="system">
             <div className="space-y-4">
               <p className="terminal-kicker text-xs">capability map</p>
-              <h1 className="text-3xl font-bold">The tools behind the ideas.</h1>
+              <h1 className="text-3xl font-bold">Tools & practice.</h1>
               <p className="text-white/70">
                 Tools I have used to ship production backend systems, applied AI pipelines, and web
                 applications — not a claim of mastery over every one of them. I am strongest when I understand

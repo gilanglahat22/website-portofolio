@@ -1,8 +1,6 @@
 "use client";
-
 import { ReactNode } from "react";
-import { BookOpen, X } from "lucide-react";
-
+import { X } from "lucide-react";
 interface Props {
   title: string;
   children: ReactNode;
@@ -10,7 +8,6 @@ interface Props {
   variant?: "system" | "dark" | "transparent";
   onClose?: () => void;
 }
-
 export default function MacOSWindow({
   title,
   children,
@@ -25,11 +22,7 @@ export default function MacOSWindow({
   return (
     <section className={`window-container ${className}`}>
       <div className="sketch-window-heading">
-        <BookOpen size={16} aria-hidden="true" />
         <span>{label}</span>
-        <span className="sketch-window-dots" aria-hidden="true">
-          ● ● ●
-        </span>
         {onClose ? (
           <button onClick={onClose} aria-label="Close panel">
             <X size={18} />

@@ -1,14 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Braces,
-  Network,
-  Sigma,
-  Trophy,
-  Github,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
   achievements,
   experiences,
@@ -16,232 +8,207 @@ import {
   projects,
 } from "@/data/portfolio";
 
-const interests = [
-  {
-    icon: Braces,
-    title: "Backend development",
-    text: "Reliable APIs, clear boundaries, and services built to last.",
-    tone: "sage",
-  },
-  {
-    icon: Network,
-    title: "Distributed systems",
-    text: "Connecting services. Making complex systems work together.",
-    tone: "blue",
-  },
-  {
-    icon: Sigma,
-    title: "Mathematics",
-    text: "Reasoning from fundamentals, one useful abstraction at a time.",
-    tone: "peach",
-  },
-  {
-    icon: Trophy,
-    title: "Competitive programming",
-    text: "A love of algorithms, constraints, and that aha! moment.",
-    tone: "yellow",
-  },
-];
+const workNotes: Record<string, string> = {
+  "Nexius AI":
+    "From a financial document to data you can actually use. OCR, distributed workers, and the details between them.",
+  TELISIK:
+    "A free place for Indonesian students to prepare for UTBK. Built around access to learning.",
+  Hashigake:
+    "Connecting businesses in Japan. Real-time meetings, messaging, and services across a multi-tenant platform.",
+};
 
 export default function ThemeAwareContent() {
   return (
-    <div className="sketch-home max-w-6xl mx-auto">
-      <section className="sketch-hero">
-        <div className="hero-copy">
-          <p className="sketch-eyebrow">
-            <span className="status-dot" /> SOFTWARE ENGINEER & CURIOUS BUILDER
+    <div className="field-home">
+      <section className="field-hero">
+        <div className="field-hero-copy">
+          <p className="folio-meta">
+            Software engineer <span>Jakarta, Indonesia</span>
           </p>
           <h1>
-            Hi, I’m Gilang.
-            <br />I build things
+            Gilang
             <br />
-            <span className="hero-highlight">that matter.</span>
-            <span className="hero-star" aria-hidden="true">
-              ✦
-            </span>
+            <em>Ramadhan.</em>
+            <span className="name-period" aria-hidden="true" />
           </h1>
-          <p className="hero-description">{portfolio.headline}</p>
-          <div className="flex flex-wrap gap-3 mt-7">
-            <Link className="sketch-button" href="/projects">
-              Explore my work <ArrowUpRight size={18} />
+          <p className="field-intro">
+            I’m a passionate Software Engineer with expertise in backend
+            development, distributed systems, mathematics, and competitive
+            programming, dedicated to delivering value through technology.
+          </p>
+          <div className="field-hero-links">
+            <Link href="/projects" className="ink-link">
+              Selected work <ArrowUpRight size={18} />
             </Link>
-            <Link className="sketch-button secondary" href="/contact">
-              Let’s talk <ArrowRight size={18} />
+            <Link href="/about" className="quiet-link">
+              A little about me ↗
             </Link>
           </div>
-          <div className="hero-note">
-            <span aria-hidden="true">↳</span> A little curiosity. A lot of
-            building.
+          <div className="field-current">
+            <span className="status-dot" />
+            <div>
+              <span>Currently building at</span>
+              <p>
+                Bukalapak <span className="current-divider">/</span> LnData Inc
+              </p>
+            </div>
           </div>
         </div>
-        <div className="hero-art">
-          <span className="art-note">my happy place</span>
+        <div className="field-drawing">
+          <div className="drawing-caption">
+            <span>Fig. 01</span>
+            <span>A few connected ideas</span>
+          </div>
           <Image
-            src="/illustrations/engineer-desk.svg"
-            alt="Cartoon engineering workspace with a laptop, connected services, books, a plant, and a cup of tea"
-            width={600}
+            src="/illustrations/systems-notes.svg"
+            alt="Hand-drawn cartoon of an API, a queue, and connected workers, with notes about reliability and algorithms"
+            width={620}
             height={490}
             priority
           />
-          <div className="hero-profile">
+          <figure className="portrait-note">
             <Image
               src="/main_profile.jpeg"
               alt={portfolio.name}
-              width={46}
-              height={46}
+              width={88}
+              height={105}
+              className="object-cover"
             />
-            <div>
-              <strong>{portfolio.name}</strong>
-              <p>Jakarta, Indonesia · Building with purpose</p>
-            </div>
-          </div>
+            <figcaption>
+              Gilang, away
+              <br />
+              from the editor.
+            </figcaption>
+          </figure>
+          <p className="drawing-footnote">Queues, workers & feedback.</p>
         </div>
       </section>
-      <section className="home-section">
-        <div className="section-heading">
-          <div>
-            <p className="sketch-eyebrow">WHAT MAKES ME TICK</p>
-            <h2>Big ideas. Thoughtful engineering.</h2>
-          </div>
-          <span className="handwritten" aria-hidden="true">
-            always learning ↙
-          </span>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {interests.map(({ icon: Icon, title, text, tone }) => (
-            <article key={title} className={`interest-card tone-${tone}`}>
-              <span className="interest-icon">
-                <Icon size={26} strokeWidth={1.8} />
-              </span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="home-section">
-        <div className="section-heading">
-          <div>
-            <p className="sketch-eyebrow">FROM IDEA TO IMPACT</p>
-            <h2>A few things I’ve built</h2>
-          </div>
-          <Link className="text-link" href="/projects">
-            All projects <ArrowUpRight size={17} />
+      <div className="field-interests">
+        <span className="folio-meta">Things I keep returning to</span>
+        <p>
+          Backend development <i>/</i> Distributed systems <i>/</i> Mathematics{" "}
+          <i>/</i> Competitive programming
+        </p>
+      </div>
+      <section className="field-work">
+        <div className="field-section-heading">
+          <span className="section-index">01 / Selected work</span>
+          <h2>
+            In production.
+            <br />
+            <em>And in progress.</em>
+          </h2>
+          <Link href="/projects" className="quiet-link">
+            Full project index ↗
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="field-work-list">
           {projects.slice(0, 3).map((project, index) => (
-            <article key={project.title} className="terminal-card home-project">
-              <div
-                className={`project-cover tone-${["blue", "yellow", "peach"][index]}`}
-              >
+            <Link
+              key={project.title}
+              href={project.link ?? "/projects"}
+              target={project.link ? "_blank" : undefined}
+              rel="noreferrer"
+              className={`field-work-row work-${project.category}`}
+            >
+              <span className="work-index">0{index + 1}</span>
+              <div className="work-identity">
+                <span className="folio-meta">
+                  {project.category === "ai"
+                    ? "Applied AI · Financial data"
+                    : project.category === "web"
+                      ? "Backend · B2B platform"
+                      : "Education · Independent project"}
+                </span>
+                <h3>{project.title}</h3>
+                <span className="work-stack">
+                  {project.tags.slice(0, 3).join(" / ")}
+                </span>
+              </div>
+              <p>{workNotes[project.title]}</p>
+              <div className="work-thumbnail">
                 <Image
                   src={project.image}
-                  alt={project.title}
-                  width={220}
-                  height={130}
-                  className="object-contain max-h-32 w-auto"
+                  alt=""
+                  width={150}
+                  height={110}
+                  className="object-contain"
                 />
-                <span className="project-number">0{index + 1}</span>
               </div>
-              <div className="p-5">
-                <p className="terminal-kicker text-xs">
-                  {project.category === "ai"
-                    ? "APPLIED AI"
-                    : project.category === "web"
-                      ? "PLATFORM ENGINEERING"
-                      : "EDUCATION"}
-                </p>
-                <h3 className="mt-2 text-xl font-extrabold">{project.title}</h3>
-                <p className="mt-3 text-sm leading-6">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span className="terminal-pill px-2 py-1" key={tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href={project.link ?? "/projects"}
-                  target={project.link ? "_blank" : undefined}
-                  rel="noreferrer"
-                  className="text-link mt-5"
-                >
-                  {project.linkLabel ?? "Explore project"}{" "}
-                  <ArrowUpRight size={16} />
-                </Link>
-              </div>
-            </article>
+              <ArrowUpRight className="work-arrow" size={24} />
+            </Link>
           ))}
         </div>
       </section>
-      <section className="home-section grid lg:grid-cols-2 gap-7">
-        <div className="terminal-card p-6 sm:p-8">
-          <p className="sketch-eyebrow">THE JOURNEY SO FAR</p>
-          <h2 className="text-2xl font-extrabold mt-3 mb-6">
-            Learning through real work
+      <section className="field-background">
+        <div>
+          <span className="section-index">02 / Along the way</span>
+          <h2>
+            The work
+            <br />
+            <em>behind the work.</em>
           </h2>
-          <div className="space-y-5">
-            {experiences.slice(0, 3).map((item) => (
-              <div key={item.company} className="career-preview">
-                <Image
-                  src={item.logo}
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="rounded-lg object-contain"
-                />
-                <div>
-                  <h3 className="font-bold">{item.company}</h3>
-                  <p className="text-sm">{item.title}</p>
-                  <p className="text-xs mt-1 opacity-70">{item.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Link href="/experience" className="text-link mt-6">
-            My full journey <ArrowUpRight size={16} />
+          <p className="field-section-note">
+            Informatics Engineering at ITB. Algorithmic puzzles, production
+            systems, and learning from both.
+          </p>
+          <Link href="/about" className="quiet-link">
+            Read my story ↗
           </Link>
         </div>
-        <div className="terminal-card p-6 sm:p-8 tone-yellow">
-          <p className="sketch-eyebrow">A PROBLEM-SOLVER AT HEART</p>
-          <h2 className="text-2xl font-extrabold mt-3 mb-6">
-            Small wins, big motivation.
-          </h2>
-          {achievements.slice(0, 3).map((item) => (
-            <div key={item.title} className="achievement-preview">
-              <Trophy size={20} className="shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold">{item.title}</h3>
-                <p className="text-sm leading-6 mt-1">{item.description}</p>
-              </div>
+        <div className="field-career">
+          {experiences.slice(0, 3).map((item) => (
+            <div key={item.company} className="field-career-row">
+              <span>{item.date}</span>
+              <h3>{item.company}</h3>
+              <p>{item.title}</p>
             </div>
           ))}
-          <Link href="/skills" className="text-link mt-5">
-            Skills & achievements <ArrowUpRight size={16} />
+          <Link href="/experience" className="ink-link">
+            All experience <ArrowUpRight size={17} />
           </Link>
         </div>
-      </section>
-      <section className="home-cta tone-sage">
-        <span className="cta-spark" aria-hidden="true">
-          ✦
-        </span>
-        <p className="sketch-eyebrow">GOOD THINGS START WITH A CONVERSATION</p>
-        <h2>Let’s build something useful.</h2>
-        <p>
-          Have a problem to solve, an idea to explore, or just want to say hi?
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 mt-6">
-          <Link href="/contact" className="sketch-button">
-            Say hello <ArrowUpRight size={18} />
+        <aside className="contest-note">
+          <span className="note-pin" aria-hidden="true" />
+          <p className="folio-meta">Outside the day job</p>
+          <h3>
+            Thinking
+            <br />
+            <em>under a clock.</em>
+          </h3>
+          <p>
+            {achievements.find((item) => item.title.includes("ICPC"))?.title}
+          </p>
+          <p className="contest-description">
+            Competitive programming is where I learned to reason from
+            constraints. I still come back to it.
+          </p>
+          <Link href="/skills" className="quiet-link">
+            Skills & contest notes ↗
           </Link>
-          <Link
-            href={portfolio.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="sketch-button secondary"
-          >
-            <Github size={18} /> Find me on GitHub
+          <span className="contest-doodle" aria-hidden="true">
+            O(n log n)
+          </span>
+        </aside>
+      </section>
+      <section className="field-contact">
+        <span className="section-index">03 / Get in touch</span>
+        <h2>
+          Have something
+          <br />
+          <em>in mind?</em>
+        </h2>
+        <div>
+          <p>
+            I’m happy to talk about engineering, collaboration, or an
+            interesting problem.
+          </p>
+          <Link href={`mailto:${portfolio.email}`} className="contact-address">
+            {portfolio.email}
+            <ArrowUpRight size={24} />
+          </Link>
+          <Link href="/contact" className="quiet-link">
+            More ways to connect ↗
           </Link>
         </div>
       </section>

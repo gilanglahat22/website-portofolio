@@ -5,12 +5,13 @@ import { skillGroups } from "@/data/portfolio";
 
 export default function SkillsGrid() {
   return (
-    <div className="space-y-6">
+    <div className="skills-index space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
           <h2 className="portfolio-section-title text-2xl">Technical Skills</h2>
           <p className="mt-3 text-sm text-white/60">
-            A working toolkit shaped by real projects and still growing with each new problem.
+            A working toolkit shaped by real projects and still growing with
+            each new problem.
           </p>
         </div>
       </div>
@@ -33,7 +34,6 @@ export default function SkillsGrid() {
                   />
                 </div>
                 <div>
-                  <p className="terminal-label text-[11px] uppercase tracking-[0.18em] text-lime-100/70">module</p>
                   <h3 className="font-semibold text-lg">{group.title}</h3>
                 </div>
               </div>
