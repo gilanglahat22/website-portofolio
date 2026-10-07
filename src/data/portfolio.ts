@@ -126,19 +126,6 @@ export const lifeStory: LifeChapter[] = [
 
 export const experiences: ExperienceItem[] = [
   {
-    title: "Backend Developer (Part-time)",
-    company: "LnData Inc",
-    date: "Aug 2026 - Present",
-    location: "Taipei, Taiwan · Remote",
-    description: [
-      "Develop backend services with Java and Spring Boot for Data Transform Core, the shared middleware connecting LnFusion, Data Mart, Gen BI, and Orchestration.",
-      "Build centralized Identity and Access Management (IAM) services for the researcher platform, covering departments, organizations, roles, permissions, and access policies.",
-      "Implement shared identity and authorization capabilities across the platform’s projects to support consistent access control and service integration.",
-    ],
-    logo: "/icons/lndata.webp",
-    skills: ["Java", "Spring Boot", "IAM", "Middleware", "Access Control", "Platform Engineering"],
-  },
-  {
     title: "Software Engineer, Core Team (Full-time)",
     company: "Bukalapak",
     date: "Jun 2026 - Present",

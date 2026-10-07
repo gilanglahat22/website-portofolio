@@ -48,9 +48,7 @@ export default function ThemeAwareContent() {
             <span className="status-dot" />
             <div>
               <span>Currently building at</span>
-              <p>
-                Bukalapak <span className="current-divider">/</span> LnData Inc
-              </p>
+              <p>Bukalapak</p>
             </div>
           </div>
         </div>
